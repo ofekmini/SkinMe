@@ -6,6 +6,7 @@ const SkinmeLogo= () =>{
     <div>
       <img
          src={Logo}
+         alt=''
          width="150"
          height="150"
        />

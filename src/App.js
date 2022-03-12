@@ -1,14 +1,14 @@
-import logo from './logo.svg';
+
 import './App.css';
-import Signin from './screens/Signin';
-import SignUp from './screens/SignUp';
+import SignUpUser from './screens/SignUpUser';
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
        
-        <SignUp/>
+        <SignUpUser/>
       </header>
     </div>
   );
