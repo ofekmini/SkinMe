@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Questionaire.css'
 import ButtonLogIn from '../commons/ButtonLogIn'
+import SignUpUser from './SignUpUser'
 
 
  class Survey extends Component {
@@ -11,6 +12,15 @@ import ButtonLogIn from '../commons/ButtonLogIn'
     
 
     this.state={
+      user_firstName:"",
+      user_lastName:"", 
+      user_gender:"",
+      user_userName:"",
+      user_password:"",
+      user_email:"",
+      user_birth:"",
+
+
       user_skinProblem:"",
       user_cheek:"",
       user_Tzone:"",
@@ -26,6 +36,53 @@ import ButtonLogIn from '../commons/ButtonLogIn'
       [e.target.name]: e.target.value,
 
     })
+  }
+  addUser = (e)=>{
+    console.clear();
+    e.preventDefault()
+    const apiUrl = 'https://localhost:44326/api/LogIn';
+
+    const user_data={
+        user_firstName: this.state.user_firstName,
+        user_lastName:this.state.user_lastName,
+        user_email:this.state.user_email,
+        user_birth:this.state.user_birth,
+        user_userName:this.state.user_userName,
+        user_password:this.state.user_password,
+        user_gender:this.state.user_gender,
+        user_skinProblem:this.state.user_skinProblem,
+        user_cheek:this.state.user_cheek,
+        user_Tzone:this.state.user_Tzone,
+        user_sunExposure:this.state.user_sunExposure,
+        user_stress:this.state.user_stress
+      
+    };
+    
+    fetch(apiUrl, {
+      method: 'POST',
+      body: JSON.stringify(user_data),
+      headers: new Headers({
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json; charset=UTF-8',
+      })
+    })
+      .then(res => {
+        console.log('res=', res);
+        console.log('res.status', res.status);
+        console.log('res.ok', res.ok);
+        return res.json()
+      })
+      .then(
+        (result) => {
+          console.log("fetch POST= ", result);
+          console.log(result.user_userName);
+          console.log(this.state);
+        },
+        (error) => {
+          console.log("err post=", error);
+        });
+
+    console.log('END');
   }
   render() {
 
@@ -161,7 +218,7 @@ import ButtonLogIn from '../commons/ButtonLogIn'
       </label>
 
 
-      <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="סיום הרשמה"/>
+      <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="סיום הרשמה" onClick={this.addUser}/>
 
 
       </div>

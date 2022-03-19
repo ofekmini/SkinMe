@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import InputUser from '../commons/InputUser';
 import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
-
+import { Link } from 'react-router-dom';
 
 
 class SignUpUser extends Component {
@@ -110,15 +110,31 @@ class SignUpUser extends Component {
 
         <InputUser value={this.user_birth} name="user_birth" type="date" label="תאריך לידה " placeholder="תאריך לידה"  onChange={(e)=>{this.setState({user_birth:e.target.value})}}/>
 
-        <InputUser value="F" name="user_gender" type="radio" label="אישה " onChange={(e)=>{this.setState({user_gender:e.target.value})}}/>
+        <label className='label'>
+          
+        <input type="radio" name="user_gender" value="F"   onChange={(e)=>{this.setState({user_gender:e.target.value})}}/>
+        <img alt="wrinkles" height="100" width="100" src={require("../assets/images/girl.png")}/>
+        
+        </label>
+        <label className='label'>
+          
+        <input type="radio" name="user_gender" value="M"   onChange={(e)=>{this.setState({user_gender:e.target.value})}}/>
+        <img alt="wrinkles" height="100" width="100" src={require("../assets/images/boy.png")}/><br/>
+        
+        </label>
 
-        <InputUser value="M" name="user_gender" type="radio" label="גבר "  onChange={(e)=>{this.setState({user_gender:e.target.value})}}/>
-       
+      
         <InputUser value={this.user_userName} name="user_userName" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({user_userName:e.target.value})}}/>
 
         <InputUser value={this.user_password} name="user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({user_password:e.target.value})}}/>
 
-        <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="סיום הרשמה" onClick={this.addUser}/>
+        <Link to="/survey">
+          <button style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}>
+          המשך
+          </button>
+        </Link>
+   
+        
 
       </div>
      

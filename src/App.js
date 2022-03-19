@@ -1,7 +1,8 @@
 
 import './App.css';
 import Survey from './screens/Survey';
-import BasicQuestionnaire from './screens/BasicQuestionnaire';
+import SignUpUser from './screens/SignUpUser';
+import { Routes,Route } from 'react-router-dom';
 
 
 
@@ -10,7 +11,13 @@ function App() {
     <div className="App">
       <header className="App-header">
        
-           <Survey/>
+      <Routes>
+
+        <Route path="/" element={<SignUpUser/>} />
+        <Route path="/survey" element={<Survey />} />
+
+
+      </Routes>
        
       </header>
     </div>
