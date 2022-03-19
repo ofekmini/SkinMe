@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import InputUser from '../commons/InputUser';
 import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'
+
 
 
 class SignUpUser extends Component {
@@ -24,35 +23,29 @@ class SignUpUser extends Component {
       user_profileImg:"",
       user_processImg:"",
       user_skinType:"",
-      qb1:"",
-      qb2:"",
-      qb3:"",
-      qb4:"",
-      qb5:"",
-      qb6:"",
-      qb7:"",
-      qb8:"",
-      qb9:"",
-      qb10:"",
-      qp1:"",
-      qp2:"",
-      qp3:"",
-      qp4:"",
-      qp5:"",
-      qp6:"",
-      qp7:"",
-      qp8:"",
-      qp9:"",
-      qp10:"",
 
+      //basic skin survey 
+      user_skinProblem:"",
+      user_cheek:"",
+      user_Tzone:"",
+      user_sunExposure:"",
+      user_stress:"",
 
-     
+      // profesional skin survey
+      user_period:"",
+      user_dermatology:"",
+      user_currentProducts:"",
+      user_sensitive:"",
+      user_areas:"",
+
 
    }
   }
   handlechange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      user_birth:e,
+      
     })
   }
 
@@ -60,7 +53,7 @@ class SignUpUser extends Component {
    addUser = (e)=>{
     console.clear();
     e.preventDefault()
-    const apiUrl = 'https://localhost:44347/api/SignInUser/';
+    const apiUrl = 'https://localhost:44347/api/LogIn/';
 
     const user_data={
         user_firstName: this.state.user_firstName,
@@ -68,7 +61,8 @@ class SignUpUser extends Component {
         user_email:this.state.user_email,
         user_birth:this.state.user_birth,
         user_userName:this.state.user_userName,
-        user_password:this.state.user_password
+        user_password:this.state.user_password,
+        user_gender:this.state.user_gender
       
     };
     
@@ -98,12 +92,8 @@ class SignUpUser extends Component {
 
     console.log('END');
   }
-
-  selectedDate=(e)=>{
-
-    this.setState({user_birth:e})
-  }
-
+ 
+  
 
   render() {
    
@@ -117,19 +107,13 @@ class SignUpUser extends Component {
         <InputUser value={this.user_lastName} name="user_lastName" type="text" label="שם משפחה   " placeholder="שם משפחה " onChange={(e)=>{this.setState({user_lastName:e.target.value})}}/>  
 
         <InputUser value={this.user_email} name="user_email" type="text" label="מייל " placeholder="מייל"  onChange={(e)=>{this.setState({user_email:e.target.value})}}/>
-        
-        <h3 style={{color:"black",margin:10,paddingRight:30,fontSize:15,textAlign:"right"}}>תאריך לידה </h3>
-        <DatePicker style={{borderRadius:50}} 
-        selected={this.state.user_birth} 
-        dateFormat='dd/MM/yyyy'
-        onChange={this.selectedDate}
-        showYearDropdown
-        scrollableMonthYearDropdown
-         />
-        
 
+        <InputUser value={this.user_birth} name="user_birth" type="date" label="תאריך לידה " placeholder="תאריך לידה"  onChange={(e)=>{this.setState({user_birth:e.target.value})}}/>
 
+        <InputUser value="F" name="user_gender" type="radio" label="אישה " onChange={(e)=>{this.setState({user_gender:e.target.value})}}/>
 
+        <InputUser value="M" name="user_gender" type="radio" label="גבר "  onChange={(e)=>{this.setState({user_gender:e.target.value})}}/>
+       
         <InputUser value={this.user_userName} name="user_userName" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({user_userName:e.target.value})}}/>
 
         <InputUser value={this.user_password} name="user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({user_password:e.target.value})}}/>

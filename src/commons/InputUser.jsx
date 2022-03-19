@@ -13,6 +13,7 @@ const InputUser=(props) =>{
       value={props.value} 
       onChange={props.onChange} 
       name={props.name}
+      checked={props.checked}
       placeholder={props.placeholder} style={{textAlign:'right',backgroundColor:"white", width:'80%',height:30,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}
       />
 
