@@ -1,6 +1,8 @@
 
 import './App.css';
 import SignUpUser from './screens/SignUpUser';
+import Search from './screens/Search';
+import LogInUser from './screens/LogInUser';
 
 
 function App() {
@@ -8,7 +10,7 @@ function App() {
     <div className="App">
       <header className="App-header">
        
-        <SignUpUser/>
+        <LogInUser/>
       </header>
     </div>
   );
