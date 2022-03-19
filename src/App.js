@@ -1,6 +1,8 @@
 
 import './App.css';
-import SignUpUser from './screens/SignUpUser';
+import Survey from './screens/Survey';
+import BasicQuestionnaire from './screens/BasicQuestionnaire';
+
 
 
 function App() {
@@ -8,7 +10,8 @@ function App() {
     <div className="App">
       <header className="App-header">
        
-        <SignUpUser/>
+           <Survey/>
+       
       </header>
     </div>
   );

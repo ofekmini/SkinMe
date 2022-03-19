@@ -4,7 +4,7 @@ const ButtonLogIn=(props) =>{
   return (
     <div>
       
-     <button type="submit" style={props.style} onClick={props.onClick}>
+     <button style={props.style} onClick={props.onClick}>
        {props.name}
      </button>
       

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import InputUser from '../commons/InputUser'
+
 
 class LogInUser extends Component {
 
