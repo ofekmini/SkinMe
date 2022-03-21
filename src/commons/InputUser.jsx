@@ -7,7 +7,7 @@ const InputUser=(props) =>{
     <div >
 
    
-      <h3 style={{color:"black",margin:5,paddingRight:30,fontSize:15,textAlign:"right"}}>{props.label}</h3>
+      <h3 style={{color:"black",margin:5,paddingRight:30,fontSize:13,textAlign:"right"}}>{props.label}</h3>
       <input 
       type={props.type}
       value={props.value} 

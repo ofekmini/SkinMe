@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Questionaire.css'
 import ButtonLogIn from '../commons/ButtonLogIn'
 import SignUpUser from './SignUpUser'
+import SignUp from './SignUp'
 
 
  class Survey extends Component {
@@ -12,14 +13,6 @@ import SignUpUser from './SignUpUser'
     
 
     this.state={
-      user_firstName:"",
-      user_lastName:"", 
-      user_gender:"",
-      user_userName:"",
-      user_password:"",
-      user_email:"",
-      user_birth:"",
-
 
       user_skinProblem:"",
       user_cheek:"",
@@ -27,6 +20,7 @@ import SignUpUser from './SignUpUser'
       user_sunExposure:"",
       user_stress:"",
       
+    
 
     }
 
@@ -41,20 +35,18 @@ import SignUpUser from './SignUpUser'
     console.clear();
     e.preventDefault()
     const apiUrl = 'https://localhost:44326/api/LogIn';
+    
+    
 
     const user_data={
-        user_firstName: this.state.user_firstName,
-        user_lastName:this.state.user_lastName,
-        user_email:this.state.user_email,
-        user_birth:this.state.user_birth,
-        user_userName:this.state.user_userName,
-        user_password:this.state.user_password,
-        user_gender:this.state.user_gender,
+        
+        
         user_skinProblem:this.state.user_skinProblem,
         user_cheek:this.state.user_cheek,
         user_Tzone:this.state.user_Tzone,
         user_sunExposure:this.state.user_sunExposure,
-        user_stress:this.state.user_stress
+        user_stress:this.state.user_stress,
+        
       
     };
     
@@ -75,7 +67,7 @@ import SignUpUser from './SignUpUser'
       .then(
         (result) => {
           console.log("fetch POST= ", result);
-          console.log(result.user_userName);
+          console.log(result.username);
           console.log(this.state);
         },
         (error) => {
@@ -86,50 +78,51 @@ import SignUpUser from './SignUpUser'
   }
   render() {
 
+     
     return (
       <div>
 
-        <text style={{color:"black"}}>?מה היא בעיית העור העיקרית  שתרצי לטפל בה</text>
+      <text style={{color:"black"}}>?מה היא בעיית העור העיקרית  שתרצי לטפל בה</text>
 
       <label className='label'>
           
         <input type="radio" name="user_skinProblem" value="קמטים"   onChange={(e)=>{this.setState({user_skinProblem:e.target.value})}}/>
-        <img alt="wrinkles" height="100" width="100" src={require("../assets/images/wrinkles.png")}/><br/>
+        <img alt="wrinkles" height="100" width="100" src={require("../assets/images/wrinkles.png")}/>
         
       </label>
 
       <label className='label'>
           
           <input type="radio" name="user_skinProblem" value="אקנה" onChange={(e)=>{this.setState({user_skinProblem:e.target.value})}}/>
-          <img alt="acne" height="100" width="100" src={require("../assets/images/acne.png")}/><br/>
+          <img alt="acne" height="100" width="100" src={require("../assets/images/acne.png")}/>
           
       </label>
 
       <label className='label'>
           
           <input type="radio" name="user_skinProblem" value="פיגמנטציה" onChange={(e)=>{this.setState({user_skinProblem:e.target.value})}}/>
-          <img alt="pigmentation" height="100" width="100" src={require("../assets/images/pigmentationname.png")}/><br/>
+          <img alt="pigmentation" height="100" width="100" src={require("../assets/images/pigmentationname.png")}/>
           
       </label>
 
       <label className='label'>
           
           <input type="radio" name="user_skinProblem" value="יובש" onChange={(e)=>{this.setState({user_skinProblem:e.target.value})}}/>
-          <img alt="dryskin" height="100" width="100" src={require("../assets/images/dryskin.png")}/><br/>
+          <img alt="dryskin" height="100" width="100" src={require("../assets/images/dryskin.png")}/>
           
       </label>
 
       <label className='label'>
           
           <input type="radio" name="user_skinProblem" value="שומן" onChange={(e)=>{this.setState({user_skinProblem:e.target.value})}}/>
-          <img alt= "oily" height="100" width="100" src={require("../assets/images/oily.png")}/><br/>
+          <img alt= "oily" height="100" width="100" src={require("../assets/images/oily.png")}/>
           
       </label>
 
       <label className='label'>
           
           <input type="radio" name="user_skinProblem" value="נקבוביות" onChange={(e)=>{this.setState({user_skinProblem:e.target.value})}}/>
-          <img alt="pores" height="100" width="100" src={require("../assets/images/pores.png")}/><br/>
+          <img alt="pores" height="100" width="100" src={require("../assets/images/pores.png")}/>
           
       </label><br/>
 
@@ -138,19 +131,19 @@ import SignUpUser from './SignUpUser'
       <label className='label'>
           
           <input type="radio" name="user_cheek" value="יבשות" onChange={(e)=>{this.setState({user_cheek:e.target.value})}}/>
-          <img alt="oilyface" height="100" width="100" src={require("../assets/images/dry.png")}/><br/>
+          <img alt="oilyface" height="100" width="100" src={require("../assets/images/dry.png")}/>
           
       </label>
       <label className='label'>
           
           <input type="radio" name="user_cheek" value="נינוחות" onChange={(e)=>{this.setState({user_cheek:e.target.value})}}/>
-          <img alt="oilyface" height="100" width="100" src={require("../assets/images/relax.png")}/><br/>
+          <img alt="oilyface" height="100" width="100" src={require("../assets/images/relax.png")}/>
           
       </label>
       <label className='label'>
           
           <input type="radio" name="user_cheek" value="שומניות" onChange={(e)=>{this.setState({user_cheek:e.target.value})}}/>
-          <img alt="oilyface" height="100" width="100" src={require("../assets/images/oilyface.png")}/><br/>
+          <img alt="oilyface" height="100" width="100" src={require("../assets/images/oilyface.png")}/>
           
       </label><br/>
 
@@ -159,19 +152,19 @@ import SignUpUser from './SignUpUser'
       <label className='label'>
           
           <input type="radio" name="user_Tzone" value="יבשות" onChange={(e)=>{this.setState({user_Tzone:e.target.value})}}/>
-          <img alt="oilyface" height="100" width="100" src={require("../assets/images/dry.png")}/><br/>
+          <img alt="oilyface" height="100" width="100" src={require("../assets/images/dry.png")}/>
           
       </label>
       <label className='label'>
           
           <input type="radio" name="user_Tzone" value="נינוחות" onChange={(e)=>{this.setState({user_Tzone:e.target.value})}}/>
-          <img alt="oilyface" height="100" width="100" src={require("../assets/images/relax.png")}/><br/>
+          <img alt="oilyface" height="100" width="100" src={require("../assets/images/relax.png")}/>
           
       </label>
       <label className='label'>
           
           <input type="radio" name="user_Tzone" value="שומניות" onChange={(e)=>{this.setState({user_Tzone:e.target.value})}}/>
-          <img alt="oilyface" height="100" width="100" src={require("../assets/images/oilyface.png")}/><br/>
+          <img alt="oilyface" height="100" width="100" src={require("../assets/images/oilyface.png")}/>
           
       </label><br/>
 
@@ -180,13 +173,13 @@ import SignUpUser from './SignUpUser'
       <label className='label'>
           
           <input type="radio" name="user_sunExposure" value="פחות שמש" onChange={(e)=>{this.setState({user_sunExposure:e.target.value})}}/>
-          <img alt="oilyface" height="100" width="100" src={require("../assets/images/sunny.png")}/><br/>
+          <img alt="oilyface" height="100" width="100" src={require("../assets/images/sunny.png")}/>
           
       </label>
       <label className='label'>
           
           <input type="radio" name="user_sunExposure" value="המון שמש" onChange={(e)=>{this.setState({user_sunExposure:e.target.value})}}/>
-          <img alt="oilyface" height="100" width="100" src={require("../assets/images/verysunny.png")}/><br/>
+          <img alt="oilyface" height="100" width="100" src={require("../assets/images/verysunny.png")}/>
           
       </label><br/>
 
@@ -195,29 +188,29 @@ import SignUpUser from './SignUpUser'
       <label className='label'>
           
           <input type="radio" name="user_stress" value="גבוהה " onChange={(e)=>{this.setState({user_stress:e.target.value})}}/>
-          <img alt="oilyface" height="80" width="80" src={require("../assets/images/high.png")}/><br/>
+          <img alt="oilyface" height="80" width="80" src={require("../assets/images/high.png")}/>
           
       </label>
       <label className='label'>
           
           <input type="radio" name="user_stress" value="בינונית" onChange={(e)=>{this.setState({user_stress:e.target.value})}}/>
-          <img alt="oilyface" height="80" width="80" src={require("../assets/images/medium.png")}/><br/>
+          <img alt="oilyface" height="80" width="80" src={require("../assets/images/medium.png")}/>
           
       </label>
       <label className='label'>
           
           <input type="radio" name="user_stress" value="נמוכה" onChange={(e)=>{this.setState({user_stress:e.target.value})}}/>
-          <img alt="oilyface" height="80" width="80" src={require("../assets/images/little.png")}/><br/>
+          <img alt="oilyface" height="80" width="80" src={require("../assets/images/little.png")}/>
           
       </label>
       <label className='label'>
           
           <input type="radio" name="user_stress" value="ללא" onChange={(e)=>{this.setState({user_stress:e.target.value})}}/>
-          <img alt="oilyface" height="80" width="80" src={require("../assets/images/none.png")}/><br/>
+          <img alt="oilyface" height="80" width="80" src={require("../assets/images/none.png")}/>
           
       </label>
-
-
+     
+   
       <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="סיום הרשמה" onClick={this.addUser}/>
 
 

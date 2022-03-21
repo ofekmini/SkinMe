@@ -10,7 +10,7 @@ const SkinmeLogo= () =>{
          width="150"
          height="150"
        />
-      <p style={{color:"gray",fontSize:20}}> עור פנים מושלם בלי לצאת מהבית </p>
+      <p style={{color:"gray",fontSize:15}}> עור פנים מושלם בלי לצאת מהבית </p>
 
     </div>
   )
