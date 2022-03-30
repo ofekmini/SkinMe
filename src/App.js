@@ -10,6 +10,7 @@ import LogInUser from './screens/LogInUser';
 import MasterForm from './screens/MasterForm';
 
 
+import CosmeticSearch from './screens/CosmeticSearch';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 
       
      <MasterForm/>
+     <CosmeticSearch/>
        
       </header>
     </div>
