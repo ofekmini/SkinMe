@@ -4,6 +4,12 @@ import SignUpUser from './screens/SignUpUser';
 import { Routes,Route } from 'react-router-dom';
 import SignUpCos from './screens/SignUpCos';
 import ChooseUser from './screens/ChooseUser';
+import LogInFacebook from './screens/LogInFacebook';
+import FacebookLogIn from './screens/FacebookLogIn';
+import LogInUser from './screens/LogInUser';
+import MasterForm from './screens/MasterForm';
+
+
 
 function App() {
   return (
@@ -11,7 +17,7 @@ function App() {
       <header className="App-header">
 
       
-     <ChooseUser/>
+     <MasterForm/>
        
       </header>
     </div>

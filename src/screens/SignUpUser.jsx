@@ -3,6 +3,8 @@ import InputUser from '../commons/InputUser';
 import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
 import { Link } from 'react-router-dom';
+import FacebookLogin from 'react-facebook-login';
+
 
 
 
@@ -21,7 +23,7 @@ class SignUpUser extends Component {
       user_password:"",
       user_email:"",
       user_birth:"",
-      user_profileImg:"",
+      user_profileImg:null,
       user_processImg:"",
       user_skinType:"",
 
@@ -37,13 +39,26 @@ class SignUpUser extends Component {
 
    }
   }
+  signup=(res)=> {  
+     const responseFacebook = {  
+      Name: res.name,  
+      email: res.email,  
+      token: res.accessToken,  
+      Image: res.picture.data.url,  
+      ProviderId: 'Facebook'  
+  
+    }  
+  }
+ 
   handlechange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
       user_birth:e,
+      user_profileImg:e.target.files[0]
       
     })
   }
+  
   addUser = (e)=>{
     console.clear();
     e.preventDefault()
@@ -71,6 +86,7 @@ class SignUpUser extends Component {
         
       
     };
+   
     
     fetch(apiUrl, {
       method: 'POST',
@@ -98,14 +114,23 @@ class SignUpUser extends Component {
 
     console.log('END');
   }
-
+  
   render() {
-    
+
+    const responseFacebook = (response) => {  
+      console.log(response);  
+      var res = response.profileObj;  
+      console.log(res);  
+      debugger;  
+      this.signup(response);
+      }
    
     return (
       <div>
 
         <Logo/>
+
+        <input style={{marginLeft:140}} type='file' accept='image/*' name="user_profileImg"  onChange={this.handlechange} ></input>
 
         <InputUser value={this.user_firstName} name="user_firstName" type="text" label="שם פרטי " placeholder="שם פרטי " onChange={(e)=>{this.setState({user_firstName:e.target.value})}}/>
 
@@ -132,6 +157,12 @@ class SignUpUser extends Component {
         <InputUser value={this.username} name="username" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({username:e.target.value})}}/>
 
         <InputUser value={this.user_password} name="user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({user_password:e.target.value})}}/><br/>
+
+        <FacebookLogin buttonStyle={{padding:"6px"}}  
+                             appId="229777149335447"  
+                             autoLoad={true}  
+                             fields="name,email,picture"  
+                             callback={responseFacebook}/>   
 
         <h3 style={{color:'#c4a092',textDecorationLine:'underline'}}>  תני לנו להכיר את העור שלך </h3>
 
@@ -266,7 +297,8 @@ class SignUpUser extends Component {
 
 <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="סיום הרשמה" onClick={this.addUser}/>
 
-       
+
+
 
       </div>
      

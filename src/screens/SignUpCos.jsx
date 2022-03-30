@@ -4,6 +4,13 @@ import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
 
 
+let local = false;
+const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
+    
+if (local) {
+  apiUrl = 'https://localhost:44326/api/';
+}
+
  class SignUpCos extends Component {
 
 
@@ -20,7 +27,8 @@ import Logo from '../commons/Logo';
       cosmetic_businessName:"",
       cosmetic_address:"",
       cosmetic_city:"",
-      cosmetic_license_num:""
+      cosmetic_license_num:"",
+      
       
 
     
@@ -38,7 +46,7 @@ import Logo from '../commons/Logo';
   addCos = (e)=>{
     console.clear();
     e.preventDefault()
-    const apiUrl = 'https://localhost:44326/api/LogIn';
+    
     
     
 
@@ -60,7 +68,7 @@ import Logo from '../commons/Logo';
       
     };
     
-    fetch(apiUrl, {
+    fetch(apiUrl + 'login', {
       method: 'POST',
       body: JSON.stringify(cos_data),
       headers: new Headers({
