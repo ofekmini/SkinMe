@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import InputUser from '../../commons/InputUser';
 
 import FacebookLogin from 'react-facebook-login';
+import FacebookLogIn from '../FacebookLogIn';
+import '../Skinme.css'
 
 
 
@@ -37,13 +39,13 @@ function Step1(props) {
 
 <InputUser value={props.user_password} name="user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={props.handleChange}/><br/><br/>
 
-
 <FacebookLogin buttonStyle={{padding:"6px"}}  
                              appId="229777149335447"  
                              autoLoad={true}  
                              fields="name,email,picture"  
-                             callback={props.responseFacebook}
-                             icon="fa-facebook"/> <br/><br/>
+                             callback={props.signup}
+                             icon="fa-facebook"/> 
+
 
     </div>
   );

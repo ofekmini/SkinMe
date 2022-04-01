@@ -6,6 +6,7 @@ import Logo from '../commons/Logo';
 import './Questionaire.css'
 import { FacebookLogin } from 'react-facebook-login';
 import FacebookLogIn from './FacebookLogIn';
+import SignUpUser from './SignUpUser';
 
 
 class MasterForm extends Component {
@@ -30,6 +31,8 @@ class MasterForm extends Component {
       user_Tzone:"",
       user_sunExposure:"",
       user_stress:"",
+
+      
       
     }
   }
@@ -47,8 +50,12 @@ class MasterForm extends Component {
       email: res.email,  
       token: res.accessToken,  
       Image: res.picture.data.url,  
-      ProviderId: 'Facebook'
-     }} 
+      ProviderId: 'Facebook'  
+  
+    } 
+   }
+  
+  
   
   /**handleChange = (e) => {
     alert(e.target.name)
@@ -178,17 +185,20 @@ nextButton(){
   return null;
 }
   
-  render() {    
+  render() {   
+
     const responseFacebook = (response) => {  
       console.log(response);  
       var res = response.profileObj;  
       console.log(res);   
       this.signup(response);
       }
+    
+
     return (
       <React.Fragment>
       <Logo/>
-      
+
       <p>Step {this.state.currentStep} </p> 
 
       <form onSubmit={this.handleSubmit}>
@@ -206,7 +216,8 @@ nextButton(){
           user_email={this.state.user_email}
           user_birth={this.state.user_birth}
           user_profileImg={this.state.user_profileImg}
-
+          signup={this.signup}
+         
         />
      
         

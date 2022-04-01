@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import InputUser from '../../commons/InputUser';
+import '../Skinme.css'
 
 
 
@@ -14,7 +15,6 @@ function Step3(props) {
     <h3 style={{color:'#c4a092',textDecorationLine:'underline'}}>  תני לנו להכיר את העור שלך </h3>
 
     <text style={{color:"black"}}>?מה היא בעיית העור העיקרית  שתרצי לטפל בה</text>
-
 
 
    <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_skinProblem" id="radiowrinkles" value="קמטים" onChange={props.handleChange}/>
