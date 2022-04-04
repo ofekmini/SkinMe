@@ -5,8 +5,12 @@ import SignUpUser from './SignUpUser';
 
 
 
+
 export default class FacebookLogIn extends Component {
-  state = {
+  constructor(props) {
+    super(props)
+   
+  this.state = {
     isLoggedIn: false,
     isSocialMedia:false,
     userID: "",
@@ -15,7 +19,8 @@ export default class FacebookLogIn extends Component {
     picture: "",
 
 
-  };
+  }
+};
 
   responseFacebook = response => {
     console.log(response);
@@ -62,7 +67,7 @@ export default class FacebookLogIn extends Component {
         <FacebookLogin style={{background: '#2980b9'}}
           
           appId="229777149335447"
-          autoLoad={true}
+          autoLoad={false}
           fields="name,email,picture"
           onClick={this.componentClicked}
           callback={this.responseFacebook}

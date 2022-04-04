@@ -16,13 +16,13 @@ class MasterForm extends Component {
     this.state = {
       currentStep: 1,
       user_firstName:"",
-      user_lastName:"", 
+      user_lastName:"",
       user_gender:"",
       username:"",
       user_password:"",
-      user_email:"",
+      email:"",
       user_birth:"",
-      user_profileImg:null,
+      picture:null,
       user_processImg:"",
       user_skinType:"",
 
@@ -44,17 +44,7 @@ class MasterForm extends Component {
     })    
   }
 
-  signup=(res) =>{  
-    const responseFacebook = {  
-      Name: res.name,  
-      email: res.email,  
-      token: res.accessToken,  
-      Image: res.picture.data.url,  
-      ProviderId: 'Facebook'  
-  
-    } 
-   }
-  
+ 
   
   
   /**handleChange = (e) => {
@@ -92,13 +82,13 @@ class MasterForm extends Component {
     const user_data={
         
       user_firstName:this.state.user_firstName,
-      user_lastName:this.state.user_lastName, 
+      user_lastName:this.state.user_lastName,
       user_gender:this.state.user_gender,
       username:this.state.username,
       user_password:this.state.user_password,
-      user_email:this.state.user_email,
+      email:this.state.email,
       user_birth:this.state.user_birth,
-      user_profileImg:this.state.user_profileImg,
+      picture:this.state.picture,
       user_processImg:this.state.user_processImg,
       user_skinType:this.state.user_skinType,
       user_skinProblem:this.state.user_skinProblem,
@@ -187,18 +177,13 @@ nextButton(){
   
   render() {   
 
-    const responseFacebook = (response) => {  
-      console.log(response);  
-      var res = response.profileObj;  
-      console.log(res);   
-      this.signup(response);
-      }
+    
     
 
     return (
       <React.Fragment>
       <Logo/>
-
+     
       <p>Step {this.state.currentStep} </p> 
 
       <form onSubmit={this.handleSubmit}>
@@ -213,10 +198,11 @@ nextButton(){
           user_gender={this.state.user_gender}
           username={this.state.username}
           user_password={this.state.user_password}
-          user_email={this.state.user_email}
+          email={this.state.email}
           user_birth={this.state.user_birth}
-          user_profileImg={this.state.user_profileImg}
-          signup={this.signup}
+          picture={this.state.picture}
+          
+        
          
         />
      
