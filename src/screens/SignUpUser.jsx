@@ -4,7 +4,7 @@ import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
 import { Link } from 'react-router-dom';
 
-
+ 
 
 
 class SignUpUser extends Component {

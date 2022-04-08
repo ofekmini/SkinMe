@@ -4,7 +4,7 @@ import SignUpUser from './screens/SignUpUser';
 import { Routes,Route } from 'react-router-dom';
 import SignUpCos from './screens/SignUpCos';
 import ChooseUser from './screens/ChooseUser';
-import CosmeticSearch from './screens/CosmeticSearch';
+import CosmeticHomePage from './screens/CosmeticHomePage';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <header className="App-header">
 
       
-     <CosmeticSearch/>
+     <CosmeticHomePage/>
        
       </header>
     </div>
