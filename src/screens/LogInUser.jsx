@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import InputUser from '../commons/InputUser'
 import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
+import { Link } from 'react-router-dom';
 
 
 class LogInUser extends Component {
@@ -119,6 +120,11 @@ console.log('END');
         <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="התחבר" onClick={this.checkLogIn}/>
 
         <ButtonLogIn style={{backgroundColor:'#f8fbff',border:'none',color:'black',textDecorationLine: 'underline'}} name="  שכחתי סיסמה"/> 
+        <div style={{margin:50}}>
+       <Link to="/chooseuser">
+        <ButtonLogIn style={{fontSize:20,backgroundColor:'#f8fbff',border:'none',color:'#bc8f8f',textDecorationLine: 'underline'}} name=" הרשמה לאפליקציה"/> 
+        </Link>
+        </div>
 
 
       </div>
