@@ -24,7 +24,9 @@ class MasterForm extends Component {
       user_birth:"",
       picture:null,
       user_processImg:"",
+
       user_skinType:"",
+      
       user_role:"User",
 
       user_skinProblem:"",

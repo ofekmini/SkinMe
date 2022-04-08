@@ -8,6 +8,7 @@ import LogInUser from './screens/LogInUser';
 import MasterForm from './screens/MasterForm';
 import LoginWGoggle from './screens/LoginWGoggle';
 import Products from './screens/Products';
+import ForgotPassword from './screens/ForgotPassword';
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/chooseuser" element={<ChooseUser />} />
         <Route path="/signupuser" element={<MasterForm />} />
         <Route path="/signupcos" element={<SignUpCos />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
         
         
 

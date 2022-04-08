@@ -25,6 +25,7 @@ class SignUpUser extends Component {
       user_birth:"",
       user_profileImg:null,
       user_processImg:"",
+      
       user_skinType:"",
 
       user_skinProblem:"",
