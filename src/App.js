@@ -8,6 +8,8 @@ import FacebookLogIn from './screens/FacebookLogIn';
 import LogInUser from './screens/LogInUser';
 import MasterForm from './screens/MasterForm';
 import LoginWGoggle from './screens/LoginWGoggle';
+import Products from './screens/Products';
+
 
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
     <div className="App">
       <header className="App-header">
 
-      <MasterForm/>
+      <Products/>
     
      
        
