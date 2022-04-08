@@ -58,7 +58,7 @@ export default class FacebookLogIn extends Component {
           <img src={this.state.picture} alt={this.state.name} />
           <h3 style={{color:"black",fontSize:20}}>Welcome {this.state.name}</h3>
           
-
+        <SignUpUser/>
         </div>
       );
     } else {

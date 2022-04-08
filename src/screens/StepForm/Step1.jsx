@@ -39,7 +39,7 @@ function Step1(props) {
 
 <InputUser value={props.user_password} name="user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={props.handleChange}/><br/><br/>
 
-<FacebookLogIn className='facebookbtn'/> 
+<FacebookLogIn /> <br/>
   
 <LoginWGoggle/>
     </div>

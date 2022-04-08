@@ -3,7 +3,7 @@ import InputUser from '../commons/InputUser'
 import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
 import { Link } from 'react-router-dom';
-import PopUpCos from './PopUpCos';
+import PopUpCos from '../commons/PopUpCos';
 
 
 class LogInUser extends Component {

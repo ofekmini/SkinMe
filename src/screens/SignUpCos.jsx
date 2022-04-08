@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import InputUser from '../commons/InputUser';
 import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
-import PopUpCos from './PopUpCos';
+import PopUpCos from '../commons/PopUpCos';
 
 
 

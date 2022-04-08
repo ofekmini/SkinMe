@@ -9,7 +9,7 @@ import MasterForm from './screens/MasterForm';
 import LoginWGoggle from './screens/LoginWGoggle';
 import Products from './screens/Products';
 import ForgotPassword from './screens/ForgotPassword';
-
+import AddProduct from './screens/AddProduct';
 
 
 
@@ -27,7 +27,7 @@ function App() {
         <Route path="/signupuser" element={<MasterForm />} />
         <Route path="/signupcos" element={<SignUpCos />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
-        
+        <Route path="/addproduct" element={<AddProduct />} />
         
 
       </Routes>
