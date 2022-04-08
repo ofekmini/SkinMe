@@ -25,6 +25,7 @@ class MasterForm extends Component {
       picture:null,
       user_processImg:"",
       user_skinType:"",
+      user_role:"User",
 
       user_skinProblem:"",
       user_cheek:"",
@@ -96,6 +97,7 @@ class MasterForm extends Component {
       user_Tzone:this.state.user_Tzone,
       user_sunExposure:this.state.user_sunExposure,
       user_stress:this.state.user_stress,
+      user_role:this.state.user_role
 
     };
 
