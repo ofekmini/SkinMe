@@ -1,5 +1,6 @@
 
 import './App.css';
+import SignUpUser from './screens/SignUpUser';
 import { Routes,Route } from 'react-router-dom';
 import SignUpCos from './screens/SignUpCos';
 import ChooseUser from './screens/ChooseUser';

@@ -2,17 +2,7 @@ import React, { Component } from 'react'
 import InputUser from '../commons/InputUser';
 import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
-import PopUpCos from '../commons/PopUpCos';
 
-
-
-
-let local = false;
-//const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
-    const apiUrl='https://localhost:44326/api/LogIn/register';
-//if (local) {
- // apiUrl = 'https://localhost:44326/api/LogIn/register';
-//}
 
  class SignUpCos extends Component {
 
@@ -30,11 +20,7 @@ let local = false;
       cosmetic_businessName:"",
       cosmetic_address:"",
       cosmetic_city:"",
-      cosmetic_license_num:"",
-      cosmetic_status:"Pending",
-      user_role:"Cosmetologist",
-
-      showPopup: false
+      cosmetic_license_num:""
       
 
     
@@ -42,13 +28,6 @@ let local = false;
 
    }
   }
-
-  togglePopup() {
-    this.setState({
-      showPopup: !this.state.showPopup
-    });
-  }
-
   handlechange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -59,9 +38,9 @@ let local = false;
   addCos = (e)=>{
     console.clear();
     e.preventDefault()
+    const apiUrl = 'https://localhost:44326/api/LogIn';
     
     
-    this.togglePopup(); 
 
     const cos_data={
         
@@ -75,9 +54,8 @@ let local = false;
       cosmetic_businessName:this.state.cosmetic_businessName,
       cosmetic_address:this.state.cosmetic_address,
       cosmetic_city:this.state.cosmetic_city,
-      cosmetic_license_num:this.state.cosmetic_license_num,
-      cosmetic_status:this.state.cosmetic_status,
-      user_role:this.state.user_role
+      cosmetic_license_num:this.state.cosmetic_license_num
+        
         
       
     };
@@ -143,19 +121,13 @@ let local = false;
         
         <InputUser value={this.cosmetic_license_num} name="cosmetic_license_num" type="text" label="מספר עסק " placeholder="מספר עסק"  onChange={(e)=>{this.setState({cosmetic_license_num:e.target.value})}}/>
 
+        <ButtonLogIn style={{backgroundColor:'#f8fbff',border:'none',color:'black',textDecorationLine: 'underline'}} name="בדיקה מספר עסק"/> 
         <InputUser value={this.username} name="username" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({username:e.target.value})}}/>
 
         <InputUser value={this.user_password} name="user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({user_password:e.target.value})}}/>
 
         <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="סיום הרשמה" onClick={this.addCos}/>
-        {this.state.showPopup ? 
-          <PopUpCos
-            header=' תודה רבה על ההרשמה '
-            text=' נבדוק את המספר העסק שלך ותוכלי להתחיל לטפל בלקוחות בעוד כ24 שעות'
-            closePopup={this.togglePopup.bind(this)}
-          />
-          : null
-        }
+
       </div>
     )
   }

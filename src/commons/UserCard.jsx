@@ -1,9 +1,8 @@
 import React from 'react'
+import CosmeticHomePage from '../screens/CosmeticHomePage';
 
-const CardProduct = (props) => {
-  const {products} = props
-
-
+const UserCard = (props) => {
+  const {users} = props
 
   return (
     <div className="card"  style={{ width:'15rem',margin:50,float:"left",border: 'black dotted 2px'}} >
@@ -42,4 +41,4 @@ const CardProduct = (props) => {
     
    );
   }
-   export default CardProduct;
+   export default UserCard;

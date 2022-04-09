@@ -1,21 +1,16 @@
+import { render } from '@testing-library/react';
+import Logo from '../commons/Logo';
+import UserCard from '../commons/UserCard';
 import React, { Component } from 'react'
-import CardProduct from '../commons/CardProduct'
 
-
- class Products extends Component {
-
+ class CosmeticHomePage extends Component {
   constructor(props) {
     super(props)
-    
     this.state = {
-       products:[],
-     
-       
+       users:[],
     }
   }
-
   componentDidMount()  {
-  
     console.clear();
     
     const  apiUrl= 'https://localhost:44326/api/Products/approved';
@@ -27,7 +22,6 @@ import CardProduct from '../commons/CardProduct'
       })
     })
       .then(res => {
-        
         console.log('res=', res);
         console.log('res.status', res.status);
         console.log('res.ok', res.ok);
@@ -35,30 +29,25 @@ import CardProduct from '../commons/CardProduct'
       })
       .then(
         (result) => {
-          
-          console.log("fetch btnFetchGetProducts= ", result);
-          result.map(st => console.log(st.prod_name));
-          console.log('result[0].prod_name=', result[0].prod_name);
-          this.setState({ products: [...result]}
-            
+          console.log("fetch btnFetchGetDepending= ", result);
+          result.map(st => console.log(st.user_id));
+          console.log('result[0].user_id=', result[0].user_id);
+          this.setState({ users: [...result]}
             );
-         
         },
         (error) => {
           console.log("err post=", error);
         })
-
       }
   render() {
     return (
       <div >
-     
 <div >
-{this.state.products.map((products) => <CardProduct key={products.prod_id} products={products}/>)}
+{this.state.products.map((users) => <UserCard key={users.user_id} users={users}/>)}
       </div>
      
       </div>
     )
   }
 }
-export default Products;
+export default CosmeticHomePage;
