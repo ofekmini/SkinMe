@@ -72,7 +72,7 @@ handlechange = (e) => {
         
         <Logo/>
 
-        <h2 style={{color:"black"}}>שלום לך</h2>
+        <h2 style={{color:"black"}}> שינוי סיסמה</h2>
 
         <InputUser value={this.username} name="username" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({username:e.target.value})}}/>
 

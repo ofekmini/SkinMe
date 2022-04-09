@@ -130,6 +130,7 @@ let local = false;
             closePopup={this.togglePopup.bind(this)} 
           />
           : null
+          
         }
       </div>
     )

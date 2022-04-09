@@ -9,6 +9,7 @@ import FacebookLogIn from './FacebookLogIn';
 import SignUpUser from './SignUpUser';
 
 
+
 class MasterForm extends Component {
   
   constructor(props) {
@@ -45,6 +46,19 @@ class MasterForm extends Component {
     this.setState({
       [name]: value
     })    
+  }
+
+
+  clickAcne=()=>{
+    this.setState({
+      user_skinType:'עור שמן'
+    })
+  }
+
+  clickWrinkles=()=>{
+    this.setState({
+      user_skinType:'עור יבש'
+    })
   }
 
  
@@ -99,7 +113,10 @@ class MasterForm extends Component {
       user_Tzone:this.state.user_Tzone,
       user_sunExposure:this.state.user_sunExposure,
       user_stress:this.state.user_stress,
-      user_role:this.state.user_role
+      user_role:this.state.user_role,
+
+
+      user_skinType:this.state.user_skinType
 
     };
 
@@ -214,6 +231,9 @@ nextButton(){
         <Step3 
           currentStep={this.state.currentStep} 
           handleChange={this.handleChange}
+          clickAcne={this.clickAcne}
+          clickWrinkles={this.clickWrinkles}
+
           user_skinProblem={this.state.user_skinProblem}
           user_cheek={this.state.user_cheek}
           user_Tzone={this.state.user_Tzone}

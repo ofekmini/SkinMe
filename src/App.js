@@ -10,6 +10,8 @@ import LoginWGoggle from './screens/LoginWGoggle';
 import Products from './screens/Products';
 import ForgotPassword from './screens/ForgotPassword';
 import AddProduct from './screens/AddProduct';
+import UserHomePage from './screens/UserHomePage';
+
 
 
 
@@ -28,6 +30,9 @@ function App() {
         <Route path="/signupcos" element={<SignUpCos />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="/addproduct" element={<AddProduct />} />
+        <Route path="/userhomepage" element={<UserHomePage />} />
+        <Route path="/products" element={<Products />} />
+        
         
 
       </Routes>
