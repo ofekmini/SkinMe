@@ -72,11 +72,8 @@ handlechange = (e) => {
         
         <Logo/>
 
-<<<<<<< HEAD
         <h2 style={{color:"black"}}> שינוי סיסמה</h2>
-=======
         <h2 style={{color:"black"}}>שלום לך</h2>
->>>>>>> parent of 4763df6 (Revert "Merge branch 'main' into Cosmetic")
 
         <InputUser value={this.username} name="username" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({username:e.target.value})}}/>
 

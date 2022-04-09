@@ -130,10 +130,7 @@ let local = false;
             closePopup={this.togglePopup.bind(this)} 
           />
           : null
-<<<<<<< HEAD
           
-=======
->>>>>>> parent of 4763df6 (Revert "Merge branch 'main' into Cosmetic")
         }
       </div>
     )

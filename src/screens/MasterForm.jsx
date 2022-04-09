@@ -8,11 +8,6 @@ import { FacebookLogin } from 'react-facebook-login';
 import FacebookLogIn from './FacebookLogIn';
 import SignUpUser from './SignUpUser';
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 4763df6 (Revert "Merge branch 'main' into Cosmetic")
 class MasterForm extends Component {
   
   constructor(props) {
@@ -51,7 +46,6 @@ class MasterForm extends Component {
     })    
   }
 
-<<<<<<< HEAD
 
   clickAcne=()=>{
     this.setState({
@@ -65,8 +59,6 @@ class MasterForm extends Component {
     })
   }
 
-=======
->>>>>>> parent of 4763df6 (Revert "Merge branch 'main' into Cosmetic")
  
   
   
@@ -119,14 +111,11 @@ class MasterForm extends Component {
       user_Tzone:this.state.user_Tzone,
       user_sunExposure:this.state.user_sunExposure,
       user_stress:this.state.user_stress,
-<<<<<<< HEAD
       user_role:this.state.user_role,
 
 
       user_skinType:this.state.user_skinType
-=======
-      user_role:this.state.user_role
->>>>>>> parent of 4763df6 (Revert "Merge branch 'main' into Cosmetic")
+      
 
     };
 
@@ -241,12 +230,9 @@ nextButton(){
         <Step3 
           currentStep={this.state.currentStep} 
           handleChange={this.handleChange}
-<<<<<<< HEAD
           clickAcne={this.clickAcne}
           clickWrinkles={this.clickWrinkles}
 
-=======
->>>>>>> parent of 4763df6 (Revert "Merge branch 'main' into Cosmetic")
           user_skinProblem={this.state.user_skinProblem}
           user_cheek={this.state.user_cheek}
           user_Tzone={this.state.user_Tzone}
@@ -261,10 +247,6 @@ nextButton(){
     );
   }
 }
-
-
-
-
 
 
 export default MasterForm;

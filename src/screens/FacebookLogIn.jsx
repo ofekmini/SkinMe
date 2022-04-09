@@ -57,12 +57,7 @@ export default class FacebookLogIn extends Component {
         >
           <img src={this.state.picture} alt={this.state.name} />
           <h3 style={{color:"black",fontSize:20}}>Welcome {this.state.name}</h3>
-<<<<<<< HEAD
         
-=======
-          
-        <SignUpUser/>
->>>>>>> parent of 4763df6 (Revert "Merge branch 'main' into Cosmetic")
         </div>
       );
     } else {

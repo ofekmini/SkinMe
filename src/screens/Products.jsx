@@ -18,7 +18,7 @@ import CardProduct from '../commons/CardProduct'
   
     console.clear();
     
-    const  apiUrl= 'https://localhost:44326/api/products';
+    const  apiUrl= 'https://localhost:44326/api/Products/approved';
     fetch(apiUrl, {
       method: 'GET',
       headers: new Headers({
