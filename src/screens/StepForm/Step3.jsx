@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import InputUser from '../../commons/InputUser';
+<<<<<<< HEAD
 
+=======
+import '../Skinme.css'
+>>>>>>> parent of 4763df6 (Revert "Merge branch 'main' into Cosmetic")
 
 
 
@@ -17,11 +21,19 @@ function Step3(props) {
     <text style={{color:"black"}}>?מה היא בעיית העור העיקרית  שתרצי לטפל בה</text>
 
 
+<<<<<<< HEAD
    <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_skinProblem" id="radiowrinkles" value="קמטים" onChange={props.handleChange} onClick={props.clickWrinkles}/>
    <label  for="radiowrinkles"><img alt="wrinkles" height="100" width="100" src="https://proj.ruppin.ac.il/bgroup90/test2/tar1/build/static/media/wrinkles.9c76daca04c508198a28.png"/></label>
     
    <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_skinProblem" id="radioacne" value="אקנה" onChange={props.handleChange} onClick={props.clickAcne}/>
    <label  for="radioacne"><img alt="acne" height="100" width="100"  src="https://static.vecteezy.com/system/resources/previews/004/640/695/non_2x/pore-acne-icon-isolated-on-white-background-vector.jpg"/></label>
+=======
+   <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_skinProblem" id="radiowrinkles" value="קמטים" onChange={props.handleChange}/>
+   <label  for="radiowrinkles"><img alt="wrinkles" height="100" width="100" src="https://proj.ruppin.ac.il/bgroup90/test2/tar1/build/static/media/wrinkles.9c76daca04c508198a28.png"/></label>
+    
+   <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_skinProblem" id="radioacne" value="אקנה" onChange={props.handleChange}/>
+   <label  for="radioacne"><img alt="acne" height="100" width="100" src="https://proj.ruppin.ac.il/bgroup90/test2/tar1/build/static/media/acne.6361e07a381856ed264e.png"/></label>
+>>>>>>> parent of 4763df6 (Revert "Merge branch 'main' into Cosmetic")
 
    <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_skinProblem" id="radiopig" value="פיגמנטציה" onChange={props.handleChange}/>
    <label  for="radiopig"><img alt="pigmentation" height="100" width="100" src="https://proj.ruppin.ac.il/bgroup90/test2/tar1/build/static/media/pigmentationname.cf96ef893e2b5d3e2489.png"/></label>
@@ -37,7 +49,11 @@ function Step3(props) {
 
    <text style={{color:"black"}}>?איך הלחיים שלך מרגישות</text><br/>
 
+<<<<<<< HEAD
    <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_cheek" id="radiodry" value="יבשות" onChange={props.handleChange} onClick={props.clickWrinkles}/>
+=======
+   <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_cheek" id="radiodry" value="יבשות" onChange={props.handleChange}/>
+>>>>>>> parent of 4763df6 (Revert "Merge branch 'main' into Cosmetic")
    <label  for="radiodry"><img alt="dry" height="100" width="100" src="https://proj.ruppin.ac.il/bgroup90/test2/tar1/build/static/media/dry.9b5f07ca919e936a902b.png"/></label>
 
    <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_cheek" id="radiorelax" value="נינוחות" onChange={props.handleChange}/>
@@ -48,13 +64,21 @@ function Step3(props) {
    
    <text style={{color:"black"}}> ? שלך מרגיש Tאיך האזור ה </text><br/>
 
+<<<<<<< HEAD
    <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_Tzone" id="radiodry2" value="יבשות" onChange={props.handleChange} onClick={props.clickWrinkles}/>
+=======
+   <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_Tzone" id="radiodry2" value="יבשות" onChange={props.handleChange}/>
+>>>>>>> parent of 4763df6 (Revert "Merge branch 'main' into Cosmetic")
    <label  for="radiodry2"><img alt="dry" height="100" width="100" src="https://proj.ruppin.ac.il/bgroup90/test2/tar1/build/static/media/dry.9b5f07ca919e936a902b.png"/></label>
 
    <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_Tzone" id="radiorelax2" value="נינוחות" onChange={props.handleChange}/>
    <label  for="radiorelax2"><img alt="relax" height="100" width="100" src="https://proj.ruppin.ac.il/bgroup90/test2/tar1/build/static/media/relax.c9be0a44920cf1293d18.png"/></label>
 
+<<<<<<< HEAD
    <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_Tzone" id="radiooilyface2" value="שומניות" onChange={props.handleChange} onClick={props.clickAcne}/>
+=======
+   <input  style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_Tzone" id="radiooilyface2" value="שומניות" onChange={props.handleChange}/>
+>>>>>>> parent of 4763df6 (Revert "Merge branch 'main' into Cosmetic")
    <label  for="radiooilyface2"><img alt="oilyface" height="100" width="100" src="https://proj.ruppin.ac.il/bgroup90/test2/tar1/build/static/media/oilyface.2ce3a220767d14142002.png"/></label><br/>
 
    <text style={{color:"black"}}>  ? כמות החשיפה שלך בשמש בממוצע  </text><br/>
