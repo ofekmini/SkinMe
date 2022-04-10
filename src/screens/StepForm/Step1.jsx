@@ -18,10 +18,11 @@ function Step1(props) {
     
     <div className="form-group">
      
-       
-<InputUser value={props.user_firstName} name="user_firstName" type="text" label="שם פרטי   " placeholder="שם פרטי "  onChange={props.handleChange}/>  
+<input type="file" name="picture"  value={props.picture}  onChange={props.handleChange} />   
 
-<InputUser value={props.user_lastName} name="user_lastName" type="text" label="שם משפחה   " placeholder="שם משפחה "  onChange={props.handleChange}/>  
+<InputUser value={props.first_name} name="first_name" type="text" label="שם פרטי   " placeholder="שם פרטי "  onChange={props.handleChange}/>  
+
+<InputUser value={props.last_name} name="last_name" type="text" label="שם משפחה   " placeholder="שם משפחה "  onChange={props.handleChange}/>  
 
  
 <InputUser value={props.email} name="email" type="text" label="מייל " placeholder="מייל"  onChange={props.handleChange}/>
@@ -30,10 +31,10 @@ function Step1(props) {
 
 
  <input style={{position:'absolute', opacity: 0,width: 0, height: 0}}type="radio" name="user_gender" id="radio1" value="M"  onChange={props.handleChange} />
- <label for="radio1"><img  height="100" width="100"src="https://proj.ruppin.ac.il/bgroup90/test2/tar1/build/static/media/boy.51dae98a48880cb086a6.png" /></label>
+ <label htmlFor="radio1"><img  height="100" alt='boy' width="100" src="https://proj.ruppin.ac.il/bgroup90/test2/tar1/build/static/media/girl.7446e3274fa54b7cd284.png" /></label>
 
  <input style={{position:'absolute', opacity: 0,width: 0, height: 0}} type="radio" name="user_gender" id="radio2" value="F"  onChange={props.handleChange} />
- <label for="radio2"><img  height="100" width="100"src="https://proj.ruppin.ac.il/bgroup90/test2/tar1/build/static/media/girl.7446e3274fa54b7cd284.png" /></label>
+ <label htmlFor="radio2"><img  height="100" alt='girl' width="100"src="https://proj.ruppin.ac.il/bgroup90/test2/tar1/build/static/media/girl.7446e3274fa54b7cd284.png" /></label>
 
 <InputUser value={props.username} name="username" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={props.handleChange}/>
 

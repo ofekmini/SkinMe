@@ -14,14 +14,14 @@ class MasterForm extends Component {
     super(props)
     this.state = {
       currentStep: 1,
-      user_firstName:"",
-      user_lastName:"",
+      first_name:"",
+      last_name:"",
       user_gender:"",
       username:"",
       user_password:"",
       email:"",
       user_birth:"",
-      picture:null,
+      picture:"",
       user_processImg:"",
 
       user_skinType:"",
@@ -96,8 +96,8 @@ class MasterForm extends Component {
 
     const user_data={
         
-      user_firstName:this.state.user_firstName,
-      user_lastName:this.state.user_lastName,
+      first_name:this.state.first_name,
+      last_name:this.state.last_name,
       user_gender:this.state.user_gender,
       username:this.state.username,
       user_password:this.state.user_password,
@@ -213,8 +213,9 @@ nextButton(){
         <Step1 
           currentStep={this.state.currentStep} 
           handleChange={this.handleChange}
-          user_firstName={this.state.user_firstName}
-          user_lastName= {this.state.user_lastName}
+         
+          first_name={this.state.first_name}
+          last_name= {this.state.last_name}
           user_gender={this.state.user_gender}
           username={this.state.username}
           user_password={this.state.user_password}
