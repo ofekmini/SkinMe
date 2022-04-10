@@ -47,6 +47,10 @@ import ButtonLogIn from '../commons/ButtonLogIn';
         <Logo></Logo>
            <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="משתמשים ממתינים לחוות דעת " onClick={this.btnGetwaitingclients}/>
            <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="לקוחות שלי   " />
+           <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name=" יצירת תוכנית טיפוח חדשה   " />
+           <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="הוספת מוצר טיפוח  " />
+
+
       <div >
        {this.state.users.map((users) => <UserCard key={users.user_id} users={users}/>)}
       </div>
