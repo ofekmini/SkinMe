@@ -1,5 +1,5 @@
 import React from 'react'
-import CosmeticHomePage from '../screens/CosmeticHomePage';
+
 
 const UserCard = (props) => {
   const {users} = props

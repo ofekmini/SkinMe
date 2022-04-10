@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CardProduct from '../commons/CardProduct'
+import { Link } from 'react-router-dom'
 
 
  class Products extends Component {
@@ -9,16 +10,16 @@ import CardProduct from '../commons/CardProduct'
     
     this.state = {
        products:[],
-     
+
+  
        
     }
   }
 
-  componentDidMount()  {
+  componentDidMount(){
   
-    console.clear();
-    
-    const  apiUrl= 'https://localhost:44326/api/Products/approved';
+    const  apiUrl= 'https://localhost:44326/api/Products/status';
+
     fetch(apiUrl, {
       method: 'GET',
       headers: new Headers({
@@ -37,8 +38,8 @@ import CardProduct from '../commons/CardProduct'
         (result) => {
           
           console.log("fetch btnFetchGetProducts= ", result);
-          result.map(st => console.log(st.prod_name));
-          console.log('result[0].prod_name=', result[0].prod_name);
+          result.map(st => console.log(st.prod_id));
+          console.log('result[0].prod_id', result[0].prod_id);
           this.setState({ products: [...result]}
             
             );
@@ -49,12 +50,24 @@ import CardProduct from '../commons/CardProduct'
         })
 
       }
+ 
+
+  
+
+      
+      
+    
+     
   render() {
     return (
       <div >
-     
-<div >
-{this.state.products.map((products) => <CardProduct key={products.prod_id} products={products}/>)}
+       
+        <Link to='/updateprod'>
+        <button style={{backgroundColor:'#f8fbff',border:'none',marginTop:50,paddingLeft:150}}  ><img src={require("../assets/images/edit.png")} width="30" height="30"  alt="edit" /> עדכון מוצר</button>
+        </Link>
+
+      <div >
+       {this.state.products.map((products) => <CardProduct  key={products.prod_id} products={products}/>)}
       </div>
      
       </div>

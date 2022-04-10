@@ -12,6 +12,7 @@ import ForgotPassword from './screens/ForgotPassword';
 import AddProduct from './screens/AddProduct';
 import UserHomePage from './screens/UserHomePage';
 import CosmeticHomePage from './screens/CosmeticHomePage';
+import UpdateManualProduct from './screens/UpdateManualProduct';
 
 
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/userhomepage" element={<UserHomePage />} />
         <Route path="/products" element={<Products />} />
         <Route path="/coshomepage" element={<CosmeticHomePage />} />
+        <Route path="/updateprod" element={<UpdateManualProduct />} />
         
         
 
