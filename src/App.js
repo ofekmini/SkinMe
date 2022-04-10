@@ -13,6 +13,9 @@ import AddProduct from './screens/AddProduct';
 import UserHomePage from './screens/UserHomePage';
 import CosmeticHomePage from './screens/CosmeticHomePage';
 import UpdateManualProduct from './screens/UpdateManualProduct';
+import AddSkinPlan from './screens/AddSkinPlan';
+
+
 
 
 
@@ -36,6 +39,8 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/coshomepage" element={<CosmeticHomePage />} />
         <Route path="/updateprod" element={<UpdateManualProduct />} />
+        <Route path="/addskinplan" element={<AddSkinPlan />} />
+      
         
         
 
