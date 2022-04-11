@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 import FacebookLogin from 'react-facebook-login';
 
 
- 
-
 
 class SignUpUser extends Component {
 
