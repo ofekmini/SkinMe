@@ -4,10 +4,6 @@ import ButtonLogIn from '../commons/ButtonLogIn';
 import CardAddProdToPlan from '../commons/CardAddProdToPlan';
 
 
-
-
-
-
 let local = false;
 //const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
     const apiUrl='https://localhost:44326/api/cos';
@@ -17,7 +13,6 @@ let local = false;
 
  class AddSkinPlan extends Component {
 
-
   constructor(props) {
     super(props)
     
@@ -25,23 +20,13 @@ let local = false;
  
       plan_name:"",
       notes:"",
-
-      products:[]
-
-
-
-    
-
-
+      products:""
    }
   }
-
- 
 
   handlechange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
-      
       
     })
   }

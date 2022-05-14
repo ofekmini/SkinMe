@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 const CardAddProdToPlan = (props) => {
   const {products} = props
 
-
-
   return (
     <div className="card"  style={{ width:'18rem',margin:50,float:"left",border: 'white dotted 2px'}} >
     <img className="card-img-top" src={require("../assets/images/addprod.png")} alt="display image" width="100" height="100"  ></img>   
