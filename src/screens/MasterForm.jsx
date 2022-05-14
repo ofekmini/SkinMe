@@ -3,7 +3,6 @@ import Step1 from './StepForm/Step1'
 import Step2 from './StepForm/Step2'
 import Step3 from './StepForm/Step3'
 import Logo from '../commons/Logo';
-import './Questionaire.css'
 import { FacebookLogin } from 'react-facebook-login';
 import FacebookLogIn from './FacebookLogIn';
 import SignUpUser from './SignUpUser';
@@ -172,10 +171,10 @@ previousButton() {
   let currentStep = this.state.currentStep;
   if(currentStep !==1){
     return (
-      <button 
+      <button style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}
         className="btn btn-secondary" 
         type="button" onClick={this._prev}>
-      Previous
+      חזור
       </button>
     )
   }
@@ -186,10 +185,10 @@ nextButton(){
   let currentStep = this.state.currentStep;
   if(currentStep <3){
     return (
-      <button 
+      <button style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}
         className="btn btn-primary float-right" 
         type="button" onClick={this._next}>
-      Next
+      הבאה
       </button>        
     )
   }

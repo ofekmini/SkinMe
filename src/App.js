@@ -1,6 +1,6 @@
 
 import './App.css';
-import { Routes,Route } from 'react-router-dom';
+import { Routes,Route,Switch,Router } from 'react-router-dom';
 import SignUpCos from './screens/SignUpCos';
 import ChooseUser from './screens/ChooseUser';
 import FacebookLogIn from './screens/FacebookLogIn';
@@ -14,6 +14,14 @@ import UserHomePage from './screens/UserHomePage';
 import CosmeticHomePage from './screens/CosmeticHomePage';
 import UpdateManualProduct from './screens/UpdateManualProduct';
 import AddSkinPlan from './screens/AddSkinPlan';
+import ForgotP from './screens/ForgotP';
+import MapContainer from './screens/MapContainer';
+import Survey from './screens/Survey';
+
+
+
+
+
 
 
 
@@ -40,10 +48,12 @@ function App() {
         <Route path="/coshomepage" element={<CosmeticHomePage />} />
         <Route path="/updateprod" element={<UpdateManualProduct />} />
         <Route path="/addskinplan" element={<AddSkinPlan />} />
+        <Route path="/forgot" element={<ForgotP />} />
+        <Route path="/map" element={<MapContainer />} />
+        <Route path="/survey" element={<Survey />} />
+        
+       
       
-        
-        
-
       </Routes>
     
      

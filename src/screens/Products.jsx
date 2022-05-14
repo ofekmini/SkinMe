@@ -62,9 +62,7 @@ import { Link } from 'react-router-dom'
     return (
       <div >
        
-        <Link to='/updateprod'>
-        <button style={{backgroundColor:'#f8fbff',border:'none',marginTop:50,paddingLeft:150}}  ><img src={require("../assets/images/edit.png")} width="30" height="30"  alt="edit" /> עדכון מוצר</button>
-        </Link>
+     
 
       <div >
        {this.state.products.map((products) => <CardProduct  key={products.prod_id} products={products}/>)}

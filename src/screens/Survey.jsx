@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './Questionaire.css'
 import ButtonLogIn from '../commons/ButtonLogIn'
-import SignUpUser from './SignUpUser'
-import SignUp from './SignUp'
+
+
 
 
  class Survey extends Component {

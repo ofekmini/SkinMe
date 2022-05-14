@@ -13,12 +13,12 @@ class ForgotPassword extends Component {
     
   this.state={
 
-    username:'',
-    user_password:'',
+    password:'',
+    password_confirm:'',
 
     
 }
-  }
+ }
 
 handlechange = (e) => {
   this.setState({

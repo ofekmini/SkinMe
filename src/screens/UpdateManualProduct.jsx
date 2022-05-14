@@ -77,7 +77,7 @@ UpdateProd = () => {
         <InputUser value={this.prod_name} name="prod_name" type="text" label=" שם המוצר  " placeholder="שם המוצר  " onChange={(e)=>{this.setState({prod_name:e.target.value})}}/>
         <InputUser value={this.prod_company} name="prod_company" type="text" label=" שם החברה   " placeholder="שם החברה  " onChange={(e)=>{this.setState({prod_company:e.target.value})}}/><br/>
         <InputUser value={this.prod_manual} name="prod_manual" type="text" label="המלצות  " placeholder="המלצות  " onChange={(e)=>{this.setState({prod_manual:e.target.value})}}/>
-
+        
        
         
         <Link to='/products'>
