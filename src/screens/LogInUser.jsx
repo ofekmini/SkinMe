@@ -15,20 +15,12 @@ class LogInUser extends Component {
 
     username:'',
     user_password:'',
-
-   
-      
-
-      
-    
 }
   }
 
 handlechange = (e) => {
   this.setState({
     [e.target.name]: e.target.value,
-    
-   
     
   })
 }
@@ -37,7 +29,6 @@ handlechange = (e) => {
 checkLogIn = (e)=>{
   console.clear();
   e.preventDefault()
-  
   
   const apiUrl = 'https://localhost:44326/api/';
   
@@ -114,8 +105,6 @@ console.log('END');
 }**/
 
  
-
-
 
 
   render() {
