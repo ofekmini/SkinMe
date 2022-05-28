@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Map, GoogleApiWrapper,Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper,Marker ,InfoWindow} from 'google-maps-react';
 
 const mapStyles = {
   width: '100%',
-  height: '100%',
+  height: '80%',
+  marginTop:80,
 };
 
 class SearchCos extends Component {
@@ -13,6 +14,7 @@ class SearchCos extends Component {
     
     this.state = {
        markers:[],
+       infoWindowOpen: false,
 
   
        
@@ -21,7 +23,7 @@ class SearchCos extends Component {
 
   componentDidMount(){
   
-    const  apiUrl= 'http://localhost:58031/api/Products/status';
+    const  apiUrl= 'http://localhost:58031/api/map';
 
     fetch(apiUrl, {
       method: 'GET',
@@ -55,22 +57,53 @@ class SearchCos extends Component {
       }
  
 
+      onMarkerClick = (props) => {
+        console.log("Marker Clicked");
+        this.setState({
+          infoWindowOpen:true,
+       });
+      }
+
+       onInfoWindowClose = () => {
+        this.setState({
+          infoWindowOpen:false,
+       });
+        
+        
+    }
   
+    
 
 
 
   render() {
     return (
       <div>
-
+         
 
          <Map
           google={this.props.google}
-          zoom={8}
+          zoom={10}
           style={mapStyles}
           initialCenter={{  lat:32.07185106722978, lng: 34.78795457063944}}
+         
           >
-          <Marker position={{ lat: 32.07068735653665, lng: 34.79447770300881}} />
+          
+         
+
+        {this.state.markers.map((markers) =>  <Marker position={markers} onClick={this.onMarkerClick} />)}
+
+        {this.state.infoWindowOpen===true&& (
+
+          <InfoWindow onCloseClick={this.onInfoWindowClose}>
+              <div>
+                 <h1>Marker Info Placeholder</h1>
+              </div>
+          </InfoWindow>
+        )}
+
+       
+       
         
         </Map>
 

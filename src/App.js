@@ -15,7 +15,6 @@ import CosmeticHomePage from './screens/CosmeticHomePage';
 import UpdateManualProduct from './screens/UpdateManualProduct';
 import AddSkinPlan from './screens/AddSkinPlan';
 import ForgotP from './screens/ForgotP';
-import MapContainer from './screens/MapContainer';
 import Survey from './screens/Survey';
 import Maslulim from './screens/Maslulim';
 
@@ -51,7 +50,6 @@ function App() {
         <Route path="/updateprod" element={<UpdateManualProduct />} />
         <Route path="/addskinplan" element={<AddSkinPlan />} />
         <Route path="/forgot" element={<ForgotP />} />
-        <Route path="/map" element={<MapContainer />} />
         <Route path="/survey" element={<Survey />} />
         <Route path="/maslul" element={<Maslulim />} />
         <Route path="/searchcos" element={<SearchCos />} />
