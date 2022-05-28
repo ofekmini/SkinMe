@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
+
+import Maslul from './StepsMaslul/Maslul';
+import Survey from './StepsMaslul/Survey';
+import Payment from './StepsMaslul/Payment';
+import ChooseCos from './StepsMaslul/ChooseCos';
+
 import Step1 from './StepForm/Step1'
 import Step2 from './StepForm/Step2'
 import Step3 from './StepForm/Step3'
+
 import Logo from '../commons/Logo';
 import { FacebookLogin } from 'react-facebook-login';
 import FacebookLogIn from './FacebookLogIn';
 import SignUpUser from './SignUpUser';
 
-class MasterForm extends Component {
+class Maslulim extends Component {
   
   constructor(props) {
     super(props)
@@ -47,25 +54,7 @@ class MasterForm extends Component {
   }
 
 
-  clickAcne=()=>{
-    this.setState({
-      user_skinType:' oily'
-    })
-  }
-
-  clickDry=()=>{
-    this.setState({
-      user_skinType:'עור יבש'
-    })
-  }
-
-  saveSkintype = () => {
-    const user_skinType = this.state.user_skinType;
-    localStorage.setItem('user_skinType',user_skinType);
- 
-    }
-
-    
+  
   
   handleSubmit = (e)=> {
     console.clear();
@@ -133,7 +122,7 @@ class MasterForm extends Component {
   
   _next = () => {
     let currentStep = this.state.currentStep
-    currentStep = currentStep >= 1? 3: currentStep + 1
+    currentStep = currentStep >= 1? 2: currentStep + 1
     this.setState({
       currentStep: currentStep
     })
@@ -141,7 +130,7 @@ class MasterForm extends Component {
     
   _prev = () => {
     let currentStep = this.state.currentStep
-    currentStep = currentStep <= 1? 1: currentStep - 2
+    currentStep = currentStep <= 1? 1: currentStep - 1
     this.setState({
       currentStep: currentStep
     })
@@ -166,7 +155,7 @@ previousButton() {
 
 nextButton(){
   let currentStep = this.state.currentStep;
-  if(currentStep <3){
+  if(currentStep <4){
     return (
       <button style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}
         className="btn btn-primary float-right" 
@@ -209,7 +198,7 @@ nextButton(){
         
          
         />
-     
+       <Step2/>
         
         <Step3 
           currentStep={this.state.currentStep} 
@@ -234,4 +223,4 @@ nextButton(){
 }
 
 
-export default MasterForm;
+export default Maslulim;

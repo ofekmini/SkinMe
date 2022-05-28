@@ -28,11 +28,6 @@ let local = false;
       prod_manual:"",
       prod_status:"Pending",
 
-
-
-    
-
-
    }
   }
 

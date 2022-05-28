@@ -17,7 +17,9 @@ import AddSkinPlan from './screens/AddSkinPlan';
 import ForgotP from './screens/ForgotP';
 import MapContainer from './screens/MapContainer';
 import Survey from './screens/Survey';
+import Maslulim from './screens/Maslulim';
 
+import SearchCos from './screens/SearchCos';
 
 
 
@@ -51,7 +53,9 @@ function App() {
         <Route path="/forgot" element={<ForgotP />} />
         <Route path="/map" element={<MapContainer />} />
         <Route path="/survey" element={<Survey />} />
-        
+        <Route path="/maslul" element={<Maslulim />} />
+        <Route path="/searchcos" element={<SearchCos />} />
+
        
       
       </Routes>

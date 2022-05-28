@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
-import CardProduct from '../commons/CardProduct'
-import { Link } from 'react-router-dom'
+import { Map, GoogleApiWrapper,Marker } from 'google-maps-react';
 
+const mapStyles = {
+  width: '100%',
+  height: '100%',
+};
 
- class Products extends Component {
+class SearchCos extends Component {
 
   constructor(props) {
     super(props)
     
     this.state = {
-       products:[],
+       markers:[],
 
   
        
@@ -37,10 +40,10 @@ import { Link } from 'react-router-dom'
       .then(
         (result) => {
           
-          console.log("fetch btnFetchGetProducts= ", result);
-          result.map(st => console.log(st.prod_id));
-          console.log('result[0].prod_id', result[0].prod_id);
-          this.setState({ products: [...result]}
+          console.log("fetch fetchmarkers= ", result);
+          result.map(st => console.log(st.lat));
+          
+          this.setState({ markers: [...result]}
             
             );
          
@@ -54,22 +57,28 @@ import { Link } from 'react-router-dom'
 
   
 
-      
-      
-    
-     
+
+
   render() {
     return (
-      <div >
-       
-     
+      <div>
 
-      <div >
-       {this.state.products.map((products) => <CardProduct  key={products.prod_id} products={products}/>)}
-      </div>
-     
+
+         <Map
+          google={this.props.google}
+          zoom={8}
+          style={mapStyles}
+          initialCenter={{  lat:32.07185106722978, lng: 34.78795457063944}}
+          >
+          <Marker position={{ lat: 32.07068735653665, lng: 34.79447770300881}} />
+        
+        </Map>
+
       </div>
     )
   }
 }
-export default Products;
+
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyDpT0-zAzLxeo14rv7sE4-pvZHKm2LY-OA'
+})(SearchCos);
