@@ -49,13 +49,13 @@ class MasterForm extends Component {
 
   clickAcne=()=>{
     this.setState({
-      user_skinType:' oily'
+      user_skinType:'oily'
     })
   }
 
   clickDry=()=>{
     this.setState({
-      user_skinType:'עור יבש'
+      user_skinType:'dry'
     })
   }
 

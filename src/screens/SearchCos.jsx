@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Map, GoogleApiWrapper,Marker ,InfoWindow} from 'google-maps-react';
 
+
 const mapStyles = {
   width: '100%',
   height: '80%',
@@ -80,6 +81,12 @@ class SearchCos extends Component {
     return (
       <div>
          
+         
+        <select style={{marginTop:30   ,textAlign:'right',backgroundColor:"white", width:'80%',height:30,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        </select>
 
          <Map
           google={this.props.google}
@@ -91,9 +98,10 @@ class SearchCos extends Component {
           
          
 
+
         {this.state.markers.map((markers) =>  <Marker position={markers} onClick={this.onMarkerClick} />)}
 
-        {this.state.infoWindowOpen===true&& (
+        {this.state.infoWindowOpen && (
 
           <InfoWindow onCloseClick={this.onInfoWindowClose}>
               <div>
