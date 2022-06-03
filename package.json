@@ -22,7 +22,11 @@
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://proj.ruppin.ac.il/bgroup90/test2/tar3/build",
+  
+
+  "homepage": "http://localhost:3000/",
+
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
