@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import CardProduct from '../commons/CardProduct';
 import RoutineProductsDay from '../commons/RoutineProductsDay';
-import RoutineProducts from '../commons/RoutineProductsDay';
 import RoutineProductsNight from '../commons/RoutineProductsNight';
 
 class UserHomePage extends Component {

@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 
-import Maslul from './StepsMaslul/Maslul';
-import Survey from './StepsMaslul/Survey';
-import Payment from './StepsMaslul/Payment';
-import ChooseCos from './StepsMaslul/ChooseCos';
+
 
 import Step1 from './StepForm/Step1'
 import Step2 from './StepForm/Step2'
