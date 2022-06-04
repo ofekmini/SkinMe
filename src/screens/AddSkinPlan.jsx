@@ -6,7 +6,7 @@ import CardAddProdToPlan from '../commons/CardAddProdToPlan';
 
 let local = false;
 //const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
-    const apiUrl='https://localhost:44326/api/cos';
+    const apiUrl='https://localhost:58031/api/cos';
 //if (local) {
  // apiUrl = 'https://localhost:44326/api/LogIn/register';
 //}
@@ -33,7 +33,7 @@ let local = false;
 
   componentDidMount(){
   
-    const  apiUrl= 'https://localhost:44326/api/Products/status';
+    const  apiUrl= 'https://localhost:58031/api/Products/status';
 
     fetch(apiUrl, {
       method: 'GET',
