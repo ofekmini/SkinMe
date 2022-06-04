@@ -19,6 +19,9 @@ import Survey from './screens/Survey';
 import Maslulim from './screens/Maslulim';
 
 import SearchCos from './screens/SearchCos';
+import ProductDetails from './screens/ProductDetails';
+
+import MaslulInfo from './screens/MaslulInfo';
 
 
 
@@ -53,7 +56,9 @@ function App() {
         <Route path="/survey" element={<Survey />} />
         <Route path="/maslul" element={<Maslulim />} />
         <Route path="/searchcos" element={<SearchCos />} />
+        <Route path="/productdetails" element={<ProductDetails />} />
 
+        <Route path="/maslulinfo" element={<MaslulInfo />} />
        
       
       </Routes>
