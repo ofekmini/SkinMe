@@ -15,6 +15,8 @@ class LogInUser extends Component {
 
     username:'',
     user_password:'',
+
+    appUser_id:''
 }
   }
 
@@ -29,8 +31,10 @@ handlechange = (e) => {
 checkLogIn = (e)=>{
   console.clear();
   e.preventDefault()
+
   
-  const apiUrl = 'https://localhost:58031/api/';
+  
+  const apiUrl = 'http://localhost:58031/api/LogIn';
   
 
   const Logincheck={
@@ -41,7 +45,7 @@ checkLogIn = (e)=>{
     
   };
   
-  fetch(apiUrl +'LogIn', {
+  fetch(apiUrl , {
     method: 'Post',
     body: JSON.stringify(Logincheck),
     headers: new Headers({
@@ -59,7 +63,7 @@ checkLogIn = (e)=>{
     .then(
       (result) => {
         console.log("fetch POST= ", result);
-        console.log(result.username);
+        console.log(result.appUser_id);
         console.log(this.state);
       },
       (error) => {
