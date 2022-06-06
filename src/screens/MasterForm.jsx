@@ -6,6 +6,7 @@ import Logo from '../commons/Logo';
 import { FacebookLogin } from 'react-facebook-login';
 import FacebookLogIn from './FacebookLogIn';
 import SignUpUser from './SignUpUser';
+import './Questionaire.css'
 
 class MasterForm extends Component {
   

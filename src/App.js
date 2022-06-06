@@ -15,7 +15,7 @@ import CosmeticHomePage from './screens/CosmeticHomePage';
 import UpdateManualProduct from './screens/UpdateManualProduct';
 import AddSkinPlan from './screens/AddSkinPlan';
 import ForgotP from './screens/ForgotP';
-import Survey from './screens/Survey';
+
 import Maslulim from './screens/Maslulim';
 
 import SearchCos from './screens/SearchCos';
@@ -23,11 +23,7 @@ import ProductDetails from './screens/ProductDetails';
 
 import MaslulInfo from './screens/MaslulInfo';
 
-
-
-
-
-
+import ChooseMyCos from './screens/ChooseMyCos';
 
 
 
@@ -53,13 +49,15 @@ function App() {
         <Route path="/updateprod" element={<UpdateManualProduct />} />
         <Route path="/addskinplan" element={<AddSkinPlan />} />
         <Route path="/forgot" element={<ForgotP />} />
-        <Route path="/survey" element={<Survey />} />
+       
         <Route path="/maslul" element={<Maslulim />} />
         <Route path="/searchcos" element={<SearchCos />} />
         <Route path="/productdetails" element={<ProductDetails />} />
 
         <Route path="/maslulinfo" element={<MaslulInfo />} />
+        <Route path="/choosecos" element={<ChooseMyCos />} />
        
+        
       
       </Routes>
     

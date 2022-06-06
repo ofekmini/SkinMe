@@ -10,13 +10,15 @@ const RoutineProductsNight = (props) => {
    }
 
   return (
-    <div className="card"  style={{ width:'7rem',margin:5,float:"left",border: '#B5651D solid 2px',borderRadius:10}} >
+    <div className="card"  style={{backgroundColor:'#EEE4C4', width:'10rem',height:'15rem',margin:5,marginRight:20,float:"right",border: '#B9D6BC solid 2px',borderRadius:10}} >
     <div className="card-body">
-      <div>
+      <div  style={{margin:0}}>
           
-          <h6 className="card-title" style={{color:"black",}}> {productsnight.prod_name}</h6>
-          <h6 className="card-title" style={{color:"#B5651D",}}> {productsnight.prod_company} </h6>
-          <ButtonLogIn  style={{margin:5,backgroundColor:"black",color:"white",fontSize:10,width:'60%',height:25,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="פירוט מוצר"/>
+          <h6 className="card-title" style={{color:"#AA9084", fontSize:15}}> {productsnight.prod_name} <br/> {productsnight.prod_company}</h6>
+          <h6 className="card-title" style={{color:"black",fontSize:12,margin:0}}> הוראות שימוש</h6>
+           <p className="card-text" style={{color:"black",fontSize:12,textAlign:'center'}} > {productsnight.prod_description} </p> 
+         
+          
           
       </div>
     </div>

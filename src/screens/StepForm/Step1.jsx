@@ -36,7 +36,7 @@ function Step1(props) {
  <input type="radio" name="user_gender" value="M"   onChange={props.handleChange}/>
  <img alt="wrinkles" height="100" width="100" src={require("../../assets/images/boy.png")}/>
 
-  </label>
+</label>
 
  
 
@@ -46,7 +46,7 @@ function Step1(props) {
 <input type="radio" name="user_gender" value="F"   onChange={props.handleChange}/>
 <img alt="wrinkles" height="100" width="100" src={require("../../assets/images/girl.png")}/>
 
- </label>
+</label>
 
  
 <InputUser value={props.username} name="username" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={props.handleChange}/>

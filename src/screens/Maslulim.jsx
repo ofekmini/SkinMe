@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 
-
-
-import Step1 from './StepForm/Step1'
-import Step2 from './StepForm/Step2'
-import Step3 from './StepForm/Step3'
-
 import Logo from '../commons/Logo';
 import { FacebookLogin } from 'react-facebook-login';
 import FacebookLogIn from './FacebookLogIn';
 import SignUpUser from './SignUpUser';
+
+import Survey from './StepsMaslul/Survey';
+import Payment from './StepsMaslul/Payment';
+import ChooseMaslul from './StepsMaslul/ChooseMaslul';
+import CardCosInfo from '../commons/CardCosInfo';
+import './Questionaire.css'
 
 class Maslulim extends Component {
   
@@ -17,26 +17,18 @@ class Maslulim extends Component {
     super(props)
     this.state = {
       currentStep: 1,
-      first_name:"",
-      last_name:"",
-      user_gender:"",
-      username:"",
-      user_password:"",
-      email:"",
-      user_birth:"",
+
+      user_period:"",
+      user_dermatology:"",
+      user_currentProducts:"",
+      user_sensitive:"",
+      user_areas:"",
+
       picture:"",
-      user_processImg:"",
-      
 
-      user_skinType:"",
-      
-      user_role:"User",
 
-      user_skinProblem:"",
-      user_cheek:"",
-      user_Tzone:"",
-      user_sunExposure:"",
-      user_stress:"",
+      user_route:"",
+      user_status:"Waiting"
 
       
       
@@ -52,45 +44,58 @@ class Maslulim extends Component {
 
 
   
+  clickMaslulOne=()=>{
+    this.setState({
+      user_route:'1'
+    })
+  }
+  
+  clickMaslulTwo=()=>{
+    this.setState({
+      user_route:'2'
+    })
+  }
+
+  saveMaslul = () => {
+    const user_route = this.state.user_route;
+    localStorage.setItem('user_route',user_route);
+ 
+    }
+
+    
   
   handleSubmit = (e)=> {
     console.clear();
     e.preventDefault()
-    const apiUrl = 'https://localhost:44326/api/LogIn/register';
+    const apiUrl = 'http://localhost:58031/api/Users/addmaslul';
 
     
-    const user_skinType = localStorage.getItem('user_skinType') ;
-    this.setState({user_skinType });
+    const user_route = localStorage.getItem('user_route') ;
+    this.setState({user_route });
     
 
-    const user_data={
+    const user_maslulinfo={
         
-      first_name:this.state.first_name,
-      last_name:this.state.last_name,
-      user_gender:this.state.user_gender,
-      username:this.state.username,
-      user_password:this.state.user_password,
-      email:this.state.email,
-      user_birth:this.state.user_birth,
-      picture:this.state.picture,
-      user_processImg:this.state.user_processImg,
-      user_skinType:this.state.user_skinType,
-      user_skinProblem:this.state.user_skinProblem,
-      user_cheek:this.state.user_cheek,
-      user_Tzone:this.state.user_Tzone,
-      user_sunExposure:this.state.user_sunExposure,
-      user_stress:this.state.user_stress,
-      user_role:this.state.user_role,
+      
+
+      user_period:this.state.user_period,
+      user_dermatology:this.state.user_dermatology,
+      user_currentProducts:this.state.user_currentProducts,
+      user_sensitive:this.state.user_sensitive,
+      user_areas:this.state.user_areas,
+
+      user_route:this.state.user_route
 
 
-      user_skinType:this.state.user_skinType
+
+      
       
 
     };
 
     fetch(apiUrl, {
-      method: 'POST',
-      body: JSON.stringify(user_data),
+      method: 'PUT',
+      body: JSON.stringify(user_maslulinfo),
       headers: new Headers({
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json; charset=UTF-8',
@@ -119,7 +124,7 @@ class Maslulim extends Component {
   
   _next = () => {
     let currentStep = this.state.currentStep
-    currentStep = currentStep >= 1? 2: currentStep + 1
+    currentStep = currentStep >= 2? 3: currentStep + 1
     this.setState({
       currentStep: currentStep
     })
@@ -152,7 +157,7 @@ previousButton() {
 
 nextButton(){
   let currentStep = this.state.currentStep;
-  if(currentStep <4){
+  if(currentStep <3){
     return (
       <button style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}
         className="btn btn-primary float-right" 
@@ -171,7 +176,7 @@ nextButton(){
 
     return (
       <React.Fragment>
-      <Logo/>
+      
      
       <p>Step {this.state.currentStep} </p> 
 
@@ -179,36 +184,38 @@ nextButton(){
       {/* 
         render the form steps and pass required props in
       */}
-        <Step1 
+        <Survey
           currentStep={this.state.currentStep} 
           handleChange={this.handleChange}
          
-          first_name={this.state.first_name}
-          last_name= {this.state.last_name}
-          user_gender={this.state.user_gender}
-          username={this.state.username}
-          user_password={this.state.user_password}
-          email={this.state.email}
-          user_birth={this.state.user_birth}
-          picture={this.state.picture}
+          
+          user_period={this.state.user_period}
+          user_dermatology={this.state.user_dermatology}
+          user_currentProducts={this.state.user_currentProducts}
+          user_sensitive={this.state.user_sensitive}
+          user_areas={this.state.user_areas}
           
         
          
         />
-       <Step2/>
+        <Payment
+        currentStep={this.state.currentStep} 
+        handleChange={this.handleChange}
+        saveMaslul={this.saveMaslul}
         
-        <Step3 
+        />
+        
+        <ChooseMaslul
           currentStep={this.state.currentStep} 
           handleChange={this.handleChange}
-          clickAcne={this.clickAcne}
-          clickDry={this.clickDry}
-          saveSkintype={this.saveSkintype}
+          clickMaslulOne={this.clickMaslulOne}
+          clickMaslulTwo={this.clickMaslulTwo}
+          
 
-          user_skinProblem={this.state.user_skinProblem}
-          user_cheek={this.state.user_cheek}
-          user_Tzone={this.state.user_Tzone}
-          user_sunExposure={this.state.user_sunExposure}
-          user_stress={this.state.user_stress}
+      
+         
+        
+
         />
         {this.previousButton()}
         {this.nextButton()}
@@ -220,4 +227,4 @@ nextButton(){
 }
 
 
-export default Maslulim;
+export default Maslulim ;
