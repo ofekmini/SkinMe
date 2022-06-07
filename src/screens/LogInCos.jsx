@@ -6,17 +6,15 @@ import { Link } from 'react-router-dom';
 import PopUpCos from '../commons/PopUpCos';
 
 
-class LogInUser extends Component {
+class LogInCos extends Component {
 
   constructor(props) {
     super(props)
     
   this.state={
 
-    username:'',
-    user_password:'',
-
-    appUser_id:''
+    cosmetologist_user_name:'',
+    cosmetologist_user_password:'',
 }
   }
 
@@ -27,24 +25,20 @@ handlechange = (e) => {
   })
 }
 
+
+
 checkLogIn = (e)=>{
   console.clear();
   e.preventDefault()
-
   
-  
-<<<<<<< Updated upstream
-  const apiUrl = 'http://localhost:58031/api/LogIn';
-=======
-  const apiUrl = 'http://localhost:58031/api/LogInUser';
->>>>>>> Stashed changes
+  const apiUrl = 'http://localhost:58031/api/LogInCos';
   
   const Logincheck={
-    userName:this.state.username,
-    password:this.state.user_password,
+    cosmetologist_user_name:this.state.username,
+    cosmetologist_user_password:this.state.user_password,
   };
   
-  fetch(apiUrl , {
+  fetch(apiUrl +'LogIn', {
     method: 'Post',
     body: JSON.stringify(Logincheck),
     headers: new Headers({
@@ -57,12 +51,12 @@ checkLogIn = (e)=>{
       console.log('res.status', res.status);
       console.log('res.ok', res.ok);
       return res.json()
-      
+
     })
     .then(
       (result) => {
         console.log("fetch POST= ", result);
-        console.log(result.appUser_id);
+        console.log(result.username);
         console.log(this.state);
       },
       (error) => {
@@ -78,10 +72,12 @@ checkLogIn = (e)=>{
   render() {
     return (
       <div>
+        
         <Logo/>
         <br></br><br></br>
-        <h2 style={{color:"black"}}>כניסת משתמשים</h2>
+        <h2 style={{color:"black"}}>כניסת קוסמטיקאיות</h2>
         <br></br>
+
         <InputUser value={this.username} name="username" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({username:e.target.value})}}/>
 
         <InputUser value={this.user_password} name="user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({user_password:e.target.value})}}/>
@@ -91,9 +87,7 @@ checkLogIn = (e)=>{
         <ButtonLogIn style={{backgroundColor:'#f8fbff',border:'none',color:'black',textDecorationLine: 'underline'}} name="  שכחתי סיסמה"/> 
         </Link>
         <div style={{margin:50}}>
-       <Link to="/chooseuser">
-        <ButtonLogIn style={{fontSize:20,backgroundColor:'#f8fbff',border:'none',color:'#bc8f8f',textDecorationLine: 'underline'}} name=" הרשמה לאפליקציה"/> 
-        </Link>
+       
 
         </div>
 
@@ -102,4 +96,4 @@ checkLogIn = (e)=>{
   }
 }
 
-export default LogInUser;
+export default LogInCos;

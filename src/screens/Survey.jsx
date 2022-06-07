@@ -34,7 +34,7 @@ import ButtonLogIn from '../commons/ButtonLogIn'
   addUser = (e)=>{
     console.clear();
     e.preventDefault()
-    const apiUrl = 'https://localhost:44326/api/LogIn';
+    const apiUrl = 'http://localhost:44326/api/LogIn';
     
     
 

@@ -17,13 +17,21 @@ import AddSkinPlan from './screens/AddSkinPlan';
 import ForgotP from './screens/ForgotP';
 
 import Maslulim from './screens/Maslulim';
-
 import SearchCos from './screens/SearchCos';
 import ProductDetails from './screens/ProductDetails';
-
 import MaslulInfo from './screens/MaslulInfo';
+<<<<<<< Updated upstream
 
 import ChooseMyCos from './screens/ChooseMyCos';
+=======
+import LogInCos from './screens/LogInCos';
+import WelcomeSkinMe from './screens/WelcomeSkinMe';
+
+
+
+
+
+>>>>>>> Stashed changes
 
 
 
@@ -37,7 +45,10 @@ function App() {
 
       <Routes>
 
-        <Route path="/" element={<LogInUser/>} />
+        <Route path="/" element={<WelcomeSkinMe/>} />
+        <Route path="/LogInUser" element={<LogInUser/>} />
+        <Route path="/LogInCos" element={<LogInCos/>} />
+
         <Route path="/chooseuser" element={<ChooseUser />} />
         <Route path="/signupuser" element={<MasterForm />} />
         <Route path="/signupcos" element={<SignUpCos />} />

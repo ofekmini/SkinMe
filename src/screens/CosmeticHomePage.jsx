@@ -10,8 +10,11 @@ import { Link } from 'react-router-dom';
     super(props)
     this.state = {
        users:[],
+       user_id:localStorage.getItem('user_id')
+
     }
   }
+  
 
   btnGetwaitingclients = () => {
     console.clear();
@@ -51,10 +54,11 @@ import { Link } from 'react-router-dom';
         const  apiUrl= 'http://localhost:58031/api/Cos/MyClients';
 
         const cosmetologist_id={
-          cosmetologist_id:this.state.cosmetologist_id
+          cosmetologist_id:this.state.user_id
         };
+
         fetch(apiUrl + {
-          method: 'POST',
+          method: 'POST', 
           body: JSON.stringify(cosmetologist_id),
           headers: new Headers({
             'Content-Type': 'application/json; charset=UTF-8',
