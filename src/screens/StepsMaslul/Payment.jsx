@@ -1,26 +1,47 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import InputUser from '../../commons/InputUser';
 
 
 
 function Payment(props) {
+  const[maslul,setmaslul]=useState();
+
+  useEffect(()=>{
+    if(localStorage.getItem('user_route')==1){
+      setmaslul(true);
+    }else{
+      setmaslul(false);
+    }
+  })
   if (props.currentStep !== 3) {
     return null
   } 
+  
+
+
   return(
+    <React.Fragment>
      
     <div>
       <div style={{backgroundColor:'#EEE4C4'}}>
         <img alt="cart" height="60" width="60" style={{margin:0}} src={require("../../assets/images/cart.png")}/>
-        <h3> פירוט הרכישה </h3> 
+        <h2 style={{color:'#c4a092',margin:0,textDecoration:'underline'}}> פירוט הרכישה </h2> 
 
-        <p>add maslul info and price ????</p>
+        {maslul?(
+          <h3 style={{color:'black',fontFamily:'sans-serif'}}>  מסלול ייעוץ חד פעמי<br/><br/> :מחיר לתשלום<br/> 250 שייח <br/></h3>
+
+        ):(
+          <h3 style={{color:'black',fontFamily:'sans-serif'}}>  מסלול ליווי<br/><br/> :מחיר לתשלום<br/> 150 שייח <br/></h3>
+
+        )}
+
       </div>
       <img alt="visa" height="40" width="40"  src={require("../../assets/images/visalogo.png")}/>
 
       <img alt="mc" height="40" width="40" style={{marginLeft:20}}src={require("../../assets/images/MasterCardlogo.png")}/>
 
-    <div className="form-group" style={{border: '#B9D6BC solid 2px',borderRadius:10 , padding:20,margin:10}}>
+     <div className="form-group" style={{border: '#B9D6BC solid 2px',borderRadius:10 , padding:20,margin:10}}>
       
       <InputUser value={props.creditcard} name="creditcard" type="text" label="מספר כרטיס " placeholder="מספר כרטיס  "  onChange={props.handleChange}/>  
      
@@ -80,10 +101,18 @@ function Payment(props) {
 
         
     </div>
-    <button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={props.saveMaslul}> בחר את הקוסמטיקאית שלך </button>
-    </div>
     
+ 
+    </div>
 
+    <Link to="/choosecos">
+    <button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={props.saveMaslul}> ביצוע תשלום    </button>
+    </Link>
+
+
+
+    
+    </React.Fragment>
   );
 }
 export default  Payment ;
