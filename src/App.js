@@ -20,18 +20,13 @@ import Maslulim from './screens/Maslulim';
 import SearchCos from './screens/SearchCos';
 import ProductDetails from './screens/ProductDetails';
 import MaslulInfo from './screens/MaslulInfo';
-<<<<<<< Updated upstream
+
 
 import ChooseMyCos from './screens/ChooseMyCos';
-=======
+
 import LogInCos from './screens/LogInCos';
 import WelcomeSkinMe from './screens/WelcomeSkinMe';
 
-
-
-
-
->>>>>>> Stashed changes
 
 
 
