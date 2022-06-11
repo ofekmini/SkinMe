@@ -4,6 +4,7 @@ import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
 import { Link } from 'react-router-dom';
 import PopUpCos from '../commons/PopUpCos';
+import Menu from './Menu';
 
 
 class LogInUser extends Component {
@@ -94,6 +95,7 @@ checkLogIn = (e)=>{
        <Link to="/chooseuser">
         <ButtonLogIn style={{fontSize:20,backgroundColor:'#f8fbff',border:'none',color:'#bc8f8f',textDecorationLine: 'underline'}} name=" הרשמה לאפליקציה"/> 
         </Link>
+        
 
         </div>
 
