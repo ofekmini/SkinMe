@@ -2,11 +2,15 @@ import React, { Component } from 'react'
 import { Map, GoogleApiWrapper,Marker ,InfoWindow} from 'google-maps-react';
 
 
+
 const mapStyles = {
   width: '100%',
   height: '80%',
-  marginTop:80,
+  marginTop:40,
 };
+
+
+
 
 class SearchCos extends Component {
 
@@ -16,13 +20,21 @@ class SearchCos extends Component {
     this.state = {
        markers:[],
        infoWindowOpen: false,
+       cos:[],
+       value:""
+      
+       
 
   
        
     }
+   
   }
 
-  componentDidMount(){
+  
+
+
+  map=()=>{
   
     const  apiUrl= 'http://localhost:58031/api/map';
 
@@ -55,7 +67,46 @@ class SearchCos extends Component {
           console.log("err post=", error);
         })
 
-      }
+      };
+
+      cosList=()=>{
+
+      const  apiUrl= 'http://localhost:58031/api/map';
+
+    fetch(apiUrl, {
+      method: 'GET',
+      headers: new Headers({
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json; charset=UTF-8',
+      })
+    })
+      .then(res => {
+        
+        console.log('res=', res);
+        console.log('res.status', res.status);
+        console.log('res.ok', res.ok);
+        return res.json()
+      })
+      .then(
+        (result) => {
+          
+          console.log("fetch cosList= ", result);
+          result.map(st => console.log(st.cosmetic_businessName));
+          
+          this.setState({ cos: [...result]}
+            
+            );
+         
+        },
+        (error) => {
+          console.log("err post=", error);
+        })
+
+      };
+
+
+    
+      
  
 
       onMarkerClick = (props) => {
@@ -72,21 +123,31 @@ class SearchCos extends Component {
         
         
     }
+
+    componentDidMount(){
+      this.cosList();
+      this.map();
+    }
+
+    handlechange = (e) => {
+      this.setState({
+        [e.target.name]: e.target.value,
+        
+      })
+      console.log(e.target.value)
+    }
+
   
-    
-
-
+  
 
   render() {
     return (
-      <div>
+      <div style={{marginTop:40}}>
          
-         
-        <select style={{marginTop:30   ,textAlign:'right',backgroundColor:"white", width:'80%',height:30,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}>
-        <option value=""></option>
-        <option value=""></option>
-        <option value=""></option>
-        </select>
+         <h1 style={{color:'black',fontSize:15}}>חיפוש קוסמטיקאית </h1>
+         <select style={{height:40,borderRadius:50,marginTop:30,borderColor:'#c4a092'}} onChange={this.handlechange}>
+         {this.state.cos.map((cos) => <option name='cosmetologist_id' value={cos.cosmetologist_id}>{cos.cosmetic_businessName},{cos.cosmetic_city}</option>)} 
+          </select>
 
          <Map
           google={this.props.google}
