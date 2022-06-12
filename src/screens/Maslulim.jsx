@@ -7,7 +7,7 @@ import SignUpUser from './SignUpUser';
 
 import Survey from './StepsMaslul/Survey';
 import Payment from './StepsMaslul/Payment';
-import ChooseMaslul from './StepsMaslul/ChooseMaslul';
+
 import CardCosInfo from '../commons/CardCosInfo';
 import './Questionaire.css'
 
@@ -27,8 +27,9 @@ class Maslulim extends Component {
       picture:"",
 
 
-      user_route:"",
-      user_status:"Waiting"
+      user_route:localStorage.getItem('user_route'),
+      user_status:"Waiting",
+      appUser_id: localStorage.getItem('appUser_id')
 
       
       
@@ -67,16 +68,10 @@ class Maslulim extends Component {
   handleSubmit = (e)=> {
     console.clear();
     e.preventDefault()
-    const apiUrl = 'http://localhost:58031/api/Users/addmaslul';
-
-    
-    const user_route = localStorage.getItem('user_route') ;
-    this.setState({user_route });
-    
+    const apiUrl = `http://localhost:58031/api/Users/addmaslul?id=${this.state.appUser_id}`;
 
     const user_maslulinfo={
-        
-      
+
 
       user_period:this.state.user_period,
       user_dermatology:this.state.user_dermatology,
@@ -85,11 +80,6 @@ class Maslulim extends Component {
       user_areas:this.state.user_areas,
 
       user_route:this.state.user_route
-
-
-
-      
-      
 
     };
 
@@ -109,7 +99,7 @@ class Maslulim extends Component {
       })
       .then(
         (result) => {
-          console.log("fetch POST= ", result);
+          console.log("fetch PUT= ", result);
           console.log(result.username);
           console.log(this.state);
         },
@@ -124,7 +114,7 @@ class Maslulim extends Component {
   
   _next = () => {
     let currentStep = this.state.currentStep
-    currentStep = currentStep >= 2? 3: currentStep + 1
+    currentStep = currentStep >= 1? 3: currentStep + 1
     this.setState({
       currentStep: currentStep
     })
@@ -132,7 +122,7 @@ class Maslulim extends Component {
     
   _prev = () => {
     let currentStep = this.state.currentStep
-    currentStep = currentStep <= 1? 1: currentStep - 1
+    currentStep = currentStep <= 1? 1: currentStep - 2
     this.setState({
       currentStep: currentStep
     })
@@ -205,18 +195,7 @@ nextButton(){
         
         />
         
-        <ChooseMaslul
-          currentStep={this.state.currentStep} 
-          handleChange={this.handleChange}
-          clickMaslulOne={this.clickMaslulOne}
-          clickMaslulTwo={this.clickMaslulTwo}
-          
-
-      
-         
-        
-
-        />
+       
         {this.previousButton()}
         {this.nextButton()}
 

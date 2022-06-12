@@ -1,6 +1,6 @@
 
 import './App.css';
-import { Routes,Route,Switch,Router } from 'react-router-dom';
+import { Routes,Route,Switch, BrowserRouter as Router, BrowserRouter,Outlet} from 'react-router-dom';
 import SignUpCos from './screens/SignUpCos';
 import ChooseUser from './screens/ChooseUser';
 import FacebookLogIn from './screens/FacebookLogIn';
@@ -20,30 +20,59 @@ import Maslulim from './screens/Maslulim';
 import SearchCos from './screens/SearchCos';
 import ProductDetails from './screens/ProductDetails';
 import MaslulInfo from './screens/MaslulInfo';
-<<<<<<< Updated upstream
+
 
 import ChooseMyCos from './screens/ChooseMyCos';
-=======
+
 import LogInCos from './screens/LogInCos';
 import WelcomeSkinMe from './screens/WelcomeSkinMe';
 
+import Menu from './screens/Menu';
 
 
 
-
->>>>>>> Stashed changes
-
-
-
+const SidebarLayout = () => (
+  <>
+    <Menu />
+    <Outlet />
+  </>
+);
 
 
 
 function App() {
+
+
+
+ 
   return (
-    <div className="App">
-      <header className="App-header">
+    
+    <div className="App" id="outer-container">
+      
+
+             
+
 
       <Routes>
+
+      <Route element={<SidebarLayout/>}>
+           
+            <Route path="/choosecos" element={<ChooseMyCos />} />
+           <Route path="/maslulinfo" element={<MaslulInfo />} />
+           <Route path="/userhomepage" element={<UserHomePage />} />
+           <Route path="/forgotpassword" element={<ForgotPassword />} />
+           <Route path="/addproduct" element={<AddProduct />} />
+           <Route path="/userhomepage" element={<UserHomePage />} />
+           <Route path="/products" element={<Products />} />
+           <Route path="/coshomepage" element={<CosmeticHomePage />} />
+           <Route path="/updateprod" element={<UpdateManualProduct />} />
+           <Route path="/addskinplan" element={<AddSkinPlan />} />
+           <Route path="/forgot" element={<ForgotP />} />
+           <Route path="/maslul" element={<Maslulim />} />
+           <Route path="/searchcos" element={<SearchCos />} />
+           <Route path="/productdetails" element={<ProductDetails />} />
+           
+          </Route>
 
         <Route path="/" element={<WelcomeSkinMe/>} />
         <Route path="/LogInUser" element={<LogInUser/>} />
@@ -52,29 +81,22 @@ function App() {
         <Route path="/chooseuser" element={<ChooseUser />} />
         <Route path="/signupuser" element={<MasterForm />} />
         <Route path="/signupcos" element={<SignUpCos />} />
-        <Route path="/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/addproduct" element={<AddProduct />} />
-        <Route path="/userhomepage" element={<UserHomePage />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/coshomepage" element={<CosmeticHomePage />} />
-        <Route path="/updateprod" element={<UpdateManualProduct />} />
-        <Route path="/addskinplan" element={<AddSkinPlan />} />
-        <Route path="/forgot" element={<ForgotP />} />
-       
-        <Route path="/maslul" element={<Maslulim />} />
-        <Route path="/searchcos" element={<SearchCos />} />
-        <Route path="/productdetails" element={<ProductDetails />} />
+        
 
-        <Route path="/maslulinfo" element={<MaslulInfo />} />
-        <Route path="/choosecos" element={<ChooseMyCos />} />
        
         
-      
-      </Routes>
-    
      
        
-      </header>
+       
+     
+      
+    </Routes>
+    
+   
+   
+   
+   
+    
     </div>
   );
 }

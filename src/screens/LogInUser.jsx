@@ -4,6 +4,7 @@ import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
 import { Link } from 'react-router-dom';
 import PopUpCos from '../commons/PopUpCos';
+import Menu from './Menu';
 
 
 class LogInUser extends Component {
@@ -33,9 +34,9 @@ checkLogIn = (e)=>{
 
   
   
+
   const apiUrl = 'http://localhost:58031/api/LogIn/User';
 
-  
   const Logincheck={
     userName:this.state.username,
     password:this.state.user_password,
@@ -60,7 +61,10 @@ checkLogIn = (e)=>{
       (result) => {
         console.log("fetch POST= ", result);
         console.log(result.appUser_id);
+        
+        localStorage.setItem("appUser_id",result);
         console.log(this.state);
+        
       },
       (error) => {
         console.log("err post=", error);
@@ -91,6 +95,7 @@ checkLogIn = (e)=>{
        <Link to="/chooseuser">
         <ButtonLogIn style={{fontSize:20,backgroundColor:'#f8fbff',border:'none',color:'#bc8f8f',textDecorationLine: 'underline'}} name=" הרשמה לאפליקציה"/> 
         </Link>
+        
 
         </div>
 

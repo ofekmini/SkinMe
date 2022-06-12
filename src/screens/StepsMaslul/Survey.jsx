@@ -16,7 +16,7 @@ function Survey(props) {
 
     <input type="file"  name="picture"  value={props.picture}  onChange={props.handleChange} />  <br/>
     
-    <text style={{color:"black"}}> מחזור חדשי     </text><br/>
+    <text style={{color:"black"}}> מחזור חדשי </text><br/>
 
 
 <label className='label'>
