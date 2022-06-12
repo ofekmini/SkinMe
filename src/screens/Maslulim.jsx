@@ -152,7 +152,7 @@ nextButton(){
       <button style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}
         className="btn btn-primary float-right" 
         type="button" onClick={this._next}>
-      הבאה
+      הבא
       </button>        
     )
   }
