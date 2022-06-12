@@ -51,7 +51,7 @@ import { Link } from 'react-router-dom';
       btnGetMyclients = () => { 
         console.clear();
         
-        const  apiUrl= 'http://localhost:58031/api/Cos/MyClients';
+        const  apiUrl= 'http://localhost:58031/api/Cos/GetClients';
 
         const cosmetologist_id={
           cosmetologist_id:this.state.user_id

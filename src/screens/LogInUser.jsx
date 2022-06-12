@@ -48,7 +48,7 @@ checkLogIn = (e)=>{
     headers: new Headers({
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json; charset=UTF-8',
-    })
+    }) 
   })
     .then(res => {
       console.log('res=', res);

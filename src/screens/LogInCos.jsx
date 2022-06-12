@@ -33,14 +33,14 @@ checkLogIn = (e)=>{
   
   const apiUrl = 'http://localhost:58031/api/LogIn/Cos';
   
-  const Logincheck={
+  const LogincheckCos={
     cosmetologist_user_name:this.state.username,
     cosmetologist_user_password:this.state.user_password,
   };
   
-  fetch(apiUrl +'LogIn', {
+  fetch(apiUrl , {
     method: 'Post',
-    body: JSON.stringify(Logincheck),
+    body: JSON.stringify(LogincheckCos),
     headers: new Headers({
       'Content-Type': 'application/json; charset=UTF-8',
       'Accept': 'application/json; charset=UTF-8',
@@ -56,11 +56,13 @@ checkLogIn = (e)=>{
     .then(
       (result) => {
         console.log("fetch POST= ", result);
-        console.log(result.username);
+        console.log(result.appUser_id);
+        
+        localStorage.setItem("appUser_id",result);
         console.log(this.state);
       },
       (error) => {
-        console.log("err post=", error);
+        console.log("err post=", error); 
       
         
       });
