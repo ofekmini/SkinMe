@@ -33,11 +33,8 @@ checkLogIn = (e)=>{
 
   
   
-<<<<<<< Updated upstream
-  const apiUrl = 'http://localhost:58031/api/LogIn';
-=======
-  const apiUrl = 'http://localhost:58031/api/LogInUser';
->>>>>>> Stashed changes
+  const apiUrl = 'http://localhost:58031/api/LogIn/User';
+
   
   const Logincheck={
     userName:this.state.username,

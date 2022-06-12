@@ -31,7 +31,7 @@ checkLogIn = (e)=>{
   console.clear();
   e.preventDefault()
   
-  const apiUrl = 'http://localhost:58031/api/LogInCos';
+  const apiUrl = 'http://localhost:58031/api/LogIn/Cos';
   
   const Logincheck={
     cosmetologist_user_name:this.state.username,
