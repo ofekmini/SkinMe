@@ -10,7 +10,8 @@ import { Link } from 'react-router-dom';
     super(props)
     this.state = {
        users:[],
-       user_id:localStorage.getItem('user_id')
+       user_id:localStorage.getItem('user_id'),
+       user_status:"waiting"
 
     }
   }
@@ -18,10 +19,15 @@ import { Link } from 'react-router-dom';
 
   btnGetwaitingclients = () => {
     console.clear();
-    
-    const  apiUrl= 'http://localhost:58031/api/Cos/GetDepending';
+
+    const  apiUrl= 'http://localhost:58031/api/Cos/Depending';
+
+    const user_status={user_status:this.state.user_status};
+
+
     fetch(apiUrl, {
-      method: 'GET',
+      method: 'Post',
+      body: JSON.stringify(user_status),
       headers: new Headers({
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json; charset=UTF-8',
@@ -35,18 +41,18 @@ import { Link } from 'react-router-dom';
       })
       .then(
         (result) => {
-          console.log("fetch btnFetchGetDepending= ", result);
+          console.log("fetch POST= ", result);
           result.map(st => console.log(st.user_id));
-          console.log('result[0].user_id=', result[0].user_id);
-          this.setState({ users: [...result]}
-            );
-        },
-        (error) => {
-          console.log("err post=", error);
-        })
+              console.log('result[0].user_id=', result[0].user_id);
+              this.setState({ users: [...result]}
+                );
+            },
+            (error) => {
+              console.log("err post=", error);
+            })
       }
 
-      
+  
 
       btnGetMyclients = () => { 
         console.clear();

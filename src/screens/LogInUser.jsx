@@ -16,7 +16,6 @@ class LogInUser extends Component {
 
     username:'',
     user_password:'',
-
     appUser_id:''
 }
   }
@@ -32,13 +31,10 @@ checkLogIn = (e)=>{
   console.clear();
   e.preventDefault()
 
-  
-  
-
   const apiUrl = 'http://localhost:58031/api/LogIn/User';
 
   const Logincheck={
-    userName:this.state.username,
+    username:this.state.username,
     password:this.state.user_password,
   };
   
@@ -67,7 +63,7 @@ checkLogIn = (e)=>{
         
       },
       (error) => {
-        console.log("err post=", error);
+        console.log("err post=", error); 
       
         
       });
@@ -86,6 +82,7 @@ checkLogIn = (e)=>{
         <InputUser value={this.username} name="username" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({username:e.target.value})}}/>
 
         <InputUser value={this.user_password} name="user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({user_password:e.target.value})}}/>
+        
         <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="התחבר" onClick={this.checkLogIn}/>
       
         <Link to="/forgot">

@@ -7,6 +7,7 @@ import PopUpCos from '../commons/PopUpCos';
 
 
 
+
 let local = false;
 //const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
     const apiUrl='https://localhost:44326/api/LogIn/register';
@@ -33,15 +34,14 @@ let local = false;
       cosmetic_license_num:"",
       cosmetic_status:"Pending",
       user_role:"Cosmetologist",
-
+      user_picprocess:"",
       showPopup: false
-      
-
-    
-
-
    }
   }
+
+  
+
+  
 
   togglePopup() {
     this.setState({
@@ -64,8 +64,6 @@ let local = false;
     this.togglePopup(); 
 
     const cos_data={
-        
-        
       user_firstName:this.state.user_firstName,
       user_lastName:this.state.user_lastName, 
       username:this.state.username,
@@ -122,8 +120,13 @@ let local = false;
         <InputUser value={this.user_lastName} name="user_lastName" type="text" label="שם משפחה   " placeholder="שם משפחה " onChange={(e)=>{this.setState({user_lastName:e.target.value})}}/>  
 
         <InputUser value={this.user_email} name="user_email" type="text" label="מייל " placeholder="מייל"  onChange={(e)=>{this.setState({user_email:e.target.value})}}/>
-        <label className='label'>
-          
+        
+        <h4>העלאת תמונת פרופיל</h4>
+        <input type="file" />
+
+        <br></br>
+
+        <label className='label' >
         <input type="radio" name="user_gender" value="F"   onChange={(e)=>{this.setState({user_gender:e.target.value})}}/>
         <img alt="wrinkles" height="100" width="100" src={require("../assets/images/girl.png")}/>
         
