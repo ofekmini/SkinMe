@@ -19,13 +19,18 @@ class SearchCos extends Component {
     
     this.state = {
        markers:[],
-       infoWindowOpen: false,
+       
        cos:[],
-       value:""
-      
+       value:"",
+       
+       lat: 32.07185106722978, 
+       lng:34.78795457063944,
        
 
-  
+       showingInfoWindow: false,
+        activeMarker: {},
+        selectedPlace: {}
+       
        
     }
    
@@ -105,71 +110,88 @@ class SearchCos extends Component {
       };
 
 
-    
-      
- 
 
-      onMarkerClick = (props) => {
-        console.log("Marker Clicked");
+      onMarkerClick = (props,marker, e) => {
+        //console.log("Marker Clicked");
         this.setState({
-          infoWindowOpen:true,
-       });
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true
+    });
       }
 
        onInfoWindowClose = () => {
         this.setState({
-          infoWindowOpen:false,
-       });
+          activeMarker: null,
+          showingInfoWindow: false
+        });
         
         
     }
+    handlechange = (e) => {
+      this.setState({
+        lat: e.target.value,
+        lng: e.target.value,  
+      })
+      console.log(this.state.lat)
+      console.log(this.state.lng)
+    }
+
 
     componentDidMount(){
       this.cosList();
       this.map();
     }
 
-    handlechange = (e) => {
-      this.setState({
-        [e.target.name]: e.target.value,
-        
-      })
-      console.log(e.target.value)
-    }
-
+   
+    
   
   
 
   render() {
+   //let pos = {lat: this.state.lat, lng:this.state.lng};
+
     return (
       <div style={{marginTop:40}}>
          
          <h1 style={{color:'black',fontSize:15}}>חיפוש קוסמטיקאית </h1>
          <select style={{height:40,borderRadius:50,marginTop:30,borderColor:'#c4a092'}} onChange={this.handlechange}>
-         {this.state.cos.map((cos) => <option name='cosmetologist_id' value={cos.cosmetologist_id}>{cos.cosmetic_businessName},{cos.cosmetic_city}</option>)} 
+         {this.state.cos.map((cos) => <option name='latlng' value={cos.pos}>{cos.cosmetic_businessName},{cos.cosmetic_city}</option>)} 
           </select>
 
          <Map
-          google={this.props.google}
-          zoom={10}
-          style={mapStyles}
-          initialCenter={{  lat:32.07185106722978, lng: 34.78795457063944}}
          
+          google={this.props.google}
+          zoom={12}
+          style={mapStyles}
+          ref="map"
+          initialCenter={{lat:this.state.lat, lng:this.state.lng}}
+          
           >
           
          
 
 
-        {this.state.markers.map((markers) =>  <Marker position={markers} onClick={this.onMarkerClick} />)}
+        {this.state.markers.map((markers) => 
+         <Marker 
+          city={markers.cosmetic_city}
+          adress={markers.cosmetic_address}
+          name={markers.cosmetic_businessName}
+          position={markers} 
+          onClick={this.onMarkerClick} />)}
 
-        {this.state.infoWindowOpen && (
-
-          <InfoWindow onCloseClick={this.onInfoWindowClose}>
+        <InfoWindow
+              marker={this.state.activeMarker}
+              onClose={this.onInfoWindowClose}
+              visible={this.state.showingInfoWindow}
+            >
               <div>
-                 <h1>Marker Info Placeholder</h1>
+                <h3>{this.state.selectedPlace.name}</h3>
+                <h4>{this.state.selectedPlace.adress}</h4>
+                <h4>{this.state.selectedPlace.city}</h4>
               </div>
-          </InfoWindow>
-        )}
+            </InfoWindow>
+        
 
        
        

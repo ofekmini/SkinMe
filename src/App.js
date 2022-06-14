@@ -50,10 +50,7 @@ function App() {
     
     <div className="App" id="outer-container">
       
-
-             
-
-
+      
       <Routes>
 
       <Route element={<SidebarLayout/>}>
