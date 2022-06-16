@@ -20,6 +20,7 @@ import Maslulim from './screens/Maslulim';
 import SearchCos from './screens/SearchCos';
 import ProductDetails from './screens/ProductDetails';
 import MaslulInfo from './screens/MaslulInfo';
+import SettingsUser from './screens/SettingsUser';
 
 
 import ChooseMyCos from './screens/ChooseMyCos';
@@ -69,6 +70,7 @@ function App() {
            <Route path="/maslul" element={<Maslulim />} />
            <Route path="/searchcos" element={<SearchCos />} />
            <Route path="/productdetails" element={<ProductDetails />} />
+           <Route path="/settings" element={<SettingsUser />} />
            
           </Route>
 

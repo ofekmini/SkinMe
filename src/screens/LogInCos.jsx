@@ -15,7 +15,7 @@ class LogInCos extends Component {
 
     cosmetologist_user_name:'',
     cosmetologist_user_password:'',
-    appUser_id:''
+    cosmetologist_id:''
 }
   }
 
@@ -26,15 +26,15 @@ handlechange = (e) => {
   })
 }
 
-checkLogIn = (e)=>{
+checkLogInCos = (e)=>{
   console.clear();
   e.preventDefault()
   
   const apiUrl = 'http://localhost:58031/api/LogIn/Cos';
   
   const LogincheckCos={
-    cosmetologist_user_name:this.state.username,
-    cosmetologist_user_password:this.state.user_password,
+    cosmetologist_user_name:this.state.cosmetologist_user_name,
+    cosmetologist_user_password:this.state.cosmetologist_user_password,
   };
   
   fetch(apiUrl , {
@@ -55,9 +55,9 @@ checkLogIn = (e)=>{
     .then(
       (result) => {
         console.log("fetch POST= ", result);
-        console.log(result.appUser_id);
+        console.log(result.cosmetologist_id);
         
-        localStorage.setItem("appUser_id",result);
+        localStorage.setItem("cosmetologist_id",result);
         console.log(this.state);
 
       },
@@ -80,12 +80,12 @@ checkLogIn = (e)=>{
         <h2 style={{color:"black"}}>כניסת קוסמטיקאיות</h2>
         <br></br>
 
-        <InputUser value={this.username} name="username" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({username:e.target.value})}}/>
+        <InputUser value={this.cosmetologist_user_name} name="cosmetologist_user_name" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({cosmetologist_user_name:e.target.value})}}/>
 
-        <InputUser value={this.user_password} name="user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({user_password:e.target.value})}}/>
+        <InputUser value={this.cosmetologist_user_password} name="cosmetologist_user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({cosmetologist_user_password:e.target.value})}}/>
 
         <Link to='/coshomepage'>
-        <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="התחבר" onClick={this.checkLogIn}/>
+        <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="התחבר" onClick={this.checkLogInCos}/>
         </Link>
 
         <Link to='/forgot'>
