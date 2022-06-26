@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import InputUser from '../commons/InputUser'
 import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, Route, Router } from 'react-router-dom';
 import PopUpCos from '../commons/PopUpCos';
 import CosmeticHomePage from './CosmeticHomePage';
+
 
 class LogInCos extends Component {
 
@@ -15,9 +16,10 @@ class LogInCos extends Component {
 
     cosmetologist_user_name:'',
     cosmetologist_user_password:'',
-    cosmetologist_id:''
+    cosmetologist_id:'',
 }
   }
+
 
 handlechange = (e) => {
   this.setState({
@@ -25,6 +27,7 @@ handlechange = (e) => {
     
   })
 }
+
 
 checkLogInCos = (e)=>{
   console.clear();
@@ -59,14 +62,11 @@ checkLogInCos = (e)=>{
         
         localStorage.setItem("cosmetologist_id",result);
         console.log(this.state);
-
-      },
+      },   
       (error) => {
         console.log("err post=", error); 
-      
       });
 
-     
   console.log('END');
 }
 
@@ -84,13 +84,14 @@ checkLogInCos = (e)=>{
 
         <InputUser value={this.cosmetologist_user_password} name="cosmetologist_user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({cosmetologist_user_password:e.target.value})}}/>
 
-        <Link to='/coshomepage'>
-        <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="התחבר" onClick={this.checkLogInCos}/>
-        </Link>
+        <Link to="/coshomepage">
+         <ButtonLogIn style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="התחברות" onClick={this.checkLogInCos}/>
+        </Link> 
 
         <Link to='/forgot'>
         <ButtonLogIn style={{backgroundColor:'#f8fbff',border:'none',color:'black',textDecorationLine: 'underline'}} name="  שכחתי סיסמה"/> 
         </Link>
+
         <div style={{margin:50}}>
        
 

@@ -60,7 +60,7 @@ checkLogIn = (e)=>{
         
         localStorage.setItem("appUser_id",result);
         console.log(this.state);
-        
+
       },
       (error) => {
         console.log("err post=", error); 

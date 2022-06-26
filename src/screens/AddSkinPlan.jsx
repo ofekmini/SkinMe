@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import InputUser from '../commons/InputUser';
 import ButtonLogIn from '../commons/ButtonLogIn';
 import CardAddProdToPlan from '../commons/CardAddProdToPlan';
+import Logo from '../commons/Logo';
+import UserInfo from '../commons/UserInfo'
+
 
 
 let local = false;
@@ -17,17 +20,16 @@ let local = false;
     super(props)
     
     this.state={
- 
       plan_name:"",
       notes:"",
-      products:""
+      products:"",
+      user_id:localStorage.getItem('user_id'),
    }
   }
 
   handlechange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
-      
     })
   }
 
@@ -113,18 +115,20 @@ let local = false;
 
     return (
 
-      <div style={{paddingTop:100}}>
+      <div>
+        <Logo></Logo>
 
-  
         <img alt="prod" height="150" width="150" src={require("../assets/images/skinplan.png")}/>
-        
+        <h4 style={{marginTop:30}}>יצירת תוכנית טיפוח </h4>
+         <h3 style={{color:"#c4a092",fontSize:15,textAlign:'center'}} > פרטי משתמש </h3> 
+
         <InputUser value={this.plan_name} name="plan_name" type="text" label=" שם התוכנית  " placeholder="שם התוכנית   " onChange={(e)=>{this.setState({plan_name:e.target.value})}}/>
         <InputUser value={this.notes} name="notes" type="text" label="  הערות   " placeholder="הערות   " onChange={(e)=>{this.setState({notes:e.target.value})}}/><br/>
         
-       
-        <div >
-       {this.state.products.map((products) => <CardAddProdToPlan  key={products.prod_id} products={products}/>)}
-      </div>
+      
+      {/*} <div > 
+      {this.state.products.map((products) => <CardAddProdToPlan  key={products.prod_id} products={products}/>)} 
+    </div>*/}
        
         <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור " onClick={this.addSkinPlan}/>
         

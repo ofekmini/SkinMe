@@ -15,13 +15,13 @@ import CosmeticHomePage from './screens/CosmeticHomePage';
 import UpdateManualProduct from './screens/UpdateManualProduct';
 import AddSkinPlan from './screens/AddSkinPlan';
 import ForgotP from './screens/ForgotP';
-
+import WaitingUsers from './screens/WaitingUsers';
 import Maslulim from './screens/Maslulim';
 import SearchCos from './screens/SearchCos';
 import ProductDetails from './screens/ProductDetails';
 import MaslulInfo from './screens/MaslulInfo';
 import SettingsUser from './screens/SettingsUser';
-
+import SettinsCos from './screens/SettingsCos';
 
 import ChooseMyCos from './screens/ChooseMyCos';
 
@@ -70,8 +70,9 @@ function App() {
            <Route path="/maslul" element={<Maslulim />} />
            <Route path="/searchcos" element={<SearchCos />} />
            <Route path="/productdetails" element={<ProductDetails />} />
-           <Route path="/settings" element={<SettingsUser />} />
-           
+           <Route path="/settingsuser" element={<SettingsUser />} />
+           <Route path="/settingscos" element={<SettinsCos />}/>
+           <Route path='/waiting' element={<WaitingUsers />}/>
           </Route>
 
         <Route path="/" element={<WelcomeSkinMe/>} />

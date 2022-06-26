@@ -32,12 +32,10 @@ class SignUpUser extends Component {
       user_sunExposure:"",
       user_stress:"",
       
-
-    
-
-
+      user_picprocess: null
    }
   }
+
   signup=(res)=> {  
      const responseFacebook = {  
       Name: res.name,  
@@ -128,8 +126,6 @@ class SignUpUser extends Component {
    
     return (
       <div>
-
-        
 
         <h3 style={{color:'#c4a092',textDecorationLine:'underline'}}>  תני לנו להכיר את העור שלך </h3>
 
