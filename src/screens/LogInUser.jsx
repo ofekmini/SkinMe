@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import InputUser from '../commons/InputUser'
 import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
-import { Link } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 import PopUpCos from '../commons/PopUpCos';
 import Menu from './Menu';
+
+
 
 
 class LogInUser extends Component {
@@ -17,8 +19,12 @@ class LogInUser extends Component {
     username:"",
     user_password:"",
     //appUser_id:''
+    errorMessage:"",
+    
 }
   }
+
+
 
   handlechange = (e) => {
     this.setState({
@@ -56,15 +62,27 @@ checkLogIn = (e)=>{
     .then(
       (result) => {
         console.log("fetch POST= ", result);
-        console.log(result.appUser_id);
+        console.log(result);
+        console.log(result.user_skinType)
+        if(result==="username or password were not found")
+        {
+           this.setState({errorMessage: result});
+          
+           
+        }
+        else  
+        {
+          this.setState({errorMessage: ""});
+        }
         
         localStorage.setItem("appUser_id",result);
+       
         console.log(this.state);
 
       },
       (error) => {
         console.log("err post=", error); 
-      
+       
         
       });
 
@@ -73,9 +91,12 @@ checkLogIn = (e)=>{
 
 
   render() {
+    
     return (
+      
       <div>
         <Logo/>
+        
         <br></br><br></br>
         <h2 style={{color:"black"}}>כניסת משתמשים</h2>
         <br></br>
@@ -83,10 +104,19 @@ checkLogIn = (e)=>{
 
         <InputUser value={this.user_password} name="user_password" type="password" label="סיסמה" placeholder="סיסמה" onChange={(e)=>{this.setState({user_password:e.target.value})}}/>
         
-        <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="התחבר" onClick={this.checkLogIn}/>
+       
+        <button 
+        style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} 
+        onClick={this.checkLogIn}>התחבר
+        </button>
       
+          { this.state.errorMessage &&
+            <h3 style={{color:'red',fontSize:14,marginTop:0}}> { this.state.errorMessage } </h3> }
+       
+       
+
         <Link to="/forgot">
-        <ButtonLogIn style={{backgroundColor:'#f8fbff',border:'none',color:'black',textDecorationLine: 'underline'}} name="  שכחתי סיסמה"/> 
+        <ButtonLogIn  style={{backgroundColor:'#f8fbff',border:'none',color:'black',textDecorationLine: 'underline'}} name="  שכחתי סיסמה"/> 
         </Link>
         <div style={{margin:50}}>
        <Link to="/chooseuser">

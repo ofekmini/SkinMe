@@ -33,7 +33,7 @@ let local = false;
     })
   }
 
-  componentDidMount(){
+   componentDidMount(){
   
     const  apiUrl= 'https://localhost:58031/api/Products/status';
 
@@ -66,7 +66,7 @@ let local = false;
           console.log("err post=", error);
         })
 
-      }
+      } 
 
  
 

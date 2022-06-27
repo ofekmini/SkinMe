@@ -7,6 +7,7 @@ import { FacebookLogin } from 'react-facebook-login';
 import FacebookLogIn from './FacebookLogIn';
 import SignUpUser from './SignUpUser';
 import './Questionaire.css'
+import { Link } from 'react-router-dom';
 
 class MasterForm extends Component {
   
@@ -43,8 +44,15 @@ class MasterForm extends Component {
   handleChange = event => {
     const {name, value} = event.target
     this.setState({
-      [name]: value
+      [name]: value,
+     
     })    
+  }
+
+  handlePic=event=>{
+    this.setState({
+      picture:URL.createObjectURL(event.target.files[0])
+    })
   }
 
 
@@ -122,6 +130,7 @@ class MasterForm extends Component {
           console.log("fetch POST= ", result);
           console.log(result.username);
           console.log(this.state);
+          
         },
         (error) => {
           console.log("err post=", error);
@@ -197,6 +206,7 @@ nextButton(){
         <Step1 
           currentStep={this.state.currentStep} 
           handleChange={this.handleChange}
+          handlePic={this.handlePic}
          
           first_name={this.state.first_name}
           last_name= {this.state.last_name}
