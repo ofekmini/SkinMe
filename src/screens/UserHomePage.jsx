@@ -117,11 +117,11 @@ class UserHomePage extends Component {
       <div>
         
      <h2 style={{fontFamily:'cursive',color:'#c4a092',paddingTop:50}} >שיגרת הטיפוח שלי</h2>
-     <h2 style={{fontFamily:'cursive',color:'#c4a092',paddingTop:20}} > <img style={{paddingLeft:200}} alt="day" height="100" width="100" src={require("../assets/images/day.png")}/>בוקר</h2> 
+     <h2 style={{fontFamily:'cursive',color:'#c4a092',paddingTop:20}} > <img style={{marginLeft:200}} alt="day" height="100" width="100" src={require("../assets/images/day.png")}/>בוקר</h2> 
       
      {this.state.productsday.map((productsday) => <RoutineProductsDay  key={productsday.prod_id} productsday={productsday} />)} 
 
-     <h2 style={{fontFamily:'cursive',color:'#c4a092',paddingTop:50}} ><img style={{paddingLeft:200 ,margin:20}} alt="moon" height="35" width="35" src={require("../assets/images/moon.png")}/>ערב</h2> 
+     <h2 style={{fontFamily:'cursive',color:'#c4a092',paddingTop:20}} ><img style={{marginLeft:200}} alt="moon" height="35" width="35" src={require("../assets/images/moon.png")}/>ערב</h2> 
 
      {this.state.productsnight.map((productsnight) => <RoutineProductsNight  key={productsnight.prod_id} productsnight={productsnight} />)} 
  

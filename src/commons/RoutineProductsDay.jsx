@@ -4,6 +4,7 @@ import ButtonLogIn from './ButtonLogIn'
 
 
 const RoutineProductsDay = (props) => {
+ 
   const {productsday} = props
 
    const showId =()=>{
@@ -13,7 +14,7 @@ const RoutineProductsDay = (props) => {
    }
 
   return (
-    <div className="card"  style={{backgroundColor:'#EEE4C4', width:'10rem',height:'15rem',margin:5,marginRight:20,float:"right",border: '#FFDE6B solid 2px',borderRadius:10}} >
+    <div className="card"  style={{backgroundColor:'#EEE4C4', width:'10rem',height:'17rem',margin:5,marginRight:20,float:"right",border: '#FFDE6B solid 2px',borderRadius:10}} >
     <div className="card-body">
       <div  style={{margin:0}}>
           
@@ -24,7 +25,11 @@ const RoutineProductsDay = (props) => {
           
           
       </div>
+      <Link to="/ratingp">
+      <button  style={{backgroundColor:"#c4a092",color:"white",fontSize:14,width:'60%',height:25,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={showId}>דירוג מוצר</button>
+      </Link>
     </div>
+   
     </div>
     
    );

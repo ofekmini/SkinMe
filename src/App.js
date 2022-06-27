@@ -25,10 +25,12 @@ import SettingsUser from './screens/SettingsUser';
 
 import ChooseMyCos from './screens/ChooseMyCos';
 
+
 import LogInCos from './screens/LogInCos';
 import WelcomeSkinMe from './screens/WelcomeSkinMe';
 
 import Menu from './screens/Menu';
+import RatingProducts from './screens/RatingProducts';
 
 
 
@@ -81,6 +83,10 @@ function App() {
         <Route path="/chooseuser" element={<ChooseUser />} />
         <Route path="/signupuser" element={<MasterForm />} />
         <Route path="/signupcos" element={<SignUpCos />} />
+        <Route path="/ratingp" element={<RatingProducts />} />
+       
+        
+
         
 
        

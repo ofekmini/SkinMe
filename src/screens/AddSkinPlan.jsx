@@ -31,7 +31,7 @@ let local = false;
     })
   }
 
-  componentDidMount(){
+   componentDidMount(){
   
     const  apiUrl= 'https://localhost:58031/api/Products/status';
 
@@ -64,7 +64,7 @@ let local = false;
           console.log("err post=", error);
         })
 
-      }
+      } 
 
  
 
@@ -121,10 +121,7 @@ let local = false;
         <InputUser value={this.plan_name} name="plan_name" type="text" label=" שם התוכנית  " placeholder="שם התוכנית   " onChange={(e)=>{this.setState({plan_name:e.target.value})}}/>
         <InputUser value={this.notes} name="notes" type="text" label="  הערות   " placeholder="הערות   " onChange={(e)=>{this.setState({notes:e.target.value})}}/><br/>
         
-       
-        <div >
-       {this.state.products.map((products) => <CardAddProdToPlan  key={products.prod_id} products={products}/>)}
-      </div>
+        {this.state.products.map((products) => <CardAddProdToPlan  key={products.prod_id} products={products}/>)}
        
         <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור " onClick={this.addSkinPlan}/>
         

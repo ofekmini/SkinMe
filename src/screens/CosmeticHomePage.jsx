@@ -11,7 +11,8 @@ import { Link } from 'react-router-dom';
     this.state = {
        users:[],
        user_id:localStorage.getItem('user_id'),
-       user_status:"waiting"
+       user_status:"waiting",
+       products:[]
 
     }
   }

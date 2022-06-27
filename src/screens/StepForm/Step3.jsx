@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import InputUser from '../../commons/InputUser';
-import { Link } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 
 
 
@@ -10,6 +10,8 @@ function Step3(props) {
   if (props.currentStep !== 3) {
     return null
   } 
+
+  
   return(
     <React.Fragment>
     <div className="form-group">
@@ -145,9 +147,9 @@ function Step3(props) {
     </div>
    
       
-    <Link to="/userhomepage">
+    
     <button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={props.saveSkintype}>סיום הרשמה </button>
-    </Link>
+    
     </React.Fragment>
   );
 }

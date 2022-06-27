@@ -1,24 +1,39 @@
-import React, { Component } from 'react'
+import React, { Component,useState } from 'react'
 import InputUser from '../../commons/InputUser';
 import FacebookLogin from 'react-facebook-login';
 import FacebookLogIn from '../FacebookLogIn';
 import LoginWGoggle from '../LoginWGoggle';
+import validator from 'validator'
 
 
 
 
 
 function Step1(props) {
+  const [errorMessageMail, setErrorMessageMail] = useState('');
+  const [errorMessagePassword, setErrorMessagePassword] = useState('');
   if (props.currentStep !== 1) {
     return null
   } 
+
+  const validatePassword = (value) => {
+    
+    if (validator.isStrongPassword(value,{
+      minLength: 6, minLowercase: 1,
+      minUppercase: 1, minNumbers: 1, 
+    })) {
+      setErrorMessagePassword('Strong Password')
+    } else {
+      setErrorMessagePassword('Password not strong enough, must contain 8 caracthers with at least one upper case and one number')
+    }
+  }
 
 
   return(
     
     <div className="form-group">
      
-<input type="file"  name="picture"  value={props.picture}  onChange={props.handleChange} />   
+ <input type="file"  onChange={props.handlePic} /> 
 
 <InputUser value={props.first_name} name="first_name" type="text" label="שם פרטי   " placeholder="שם פרטי "  onChange={props.handleChange}/>  
 
@@ -51,8 +66,13 @@ function Step1(props) {
  
 <InputUser value={props.username} name="username" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={props.handleChange}/>
 
-<InputUser value={props.user_password} name="user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={props.handleChange}/><br/><br/>
-
+<InputUser value={props.user_password} name="user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={props.handleChange }/><br/><br/>
+<span style={{
+          fontWeight: 'bold',
+          color: 'red',
+          fontSize:12
+        }}>{errorMessagePassword}</span>
+        <br/>
 <FacebookLogIn /> <br/>
   
 <LoginWGoggle/>
