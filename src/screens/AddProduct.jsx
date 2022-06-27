@@ -8,7 +8,7 @@ import PopupAddprod from '../commons/PopUpAddprod';
 
 let local = false;
 //const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
-    const apiUrl='https://localhost:44326/api/Products/Create';
+    const apiUrl='https://localhost:44326/api/Products/addprod';
 //if (local) {
  // apiUrl = 'https://localhost:44326/api/LogIn/register';
 //}
@@ -107,11 +107,16 @@ let local = false;
         <label style={{color:"black",margin:5,fontSize:15}}>   סוג המוצר  </label> <br/>
         
         <select  name="prod_type" onChange={this.handlechange}>
+           <option value="ג'ל" >ג'ל</option>
+           <option value="חומצה" >חומצה</option>
+           <option value="טונר" >טונר</option>
+           <option value="מסכה" >מסכה</option>
+           <option value="סבון  " >סבון</option>
            <option value="סרום" >סרום</option>
            <option value="קרם לילה">קרם לילה  </option>
            <option  value="קרם יום" >קרם יום</option>
            <option value="קרם הגנה " >קרם הגנה </option>
-           <option value="סבון  " >סבון</option>
+           <option value="שמן" >שמן</option>
         </select>
     
         <InputUser value={this.prod_description} name="prod_description" type="textarea"  label="הוראות שימוש   " placeholder="הוראות שימוש " onChange={(e)=>{this.setState({prod_description:e.target.value})}}/>
@@ -120,8 +125,8 @@ let local = false;
         <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור " onClick={this.addProd}/>
         {this.state.showPopup ? 
           <PopupAddprod
-            header=' המוצר נוסף בהצלחה     '
-            text=' נבדוק את פרטי המוצר ותוכלי להשתמש בה בעוד כ24 שעות'
+            header='המוצר נשלח לבדיקה בהצלחה  '
+            text='אנו נבדוק את פרטי המוצר ותוכלי להשתמש בו בתוך 24 שעות'
             closePopup={this.togglePopup.bind(this)} 
           />
           : null

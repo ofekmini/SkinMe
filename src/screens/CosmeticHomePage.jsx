@@ -25,7 +25,7 @@ import { Link } from 'react-router-dom';
 
         const cosmetologist_id={cosmetologist_id:this.state.cosmetologist_id};
 
-        fetch(apiUrl + {
+        fetch(apiUrl, {
           method: 'POST', 
           body: JSON.stringify(cosmetologist_id),
           headers: new Headers({
@@ -52,6 +52,7 @@ import { Link } from 'react-router-dom';
             })
           }
 
+          
 
   render() {
     return (
@@ -67,6 +68,7 @@ import { Link } from 'react-router-dom';
            <Link to='/addproduct' >
            <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="הוספת מוצר טיפוח  " />
            </Link>
+
       <div >
        {this.state.users.map((users) => <UserCard key={users.user_id} users={users}/>)}
       </div>
