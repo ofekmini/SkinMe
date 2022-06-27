@@ -4,10 +4,6 @@ import ButtonLogIn from '../commons/ButtonLogIn';
 import Logo from '../commons/Logo';
 import PopUpCos from '../commons/PopUpCos';
 
-
-
-
-
 let local = false;
 //const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
     const apiUrl='https://localhost:44326/api/LogIn/register';
@@ -16,8 +12,6 @@ let local = false;
 //}
 
  class SignUpCos extends Component {
-
-
   constructor(props) {
     super(props)
     
@@ -34,14 +28,10 @@ let local = false;
       cosmetic_license_num:"",
       cosmetic_status:"Pending",
       user_role:"Cosmetologist",
-      user_picprocess:"",
-      showPopup: false
-   }
+      showPopup: false,
+         
   }
-
-  
-
-  
+}
 
   togglePopup() {
     this.setState({
@@ -121,10 +111,6 @@ let local = false;
 
         <InputUser value={this.user_email} name="user_email" type="text" label="מייל " placeholder="מייל"  onChange={(e)=>{this.setState({user_email:e.target.value})}}/>
         
-        <h4>העלאת תמונת פרופיל</h4>
-        <input type="file" />
-
-        <br></br>
 
         <label className='label' >
         <input type="radio" name="user_gender" value="F"   onChange={(e)=>{this.setState({user_gender:e.target.value})}}/>

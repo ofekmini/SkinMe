@@ -9,9 +9,9 @@ import ButtonLogIn from '../commons/ButtonLogIn';
     
     this.state = {
        
-      user_password:"",
+      cosmetologist_user_password:"",
 
-      appUser_id: localStorage.getItem('appUser_id')
+      cosmetologist_id: localStorage.getItem('cosmetologist_id')
   
        
     }
@@ -19,11 +19,11 @@ import ButtonLogIn from '../commons/ButtonLogIn';
 
   UpdatePassword = () => {
     console.clear();
-   const apiUrl = `https://localhost:44326/api/login/UpdatePassword?id=${this.state.appUser_id}`;
+   const apiUrl = `https://localhost:58031/api/login/UpdateCosPassword?id=${this.state.cosmetologist_id}`;
   
     const pass = { 
      
-     user_password:this.state.user_password
+     cosmetologist_user_password:this.state.cosmetologist_user_password
     };
   
     fetch(apiUrl , {
@@ -42,8 +42,8 @@ import ButtonLogIn from '../commons/ButtonLogIn';
       })
       .then(
         (result) => {
-        console.log("fetch btnFetchUpdatePassword= ", result);
-         console.log('result.appUser_id=', result.appUser_id);
+        console.log("fetch btnFetchUpdateCosPassword= ", result);
+         console.log('result.cosmetologist_id=', result.cosmetologist_id);
         },
         (error) => {
           console.log("err post=", error);
