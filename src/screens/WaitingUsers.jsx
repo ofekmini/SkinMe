@@ -45,8 +45,6 @@ class WaitingUsers extends Component {
                 })
           }
     
-        
-    
 
         render() {
             return (

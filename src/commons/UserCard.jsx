@@ -6,10 +6,18 @@ import ButtonLogIn from './ButtonLogIn';
 const UserCard = (props) => {
   const {users} = props
   
-  {/*
-  setID = (e) => {
-   localStorage.setItem("appUser_id", users.appUser_id);
-  } */}
+{/*
+
+  saveID = (e) => {
+    const appUser_id = users.appUser_id;
+    this.setState({
+      appUser_id
+    });
+    localStorage.setItem("appUser_id", appUser_id);
+
+  }
+*/}
+
 
 
   return (
@@ -23,7 +31,7 @@ const UserCard = (props) => {
       <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} >  {users.appUser_id}  :מספר משתמש </h3> </div>
      
       <Link to='/addskinplan' >
-      <ButtonLogIn  style={{backgroundColor:"#c4a092",color:"white",fontSize:15,width:'40%',height:30,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name=" יצירת תוכנית טיפוח "/>
+      <ButtonLogIn  style={{backgroundColor:"#c4a092",color:"white",fontSize:15,width:'40%',height:30,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name=" יצירת תוכנית טיפוח " onClick={this.saveID}/>
       </Link>
 
     </div>

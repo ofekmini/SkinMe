@@ -6,14 +6,9 @@ import ButtonLogIn from '../commons/ButtonLogIn';
 
   constructor(props) {
     super(props)
-    
     this.state = {
-       
       cosmetologist_user_password:"",
-
       cosmetologist_id: localStorage.getItem('cosmetologist_id')
-  
-       
     }
   }
 
