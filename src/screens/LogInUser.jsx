@@ -73,6 +73,8 @@ checkLogIn = (e)=>{
         else  
         {
           this.setState({errorMessage: ""});
+          window.location.href = '/userhomepage'
+         
         }
         
         localStorage.setItem("appUser_id",result);
@@ -106,12 +108,15 @@ checkLogIn = (e)=>{
         
        
         <button 
-        style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} 
-        onClick={this.checkLogIn}>התחבר
+        style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}  onClick={this.checkLogIn} >התחבר
+
         </button>
       
           { this.state.errorMessage &&
             <h3 style={{color:'red',fontSize:14,marginTop:0}}> { this.state.errorMessage } </h3> }
+  
+
+        
        
        
 

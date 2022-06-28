@@ -12,6 +12,8 @@ export default class ForgotP extends Component {
     this.state = {
       
       email:"",
+
+      errorMessage:"",
      
     }
   }
@@ -45,6 +47,20 @@ export default class ForgotP extends Component {
       .then(res => {
         console.log('res=', res);
         console.log('res.status', res.status);
+
+        if(res.status!=200)
+        {
+           this.setState({errorMessage: "Email not found "});
+            
+        }
+        else  
+        {
+          this.setState({errorMessage: ""});
+          window.location.href = '/LogInUser'
+         
+        }
+        
+        
         console.log('res.ok', res.ok);
         return res.json()
       })
@@ -53,6 +69,7 @@ export default class ForgotP extends Component {
           console.log("fetch PUT= ", result);
           console.log(result.email);
           console.log(this.state);
+          
         },
         (error) => {
           console.log("err post=", error);
@@ -78,9 +95,11 @@ export default class ForgotP extends Component {
 <InputUser value={this.email} name="email" type="text" label="מייל  " placeholder="מייל  " onChange={(e)=>{this.setState({email:e.target.value})}}/>
 
 
-<Link to="/LogInUser">
+
 <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שלח מייל" onClick={this.sendMail} />
-</Link>
+{ this.state.errorMessage &&
+            <h3 style={{color:'red',fontSize:14,marginTop:0}}> { this.state.errorMessage } </h3> }
+
       </div>
     )
   }

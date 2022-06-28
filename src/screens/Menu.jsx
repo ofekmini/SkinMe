@@ -17,10 +17,13 @@ export default props => {
         <a className="menu-item" href="/maslulinfo">
           מסלולים
         </a>
+        <a className="menu-item" href="/searchcos">
+          חיפוש קוסמטיקאית
+        </a>
       </Menu>
     );
   }
-  else
+  else 
   {
     return (
       <Menu right >
@@ -30,12 +33,7 @@ export default props => {
         <a className="menu-item" href="/salads">
           אזור אישי
         </a>
-        <a className="menu-item" href="/maslulinfo">
-          מסלולים
-        </a>
-        <a className="menu-item" href="/searchcos">
-          חיפוש קוסמטיקאית
-        </a>
+        
       </Menu>
     );
   }

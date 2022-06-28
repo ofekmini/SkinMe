@@ -204,7 +204,7 @@ nextButton(){
         render the form steps and pass required props in
       */}
         <Step1 
-          currentStep={this.state.currentStep} 
+          //currentStep={this.state.currentStep} 
           handleChange={this.handleChange}
           handlePic={this.handlePic}
          
@@ -223,7 +223,7 @@ nextButton(){
      
         
         <Step3 
-          currentStep={this.state.currentStep} 
+          //currentStep={this.state.currentStep} 
           handleChange={this.handleChange}
           clickAcne={this.clickAcne}
           clickDry={this.clickDry}
