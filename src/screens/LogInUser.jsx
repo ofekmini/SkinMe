@@ -20,6 +20,7 @@ class LogInUser extends Component {
     user_password:"",
     //appUser_id:''
     errorMessage:"",
+    user_skinType:"",
     
 }
   }
@@ -42,6 +43,7 @@ checkLogIn = (e)=>{
   const Logincheck={
     username:this.state.username,
     user_password:this.state.user_password,
+    user_skinType:this.state.user_skinType,
   };
   
   fetch(apiUrl , {
@@ -67,8 +69,6 @@ checkLogIn = (e)=>{
         if(result==="username or password were not found")
         {
            this.setState({errorMessage: result});
-          
-           
         }
         else  
         {
@@ -78,7 +78,9 @@ checkLogIn = (e)=>{
         }
         
         localStorage.setItem("appUser_id",result);
-       
+      //  localStorage.setItem("user_skinType",result);
+        localStorage.setItem("type",0);
+
         console.log(this.state);
 
       },

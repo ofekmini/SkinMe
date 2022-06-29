@@ -6,7 +6,6 @@ import { Link, Navigate, Route, Router } from 'react-router-dom';
 import PopUpCos from '../commons/PopUpCos';
 import CosmeticHomePage from './CosmeticHomePage';
 
-import { useNavigate } from "react-router-dom";
 
 
 class LogInCos extends Component {
@@ -61,20 +60,26 @@ checkLogInCos = (e)=>{
       (result) => {
         console.log("fetch POST= ", result);
         console.log(result.cosmetologist_id);
+        if(result==="username or password were not found")
+        {
+           this.setState({errorMessage: result});
+        }
+        else  
+        {
+          this.setState({errorMessage: ""});
+          window.location.href = '/coshomepage'
+        }
         
         localStorage.setItem("cosmetologist_id",result);
+        localStorage.setItem("type",1);
+
         console.log(this.state);
-
-        const navigate = useNavigate();
-        navigate("/coshomepage");
-
-       //const navigate = useNavigate();
-       //navigate('/coshomepage');
-         //this.props.history.push('/coshomepage');
-      },   
+      },
       (error) => {
         console.log("err post=", error); 
       });
+
+      
 
   console.log('END');
 }
@@ -93,17 +98,7 @@ checkLogInCos = (e)=>{
 
         <InputUser value={this.cosmetologist_user_password} name="cosmetologist_user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({cosmetologist_user_password:e.target.value})}}/>
 
-        {/* <Link to="/coshomepage">
-         <ButtonLogIn style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="התחברות" onClick={this.checkLogInCos}/>
-        </Link>  */}
-
-        {/*<Link to="/coshomepage" onClick={this.checkLogInCos}>
-         <ButtonLogIn style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="התחברות"/>
-      </Link>  */}
-
-
-         <ButtonLogIn style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} 
-                     name="התחברות" onClick={this.checkLogInCos}/>
+        <ButtonLogIn style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="התחברות" onClick={this.checkLogInCos}/>
 
         <Link to='/forgot'>
         <ButtonLogIn style={{backgroundColor:'#f8fbff',border:'none',color:'black',textDecorationLine: 'underline'}} name="  שכחתי סיסמה"/> 

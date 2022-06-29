@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import RoutineProductsDay from '../commons/RoutineProductsDay';
 import RoutineProductsNight from '../commons/RoutineProductsNight';
+import LogInCos from './LogInCos';
+import Logo from '../commons/Logo';
 
 
 class UserHomePage extends Component {
@@ -9,8 +11,6 @@ class UserHomePage extends Component {
     super(props)
     
     this.state = {
-      
-      
       productsday:[],
       productsnight:[],
       user_skinType:localStorage.getItem('user_skinType')
@@ -116,13 +116,13 @@ class UserHomePage extends Component {
   render() {
     return (
       <div>
-        
-     <h2 style={{fontFamily:'cursive',color:'#c4a092',paddingTop:50}} >שיגרת הטיפוח שלי</h2>
-     <h2 style={{fontFamily:'cursive',color:'#c4a092',paddingTop:20}} > <img style={{marginLeft:200}} alt="day" height="100" width="100" src={require("../assets/images/day.png")}/>בוקר</h2> 
+        <Logo/>
+     <h2 style={{color:'#c4a092',paddingTop:50}} >שגרת הטיפוח שלי</h2>
+     <h2 style={{color:'#c4a092',paddingTop:20}} > <img style={{marginLeft:200}} alt="day" height="100" width="100" src={require("../assets/images/day.png")}/>בוקר</h2> 
       
      {this.state.productsday.map((productsday) => <RoutineProductsDay  key={productsday.prod_id} productsday={productsday} />)} 
 
-     <h2 style={{fontFamily:'cursive',color:'#c4a092',paddingTop:20}} ><img style={{marginLeft:200}} alt="moon" height="35" width="35" src={require("../assets/images/moon.png")}/>ערב</h2> 
+     <h2 style={{color:'#c4a092',paddingTop:20}} ><img style={{marginLeft:200}} alt="moon" height="35" width="35" src={require("../assets/images/moon.png")}/>ערב</h2> 
 
      {this.state.productsnight.map((productsnight) => <RoutineProductsNight  key={productsnight.prod_id} productsnight={productsnight} />)} 
  
