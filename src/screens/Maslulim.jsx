@@ -168,7 +168,7 @@ nextButton(){
       <React.Fragment>
       
      
-      <p>Step {this.state.currentStep} </p> 
+      <p> {this.state.currentStep} </p> 
 
       <form onSubmit={this.handleSubmit}>
       {/* 

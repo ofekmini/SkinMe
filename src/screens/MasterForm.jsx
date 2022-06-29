@@ -49,22 +49,18 @@ class MasterForm extends Component {
     })    
   }
 
-  handlePic=event=>{
-    this.setState({
-      picture:URL.createObjectURL(event.target.files[0])
-    })
-  }
+ 
 
 
   clickAcne=()=>{
     this.setState({
-      user_skinType:'oily'
+      user_skinType:'שומני'
     })
   }
 
   clickDry=()=>{
     this.setState({
-      user_skinType:'dry'
+      user_skinType:'יבש'
     })
   }
 
@@ -197,16 +193,16 @@ nextButton(){
       <React.Fragment>
       <Logo/>
      
-      <p>Step {this.state.currentStep} </p> 
+      <p> {this.state.currentStep} </p> 
 
       <form onSubmit={this.handleSubmit}>
       {/* 
         render the form steps and pass required props in
       */}
         <Step1 
-          //currentStep={this.state.currentStep} 
+          currentStep={this.state.currentStep} 
           handleChange={this.handleChange}
-          handlePic={this.handlePic}
+          
          
           first_name={this.state.first_name}
           last_name= {this.state.last_name}
@@ -223,7 +219,7 @@ nextButton(){
      
         
         <Step3 
-          //currentStep={this.state.currentStep} 
+          currentStep={this.state.currentStep} 
           handleChange={this.handleChange}
           clickAcne={this.clickAcne}
           clickDry={this.clickDry}

@@ -12,9 +12,9 @@ function Survey(props) {
   } 
   return(
     <React.Fragment>
-    <div className="form-group">
+    <div className="form-group" style={{marginTop:50}}>
 
-    <input type="file"  name="picture"  value={props.picture}  onChange={props.handleChange} />  <br/>
+    <input style={{marginLeft:50}} type="file"  name="picture"  value={props.picture}  onChange={props.handleChange} />  <br/> <br/>
     
     <text style={{color:"black"}}> מחזור חדשי </text><br/>
 
