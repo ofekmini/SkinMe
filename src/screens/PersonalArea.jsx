@@ -11,9 +11,11 @@ import React ,{useState} from 'react'
 
   return (
     <div className="App">
-    <h2>Add Image:</h2>
-    <input type="file" onChange={handleChange} /><br/><br/>
-    <img style={{width:150, height: 150 }} src={file} />
+    <h3 style={{marginTop:100}}>תמונת פרופיל</h3>
+    <img style={{width:100, height: 100 , borderRadius:50}} src={file} /> <br/><br/>
+    <input style={{marginLeft:70}}type="file" onChange={handleChange} />  <br/><br/>
+    <button style={{margin:15,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'40%',height:30,borderColor:"black",borderWidth:1,borderRadius:50}} >שמור תמונת פרופיל</button>
+    
 
   </div>
 

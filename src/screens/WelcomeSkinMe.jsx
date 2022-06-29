@@ -16,7 +16,7 @@ class WelcomeSkinMe extends Component {
 
          
         <Link to="/LogInUser">
-        <ButtonLogIn style={{margin:15,backgroundColor:"white",color:"black",fontSize:15,width:'40%',height:30,borderColor:"black",borderWidth:1,borderRadius:50}} name="משתמש" />
+        <ButtonLogIn style={{margin:15,backgroundColor:"white",color:"black",fontSize:15,width:'40%',height:30,borderColor:"gray",borderWidth:1,borderRadius:50}} name="משתמש" />
         </Link>
 
         <Link to="/LogInCos">
