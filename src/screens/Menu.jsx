@@ -5,6 +5,11 @@ import './Menu.css'
 
 export default props => {
 
+ const logOut=()=>{
+  localStorage.clear();
+
+  }
+
   let type = localStorage.getItem("type");
     
   if (type=='0') {
@@ -13,7 +18,7 @@ export default props => {
         <a className="menu-item" href="/userhomepage" >
           דף הבית
         </a>
-        <a className="menu-item" href="/salads">
+        <a className="menu-item" href="/profile">
           אזור אישי
         </a>
         <a className="menu-item" href="/maslulinfo">
@@ -25,7 +30,7 @@ export default props => {
         <a className="menu-item" href="/settingsuser">
           הגדרות
         </a>
-        <a className="menu-item" href="/">
+        <a className="menu-item" onClick={logOut}   href="/">
           התנתק
         </a>
       </Menu>
@@ -50,7 +55,7 @@ export default props => {
         <a className="menu-item" href="/settingscos">
           הגדרות
         </a>
-        <a className="menu-item" href="/">
+        <a className="menu-item" onClick={logOut} href="/">
           התנתק
         </a>
         

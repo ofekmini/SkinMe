@@ -33,7 +33,7 @@ function Step1(props) {
     
     <div className="form-group">
      
- <input type="file"  onChange={props.handlePic} /> 
+
 
 <InputUser value={props.first_name} name="first_name" type="text" label="שם פרטי   " placeholder="שם פרטי "  onChange={props.handleChange}/>  
 
