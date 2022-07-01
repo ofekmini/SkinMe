@@ -18,6 +18,8 @@ class LogInCos extends Component {
     cosmetologist_user_name:'',
     cosmetologist_user_password:'',
     cosmetologist_id:'',
+    errorMessage:"",
+
 }
   }
 

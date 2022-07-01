@@ -35,7 +35,7 @@ export default props => {
   {
     return (
       <Menu right >
-        <a className="menu-item" href="/userhomepage" >
+        <a className="menu-item" href="/coshomepage" >
           דף הבית
         </a>
         <a className="menu-item" href="/waiting">

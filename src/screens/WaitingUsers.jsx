@@ -35,8 +35,8 @@ class WaitingUsers extends Component {
           .then(
             (result) => {
               console.log("fetch POST= ", result);
-              result.map(st => console.log(st.user_id));
-                  console.log('result[0].user_id=', result[0].user_id);
+              result.map(st => console.log(st.appUser_id));
+                  console.log('result[0].user_id=', result[0].appUser_id);
                   this.setState({ users: [...result]}
                     );
                 },
@@ -45,17 +45,20 @@ class WaitingUsers extends Component {
                 })
           }
     
+          //componentDidMount(){
+      //      this.this.Getwaitingclients();
+      //    }
 
         render() {
             return (
-              <div onLoad={this.Getwaitingclients()} >
+              <div onLoad={this.Getwaitingclients()}>
                 <Logo></Logo>
 
                 <h4 style={{marginTop:30}}> משתמשים ממתינים לחוות דעת </h4>
                    
-              <div >
-               {this.state.users.map((users) => <UserCard key={users.user_id} users={users}/>)}
-              </div>
+            {/* <div >
+               {this.state.users.map((users) => <UserCard key={users.appUser_id} users={users}/>)}
+            </div> */}
              
               </div>
             )

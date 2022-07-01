@@ -129,7 +129,7 @@ class SignUpUser extends Component {
 
         <h3 style={{color:'#c4a092',textDecorationLine:'underline'}}>  תני לנו להכיר את העור שלך </h3>
 
-        <text style={{color:"black"}}>?מה היא בעיית העור העיקרית  שתרצי לטפל בה</text>
+        <text style={{color:"black"}}>?מה היא בעיית העור העיקרית שתרצי לטפל בה</text>
 
     <label className='label'>
     
@@ -194,7 +194,7 @@ class SignUpUser extends Component {
     
 </label><br/>
 
-<text style={{color:"black"}}> ? שלך מרגיש Tאיך האזור ה </text><br/>
+<text style={{color:"black"}}> ?שלך מרגיש Tאיך אזור ה </text><br/>
 
 <label className='label'>
     
@@ -215,7 +215,7 @@ class SignUpUser extends Component {
     
 </label><br/>
 
-<text style={{color:"black"}}>  ? כמות החשיפה שלך בשמש בממוצע  </text><br/>
+<text style={{color:"black"}}>  ?מה היא כמות החשיפה שלך לשמש בממוצע </text><br/>
 
 <label className='label'>
     
@@ -230,7 +230,7 @@ class SignUpUser extends Component {
     
 </label><br/>
 
-<text style={{color:"black"}}>  ?רמת המתח בה את נמצאת </text><br/>
+<text style={{color:"black"}}>  ?מה היא רמת המתח בה את נמצאת </text><br/>
 
 <label className='label'>
     

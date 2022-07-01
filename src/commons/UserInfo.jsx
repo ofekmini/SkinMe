@@ -18,7 +18,7 @@ const UserInfo = (props) => {
       <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} >  {users.user_sunExposure}  :רמת חשיפה לשמש </h3> </div>
       <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} >  {users.user_stress}  :רמת לחץ </h3> </div>
       <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} >  {users.user_period}  :מצב הווסת </h3> </div>
-      <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} >  {users.user_dermatology}  :קוסמטיקאית </h3> </div>
+      <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} >  {users.user_dermatology}  :האם היה בטיפול דרמטולוגי בעבר </h3> </div>
       <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} >  {users.user_currentProducts}  :מוצרים קיימים בשימוש </h3> </div>
       <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} >  {users.user_sensitive}  :רגישויות </h3> </div>
       <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} >  {users.user_areas}  :אזורים נוספים </h3> </div>

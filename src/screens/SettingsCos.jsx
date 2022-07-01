@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import InputUser from '../commons/InputUser';
 import ButtonLogIn from '../commons/ButtonLogIn';
 
- class SettingsUser extends Component {
+ class SettingsCos extends Component {
 
   constructor(props) {
     super(props)
@@ -60,7 +60,7 @@ import ButtonLogIn from '../commons/ButtonLogIn';
 
         <h5 style={{marginTop:10}}> שינוי סיסמה  </h5>
         
-        <InputUser value={this.user_password} name="user_password" type="text" label=" הזן סיסמה חדשה  " placeholder="סיסמה חדשה    " onChange={(e)=>{this.setState({user_password:e.target.value})}}/>
+        <InputUser value={this.user_password} name="user_password" type="text" label=" הזן סיסמה חדשה  " placeholder="סיסמה חדשה    " onChange={(e)=>{this.setState({cosmetologist_user_password:e.target.value})}}/>
         
         <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור  " onClick={this.UpdatePassword}/>
         </div>
@@ -70,4 +70,4 @@ import ButtonLogIn from '../commons/ButtonLogIn';
   }
 }
 
-export default SettingsUser;
+export default SettingsCos;
