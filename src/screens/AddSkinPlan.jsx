@@ -23,7 +23,9 @@ let local = false;
       plan_name:"",
       notes:"",
       products:"",
-      appUser_id:localStorage.getItem('appUser_id')
+      appUser_id:localStorage.getItem('appUser_id'),
+      users:[],
+           user_status:"waiting",
 
    }
   }
@@ -115,9 +117,14 @@ let local = false;
       <div>
         <Logo></Logo>
 
-        <img alt="prod" height="150" width="150" src={require("../assets/images/skinplan.png")}/>
+      { /*  <img alt="prod" height="150" width="150" src={require("../assets/images/skinplan.png")}/> */ }
         <h4 style={{marginTop:30}}>יצירת תוכנית טיפוח </h4>
         <h3 style={{color:"#c4a092",fontSize:15,textAlign:'center'}} > פרטי משתמש </h3> 
+
+        <div >
+               {this.state.users.map((users) => <UserCard key={users.appUser_id} users={users}/>)}
+            </div> 
+
 
       {/*  <div >
            {this.state.users.map((users) => <UserCard key={users.appUser_id} users={users}/>)}

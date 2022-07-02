@@ -118,10 +118,6 @@ checkLogIn = (e)=>{
             <h3 style={{color:'red',fontSize:14,marginTop:0}}> { this.state.errorMessage } </h3> }
   
 
-        
-       
-       
-
         <Link to="/forgot">
         <ButtonLogIn  style={{backgroundColor:'#f8fbff',border:'none',color:'black',textDecorationLine: 'underline'}} name="  שכחתי סיסמה"/> 
         </Link>
