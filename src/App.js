@@ -32,6 +32,7 @@ import WelcomeSkinMe from './screens/WelcomeSkinMe';
 import Menu from './screens/Menu';
 import RatingProducts from './screens/RatingProducts';
 import PersonalArea from './screens/PersonalArea';
+import Profile from './screens/Profile';
 
 
 
@@ -76,6 +77,9 @@ function App() {
            <Route path="/settingsuser" element={<SettingsUser />} />
            <Route path="/settingscos" element={<SettinsCos />}/>
            <Route path='/waiting' element={<WaitingUsers />}/>
+           <Route path='/persoarea' element={<PersonalArea />}/>
+
+           <Route path='/profile' element={<Profile />}/>
           </Route>
 
         <Route path="/" element={<WelcomeSkinMe/>} />

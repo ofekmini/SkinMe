@@ -68,6 +68,7 @@ class MasterForm extends Component {
     const user_skinType = this.state.user_skinType;
     localStorage.setItem('user_skinType',user_skinType);
  
+    
     }
 
     
@@ -126,6 +127,8 @@ class MasterForm extends Component {
           console.log("fetch POST= ", result);
           console.log(result.username);
           console.log(this.state);
+          window.location.href = '/userhomepage';
+          localStorage.setItem("type",0);
           
         },
         (error) => {

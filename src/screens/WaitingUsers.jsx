@@ -13,7 +13,7 @@ class WaitingUsers extends Component {
         }
       }
 
-      Getwaitingclients = () => {
+      componentDidMount = () => {
         console.clear();
         const  apiUrl= 'http://localhost:58031/api/Cos/Depending';
         const user_status={user_status:this.state.user_status};
@@ -51,10 +51,10 @@ class WaitingUsers extends Component {
     
         render() {
             return (
-              <div>
-                <Logo></Logo>
+              <div >
+           
 
-                <h4 style={{marginTop:30}}> משתמשים ממתינים לחוות דעת </h4>
+                <h4 style={{marginTop:35}}> משתמשים ממתינים לחוות דעת </h4>
                    
              <div >
                {this.state.users.map((users) => <UserCard key={users.appUser_id} users={users}/>)}

@@ -1,6 +1,6 @@
 import React, { Component,useState } from 'react'
 import InputUser from '../../commons/InputUser';
-import FacebookLogin from 'react-facebook-login';
+
 import FacebookLogIn from '../FacebookLogIn';
 import LoginWGoggle from '../LoginWGoggle';
 import validator from 'validator'
@@ -73,6 +73,7 @@ function Step1(props) {
           fontSize:12
         }}>{errorMessagePassword}</span>
         <br/>
+        
 <FacebookLogIn /> <br/>
   
 <LoginWGoggle/>

@@ -18,6 +18,8 @@ export default class FacebookLogIn extends Component {
     email: "",
     picture: "",
 
+
+    
   }
 };
 
