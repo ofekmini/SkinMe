@@ -73,10 +73,12 @@ function Step1(props) {
           fontSize:12
         }}>{errorMessagePassword}</span>
         <br/>
+
+<hr/> או <hr/> <br/>
         
-<FacebookLogIn /> <br/>
+<FacebookLogIn handleChange={props.handleChangeByFacebookOrGoogle} /> <br/>
   
-<LoginWGoggle/>
+<LoginWGoggle handleChange={props.handleChangeByFacebookOrGoogle}/>
     </div>
     
   );
