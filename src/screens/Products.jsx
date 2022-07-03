@@ -10,9 +10,6 @@ import { Link } from 'react-router-dom'
     
     this.state = {
        products:[],
-
-  
-       
     }
   }
 
@@ -52,17 +49,11 @@ import { Link } from 'react-router-dom'
       }
  
 
-  
-
-      
-      
-    
-     
   render() {
     return (
       <div >
        
-     
+       <h4 style={{marginTop:30}}>מאגר מוצרי טיפוח </h4>
 
       <div >
        {this.state.products.map((products) => <CardProduct  key={products.prod_id} products={products}/>)}

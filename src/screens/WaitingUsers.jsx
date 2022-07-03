@@ -52,8 +52,7 @@ class WaitingUsers extends Component {
         render() {
             return (
               <div >
-           
-
+                <Logo></Logo>
                 <h4 style={{marginTop:35}}> משתמשים ממתינים לחוות דעת </h4>
                    
              <div >

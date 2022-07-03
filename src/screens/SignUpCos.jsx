@@ -143,8 +143,8 @@ let local = false;
         <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="סיום הרשמה" onClick={this.addCos}/>
         {this.state.showPopup ? 
           <PopUpCos
-            header=' תודה רבה על ההרשמה '
-            text=' נבדוק את המספר העסק שלך ותוכלי להתחיל לטפל בלקוחות בעוד כ24 שעות'
+            header=' הרשמתך נקלטה במערכת '
+            text=' נבדוק את מספר העסק שלך ותוכלי להתחיל לטפל בלקוחות בעוד כ24 שעות'
             closePopup={this.togglePopup.bind(this)}
           />
           : null

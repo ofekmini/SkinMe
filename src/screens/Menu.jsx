@@ -49,7 +49,7 @@ export default props => {
         <a className="menu-item" href="/waiting">
           ממתינים לחוות דעת
         </a>
-        <a className="menu-item" href="/addproduct">
+        <a className="menu-item" href="/products">
           מוצרי טיפוח
         </a>
         <a className="menu-item" href="/settingscos">

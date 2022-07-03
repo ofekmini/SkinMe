@@ -5,6 +5,8 @@ import CardAddProdToPlan from '../commons/CardAddProdToPlan';
 import Logo from '../commons/Logo';
 import UserInfo from '../commons/UserInfo';
 import UserCard from '../commons/UserCard';
+import PopUpCos from '../commons/PopUpCos';
+
 
 
 let local = false;
@@ -126,27 +128,26 @@ let local = false;
                {this.state.users.map((users) => <UserCard key={users.appUser_id} users={users}/>)}
             </div> 
 
-
-      {/*  <div >
-           {this.state.users.map((users) => <UserCard key={users.appUser_id} users={users}/>)}
-        </div> */}
-
-      {/*  <div >
-               {this.state.users.map((users) => <UserInfo key={users.appUser_id} users={users}/>)}
-    </div> */}
-
-
-
+            <h3 style={{color:"#c4a092",fontSize:15,textAlign:'center'}} > פרטי התוכנית </h3>
         <InputUser value={this.plan_name} name="plan_name" type="text" label=" שם התוכנית  " placeholder="שם התוכנית   " onChange={(e)=>{this.setState({plan_name:e.target.value})}}/>
         <InputUser value={this.notes} name="notes" type="text" label="  הערות   " placeholder="הערות   " onChange={(e)=>{this.setState({notes:e.target.value})}}/><br/>
         
-      
+        <h3 style={{color:"#c4a092",fontSize:15,textAlign:'center'}} >הוספת מוצרים </h3>
           <div > 
            {this.state.products.map((products) => <CardAddProdToPlan  key={products.prod_id} products={products}/>)} 
          </div>
        
-        <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור " onClick={this.addSkinPlan}/>
-        
+         <h3 style={{color:"#c4a092",fontSize:15,textAlign:'center'}} > מוצרים שנוספו לתוכנית </h3>
+
+        <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמירה " onClick={this.addSkinPlan}/>
+        {this.state.showPopup ? 
+          <PopUpCos
+            header=' תוכנית טיפוח נוספה בהצלחה '
+            text=' נבדוק את מספר העסק שלך ותוכלי להתחיל לטפל בלקוחות בעוד כ24 שעות'
+            closePopup={this.togglePopup.bind(this)}
+          />
+          : null
+        }
       </div>
     )
   }
