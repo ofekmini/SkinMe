@@ -42,6 +42,8 @@ import CosmeticHomePage from './CosmeticHomePage';
         setuser_skinType("סוג העור שלי הוא מעורב");
       }
 
+      
+
       fetch(`http://localhost:58031/api/User/Mycos/?id=${id}`)
     .then(response => response.json())
         // 4. Setting *dogImage* to the image url that we received from the response above
@@ -83,19 +85,25 @@ import CosmeticHomePage from './CosmeticHomePage';
   return (
     <div className="App">
     <h4 style={{marginTop:35}}>אזור אישי </h4> <hr/>
-    <div style={{border:'#c4a092 solid 1px' ,margin:30}}>
+    
+    <div style={{backgroundColor:'beige',margin:10}}>
+    <img style={{width:100, height: 100 , borderRadius:50}} src={file} /> <br/><br/>
+     <h3 style={{color:'#c4a092',margin:0}}> {user_skinType} </h3>
+
+     <button style={{margin:15,backgroundColor:"black",color:"white",fontSize:15,width:'40%',height:30,borderColor:"black",borderWidth:1,borderRadius:50}}  >מעקב תמונות</button> 
+     </div>
+     <div>
+     
+     <MycosCard cos={mycos}/> <br/><br/><br/><br/>
+     </div>
+
+     
+     <div style={{backgroundColor:'beige',margin:10,marginTop:200}}>
+     <h3 style={{color:'black',fontSize:18}}>שינוי תמונת פרופיל </h3>
     <img style={{width:50, height: 50 , borderRadius:50}} src={file} /> <br/><br/>
     <input style={{marginLeft:70}} type="file"  accept="image/*"onChange={handleChange} />  <br/><br/>
     <button style={{margin:15,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'40%',height:30,borderColor:"black",borderWidth:1,borderRadius:50}} onClick={handleSubmission} >שמור תמונת פרופיל</button> <br/>
     </div>
-
-    <img style={{width:100, height: 100 , borderRadius:50}} src={file} /> <br/><br/>
-     <h3 style={{color:'#c4a092'}}> {user_skinType} </h3>
-
-     <button style={{margin:15,backgroundColor:"black",color:"white",fontSize:15,width:'40%',height:30,borderColor:"black",borderWidth:1,borderRadius:50}}  >מעקב תמונות</button> 
-
-     <h3 style={{color:'black'}}>הקוסמטיקאית שלי </h3>
-     <MycosCard cos={mycos}/>
 
   </div>
 

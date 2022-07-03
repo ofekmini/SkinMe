@@ -18,7 +18,8 @@ class LogInUser extends Component {
 
       username: "",
       user_password: "",
-      //appUser_id:''
+      appUser_id:'',
+
       errorMessage: "",
       user_skinType: "",
 
@@ -43,7 +44,7 @@ class LogInUser extends Component {
     const Logincheck = {
       username: this.state.username,
       user_password: this.state.user_password,
-      user_skinType: this.state.user_skinType,
+      
     };
 
     fetch(apiUrl, {
@@ -58,13 +59,13 @@ class LogInUser extends Component {
         console.log('res=', res);
         console.log('res.status', res.status);
         console.log('res.ok', res.ok);
-        debugger
+        
         return res.json()
 
       })
       .then(
         (result) => {
-          debugger
+          
           console.log("fetch POST= ", result);
           console.log(result);
           console.log(result.user_skinType)
@@ -72,7 +73,7 @@ class LogInUser extends Component {
             this.setState({ errorMessage: result });
           }
           else {
-            debugger
+            
             this.setState({ errorMessage: "" });
             localStorage.setItem("appUser_id", result.appUser_id);
             localStorage.setItem("user_skinType",result.user_skinType);

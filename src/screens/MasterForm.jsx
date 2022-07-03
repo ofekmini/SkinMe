@@ -50,7 +50,7 @@ class MasterForm extends Component {
   }
 
   handleChangeByFacebookOrGoogle = (email, username, picture) => {
-    debugger
+    
     this.setState({
       email: email,
       username: username,
@@ -84,7 +84,7 @@ class MasterForm extends Component {
   handleSubmit = (e) => {
     console.clear();
     e.preventDefault()
-    const apiUrl = 'https://localhost:44326/api/LogIn/register';
+    const apiUrl = 'http://localhost:58031/api/LogIn/register';
 
 
     const user_skinType = localStorage.getItem('user_skinType');
@@ -113,7 +113,7 @@ class MasterForm extends Component {
 
 
     };
-    debugger
+    
     fetch(apiUrl, {
       method: 'POST',
       body: JSON.stringify(user_data),
@@ -133,8 +133,9 @@ class MasterForm extends Component {
           console.log("fetch POST= ", result);
           console.log(result.username);
           console.log(this.state);
-          window.location.href = '/userhomepage';
           localStorage.setItem("type", 0);
+          window.location.href = '/userhomepage';
+          
 
         },
         (error) => {
@@ -194,9 +195,6 @@ class MasterForm extends Component {
   }
 
   render() {
-
-
-
 
     return (
       <React.Fragment>
