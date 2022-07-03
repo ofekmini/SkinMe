@@ -153,9 +153,9 @@ function Payment(props) {
  
     </div>
 
-    <Link to="/choosecos">
+    
     <button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={props.saveMaslul}> ביצוע תשלום    </button>
-    </Link>
+   
 
 
 

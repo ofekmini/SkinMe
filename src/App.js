@@ -31,8 +31,10 @@ import WelcomeSkinMe from './screens/WelcomeSkinMe';
 
 import Menu from './screens/Menu';
 import RatingProducts from './screens/RatingProducts';
-import PersonalArea from './screens/PersonalArea';
+import PersonalArea from './screens/PersonalArea'
+
 import Profile from './screens/Profile';
+
 
 
 
@@ -70,16 +72,17 @@ function App() {
            <Route path="/maslulinfo" element={<MaslulInfo />} />
            <Route path='/products' element={<Products />}/>
            <Route path="/productdetails" element={<ProductDetails />} />
-           <Route path='/profile' element={<PersonalArea />}/>
+           
            <Route path="/updateprod" element={<UpdateManualProduct />} />
            <Route path="/userhomepage" element={<UserHomePage />} />
            <Route path="/searchcos" element={<SearchCos />} />
            <Route path="/settingsuser" element={<SettingsUser />} />
            <Route path="/settingscos" element={<SettinsCos />}/>
            <Route path='/waiting' element={<WaitingUsers />}/>
-           <Route path='/persoarea' element={<PersonalArea />}/>
+           
 
            <Route path='/profile' element={<Profile />}/>
+           <Route path='/persoarea' element={<PersonalArea />}/>
           </Route>
 
         <Route path="/" element={<WelcomeSkinMe/>} />
