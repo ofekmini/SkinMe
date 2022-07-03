@@ -61,6 +61,7 @@ checkLogInCos = (e)=>{
     .then(
       (result) => {
         console.log("fetch POST= ", result);
+        console.log(result);
         console.log(result.cosmetologist_id);
         if(result==="username or password were not found")
         {
@@ -102,6 +103,9 @@ checkLogInCos = (e)=>{
 
         <ButtonLogIn style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="התחברות" onClick={this.checkLogInCos}/>
 
+    { this.state.errorMessage &&
+            <h3 style={{color:'red',fontSize:14,marginTop:0}}> { this.state.errorMessage } </h3> }
+  
         <Link to='/forgot'>
         <ButtonLogIn style={{backgroundColor:'#f8fbff',border:'none',color:'black',textDecorationLine: 'underline'}} name="  שכחתי סיסמה"/> 
         </Link>

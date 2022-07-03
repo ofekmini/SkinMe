@@ -44,11 +44,11 @@ class WaitingUsers extends Component {
                   console.log("err post=", error);
                 })
           }
-    
-          //componentDidMount(){
-      //      this.this.Getwaitingclients();
-      //    }
 
+          componentDidMount(){
+            this.Getwaitingclients();
+          }
+    
         render() {
             return (
               <div >
@@ -56,7 +56,7 @@ class WaitingUsers extends Component {
 
                 <h4 style={{marginTop:35}}> משתמשים ממתינים לחוות דעת </h4>
                    
-           <div >
+             <div >
                {this.state.users.map((users) => <UserCard key={users.appUser_id} users={users}/>)}
             </div> 
              

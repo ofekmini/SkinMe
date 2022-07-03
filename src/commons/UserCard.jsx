@@ -20,7 +20,6 @@ const UserCard = (props) => {
       <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} >  {users.user_gender}  :מגדר </h3> </div>
       <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} > סוג עור : {users.user_skinType}  </h3> </div>
       <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} >  {users.user_skinProblem}  :בעיית עור </h3> </div>
-      <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} >  {users.appUser_id}  :מספר משתמש </h3> </div>
      
       <Link to='/addskinplan' >
       <ButtonLogIn  style={{backgroundColor:"#c4a092",color:"white",fontSize:15,width:'60%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name=" יצירת תוכנית טיפוח " onClick={showId}/>
