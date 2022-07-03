@@ -58,25 +58,24 @@ function App() {
       <Routes>
 
       <Route element={<SidebarLayout/>}>
-           
-            <Route path="/choosecos" element={<ChooseMyCos />} />
-           <Route path="/maslulinfo" element={<MaslulInfo />} />
-           <Route path="/userhomepage" element={<UserHomePage />} />
-           <Route path="/forgotpassword" element={<ForgotPassword />} />
+          
            <Route path="/addproduct" element={<AddProduct />} />
-           <Route path="/userhomepage" element={<UserHomePage />} />
-           <Route path="/products" element={<Products />} />
-           <Route path="/coshomepage" element={<CosmeticHomePage />} />
-           <Route path="/updateprod" element={<UpdateManualProduct />} />
            <Route path="/addskinplan" element={<AddSkinPlan />} />
+           <Route path="/coshomepage" element={<CosmeticHomePage />} />
+           <Route path="/choosecos" element={<ChooseMyCos />} />
            <Route path="/forgot" element={<ForgotP />} />
+           <Route path="/forgotpassword" element={<ForgotPassword />} />
            <Route path="/maslul" element={<Maslulim />} />
-           <Route path="/searchcos" element={<SearchCos />} />
+           <Route path="/maslulinfo" element={<MaslulInfo />} />
+           <Route path='/products' element={<Products />}/>
            <Route path="/productdetails" element={<ProductDetails />} />
+           <Route path='/profile' element={<PersonalArea />}/>
+           <Route path="/updateprod" element={<UpdateManualProduct />} />
+           <Route path="/userhomepage" element={<UserHomePage />} />
+           <Route path="/searchcos" element={<SearchCos />} />
            <Route path="/settingsuser" element={<SettingsUser />} />
            <Route path="/settingscos" element={<SettinsCos />}/>
            <Route path='/waiting' element={<WaitingUsers />}/>
-           <Route path='/profile' element={<PersonalArea />}/>
           </Route>
 
         <Route path="/" element={<WelcomeSkinMe/>} />
