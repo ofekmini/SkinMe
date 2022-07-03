@@ -89,6 +89,7 @@ let local = false;
           console.log("fetch POST= ", result);
           console.log(result.username);
           console.log(this.state);
+          localStorage.setItem("type",1);
         },
         (error) => {
           console.log("err post=", error);

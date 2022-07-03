@@ -22,7 +22,7 @@ let local = false;
     this.state={
       plan_name:"",
       notes:"",
-      products:"",
+      products:[],
       appUser_id:localStorage.getItem('appUser_id')
 
    }
@@ -36,7 +36,7 @@ let local = false;
 
    componentDidMount(){
   
-    const  apiUrl= 'https://localhost:58031/api/Products/status';
+    const  apiUrl= 'http://localhost:58031/api/Products/status';
 
     fetch(apiUrl, {
       method: 'GET',
@@ -113,10 +113,11 @@ let local = false;
     return (
 
       <div>
-        <Logo></Logo>
+      
+        <h4 style={{marginTop:35}}>יצירת תוכנית טיפוח </h4>
 
-        <img alt="prod" height="150" width="150" src={require("../assets/images/skinplan.png")}/>
-        <h4 style={{marginTop:30}}>יצירת תוכנית טיפוח </h4>
+        <img alt="prod" height="100" width="100" src={require("../assets/images/skinplan.png")}/>
+        
         <h3 style={{color:"#c4a092",fontSize:15,textAlign:'center'}} > פרטי משתמש </h3> 
 
       {/*  <div >
@@ -133,9 +134,9 @@ let local = false;
         <InputUser value={this.notes} name="notes" type="text" label="  הערות   " placeholder="הערות   " onChange={(e)=>{this.setState({notes:e.target.value})}}/><br/>
         
       
-         {/*} <div > 
+          <div > 
            {this.state.products.map((products) => <CardAddProdToPlan  key={products.prod_id} products={products}/>)} 
-         </div>*/}
+         </div>
        
         <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור " onClick={this.addSkinPlan}/>
         
