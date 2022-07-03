@@ -102,6 +102,7 @@ class Maslulim extends Component {
           console.log("fetch PUT= ", result);
           console.log(result.username);
           console.log(this.state);
+          window.location.href = '/choosecos';
         },
         (error) => {
           console.log("err post=", error);

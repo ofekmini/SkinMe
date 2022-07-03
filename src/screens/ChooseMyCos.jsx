@@ -87,6 +87,7 @@ import CardCosInfo from '../commons/CardCosInfo';
               console.log("fetch PUT= ", result);
               console.log(result.cosmetologist_id);
               console.log(this.state);
+              window.location.href = '/profile';
             },
             (error) => {
               console.log("err post=", error);
@@ -101,9 +102,10 @@ import CardCosInfo from '../commons/CardCosInfo';
 
   render() {
     return (
-      <div>
+      <div >
+        <h4 style={{marginTop:35}}>בחירת  קוסמטיקאית  </h4> <hr />
 
-     <h1 style={{color:'#c4a092', fontSize:25}}>בחר את הקוסמטיקאית שלך </h1>
+     <h1 style={{color:'#c4a092', fontSize:20 ,margin:20}}>בחר את הקוסמטיקאית שלך </h1>
      
      {this.state.cos.map((cos) => <CardCosInfo  key={cos.cosmetologist_id} cos={cos} />)}
      

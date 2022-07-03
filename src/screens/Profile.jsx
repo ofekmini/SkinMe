@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Card } from 'react-bootstrap';
-import MycosCard from '../commons/MycosCard';
+
 
  class Profile extends Component {
 
@@ -8,17 +7,19 @@ import MycosCard from '../commons/MycosCard';
     super(props)
     
     this.state = {
-       picture:"",
+       picture:null,
        appUser_id:localStorage.getItem('appUser_id'),
        cos:[],
-       cosmetologist_id:""
+       cosmetologist_id:"",
+       user_skinType:localStorage.getItem('user_skinType')
 
   
        
     }
+    this.handlechange=this.handlechange.bind(this)
   }
 
-  componentDidMount(){
+   componentDidMount(){
   
     const  apiUrl= `http://localhost:58031/api/User/Mycos/?id=${this.state.appUser_id}`;
 
@@ -40,7 +41,7 @@ import MycosCard from '../commons/MycosCard';
         (result) => {
           
           console.log("fetch btnFetchGetcos= ", result);
-          //result.map(st => console.log(st.cosmetologist_id));
+          result.map(st => console.log(st.cosmetologist_id));
           console.log('result[0].prod_id', result[0].cosmetologist_id);
           this.setState({ cos: [...result],}  
            );
@@ -59,7 +60,7 @@ import MycosCard from '../commons/MycosCard';
   onFileChange = event => {
     
     // Update the state
-    this.setState({ picture: event.target.files[0] });
+    this.setState({ picture: URL.createObjectURL(event.target.files[0]) });
   
   };
 
@@ -113,14 +114,20 @@ import MycosCard from '../commons/MycosCard';
   render() {
     return (
       <div style={{marginTop:200}}>
-        
+        <div>
+          <img alt='pic' src={this.state.picture}/>
           <input type="file" onChange={this.onFileChange} /><br/><br/>
           <button  style={{backgroundColor:"#c4a092",color:"white",fontSize:14,width:'60%',height:25,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={this.onFileUpload}> שמור תמונת פרופיל </button>
+       </div>
+       <div>
+          <p style={{color:'black'}}>   סוג העור שלי הוא  </p>
 
           <h1>{this.state.cos}</h1>
+       </div>
 
-          
       </div>
+
+     
     )
   }
 }
