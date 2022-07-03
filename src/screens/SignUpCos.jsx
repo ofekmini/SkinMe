@@ -64,6 +64,7 @@ let local = false;
       cosmetic_address:this.state.cosmetic_address,
       cosmetic_city:this.state.cosmetic_city,
       cosmetic_license_num:this.state.cosmetic_license_num,
+      cosmetic_phone_num:this.cosmetic_phone_num,
       cosmetic_status:this.state.cosmetic_status,
       user_role:this.state.user_role
         
@@ -131,6 +132,8 @@ let local = false;
         <InputUser value={this.cosmetic_address} name="cosmetic_address" type="text" label="כתובת " placeholder="כתובת"  onChange={(e)=>{this.setState({cosmetic_address:e.target.value})}}/>
         
         <InputUser value={this.cosmetic_license_num} name="cosmetic_license_num" type="text" label="מספר עסק " placeholder="מספר עסק"  onChange={(e)=>{this.setState({cosmetic_license_num:e.target.value})}}/>
+        
+        <InputUser value={this.cosmetic_phone_num} name="cosmetic_phone_num" type="text" label="מספר טלפון " placeholder="מספר טלפון"  onChange={(e)=>{this.setState({cosmetic_phone_num:e.target.value})}}/>
 
         <InputUser value={this.username} name="username" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({username:e.target.value})}}/>
 
