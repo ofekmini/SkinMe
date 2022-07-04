@@ -130,9 +130,12 @@ class MasterForm extends Component {
       })
       .then(
         (result) => {
+          debugger
           console.log("fetch POST= ", result);
           console.log(result.username);
           console.log(this.state);
+          localStorage.setItem("appUser_id", result.appUser_id);
+          localStorage.setItem("user_skinType",result.user_skinType);
           localStorage.setItem("type", 0);
           window.location.href = '/userhomepage';
           

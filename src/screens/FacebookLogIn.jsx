@@ -39,6 +39,7 @@ export default class FacebookLogIn extends Component {
     //     'Accept': 'application/json; charset=UTF-8',
     //   })
     // })
+    debugger
     this.props.handleChange(response.email, response.name, response.picture.data.url)
     this.setState({
       
@@ -80,7 +81,7 @@ export default class FacebookLogIn extends Component {
 
           appId="229777149335447"
           autoLoad={false}
-          fields="name,email,picture"
+          fields="name,email,picture,gender"
           onClick={this.componentClicked}
           callback={this.responseFacebook}
           icon="fa-facebook"
