@@ -31,6 +31,7 @@ import WelcomeSkinMe from './screens/WelcomeSkinMe';
 
 import Menu from './screens/Menu';
 import RatingProducts from './screens/RatingProducts';
+import RatingCos from './screens/RatingCos';
 import PersonalArea from './screens/PersonalArea'
 
 import Profile from './screens/Profile';
@@ -93,6 +94,7 @@ function App() {
         <Route path="/signupuser" element={<MasterForm />} />
         <Route path="/signupcos" element={<SignUpCos />} />
         <Route path="/ratingp" element={<RatingProducts />} />
+        <Route path="/ratingcos" element={<RatingCos />} />
        
         
 
