@@ -6,7 +6,7 @@ import PopUpCos from '../commons/PopUpCos';
 
 let local = false;
 //const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
-    const apiUrl='https://localhost:44326/api/LogIn/register';
+    const apiUrl='http://localhost:58031/api/LogIn/registerCos';
 //if (local) {
  // apiUrl = 'https://localhost:44326/api/LogIn/register';
 //}
@@ -16,18 +16,18 @@ let local = false;
     super(props)
     
     this.state={
-      user_firstName:"",
-      user_lastName:"", 
-      username:"",
-      user_password:"",
-      user_email:"",
-      user_gender:"",
+      cosmetologist_first_name:"",
+      cosmetologist_last_name:"", 
+      cosmetologist_user_name:"",
+      cosmetologist_user_password:"",
+      cosmetologist_email:"",
+      cosmetologist_gender:"",
       cosmetic_businessName:"",
       cosmetic_address:"",
       cosmetic_city:"",
       cosmetic_license_num:"",
       cosmetic_status:"Pending",
-      user_role:"Cosmetologist",
+      
       showPopup: false,
          
   }
@@ -54,19 +54,19 @@ let local = false;
     this.togglePopup(); 
 
     const cos_data={
-      user_firstName:this.state.user_firstName,
-      user_lastName:this.state.user_lastName, 
-      username:this.state.username,
-      user_password:this.state.user_password,
-      user_gender:this.state.user_gender,
-      user_email:this.state.user_email,
+      cosmetologist_first_name:this.state.cosmetologist_first_name,
+      cosmetologist_last_name:this.state.cosmetologist_last_name, 
+      cosmetologist_user_name:this.state.cosmetologist_user_name,
+      cosmetologist_user_password:this.state.cosmetologist_user_password,
+      cosmetologist_gender:this.state.cosmetologist_gender,
+      cosmetologist_email:this.state.cosmetologist_email,
       cosmetic_businessName:this.state.cosmetic_businessName,
       cosmetic_address:this.state.cosmetic_address,
       cosmetic_city:this.state.cosmetic_city,
       cosmetic_license_num:this.state.cosmetic_license_num,
       cosmetic_phone_num:this.cosmetic_phone_num,
       cosmetic_status:this.state.cosmetic_status,
-      user_role:this.state.user_role
+     
         
       
     };
@@ -107,21 +107,21 @@ let local = false;
 
       <Logo/>
 
-        <InputUser value={this.user_firstName} name="user_firstName" type="text" label="שם פרטי " placeholder="שם פרטי " onChange={(e)=>{this.setState({user_firstName:e.target.value})}}/>
+        <InputUser value={this.cosmetologist_first_name} name="cosmetologist_first_name" type="text" label="שם פרטי " placeholder="שם פרטי " onChange={(e)=>{this.setState({cosmetologist_first_name:e.target.value})}}/>
 
-        <InputUser value={this.user_lastName} name="user_lastName" type="text" label="שם משפחה   " placeholder="שם משפחה " onChange={(e)=>{this.setState({user_lastName:e.target.value})}}/>  
+        <InputUser value={this.cosmetologist_last_name} name="cosmetologist_last_name" type="text" label="שם משפחה   " placeholder="שם משפחה " onChange={(e)=>{this.setState({cosmetologist_last_name:e.target.value})}}/>  
 
-        <InputUser value={this.user_email} name="user_email" type="text" label="מייל " placeholder="מייל"  onChange={(e)=>{this.setState({user_email:e.target.value})}}/>
+        <InputUser value={this.cosmetologist_email} name="cosmetologist_email" type="text" label="מייל " placeholder="מייל"  onChange={(e)=>{this.setState({cosmetologist_email:e.target.value})}}/>
         
 
         <label className='label' >
-        <input type="radio" name="user_gender" value="F"   onChange={(e)=>{this.setState({user_gender:e.target.value})}}/>
+        <input type="radio" name="cosmetologist_gender" value="F"   onChange={(e)=>{this.setState({cosmetologist_gender:e.target.value})}}/>
         <img alt="wrinkles" height="100" width="100" src={require("../assets/images/girl.png")}/>
         
         </label>
         <label className='label'>
           
-        <input type="radio" name="user_gender" value="M"   onChange={(e)=>{this.setState({user_gender:e.target.value})}}/>
+        <input type="radio" name="cosmetologist_gender" value="M"   onChange={(e)=>{this.setState({cosmetologist_gender:e.target.value})}}/>
         <img alt="wrinkles" height="100" width="100" src={require("../assets/images/boy.png")}/><br/>
         
         </label>
@@ -136,9 +136,9 @@ let local = false;
         
         <InputUser value={this.cosmetic_phone_num} name="cosmetic_phone_num" type="text" label="מספר טלפון " placeholder="מספר טלפון"  onChange={(e)=>{this.setState({cosmetic_phone_num:e.target.value})}}/>
 
-        <InputUser value={this.username} name="username" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({username:e.target.value})}}/>
+        <InputUser value={this.cosmetologist_user_name} name="cosmetologist_user_name" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({cosmetologist_user_name:e.target.value})}}/>
 
-        <InputUser value={this.user_password} name="user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({user_password:e.target.value})}}/>
+        <InputUser value={this.cosmetologist_user_password} name="cosmetologist_user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({cosmetologist_user_password:e.target.value})}}/>
 
         <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="סיום הרשמה" onClick={this.addCos}/>
         {this.state.showPopup ? 
