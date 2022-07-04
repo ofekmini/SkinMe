@@ -28,6 +28,7 @@ class WelcomeSkinMe extends Component {
         <Link to="/chooseuser">
         <ButtonLogIn style={{margin:10,fontSize:20,border:'none',color:'#bc8f8f',textDecorationLine: 'underline'}} name=" הרשמה לאפליקציה"/> 
         </Link>
+
         </div>
         );
     }
