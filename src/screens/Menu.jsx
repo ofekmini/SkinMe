@@ -18,7 +18,7 @@ export default props => {
         <a className="menu-item" href="/userhomepage" >
           דף הבית
         </a>
-        <a className="menu-item" href="/profile">
+        <a className="menu-item" href="/persoarea">
           אזור אישי
         </a>
         <a className="menu-item" href="/maslulinfo">

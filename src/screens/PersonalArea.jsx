@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../assets/images/logo.png';
 import MycosCard from '../commons/MycosCard';
 import CosmeticHomePage from './CosmeticHomePage';
@@ -9,6 +10,7 @@ function PersonalArea() {
   const [user_skinType, setuser_skinType] = useState("")
   const [mycos, setMyCos] = useState("")
   const [user, setUser] = useState({})
+  const [user_route, setUser_Route] = useState("")
 
   const id = localStorage.getItem('appUser_id')
 
@@ -41,6 +43,13 @@ function PersonalArea() {
     }
     else {
       setuser_skinType("סוג העור שלי הוא מעורב");
+    }
+
+    if (localStorage.getItem('user_route') == 2 || localStorage.getItem('user_route') == 1 ) {
+      setUser_Route(true);
+    } 
+    else {
+      setUser_Route(false);
     }
 
 
@@ -101,15 +110,24 @@ function PersonalArea() {
         <img style={{ width: 100, height: 100, borderRadius: 50 }} src={user.picture} /> <br /><br />
         <h3 style={{ color: '#c4a092', margin: 0 }}> {user_skinType} </h3>
 
+       <Link to='/userimages'>
         <button style={{ margin: 15, backgroundColor: "black", color: "white", fontSize: 15, width: '40%', height: 30, borderColor: "black", borderWidth: 1, borderRadius: 50 }}  >מעקב תמונות</button>
+        </Link>
       </div>
-      <div>
+      <div style={{ backgroundColor: 'beige', margin: 10 }}>
+      {user_route?(
+          
+          <MycosCard cos={mycos} /> 
+        ):(
+          <button style={{ margin: 50, backgroundColor: "#c4a092", color: "white", fontSize: 20, width: '50%', height: 40, borderColor: "black", borderWidth: 1, borderRadius:10 }}  >הצטרפות למסלול  </button>
 
-        <MycosCard cos={mycos} /> <br /><br /><br /><br />
+
+        )}
+        
       </div>
 
 
-      <div style={{ backgroundColor: 'beige', margin: 10, marginTop: 200 }}>
+      <div style={{ backgroundColor: 'beige', margin: 10, marginTop:250 }}>
         <h3 style={{ color: 'black', fontSize: 18 }}>שינוי תמונת פרופיל </h3>
         <img style={{ width: 50, height: 50, borderRadius: 50 }} src={file} /> <br /><br />
         <input style={{ marginLeft: 70 }} type="file" accept="image/*" onChange={handleChange} />  <br /><br />
