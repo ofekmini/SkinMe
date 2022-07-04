@@ -35,6 +35,7 @@ import RatingCos from './screens/RatingCos';
 import PersonalArea from './screens/PersonalArea'
 
 import Profile from './screens/Profile';
+import UserImages from './screens/UserImages';
 
 
 
@@ -84,6 +85,7 @@ function App() {
 
            <Route path='/profile' element={<Profile />}/>
            <Route path='/persoarea' element={<PersonalArea />}/>
+           <Route path='/userimages' element={<UserImages />}/>
           </Route>
 
         <Route path="/" element={<WelcomeSkinMe/>} />

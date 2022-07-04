@@ -52,19 +52,17 @@ function PersonalArea() {
 
     fetch(`http://localhost:58031/api/Users/${id}`)
       .then(response => response.json())
-      // 4. Setting *dogImage* to the image url that we received from the response above
+     
       .then(data => {
         setUser(data)
       })
   }, [])
 
   const handleSubmission = async (event) => {
-    debugger
+    
     const apiUrl = `http://localhost:58031/api/Users/profileImage/${id}`;
 
-    // const formData = new FormData();
-
-    // formData.append('File', file);
+    
 
     const res = await fetch(apiUrl, {
       method: 'PUT', headers: new Headers({
