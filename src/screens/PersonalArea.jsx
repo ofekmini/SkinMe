@@ -54,10 +54,9 @@ function PersonalArea() {
 
 
 
-    // fetch(`http://localhost:58031/api/User/Mycos/?id=${id}`)
-    //   .then(response => response.json())
-    //   // 4. Setting *dogImage* to the image url that we received from the response above
-    //   .then(data => setMyCos(data))
+     fetch(`http://localhost:58031/api/User/Mycos/?id=${id}`)
+    .then(response => response.json())
+   .then(data => setMyCos(data))
 
     fetch(`http://localhost:58031/api/Users/${id}`)
       .then(response => response.json())
@@ -127,11 +126,11 @@ function PersonalArea() {
       </div>
 
 
-      <div style={{ backgroundColor: 'beige', margin: 10, marginTop:250 }}>
+      <div style={{ backgroundColor: 'beige', margin: 10, marginTop:50 }}>
         <h3 style={{ color: 'black', fontSize: 18 }}>שינוי תמונת פרופיל </h3>
         <img style={{ width: 50, height: 50, borderRadius: 50 }} src={file} /> <br /><br />
         <input style={{ marginLeft: 70 }} type="file" accept="image/*" onChange={handleChange} />  <br /><br />
-        <button style={{ margin: 15, backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '40%', height: 30, borderColor: "black", borderWidth: 1, borderRadius: 50 }} onClick={handleSubmission} >שמור תמונת פרופיל</button> <br />
+        <button style={{ margin: 15, backgroundColor: "black", color: "white", fontSize: 15, width: '40%', height: 30, borderColor: "black", borderWidth: 1, borderRadius: 50 }} onClick={handleSubmission} >שמור תמונת פרופיל</button> <br />
       </div>
 
     </div>
