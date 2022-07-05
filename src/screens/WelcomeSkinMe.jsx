@@ -24,7 +24,7 @@ class WelcomeSkinMe extends Component {
         </Link>
         
         <br/>
-        <h3 style={{color:"gray", fontSize:15}}>?משתמש לא קיים</h3>
+        <p style={{color:"gray", fontSize:15}}>?משתמש לא קיים</p>
         <Link to="/chooseuser">
         <ButtonLogIn style={{margin:10,fontSize:20,border:'none',color:'#bc8f8f',textDecorationLine: 'underline'}} name=" הרשמה לאפליקציה"/> 
         </Link>

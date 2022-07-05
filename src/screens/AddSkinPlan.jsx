@@ -191,8 +191,6 @@ class AddSkinPlan extends Component {
 
         <h4 style={{ marginTop: 35 }}>יצירת תוכנית טיפוח </h4>
 
-        <img alt="prod" height="150" width="150" src={require("../assets/images/skinplan.png")} />
-
 
         <div style={{ border: '1px solid black' }}>
           <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center' }} > פרטי משתמש </h3>
