@@ -13,7 +13,7 @@ const CardAddProdToPlan = (props) => {
       <div> <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} > {products.prod_company} </h3> </div>
       <ButtonLogIn  
       style={{backgroundColor:"#c4a092",color:"white",fontSize:14,width:'50%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} 
-      name="הוספה " />
+      name="הוספה " onClick={props.add} product={products}/>
 
     
     </div>

@@ -109,8 +109,8 @@ class MasterForm extends Component {
       user_sunExposure: this.state.user_sunExposure,
       user_stress: this.state.user_stress,
       user_role: this.state.user_role,
-      user_skinType: this.state.user_skinType
-
+      user_skinType: this.state.user_skinType,
+      user_status:'waiting'
 
     };
     

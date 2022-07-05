@@ -5,6 +5,7 @@ import CardAddProdToPlan from '../commons/CardAddProdToPlan';
 import Logo from '../commons/Logo';
 import UserInfo from '../commons/UserInfo';
 import PopUpCos from '../commons/PopUpCos';
+import FilterProducts from './FilterProducts';
 
 
 
@@ -24,7 +25,9 @@ class AddSkinPlan extends Component {
       plan_name: "",
       notes: "",
       products: [],
-      appUser_id: localStorage.getItem('appUser_id'),
+      filterProducts: [],
+      ppp: [],
+      user: JSON.parse(localStorage.getItem('user') ?? ''),
       users: [],
       user_status: "waiting",
 
@@ -35,6 +38,30 @@ class AddSkinPlan extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     })
+  }
+
+  filterProduct = (type) => {
+    debugger
+    let arr = [...this.state.products]
+
+    arr = arr.filter(x => x.prod_type == type)
+
+    this.setState({ filterProducts: arr })
+  }
+
+  addProductToPlan = (item) => {
+    debugger
+    let arr = [...this.state.ppp]
+    arr.push(item)
+    this.setState({ ppp: arr })
+  }
+
+  deleteProductFromPlan = (item) => {
+    let arr = [...this.state.ppp]
+    debugger
+    let product=arr.findIndex(x => x.prod_id==item.prod_id)
+    arr.splice(product, 1)
+    this.setState({ ppp: arr })
   }
 
   componentDidMount() {
@@ -61,7 +88,7 @@ class AddSkinPlan extends Component {
           console.log("fetch btnFetchGetProducts= ", result);
           result.map(st => console.log(st.prod_id));
           console.log('result[0].prod_id', result[0].prod_id);
-          this.setState({ products: [...result] }
+          this.setState({ products: [...result], filterProducts: [...result]}
 
           );
 
@@ -170,7 +197,7 @@ class AddSkinPlan extends Component {
         <div style={{ border: '1px solid black' }}>
           <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center' }} > פרטי משתמש </h3>
           <div >
-            {this.state.users.map((users) => <UserInfo key={users.appUser_id} users={users.appUser_id} />)}
+            <UserInfo user={this.state.user} users={this.state.users} />
           </div>
         </div>
 
@@ -183,12 +210,20 @@ class AddSkinPlan extends Component {
 
 
         <h3 style={{ margin: 30, color: "#c4a092", fontSize: 15, textAlign: 'center' }} >הוספת מוצרים </h3>
-        <div >
-          {this.state.products.map((products) => <CardAddProdToPlan key={products.prod_id} products={products} />)}
+        <div>
+          <FilterProducts filter={this.filterProduct} />
+        </div>
+        <div>
+          {this.state.filterProducts.map((products) => <CardAddProdToPlan add={this.addProductToPlan} key={products.prod_id} products={products} />)}
         </div>
 
-          <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center' }} > מוצרים שנוספו לתוכנית </h3>
-          <ButtonLogIn style={{ margin: 30, backgroundColor: "black", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} name="שמירה והוספת מוצרים " />
+        <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center' }} > מוצרים שנוספו לתוכנית </h3>
+        {this.state.ppp.map((product) => {
+          return (<div>{product.prod_name}
+          <button onClick={()=>this.deleteProductFromPlan(product)}>X</button></div>)
+        })}
+
+        <ButtonLogIn style={{ margin: 30, backgroundColor: "black", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} name="שמירה והוספת מוצרים " />
 
         {this.state.showPopup ?
           <PopUpCos
@@ -198,7 +233,7 @@ class AddSkinPlan extends Component {
           />
           : null
         }
-        
+
       </div>
     )
   }

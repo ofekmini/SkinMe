@@ -33,8 +33,9 @@ handlechange = (e) => {
 
 
 checkLogInCos = (e)=>{
+  debugger
   console.clear();
-  e.preventDefault()
+  // e.preventDefault()
   
   const apiUrl = 'http://localhost:58031/api/LogIn/Cos';
   

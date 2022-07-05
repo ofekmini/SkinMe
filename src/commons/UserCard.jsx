@@ -8,7 +8,7 @@ const UserCard = (props) => {
   
   const showId =()=>{
     console.log(users.appUser_id);
-    localStorage.setItem('appUser_id',users.appUser_id);
+    localStorage.setItem('user',JSON.stringify(users));
 
   }
 

@@ -4,7 +4,7 @@ const ButtonLogIn=(props) =>{
   return (
     <div>
       
-     <button style={props.style} onClick={props.onClick}>
+     <button style={props.style} onClick={()=>{props.onClick(props.product)}}>
        {props.name}
      </button>
       

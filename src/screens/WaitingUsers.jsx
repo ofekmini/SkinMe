@@ -34,6 +34,7 @@ class WaitingUsers extends Component {
           })
           .then(
             (result) => {
+              debugger
               console.log("fetch POST= ", result);
               result.map(st => console.log(st.appUser_id));
                   console.log('result[0].user_id=', result[0].appUser_id);
@@ -45,9 +46,9 @@ class WaitingUsers extends Component {
                 })
           }
 
-          componentDidMount(){
-            this.Getwaitingclients();
-          }
+       //  componentDidMount(){
+        //    this.Getwaitingclients();
+       //   }
     
         render() {
             return (
