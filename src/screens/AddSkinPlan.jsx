@@ -41,7 +41,7 @@ class AddSkinPlan extends Component {
   }
 
   filterProduct = (type) => {
-    debugger
+
     let arr = [...this.state.products]
 
     arr = arr.filter(x => x.prod_type == type)
@@ -50,7 +50,7 @@ class AddSkinPlan extends Component {
   }
 
   addProductToPlan = (item) => {
-    debugger
+
     let arr = [...this.state.ppp]
     arr.push(item)
     this.setState({ ppp: arr })
@@ -58,8 +58,7 @@ class AddSkinPlan extends Component {
 
   deleteProductFromPlan = (item) => {
     let arr = [...this.state.ppp]
-    debugger
-    let product=arr.findIndex(x => x.prod_id==item.prod_id)
+    let product = arr.findIndex(x => x.prod_id == item.prod_id)
     arr.splice(product, 1)
     this.setState({ ppp: arr })
   }
@@ -88,7 +87,7 @@ class AddSkinPlan extends Component {
           console.log("fetch btnFetchGetProducts= ", result);
           result.map(st => console.log(st.prod_id));
           console.log('result[0].prod_id', result[0].prod_id);
-          this.setState({ products: [...result], filterProducts: [...result]}
+          this.setState({ products: [...result], filterProducts: [...result] }
 
           );
 
@@ -102,7 +101,7 @@ class AddSkinPlan extends Component {
 
   addSkinPlan = (e) => {
     console.clear();
-    e.preventDefault()
+    const apiUrl = 'http://localhost:58031/api/Cos/AddSkinPlan';
 
     const newskinplan = {
       plan_name: this.state.plan_name,
@@ -138,88 +137,52 @@ class AddSkinPlan extends Component {
 
 
 
-
-  /* //addprod = (e) => {
-
-    const  apiUrl= 'http://localhost:58031/api/Cos/AddProdToPlan/${this.state.appUser_id}';
-
-    console.clear();
-    e.preventDefault()
-
-    const prodtoplan = {
-      prod_id: this.state.prod_id,
-      plan_id: this.state.plan_id,
-    };
-    fetch(apiUrl, {
-      method: 'POST',
-      body: JSON.stringify(prodtoplan),
-      headers: new Headers({
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Accept': 'application/json; charset=UTF-8',
-      })
-
-        .then(res => {
-          console.log('res=', res);
-          console.log('res.status', res.status);
-          console.log('res.ok', res.ok);
-          return res.json()
-        })
-        .then(
-          (result) => {
-            console.log("fetch POST= ", result);
-            console.log(result.prod_id);
-            console.log(this.state);
-          },
-          (error) => {
-            console.log("err post=", error);
-          });
-  
-      console.log('END');
-    }
-  }
-
-  filterproducts = (e) => {
-    // filter products by type from list 
-  }
-*/
-
   render() {
 
     return (
-
       <div>
-
         <h4 style={{ marginTop: 35 }}>יצירת תוכנית טיפוח </h4>
 
-
-        <div style={{ border: '1px solid black' }}>
+        <div>
           <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center' }} > פרטי משתמש </h3>
-          <div >
+          <div style={{ margin: 10 }} >
             <UserInfo user={this.state.user} users={this.state.users} />
           </div>
         </div>
 
-        <div style={{ border: '1px solid black' }}>
+        <hr />
+
+        <div>
           <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center' }} > פרטי התוכנית </h3>
           <InputUser value={this.plan_name} name="plan_name" type="text" label=" שם התוכנית  " placeholder="שם התוכנית   " onChange={(e) => { this.setState({ plan_name: e.target.value }) }} />
           <InputUser value={this.notes} name="notes" type="text" label="  הערות   " placeholder="הערות   " onChange={(e) => { this.setState({ notes: e.target.value }) }} /><br />
-          <ButtonLogIn style={{ backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '60%', height: 30, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50, margin: 10 }} name="שמירת פרטי תוכנית " onClick={this.addSkinPlan} />
+          <ButtonLogIn style={{ backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '60%', height: 30, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50, margin: 10 }} name="שמירה והמשך לבחירת מוצרים " onClick={this.addSkinPlan} />
         </div>
 
+        <hr />
 
-        <h3 style={{ margin: 30, color: "#c4a092", fontSize: 15, textAlign: 'center' }} >הוספת מוצרים </h3>
         <div>
-          <FilterProducts filter={this.filterProduct} />
-        </div>
-        <div>
-          {this.state.filterProducts.map((products) => <CardAddProdToPlan add={this.addProductToPlan} key={products.prod_id} products={products} />)}
+          <h3 style={{ margin: 30, color: "#c4a092", fontSize: 15, textAlign: 'center' }} >הוספת מוצרים </h3>
+          <h4 style={{ margin: 30, color: "gray", fontSize: 15, textAlign: 'center' }} >...מומלץ: משתמשים בעלי פרופיל דומה אוהבים</h4>
+          <div>
+
+          </div>
+
+          <div style={{ margin: 20 }}>
+            <FilterProducts filter={this.filterProduct} />
+          </div>
+          <div >
+            {this.state.filterProducts.map((products) => <CardAddProdToPlan add={this.addProductToPlan} key={products.prod_id} products={products} />)}
+          </div>
         </div>
 
-        <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center' }} > מוצרים שנוספו לתוכנית </h3>
-        {this.state.ppp.map((product) => {
-          return (<div>{product.prod_name}
-          <button onClick={()=>this.deleteProductFromPlan(product)}>X</button></div>)
-        })}
+        <div>
+          <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center', }} > מוצרים שנוספו לתוכנית </h3>
+          {this.state.ppp.map((product) => {
+            return (<div>{product.prod_name}
+              <button style={{ backgroundColor: "red", color: 'white', height: 15, width: 15 }} onClick={() => this.deleteProductFromPlan(product)} >X</button></div>)
+          })}
+        </div>
 
         <ButtonLogIn style={{ margin: 30, backgroundColor: "black", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} name="שמירה והוספת מוצרים " />
 
