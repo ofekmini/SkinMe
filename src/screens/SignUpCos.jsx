@@ -27,6 +27,10 @@ let local = false;
       cosmetic_city:"",
       cosmetic_license_num:"",
       cosmetic_status:"Pending",
+
+      cosmetologist_sumRate:"0",
+      cosmetologist_numOfRates:"0",
+      cosmetologist_rate:"0",
       
       showPopup: false,
          
@@ -66,6 +70,10 @@ let local = false;
       cosmetic_license_num:this.state.cosmetic_license_num,
       cosmetic_phone_num:this.cosmetic_phone_num,
       cosmetic_status:this.state.cosmetic_status,
+      
+      cosmetologist_rate:this.state.cosmetologist_rate,
+      cosmetologist_sumRate:this.state.cosmetologist_sumRate,
+      cosmetologist_numOfRates:this.state.cosmetologist_numOfRates
      
         
       

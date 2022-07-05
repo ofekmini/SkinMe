@@ -29,7 +29,11 @@ import { Link } from 'react-router-dom';
   render() {
     return (
       <div >
-        <h2 style={{color:'#c4a092',paddingTop:30}}>מסלולים</h2>
+        <Link to='/userhomepage'>
+      <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
+      </Link>
+        <h4 style={{marginTop:35}}>מסלולים</h4>
+        
         <div className="card"  style={{ width:'18rem',margin:50,float:"left",border: '#c4a092 solid 2px'}} >
          <img className="card-img-top" src={require("../assets/images/maslul1.png")} alt="maslulone" width="150" height="150"  ></img>   
         <div className="card-body">

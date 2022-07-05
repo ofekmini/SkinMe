@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -144,6 +145,9 @@ class SearchCos extends Component {
 
     return (
       <div style={{ marginTop: 40 }}>
+        <Link to='/userhomepage'>
+      <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
+      </Link>
 
         <h1 style={{ color: 'black', fontSize: 15 }}>חיפוש קוסמטיקאית </h1>
         <select value={this.state.cosInfo} style={{ height: 40, borderRadius: 50, marginTop: 30, borderColor: '#c4a092' }} onChange={this.handlechange}>

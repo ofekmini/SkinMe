@@ -54,6 +54,9 @@ class WaitingUsers extends Component {
             return (
               <div >
                 <Logo></Logo>
+                <Link to='/coshomepage'>
+               <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
+               </Link>
                 <h4 style={{marginTop:35}}> משתמשים ממתינים לחוות דעת </h4>
                    
              <div >

@@ -27,6 +27,9 @@ class AddProduct extends Component {
       prod_description: "",
       prod_manual: "",
       prod_status: "Pending",
+      prod_rate:"0",
+      prod_sumRate:"0",
+      prod_numOfRates:"0"
 
     }
   }
@@ -59,7 +62,11 @@ class AddProduct extends Component {
       prod_company: this.state.prod_company,
       prod_description: this.state.prod_description,
       prod_manual: this.state.prod_manual,
-      prod_status: this.state.prod_status
+      prod_status: this.state.prod_status,
+      prod_rate:this.state.prod_rate,
+      prod_numOfRates:this.state.prod_numOfRates,
+      prod_sumRate:this.state.prod_sumRate
+
 
 
     };
