@@ -11,9 +11,7 @@ class SettingsCos extends Component {
       cosmetologist_user_password: "",
       cosmetologist_id: localStorage.getItem('cosmetologist_id'),
       cosmetologist_email: "",
-      cosmetic_city:"",
-      cosmetic_address:"",
-      
+      cosmetologist_phoneNumber:"",
     }
   }
 
@@ -52,7 +50,7 @@ class SettingsCos extends Component {
 
   UpdateEmail = () => {
     console.clear();
-    const apiUrl = `http://localhost:58031/api/login/UpdateCosInfo?id=${this.state.cosmetologist_id}`;
+    const apiUrl = `http://localhost:58031/api/login/UpdateCosEmail?id=${this.state.cosmetologist_id}`;
     const pass = {
       cosmetologist_email: this.state.cosmetologist_email
     };
@@ -73,7 +71,7 @@ class SettingsCos extends Component {
       })
       .then(
         (result) => {
-          console.log("fetch btnFetchUpdateCosInfo ", result);
+          console.log("fetch btnFetchUpdateCosEmail ", result);
           console.log('result.cosmetologist_email=', result.cosmetologist_id);
         },
         (error) => {
@@ -83,44 +81,10 @@ class SettingsCos extends Component {
     console.log('END');
   }
 
-  UpdateAdress = () => {
-    console.clear();
-    const apiUrl = `http://localhost:58031/api/UpdateCos?id=${this.state.cosmetologist_id}`;
-    const pass = {
-      cosmetic_city: this.state.cosmetic_city,
-      cosmetic_address: this.state.cosmetic_address
-    };
-
-    fetch(apiUrl, {
-      method: 'PUT',
-      body: JSON.stringify(pass),
-      headers: new Headers({
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Accept': 'application/json; charset=UTF-8',
-      })
-    })
-      .then(res => {
-        console.log('res=', res);
-        console.log('res.status', res.status);
-        console.log('res.ok', res.ok);
-        return res.json()
-      })
-      .then(
-        (result) => {
-          console.log("fetch btnFetchUpdateCosInfo ", result);
-          console.log('result.cosmetic_city=', result.cosmetologist_id);
-          console.log('result.cosmetic_address=', result.cosmetologist_id);
-        },
-        (error) => {
-          console.log("err post=", error);
-        });
-
-    console.log('END');
-  }
-
+ 
   UpdatePhone = () => {
     console.clear();
-    const apiUrl = `http://localhost:58031/api/login/UpdateCosInfo?id=${this.state.cosmetologist_id}`;
+    const apiUrl = `http://localhost:58031/api/login/UpdateCosPhone?id=${this.state.cosmetologist_id}`;
     const pass = {
       cosmetologist_phoneNumber: this.state.cosmetologist_phoneNumber,
     };
@@ -141,7 +105,7 @@ class SettingsCos extends Component {
       })
       .then(
         (result) => {
-          console.log("fetch btnFetchUpdateCosInfo ", result);
+          console.log("fetch btnFetchUpdateCosPhone ", result);
           console.log('result.cosmetologist_phoneNumber=', result.cosmetologist_id);
         },
         (error) => {
@@ -174,13 +138,6 @@ class SettingsCos extends Component {
           <h5 style={{ marginTop: 10 }}> שינוי כתובת מייל  </h5>
           <InputUser value={this.cosmetologist_email} name="cosmetologist_email" type="text" label=" הזן כתובת מייל חדשה  " placeholder="הזן כתובת מייל  " onChange={(e) => { this.setState({ cosmetologist_email: e.target.value })}} />
           <ButtonLogIn style={{ margin: 30, backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} name="שמור  " onClick={this.UpdateEmail} />
-        </div>
-
-        <div style={{ margin: 60, border: '2px solid black', borderRadius: 30 }}>
-          <h5 style={{ marginTop: 10 }}> שינוי כתובת העסק  </h5>
-          <InputUser value={this.cosmetic_city} name="cosmetic_city" type="text" label=" עיר  " placeholder="שם העיר " nChange={(e) => { this.setState({ cosmetic_city: e.target.value })}}/>
-          <InputUser value={this.cosmetic_address} name="cosmetic_address" type="text" label=" כתובת  " placeholder="רחוב ומספר בית "  nChange={(e) => { this.setState({ cosmetic_address: e.target.value })}} />
-          <ButtonLogIn style={{ margin: 30, backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} name="שמור  " onClick={this.UpdateAdress} />
         </div>
 
         <div style={{ margin: 60, border: '2px solid black', borderRadius: 30 }}>
