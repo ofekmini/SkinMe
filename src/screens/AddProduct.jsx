@@ -122,9 +122,6 @@ class AddProduct extends Component {
           <option value="שמן" >שמן</option>
           <option value="תחליב" >תחליב</option>
           <option value="תרחיף" >תרחיף</option>
-
-
-
         </select>
 
         <InputUser value={this.prod_description} name="prod_description" type="textarea" label="הוראות שימוש   " placeholder="הוראות שימוש " onChange={(e) => { this.setState({ prod_description: e.target.value }) }} />
