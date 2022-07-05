@@ -1,44 +1,47 @@
-import React , { useState, useEffect }from 'react'
-import { Card ,CardActionArea,CardMedia} from 'react-bootstrap';
+import React, { useState, useEffect } from 'react'
+import { Card, CardActionArea, CardMedia } from 'react-bootstrap';
 
- function UserImages() {
+function UserImages() {
 
   const [file, setFile] = useState();
   const [img, setImg] = useState({});
-  const [userImages, setUserImages]=useState([])
+  const [userImages, setUserImages] = useState([])
 
   const id = localStorage.getItem('appUser_id')
 
-  useEffect(() => {
-   
-    
-    fetch(`http://localhost:58031/api/Users/allimages/${id}`)
-      .then(response => response.json())
-       
-      .then(data => { 
-        setUserImages(data)
-      
+  useEffect(async () => {
+
+    debugger
+    let res = await fetch(`http://localhost:58031/api/Users/allimages/${id}`, {
+      method: 'GET', headers: new Headers({
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json; charset=UTF-8',
       })
-      
+    })
+    let arr = await res.json();
+    debugger
+    setUserImages(arr)
   }, [])
 
 
   const handleSubmission = async (event) => {
-    
+
     const apiUrl = `http://localhost:58031/api/Users/images`;
-    
+
     const currDate = new Date().toLocaleDateString();
 
     const res = await fetch(apiUrl, {
       method: 'POST', headers: new Headers({
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json; charset=UTF-8',
-      }), body: JSON.stringify({  imgUrl: file ,
-                                  appUser_id:id ,
-                                  upload_date:currDate
-                              })
+      }), body: JSON.stringify({
+        imgUrl: file,
+        appUser_id: id,
+        upload_date: currDate
+      })
     })
-    let img=await res.json()
+    let img = await res.json()
+
     setImg(img)
   }
 
@@ -48,19 +51,19 @@ import { Card ,CardActionArea,CardMedia} from 'react-bootstrap';
     setFile(base64);
   }
 
-  function convertToBase64(file){
-     return new Promise((resolve, reject)=>{
+  function convertToBase64(file) {
+    return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
       fileReader.readAsDataURL(file)
-      fileReader.onload=()=>{
+      fileReader.onload = () => {
         resolve(fileReader.result)
       }
-      fileReader.onerror=(error)=>{
+      fileReader.onerror = (error) => {
         reject(error)
       }
-     })
-    
-    }
+    })
+
+  }
 
 
 
@@ -78,19 +81,11 @@ import { Card ,CardActionArea,CardMedia} from 'react-bootstrap';
       <div style={{ backgroundColor: 'beige', margin: 10 }}>
         <img style={{ width: 100, height: 100, borderRadius: 50 }} src={img.imgUrl} /> <br /><br />
       </div>
+
+      {userImages.map((item) => {
+        return <img style={{ width: 50, height: 50, borderRadius: 50 }} src={item.imgUrl} />
+      })}
       
-      <div>
-      {userImages.map((item, index) => (
-        <div key={index}>{item}</div>
-      ))}
-         
-
-
-
-      </div>
-
-     
-
     </div>
   )
 }
