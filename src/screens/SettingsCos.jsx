@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import InputUser from '../commons/InputUser';
 import ButtonLogIn from '../commons/ButtonLogIn';
+import { Link } from 'react-router-dom';
 
 class SettingsCos extends Component {
 
@@ -18,7 +19,7 @@ class SettingsCos extends Component {
 
   UpdatePassword = () => {
     console.clear();
-    const apiUrl = `https://localhost:58031/api/login/UpdateCosPassword?id=${this.state.cosmetologist_id}`;
+    const apiUrl = `http://localhost:58031/api/login/UpdateCosPassword?id=${this.state.cosmetologist_id}`;
     const pass = {
       cosmetologist_user_password: this.state.cosmetologist_user_password
     };
@@ -51,7 +52,7 @@ class SettingsCos extends Component {
 
   UpdateEmail = () => {
     console.clear();
-    const apiUrl = `https://localhost:58031/api/login/UpdateCosInfo?id=${this.state.cosmetologist_id}`;
+    const apiUrl = `http://localhost:58031/api/login/UpdateCosInfo?id=${this.state.cosmetologist_id}`;
     const pass = {
       cosmetologist_email: this.state.cosmetologist_email
     };
@@ -84,7 +85,7 @@ class SettingsCos extends Component {
 
   UpdateAdress = () => {
     console.clear();
-    const apiUrl = `https://localhost:58031/api/login/UpdateCosInfo?id=${this.state.cosmetologist_id}`;
+    const apiUrl = `http://localhost:58031/api/UpdateCos?id=${this.state.cosmetologist_id}`;
     const pass = {
       cosmetic_city: this.state.cosmetic_city,
       cosmetic_address: this.state.cosmetic_address
@@ -119,7 +120,7 @@ class SettingsCos extends Component {
 
   UpdatePhone = () => {
     console.clear();
-    const apiUrl = `https://localhost:58031/api/login/UpdateCosInfo?id=${this.state.cosmetologist_id}`;
+    const apiUrl = `http://localhost:58031/api/login/UpdateCosInfo?id=${this.state.cosmetologist_id}`;
     const pass = {
       cosmetologist_phoneNumber: this.state.cosmetologist_phoneNumber,
     };
@@ -157,8 +158,11 @@ class SettingsCos extends Component {
   render() {
     return (
       <div >
+        <Link to='/coshomepage'>
+          <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
+        </Link>
 
-        <h4 style={{ marginTop: 30 }}> הגדרות </h4>
+        <h4 style={{ marginTop: 35}}> הגדרות </h4>
 
         <div style={{ margin: 60, border: '2px solid black', borderRadius: 30 }}>
           <h5 style={{ marginTop: 10 }}> שינוי סיסמה  </h5>

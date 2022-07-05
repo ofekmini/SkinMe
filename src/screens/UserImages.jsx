@@ -1,20 +1,23 @@
 import React , { useState, useEffect }from 'react'
+import { Card ,CardActionArea,CardMedia} from 'react-bootstrap';
 
  function UserImages() {
 
   const [file, setFile] = useState();
-  const [img, setImg] = useState({})
+  const [img, setImg] = useState({});
+  const [userImages, setUserImages]=useState([])
 
   const id = localStorage.getItem('appUser_id')
 
   useEffect(() => {
    
     
-    fetch(`http://localhost:58031/api/Users/images/${id}`)
+    fetch(`http://localhost:58031/api/Users/allimages/${id}`)
       .then(response => response.json())
-     
-      .then(data => {
-        setImg(data)
+       
+      .then(data => { 
+        setUserImages(data)
+      
       })
       
   }, [])
@@ -74,6 +77,16 @@ import React , { useState, useEffect }from 'react'
 
       <div style={{ backgroundColor: 'beige', margin: 10 }}>
         <img style={{ width: 100, height: 100, borderRadius: 50 }} src={img.imgUrl} /> <br /><br />
+      </div>
+      
+      <div>
+      {userImages.map((item, index) => (
+        <div key={index}>{item}</div>
+      ))}
+         
+
+
+
       </div>
 
      

@@ -52,8 +52,11 @@ import { Link } from 'react-router-dom'
   render() {
     return (
       <div >
+        <Link to='/coshomepage'>
+          <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
+       </Link>
        
-       <h4 style={{marginTop:30}}>מאגר מוצרי טיפוח </h4>
+       <h4 style={{marginTop:35}}>מאגר מוצרי טיפוח </h4>
 
       <div >
        {this.state.products.map((products) => <CardProduct  key={products.prod_id} products={products}/>)}
