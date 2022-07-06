@@ -63,7 +63,10 @@ class LogInCos extends Component {
           console.log("fetch POST= ", result);
           console.log(result);
           console.log(result.cosmetologist_id);
-          if (result === "username or password were not found") {
+          if (result === "שם משתמש או סיסמה אינם נכונים") {
+            this.setState({ errorMessage: result });
+          }
+          else if (result === "משתמש טרם אושר") {
             this.setState({ errorMessage: result });
           }
           else {

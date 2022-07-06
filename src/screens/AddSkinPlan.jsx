@@ -141,6 +141,8 @@ class AddSkinPlan extends Component {
 
     return (
       <div>
+     
+
         <h4 style={{ marginTop: 35 }}>יצירת תוכנית טיפוח </h4>
 
         <div>
@@ -175,6 +177,9 @@ class AddSkinPlan extends Component {
             {this.state.filterProducts.map((products) => <CardAddProdToPlan add={this.addProductToPlan} key={products.prod_id} products={products} />)}
           </div>
         </div>
+
+
+
 
         <div>
           <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center', }} > מוצרים שנוספו לתוכנית </h3>
