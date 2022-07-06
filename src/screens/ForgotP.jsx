@@ -29,12 +29,11 @@ export default class ForgotP extends Component {
 
   sendMail = (e)=> {
     console.clear();
-    e.preventDefault()
+  //  e.preventDefault()
     const apiUrl = `http://localhost:58031/api/mail/forgotpassword?mail=${this.state.email}`;
 
     
 
-   
 
     fetch(apiUrl, {
       method: 'PUT',
@@ -92,7 +91,7 @@ export default class ForgotP extends Component {
 <h2 style={{color:"black"}}>שכחתי סיסמה </h2>
 
 
-<InputUser value={this.email} name="email" type="text" label="מייל  " placeholder="מייל  " onChange={(e)=>{this.setState({email:e.target.value})}}/>
+<InputUser value={this.email} name="email" type="text" label="כתובת מייל  " placeholder="הזן כתובת מייל  " onChange={(e)=>{this.setState({email:e.target.value})}}/>
 
 
 
