@@ -87,7 +87,7 @@ import CardCosInfo from '../commons/CardCosInfo';
               console.log("fetch PUT= ", result);
               console.log(result.cosmetologist_id);
               console.log(this.state);
-              window.location.href = '/profile';
+              window.location.href = '/persoarea';
             },
             (error) => {
               console.log("err post=", error);
