@@ -6,6 +6,8 @@ import Logo from '../commons/Logo';
 import UserInfo from '../commons/UserInfo';
 import PopUpCos from '../commons/PopUpCos';
 import FilterProducts from './FilterProducts';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -141,7 +143,10 @@ class AddSkinPlan extends Component {
 
     return (
       <div>
-     
+
+       <Link to='/coshomepage'>
+          <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
+        </Link>
 
         <h4 style={{ marginTop: 35 }}>יצירת תוכנית טיפוח </h4>
 
