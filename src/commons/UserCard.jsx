@@ -24,6 +24,7 @@ const UserCard = (props) => {
       <Link to='/addskinplan' >
       <ButtonLogIn  style={{backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:50,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name=" יצירת תוכנית טיפוח " onClick={showId}/>
       </Link>
+      
 
     </div>
     </div>

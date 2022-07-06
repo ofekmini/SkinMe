@@ -22,7 +22,6 @@ import ProductDetails from './screens/ProductDetails';
 import MaslulInfo from './screens/MaslulInfo';
 import SettingsUser from './screens/SettingsUser';
 import SettinsCos from './screens/SettingsCos';
-
 import ChooseMyCos from './screens/ChooseMyCos';
 
 
@@ -36,6 +35,7 @@ import PersonalArea from './screens/PersonalArea'
 
 import Profile from './screens/Profile';
 import UserImages from './screens/UserImages';
+import MyCustomers from './screens/MyCustomers';
 
 
 
@@ -72,6 +72,7 @@ function App() {
            <Route path="/forgotpassword" element={<ForgotPassword />} />
            <Route path="/maslul" element={<Maslulim />} />
            <Route path="/maslulinfo" element={<MaslulInfo />} />
+           <Route path='/mycustomers' element={<MyCustomers />} />
            <Route path='/products' element={<Products />}/>
            <Route path="/productdetails" element={<ProductDetails />} />
            
