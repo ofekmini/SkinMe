@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import InputUser from '../commons/InputUser';
 import ButtonLogIn from '../commons/ButtonLogIn';
 import { Link } from 'react-router-dom';
+import PopUpCos from '../commons/PopUpCos';
+import PopUpUser from '../commons/PopUpUser';
 
  class SettingsUser extends Component {
 
@@ -14,15 +16,27 @@ import { Link } from 'react-router-dom';
       email: "",
       username:"",
 
-      appUser_id: localStorage.getItem('appUser_id')
+      appUser_id: localStorage.getItem('appUser_id'),
+
+      showPopup: false,
   
        
     }
   }
 
+  
+  togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
+  }
+
+
   UpdatePassword = () => {
     console.clear();
    const apiUrl = `https://localhost:44326/api/login/UpdatePassword?id=${this.state.appUser_id}`;
+
+   this.togglePopup(); 
   
     const pass = { 
      
@@ -58,6 +72,7 @@ import { Link } from 'react-router-dom';
   UpdateMail= () => {
     console.clear();
    const apiUrl = `https://localhost:44326/api/login/UpdateUserEmail?id=${this.state.appUser_id}`;
+   this.togglePopup(); 
   
     const mail = { 
      
@@ -93,6 +108,7 @@ import { Link } from 'react-router-dom';
   UpdateUsername= () => {
     console.clear();
    const apiUrl = `https://localhost:44326/api/login/UpdateUserUsername?id=${this.state.appUser_id}`;
+   this.togglePopup(); 
   
     const username = { 
      
@@ -142,6 +158,14 @@ import { Link } from 'react-router-dom';
         <InputUser value={this.user_password} name="user_password" type="text" label=" הזן סיסמה חדשה  " placeholder="סיסמה חדשה    " onChange={(e)=>{this.setState({user_password:e.target.value})}}/>
         
         <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור  " onClick={this.UpdatePassword}/>
+        {this.state.showPopup ? 
+          <PopUpUser
+            header='  שינוי נקלט'
+            text='סיסמה חדשה נקלטה בהצלחה'
+            closePopup={this.togglePopup.bind(this)}
+          />
+          : null
+        }
         </div>
 
         <div style={{margin:60, border:'2px solid black',borderRadius:30}}>
@@ -151,6 +175,14 @@ import { Link } from 'react-router-dom';
         <InputUser value={this.email} name="email" type="text" label="הזן מייל חדש  " placeholder=" מייל חדש    " onChange={(e)=>{this.setState({email:e.target.value})}}/>
         
         <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור  " onClick={this.UpdateMail}/>
+        {this.state.showPopup ? 
+          <PopUpUser
+            header='  שינוי נקלט'
+            text=' מייל חדש נקלט בהצלחה'
+            closePopup={this.togglePopup.bind(this)}
+          />
+          : null
+        }
         </div>
 
         <div style={{margin:60, border:'2px solid black',borderRadius:30}}>
@@ -160,6 +192,14 @@ import { Link } from 'react-router-dom';
         <InputUser value={this.username} name="username" type="text" label="הזן שם משתמש חדש   " placeholder=" שם משתמש     " onChange={(e)=>{this.setState({username:e.target.value})}}/>
         
         <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור  " onClick={this.UpdateUsername}/>
+        {this.state.showPopup ? 
+          <PopUpUser
+            header='  שינוי נקלט'
+            text=' שם משתמש חדש נקלט בהצלחה'
+            closePopup={this.togglePopup.bind(this)}
+          />
+          : null
+        }
         </div>
         
      </div>

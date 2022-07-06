@@ -27,6 +27,7 @@ let local = false;
       cosmetic_city:"",
       cosmetic_license_num:"",
       cosmetic_status:"Pending",
+      cosmetologist_phoneNumber:"",
 
       cosmetologist_sumRate:"0",
       cosmetologist_numOfRates:"0",
@@ -52,7 +53,7 @@ let local = false;
   }
   addCos = (e)=>{
     console.clear();
-    e.preventDefault()
+    
     
     
     this.togglePopup(); 
@@ -68,7 +69,7 @@ let local = false;
       cosmetic_address:this.state.cosmetic_address,
       cosmetic_city:this.state.cosmetic_city,
       cosmetic_license_num:this.state.cosmetic_license_num,
-      cosmetic_phone_num:this.cosmetic_phone_num,
+      cosmetologist_phoneNumber:this.cosmetologist_phoneNumber,
       cosmetic_status:this.state.cosmetic_status,
       
       cosmetologist_rate:this.state.cosmetologist_rate,
@@ -142,7 +143,7 @@ let local = false;
         
         <InputUser value={this.cosmetic_license_num} name="cosmetic_license_num" type="text" label="מספר עסק " placeholder="מספר עסק"  onChange={(e)=>{this.setState({cosmetic_license_num:e.target.value})}}/>
         
-        <InputUser value={this.cosmetic_phone_num} name="cosmetic_phone_num" type="text" label="מספר טלפון " placeholder="מספר טלפון"  onChange={(e)=>{this.setState({cosmetic_phone_num:e.target.value})}}/>
+        <InputUser value={this.cosmetologist_phoneNumber} name="cosmetologist_phoneNumber" type="text" label="מספר טלפון " placeholder="מספר טלפון"  onChange={(e)=>{this.setState({cosmetologist_phoneNumber:e.target.value})}}/>
 
         <InputUser value={this.cosmetologist_user_name} name="cosmetologist_user_name" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({cosmetologist_user_name:e.target.value})}}/>
 
