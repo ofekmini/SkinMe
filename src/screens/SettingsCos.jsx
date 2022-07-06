@@ -173,7 +173,7 @@ class SettingsCos extends Component {
 
         <div style={{ margin: 60, border: '2px solid black', borderRadius: 30 }}>
           <h5 style={{ marginTop: 10 }}> שינוי מספר טלפון  </h5>
-          <InputUser value={this.cosmetologist_phoneNumber} name="cosmetologist_phoneNumber" type="text" label=" מספר טלפון  " placeholder="הזן מספר טלפון חדש " nChange={(e) => { this.setState({ cosmetologist_phoneNumber: e.target.value })}}/>
+          <InputUser value={this.cosmetologist_phoneNumber} name="cosmetologist_phoneNumber" type="text" label=" מספר טלפון  " placeholder="הזן מספר טלפון חדש " onChange={(e) => { this.setState({ cosmetologist_phoneNumber: e.target.value })}}/>
           <ButtonLogIn style={{ margin: 30, backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} name="שמור  " onClick={this.UpdatePhone} />
           {this.state.showPopup ? 
           <PopUpSettingsCos

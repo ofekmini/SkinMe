@@ -6,6 +6,8 @@ import Logo from '../commons/Logo';
 import UserInfo from '../commons/UserInfo';
 import PopUpCos from '../commons/PopUpCos';
 import FilterProducts from './FilterProducts';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -141,6 +143,11 @@ class AddSkinPlan extends Component {
 
     return (
       <div>
+
+       <Link to='/coshomepage'>
+          <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
+        </Link>
+
         <h4 style={{ marginTop: 35 }}>יצירת תוכנית טיפוח </h4>
 
         <div>
@@ -175,6 +182,9 @@ class AddSkinPlan extends Component {
             {this.state.filterProducts.map((products) => <CardAddProdToPlan add={this.addProductToPlan} key={products.prod_id} products={products} />)}
           </div>
         </div>
+
+
+
 
         <div>
           <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center', }} > מוצרים שנוספו לתוכנית </h3>
