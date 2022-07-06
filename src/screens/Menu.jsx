@@ -43,7 +43,7 @@ export default props => {
         <a className="menu-item" href="/coshomepage" >
           דף הבית
         </a>
-        <a className="menu-item" href="/waiting">
+        <a className="menu-item" href="/mycustomers">
           הלקוחות שלי
         </a>
         <a className="menu-item" href="/waiting">
