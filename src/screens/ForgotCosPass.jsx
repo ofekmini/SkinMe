@@ -5,7 +5,7 @@ import InputUser from '../commons/InputUser';
 import Logo from '../commons/Logo';
 
 
-export default class ForgotP extends Component {
+export default class ForgotCosPass extends Component {
 
   constructor(props) {
     super(props)
@@ -30,11 +30,9 @@ export default class ForgotP extends Component {
   sendMail = (e)=> {
     console.clear();
   //  e.preventDefault()
-    const apiUrl = `http://localhost:58031/api/mail/forgotpassword?mail=${this.state.email}`;
+    const apiUrl = `http://localhost:58031/api/mail/forgotcospassword?mail=${this.state.email}`;
 
     
-
-
     fetch(apiUrl, {
       method: 'PUT',
      // body: JSON.stringify(user_coschoice),
@@ -55,7 +53,7 @@ export default class ForgotP extends Component {
         else  
         {
           this.setState({errorMessage: ""});
-          window.location.href = '/LogInUser'
+          window.location.href = '/LogInCos'
          
         }
         
@@ -103,6 +101,3 @@ export default class ForgotP extends Component {
     )
   }
 }
-
-
-<button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} >חזור </button>
