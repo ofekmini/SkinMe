@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom';
     this.state = {
        
       user_password:"",
+      email: "",
+      username:"",
 
       appUser_id: localStorage.getItem('appUser_id')
   
@@ -53,6 +55,75 @@ import { Link } from 'react-router-dom';
     console.log('END');
   }
 
+  UpdateMail= () => {
+    console.clear();
+   const apiUrl = `https://localhost:44326/api/login/UpdateUserEmail?id=${this.state.appUser_id}`;
+  
+    const mail = { 
+     
+     email:this.state.email
+    };
+  
+    fetch(apiUrl , {
+      method: 'PUT',
+      body: JSON.stringify(mail),
+       headers: new Headers({
+       'Content-Type': 'application/json; charset=UTF-8',
+       'Accept': 'application/json; charset=UTF-8',
+      })
+    })
+      .then(res => {
+       console.log('res=', res);
+       console.log('res.status', res.status);
+       console.log('res.ok', res.ok);
+       return res.json()
+      })
+      .then(
+        (result) => {
+        console.log("fetch btnFetchUpdatePassword= ", result);
+         console.log('result.appUser_id=', result.appUser_id);
+        },
+        (error) => {
+          console.log("err post=", error);
+        });
+  
+    console.log('END');
+  }
+
+  UpdateUsername= () => {
+    console.clear();
+   const apiUrl = `https://localhost:44326/api/login/UpdateUserUsername?id=${this.state.appUser_id}`;
+  
+    const username = { 
+     
+     username:this.state.username
+    };
+  
+    fetch(apiUrl , {
+      method: 'PUT',
+      body: JSON.stringify(username),
+       headers: new Headers({
+       'Content-Type': 'application/json; charset=UTF-8',
+       'Accept': 'application/json; charset=UTF-8',
+      })
+    })
+      .then(res => {
+       console.log('res=', res);
+       console.log('res.status', res.status);
+       console.log('res.ok', res.ok);
+       return res.json()
+      })
+      .then(
+        (result) => {
+        console.log("fetch btnFetchUpdatePassword= ", result);
+         console.log('result.appUser_id=', result.appUser_id);
+        },
+        (error) => {
+          console.log("err post=", error);
+        });
+  
+    console.log('END');
+  }
 
 
 
@@ -71,6 +142,24 @@ import { Link } from 'react-router-dom';
         <InputUser value={this.user_password} name="user_password" type="text" label=" הזן סיסמה חדשה  " placeholder="סיסמה חדשה    " onChange={(e)=>{this.setState({user_password:e.target.value})}}/>
         
         <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור  " onClick={this.UpdatePassword}/>
+        </div>
+
+        <div style={{margin:60, border:'2px solid black',borderRadius:30}}>
+
+        <h5 style={{marginTop:10}}> שינוי מייל  </h5>
+        
+        <InputUser value={this.email} name="email" type="text" label="הזן מייל חדש  " placeholder=" מייל חדש    " onChange={(e)=>{this.setState({email:e.target.value})}}/>
+        
+        <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור  " onClick={this.UpdateMail}/>
+        </div>
+
+        <div style={{margin:60, border:'2px solid black',borderRadius:30}}>
+
+        <h5 style={{marginTop:10}}> שינוי שם משתמש  </h5>
+        
+        <InputUser value={this.username} name="username" type="text" label="הזן שם משתמש חדש   " placeholder=" שם משתמש     " onChange={(e)=>{this.setState({username:e.target.value})}}/>
+        
+        <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור  " onClick={this.UpdateUsername}/>
         </div>
         
      </div>

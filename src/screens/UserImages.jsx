@@ -11,7 +11,7 @@ function UserImages() {
 
   useEffect(async () => {
 
-    debugger
+    
     let res = await fetch(`http://localhost:58031/api/Users/allimages/${id}`, {
       method: 'GET', headers: new Headers({
         'Content-Type': 'application/json; charset=UTF-8',
@@ -19,7 +19,7 @@ function UserImages() {
       })
     })
     let arr = await res.json();
-    debugger
+    
     setUserImages(arr)
   }, [])
 
@@ -79,12 +79,19 @@ function UserImages() {
       </div>
 
       <div style={{ backgroundColor: 'beige', margin: 10 }}>
-        <img style={{ width: 100, height: 100, borderRadius: 50 }} src={img.imgUrl} /> <br /><br />
-      </div>
+        
+      
+
 
       {userImages.map((item) => {
-        return <img style={{ width: 50, height: 50, borderRadius: 50 }} src={item.imgUrl} />
+        return <div>
+          <img style={{ width: 100, height: 100,margin:20 }} src={item.imgUrl} />  
+          <h5>{item.upload_date}</h5>
+          </div>      
       })}
+
+    
+      </div>
       
     </div>
   )

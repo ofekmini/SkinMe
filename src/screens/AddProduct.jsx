@@ -46,11 +46,22 @@ class AddProduct extends Component {
     })
   }
 
+  clearInput=(event)=>{
+    this.setState({
+      prod_name: "",
+      prod_type: "",
+      prod_company: "",
+      prod_description: "",
+      prod_manual: "",
+    });
+  }
+
+
 
 
   addProd = (e) => {
     console.clear();
-    e.preventDefault()
+    
 
 
     this.togglePopup();
@@ -90,6 +101,8 @@ class AddProduct extends Component {
           console.log("fetch POST= ", result);
           console.log(result.prod_name);
           console.log(this.state);
+         
+         
         },
         (error) => {
           console.log("err post=", error);
@@ -97,6 +110,7 @@ class AddProduct extends Component {
 
     console.log('END');
   }
+
 
   render() {
 
