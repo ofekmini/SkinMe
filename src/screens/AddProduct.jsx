@@ -37,6 +37,7 @@ class AddProduct extends Component {
   togglePopup() {
     this.setState({
       showPopup: !this.state.showPopup
+      
     });
   }
 
@@ -101,8 +102,7 @@ class AddProduct extends Component {
           console.log("fetch POST= ", result);
           console.log(result.prod_name);
           console.log(this.state);
-         
-         
+
         },
         (error) => {
           console.log("err post=", error);
@@ -154,6 +154,7 @@ class AddProduct extends Component {
             header='המוצר נשלח לבדיקה בהצלחה  '
             text='אנו נבדוק את פרטי המוצר ותוכלי להשתמש בו בתוך 24 שעות'
             closePopup={this.togglePopup.bind(this)}
+            
           />
           : null
 

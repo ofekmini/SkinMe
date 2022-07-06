@@ -34,7 +34,7 @@ function Step3(props) {
 
 <label className='label'>
     
-    <input type="radio" name="user_skinProblem" value="פיגמנטציה" onChange={props.handleChange}/>
+    <input type="radio" name="user_skinProblem" value="פיגמנטציה" onChange={props.handleChange} onClick={props.clickDry}/>
     <img alt="pigmentation" height="100" width="100" src={require("../../assets/images/pigmentationname.png")}/>
     
 </label>
@@ -55,7 +55,7 @@ function Step3(props) {
 
 <label className='label'>
     
-    <input type="radio" name="user_skinProblem" value="נקבוביות" onChange={props.handleChange}/>
+    <input type="radio" name="user_skinProblem" value="נקבוביות" onChange={props.handleChange} onClick={props.clickNormal}/>
     <img alt="pores" height="100" width="100" src={require("../../assets/images/pores.png")}/>
     
 </label><br/>
@@ -70,7 +70,7 @@ function Step3(props) {
 </label>
 <label className='label'>
     
-    <input type="radio" name="user_cheek" value="נינוחות" onChange={props.handleChange}/>
+    <input type="radio" name="user_cheek" value="נינוחות" onChange={props.handleChange} onClick={props.clickNormal}/>
     <img alt="oilyface" height="100" width="100" src={require("../../assets/images/relax.png")}/>
     
 </label>
@@ -91,7 +91,7 @@ function Step3(props) {
 </label>
 <label className='label'>
     
-    <input type="radio" name="user_Tzone" value="נינוחות" onChange={props.handleChange}/>
+    <input type="radio" name="user_Tzone" value="נינוחות" onChange={props.handleChange} onClick={props.clickNormal}/>
     <img alt="oilyface" height="100" width="100" src={require("../../assets/images/relax.png")}/>
     
 </label>

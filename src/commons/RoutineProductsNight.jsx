@@ -13,7 +13,7 @@ const RoutineProductsNight = (props) => {
   }
 
   return (
-    <div className="card"  style={{backgroundColor:'#EEE4C4', width:'10rem',height:'17rem',margin:5,marginRight:20,float:"right",border: '#B9D6BC solid 2px',borderRadius:10}} >
+    <div className="card"  style={{backgroundColor:'#EEE4C4', width:'10rem',height:'15rem',margin:5,marginRight:20,float:"right",border: '#B9D6BC solid 2px',borderRadius:10}} >
     <div className="card-body">
       <div  style={{margin:0}}>
           

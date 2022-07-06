@@ -27,6 +27,7 @@ class MasterForm extends Component {
 
 
       user_skinType: "",
+      plan_id:"",
 
       user_role: "User",
 
@@ -62,19 +63,36 @@ class MasterForm extends Component {
 
   clickAcne = () => {
     this.setState({
-      user_skinType: 'שומני'
+      user_skinType: 'שומני',
+      plan_id:'1'
+
     })
   }
 
   clickDry = () => {
     this.setState({
-      user_skinType: 'יבש'
+      user_skinType: 'יבש',
+      plan_id:'3'
+    })
+  }
+
+  clickNormal = () => {
+    this.setState({
+      user_skinType: 'מעורב',
+      plan_id:'2'
     })
   }
 
   saveSkintype = () => {
     const user_skinType = this.state.user_skinType;
     localStorage.setItem('user_skinType', user_skinType);
+
+
+  }
+
+  savePlan = () => {
+    const plan_id = this.state.plan_id;
+    localStorage.setItem('plan_id', plan_id);
 
 
   }
@@ -89,6 +107,9 @@ class MasterForm extends Component {
 
     const user_skinType = localStorage.getItem('user_skinType');
     this.setState({ user_skinType });
+
+    const plan_id = localStorage.getItem('plan_id');
+    this.setState({ plan_id });
 
 
     const user_data = {
@@ -110,7 +131,8 @@ class MasterForm extends Component {
       user_stress: this.state.user_stress,
       user_role: this.state.user_role,
       user_skinType: this.state.user_skinType,
-      user_status:'waiting'
+      user_status:'waiting',
+      plan_id: this.state.plan_id
 
     };
     
@@ -136,6 +158,7 @@ class MasterForm extends Component {
           console.log(this.state);
           localStorage.setItem("appUser_id", result.appUser_id);
           localStorage.setItem("user_skinType",result.user_skinType);
+          localStorage.setItem("plan_id",result.plan_id);
           localStorage.setItem("type", 0);
           window.location.href = '/userhomepage';
           
@@ -233,7 +256,9 @@ class MasterForm extends Component {
             handleChange={this.handleChange}
             clickAcne={this.clickAcne}
             clickDry={this.clickDry}
+            clickNormal={this.clickNormal}
             saveSkintype={this.saveSkintype}
+            savePlan={this.savePlan}
 
             user_skinProblem={this.state.user_skinProblem}
             user_cheek={this.state.user_cheek}

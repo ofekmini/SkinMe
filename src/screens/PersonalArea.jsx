@@ -104,7 +104,7 @@ function PersonalArea() {
   return (
     <div className="App">
       <Link to='/userhomepage'>
-      <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
+      <img style={{position:'absolute',left:5,top:0}}alt="home" height="100" width="100" src={require("../assets/images/home2.png")}/>
       </Link>
       <h4 style={{ marginTop: 35 }}>אזור אישי </h4> <hr />
 

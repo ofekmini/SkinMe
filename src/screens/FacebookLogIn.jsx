@@ -24,22 +24,8 @@ export default class FacebookLogIn extends Component {
   };
 
   responseFacebook = async (response) => {
-    // const apiUrl = 'http://localhost:58031/api/LogIn/register';
-    // const body={
-    //   'username': response.name,
-    //   'email': response.email,
-    //   'picture': response.picture.data.url
-    // }
-    // debugger
-    // let res=await fetch(apiUrl , {
-    //   method: 'Post',
-    //   body: JSON.stringify(body),
-    //   headers: new Headers({
-    //     'Content-Type': 'application/json; charset=UTF-8',
-    //     'Accept': 'application/json; charset=UTF-8',
-    //   })
-    // })
-    debugger
+    
+    
     this.props.handleChange(response.email, response.name, response.picture.data.url)
     this.setState({
       
