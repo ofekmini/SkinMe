@@ -137,15 +137,49 @@ class AddSkinPlan extends Component {
     console.log('END');
   }
 
+  /* loadSmartElement() {
+   
 
+    const user_id: localStorage.getItem('user').user_id;
+
+    const apiUrl = `http://localhost:58031/api/Cos/SearchFamiliar?id=${this.state.user_id}`;
+
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json; charset=UTF-8',
+      })
+    })
+      .then(res => {
+
+        console.log('res=', res);
+        console.log('res.status', res.status);
+        console.log('res.ok', res.ok);
+        return res.json()
+      })
+      .then(
+        (result) => {
+          console.log("fetch btnFetchSearchFamiliar= ", result);
+          result.map(st => console.log(st.prod_id));
+          console.log('result[0].prod_id', result[0].prod_id);
+          this.setState({ products: [...result], filterProducts: [...result] }
+          );
+
+        },
+        (error) => {
+          console.log("err post=", error);
+        }) 
+
+  } */
 
   render() {
 
     return (
       <div>
 
-       <Link to='/coshomepage'>
-          <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
+        <Link to='/coshomepage'>
+          <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")} />
         </Link>
 
         <h4 style={{ marginTop: 35 }}>יצירת תוכנית טיפוח </h4>
@@ -170,7 +204,8 @@ class AddSkinPlan extends Component {
 
         <div>
           <h3 style={{ margin: 30, color: "#c4a092", fontSize: 15, textAlign: 'center' }} >הוספת מוצרים </h3>
-          <h4 style={{ margin: 30, color: "gray", fontSize: 15, textAlign: 'center' }} >...מומלץ: משתמשים בעלי פרופיל דומה אוהבים</h4>
+
+          <h4 style={{ margin: 30, color: "gray", fontSize: 15, textAlign: 'center' }} onClick={this.loadSmartElement}>...מומלץ: משתמשים בעלי פרופיל דומה אוהבים</h4>
           <div>
 
           </div>

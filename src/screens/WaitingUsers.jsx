@@ -17,7 +17,7 @@ class WaitingUsers extends Component {
 
   componentDidMount = () => {
     console.clear();
-    const  apiUrl= `http://localhost:58031/api/Cos/Depending/?id=${this.state.cosmetologist_id}`;
+    const apiUrl = `http://localhost:58031/api/Cos/Depending/?id=${this.state.cosmetologist_id}`;
 
     const user_status = { user_status: this.state.user_status };
 
@@ -37,7 +37,7 @@ class WaitingUsers extends Component {
       })
       .then(
         (result) => {
-          debugger
+
           console.log("fetch POST= ", result);
           result.map(st => console.log(st.appUser_id));
           console.log('result[0].user_id=', result[0].appUser_id);
@@ -48,6 +48,19 @@ class WaitingUsers extends Component {
           console.log("err post=", error);
         })
   }
+
+  /* function message(props) {
+     return <h2>אין לקוחות ממתינים</h2>
+   }
+ 
+   function greeting(props) {
+     const isEmpty = props.isEmpty;
+     if (isEmpty) {
+       return <message/>
+     }
+ 
+   } */
+
 
   render() {
     return (
