@@ -24,7 +24,7 @@ class Maslulim extends Component {
       user_sensitive:"",
       user_areas:"",
 
-      picture:"",
+      user_picsprocess:null,
 
 
       user_route:localStorage.getItem('user_route'),
@@ -34,6 +34,7 @@ class Maslulim extends Component {
       
       
     }
+    this.handlePicture = this.handlePicture.bind(this);
   }
 
   handleChange = event => {
@@ -64,6 +65,32 @@ class Maslulim extends Component {
     }
 
     
+    
+
+    handlePicture=(e)=>{
+      debugger
+      const user_picsprocess = e.target.files[0]
+      const base64 =  this.convertToBase64(user_picsprocess)
+      this.setState({
+        user_picsprocess:base64
+        })
+    }
+  
+     convertToBase64=(user_picsprocess)=>{
+       return new Promise((resolve, reject)=>{
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(user_picsprocess)
+        fileReader.onload=()=>{
+          resolve(fileReader.result)
+        }
+        fileReader.onerror=(error)=>{
+          reject(error)
+        }
+       })
+    }
+     
+
+    
   
   handleSubmit = (e)=> {
     console.clear();
@@ -79,7 +106,9 @@ class Maslulim extends Component {
       user_sensitive:this.state.user_sensitive,
       user_areas:this.state.user_areas,
 
-      user_route:this.state.user_route
+      user_route:this.state.user_route,
+
+      user_picsprocess: this.state.user_picsprocess
 
     };
 
@@ -178,6 +207,7 @@ nextButton(){
         <Survey
           currentStep={this.state.currentStep} 
           handleChange={this.handleChange}
+          handlePicture={this.handlePicture}
          
           
           user_period={this.state.user_period}

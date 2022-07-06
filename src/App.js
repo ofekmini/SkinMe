@@ -8,7 +8,7 @@ import LogInUser from './screens/LogInUser';
 import MasterForm from './screens/MasterForm';
 import LoginWGoggle from './screens/LoginWGoggle';
 import Products from './screens/Products';
-import ForgotPassword from './screens/ForgotPassword';
+
 import AddProduct from './screens/AddProduct';
 import UserHomePage from './screens/UserHomePage';
 import CosmeticHomePage from './screens/CosmeticHomePage';
@@ -68,8 +68,7 @@ function App() {
            <Route path="/addskinplan" element={<AddSkinPlan />} />
            <Route path="/coshomepage" element={<CosmeticHomePage />} />
            <Route path="/choosecos" element={<ChooseMyCos />} />
-           <Route path="/forgot" element={<ForgotP />} />
-           <Route path="/forgotpassword" element={<ForgotPassword />} />
+           
            <Route path="/maslul" element={<Maslulim />} />
            <Route path="/maslulinfo" element={<MaslulInfo />} />
            <Route path='/mycustomers' element={<MyCustomers />} />
@@ -98,6 +97,8 @@ function App() {
         <Route path="/signupcos" element={<SignUpCos />} />
         <Route path="/ratingp" element={<RatingProducts />} />
         <Route path="/ratingcos" element={<RatingCos />} />
+        <Route path="/forgot" element={<ForgotP />} />
+        
        
         
 

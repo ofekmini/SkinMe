@@ -12,9 +12,9 @@ function Survey(props) {
   } 
   return(
     <React.Fragment>
-    <div className="form-group" style={{marginTop:50}}>
+    <div className="form-group" style={{marginTop:100}}>
 
-    <input style={{marginLeft:50}} type="file"  name="picture"  value={props.picture}  onChange={props.handleChange} />  <br/> <br/>
+    <input style={{marginLeft:50}} type="file" name='user_picsprocess'  accept="image/*"   onChange={props.handlePicture} />  <br/> <br/>
     
     <text style={{color:"black"}}> מחזור חדשי </text><br/>
 

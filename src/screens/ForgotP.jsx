@@ -29,7 +29,7 @@ export default class ForgotP extends Component {
 
   sendMail = (e)=> {
     console.clear();
-    e.preventDefault()
+    
     const apiUrl = `http://localhost:58031/api/mail/forgotpassword?mail=${this.state.email}`;
 
     
@@ -104,3 +104,6 @@ export default class ForgotP extends Component {
     )
   }
 }
+
+
+<button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} >חזור </button>
