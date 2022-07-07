@@ -98,7 +98,9 @@ function App() {
         <Route path="/signupcos" element={<SignUpCos />} />
         <Route path="/ratingp" element={<RatingProducts />} />
         <Route path="/ratingcos" element={<RatingCos />} />
+
         <Route path="/forgot" element={<ForgotP />} />
+        <Route path='/forgotcospass' element={<ForgotCosPass />} />
         
        
     </Routes>
