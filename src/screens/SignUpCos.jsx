@@ -28,7 +28,6 @@ let local = false;
       cosmetic_license_num:"",
       cosmetic_status:"Pending",
       cosmetologist_phoneNumber:"",
-
       cosmetologist_sumRate:"0",
       cosmetologist_numOfRates:"0",
       cosmetologist_rate:"0",
@@ -97,7 +96,7 @@ let local = false;
       .then(
         (result) => {
           console.log("fetch POST= ", result);
-          console.log(result.username);
+          console.log(result.cosmetologist_user_name);
           console.log(this.state);
           localStorage.setItem("type",1);
         },

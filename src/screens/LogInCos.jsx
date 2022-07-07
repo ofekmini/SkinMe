@@ -113,7 +113,7 @@ class LogInCos extends Component {
 
         <div style={{marginTop:100}}>
           <Link to='/'>
-            <h4>חזרה למסך הכניסה</h4>
+            <h4 style={{color:'#bc8f8f'}}>חזרה למסך הכניסה</h4>
           </Link>
         </div>
         <div style={{ margin: 50 }}>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import InputUser from '../commons/InputUser';
 import ButtonLogIn from '../commons/ButtonLogIn';
 import PopupAddprod from '../commons/PopUpAddprod';
+import { Link } from 'react-router-dom';
 
 
 
@@ -27,9 +28,9 @@ class AddProduct extends Component {
       prod_description: "",
       prod_manual: "",
       prod_status: "Pending",
-      prod_rate:"0",
-      prod_sumRate:"0",
-      prod_numOfRates:"0"
+      prod_rate: "0",
+      prod_sumRate: "0",
+      prod_numOfRates: "0"
 
     }
   }
@@ -37,7 +38,7 @@ class AddProduct extends Component {
   togglePopup() {
     this.setState({
       showPopup: !this.state.showPopup
-      
+
     });
   }
 
@@ -47,7 +48,7 @@ class AddProduct extends Component {
     })
   }
 
-  clearInput=(event)=>{
+  clearInput = (event) => {
     this.setState({
       prod_name: "",
       prod_type: "",
@@ -62,7 +63,7 @@ class AddProduct extends Component {
 
   addProd = (e) => {
     console.clear();
-    
+
 
 
     this.togglePopup();
@@ -75,9 +76,9 @@ class AddProduct extends Component {
       prod_description: this.state.prod_description,
       prod_manual: this.state.prod_manual,
       prod_status: this.state.prod_status,
-      prod_rate:this.state.prod_rate,
-      prod_numOfRates:this.state.prod_numOfRates,
-      prod_sumRate:this.state.prod_sumRate
+      prod_rate: this.state.prod_rate,
+      prod_numOfRates: this.state.prod_numOfRates,
+      prod_sumRate: this.state.prod_sumRate
 
 
 
@@ -116,8 +117,10 @@ class AddProduct extends Component {
 
     return (
 
-      <div style={{ paddingTop: 100 }}>
-
+      <div>
+            <Link to='/coshomepage'>
+                    <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")} />
+                </Link>
         <h4 style={{ marginTop: 35 }}>הוספת מוצר טיפוח </h4>
 
 
@@ -125,10 +128,12 @@ class AddProduct extends Component {
 
         <InputUser value={this.prod_name} name="prod_name" type="text" label=" שם המוצר  " placeholder="שם המוצר  " onChange={(e) => { this.setState({ prod_name: e.target.value }) }} />
         <InputUser value={this.prod_company} name="prod_company" type="text" label=" שם החברה   " placeholder="שם החברה  " onChange={(e) => { this.setState({ prod_company: e.target.value }) }} /><br />
-        <label style={{ color: "black", margin: 5, fontSize: 15 }}>   סוג המוצר  </label> <br />
+       
+       <div>
+        <label style={{ color: "black", fontSize:14, fontWeight:'bold' }}>   סוג המוצר  </label> <br />
 
-        <select name="prod_type" onChange={this.handlechange}>
-          <option value="ג'ל" >ג'ל</option>
+        <select style={{textAlign:'right', width:'50%'}} name="prod_type" onChange={this.handlechange}>
+          <option style={{textAlign:'right'}} value="ג'ל" >ג'ל</option>
           <option value="חומצה" >חומצה</option>
           <option value="טונר" >טונר</option>
           <option value="מסיר איפור" >מסיר איפור</option>
@@ -144,17 +149,25 @@ class AddProduct extends Component {
           <option value="תחליב" >תחליב</option>
           <option value="תרחיף" >תרחיף</option>
         </select>
+        </div>
 
-        <InputUser value={this.prod_description} name="prod_description" type="textarea" label="הוראות שימוש   " placeholder="הוראות שימוש " onChange={(e) => { this.setState({ prod_description: e.target.value }) }} />
-        <InputUser value={this.prod_manual} name="prod_manual" type="textarea" label=" המלצות" placeholder="המלצות   " onChange={(e) => { this.setState({ prod_manual: e.target.value }) }} /><br />
+        <div style={{margin:30}}>
+          <label style={{textAlign:'right', fontSize:14, fontWeight:'bold'}}>הוראות שימוש במוצר</label>
+        <textarea style={{margin:'20', width:'90%', heigth:'20%', fontSize:15,fontFamily:'arial', textAlign:'right'}} rows='5' value={this.prod_description} name="prod_description" type="textarea" label="הוראות שימוש   " placeholder=" הקלד כאן הוראות לשימוש במוצר" onChange={(e) => { this.setState({ prod_description: e.target.value }) }} />
+        </div>
 
-        <ButtonLogIn style={{ margin: 30, backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} name="שמור " onClick={this.addProd} />
+        <div  style={{margin:30}}>
+        <label style={{textAlign:'right', fontSize:14, fontWeight:'bold'}}>המלצות לשימוש</label>
+        <textarea style={{margin:'20', width:'90%', heigth:'20%', fontSize:15,fontFamily:'arial',textAlign:'right'}} rows='4' value={this.prod_manual} name="prod_manual" type="textarea" label=" המלצות" placeholder="הקלד כאן המלצות לשימוש במוצר" onChange={(e) => { this.setState({ prod_manual: e.target.value }) }} /><br />
+        </div>
+
+        <button style={{ margin: 20, backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }}  onClick={this.addProd} >שמור</button>
         {this.state.showPopup ?
           <PopupAddprod
             header='המוצר נשלח לבדיקה בהצלחה  '
             text='אנו נבדוק את פרטי המוצר ותוכלי להשתמש בו בתוך 24 שעות'
             closePopup={this.togglePopup.bind(this)}
-            
+
           />
           : null
 

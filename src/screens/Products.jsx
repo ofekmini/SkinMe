@@ -33,7 +33,7 @@ import { Link } from 'react-router-dom'
       })
       .then(
         (result) => {
-          debugger
+          
           console.log("fetch btnFetchGetProducts= ", result);
           result.map(st => console.log(st.prod_id));
           console.log('result[0].prod_id', result[0].prod_id);
