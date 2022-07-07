@@ -25,9 +25,7 @@ export default class FacebookLogIn extends Component {
 
   responseFacebook = async (response) => {
     
-    
     this.props.handleChange(response.email, response.name, response.picture.data.url)
-    debugger
     this.setState({
       
       isLoggedIn: true,
@@ -47,40 +45,40 @@ export default class FacebookLogIn extends Component {
 
 
 
-    let fbContent;
+    // let fbContent;
 
-    if (this.state.isLoggedIn) {
-      fbContent = (
-        <div
-          style={{
-            width: "400px",
-            margin: "auto",
-            background: "#f8fbff",
-            padding: "20px"
-          }}
-        >
-          <img src={this.state.picture} alt={this.state.name} />
-          <h3 style={{ color: "black", fontSize: 20 }}>Welcome {this.state.name}</h3>
+    // if (this.state.isLoggedIn) {
+    //   fbContent = (
+    //     <div
+    //       style={{
+    //         width: "400px",
+    //         margin: "auto",
+    //         background: "#f8fbff",
+    //         padding: "20px"
+    //       }}
+    //     >
+    //       <img src={this.state.picture} alt={this.state.name} />
+    //       <h3 style={{ color: "black", fontSize: 20 }}>Welcome {this.state.name}</h3>
 
-        </div>
-      );
-    } else {
-      fbContent = (
-        <FacebookLogin style={{ background: '#2980b9' }}
+    //     </div>
+    //   );
+    // } else {
+    //   fbContent = (
 
-          appId="229777149335447"
-          autoLoad={false}
-          fields="name,email,picture"
-          onClick={this.componentClicked}
-          callback={this.responseFacebook}
-          icon="fa-facebook"
-        />
 
-      );
-    }
+    //   );
+    // }
 
 
 
-    return <div>{fbContent}</div>;
+    return <div>        <FacebookLogin style={{ background: '#2980b9' }}
+
+    appId="229777149335447"
+    autoLoad={false}
+    fields="name,email,picture"
+    onClick={this.componentClicked}
+    callback={this.responseFacebook}
+    icon="fa-facebook"
+  /></div>;
   }
 }

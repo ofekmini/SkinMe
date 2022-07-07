@@ -30,14 +30,15 @@ class LogInUser extends Component {
     }
   }
 
-  handleChangeByFacebookOrGoogle = ( username , email) => {
-    debugger
+  handleChangeByFacebookOrGoogle = ( email , username) => {
     this.setState({
      
-      username: username,
-      email:email
+      username,
+      email
       
     })
+
+    this.checkSocialMedia()
    
   }
 
@@ -111,7 +112,7 @@ class LogInUser extends Component {
 
   checkSocialMedia = (e) => {
     console.clear();
-    debugger
+    
 
     const apiUrl = 'http://localhost:58031/api/LogIn/User/SocialMedia';
 
@@ -206,9 +207,9 @@ class LogInUser extends Component {
         </div>
         <hr/> או <hr/> <br/>
 
-        <FacebookLogIn  onClick={this.handleChangeByFacebookOrGoogle}/> <br/>
+        <FacebookLogIn  handleChange={this.handleChangeByFacebookOrGoogle}/> <br/>
   
-        <LoginWGoggle onChange={this.handleChangeByFacebookOrGoogle}/>
+        <LoginWGoggle handleChange={this.handleChangeByFacebookOrGoogle}/>
 
       </div>
     )
