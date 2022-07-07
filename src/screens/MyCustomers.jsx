@@ -8,7 +8,7 @@ class MyCustomers extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      users: [],
+      user: [],
       cosmetologist_id: localStorage.getItem('cosmetologist_id'),
 
     }
@@ -40,7 +40,7 @@ class MyCustomers extends Component {
           console.log("fetch POST= ", result);
           result.map(st => console.log(st.user_id));
           console.log('result[0].user_id=', result[0].user_id);
-          this.setState({ users: [...result] }
+          this.setState({ user: [...result] }
           );
         },
         (error) => {
@@ -69,9 +69,9 @@ return <message/>
         </Link>
         <h4 style={{ marginTop: 35 }}> הלקוחות שלי </h4>
 
-        <div >
-          {this.state.users.map((users) => <UserCard key={users.appUser_id} users={users} />)}
-        </div>
+        
+          {this.state.user.map((user) => <UserCard key={user.appUser_id} user={user} />)}
+        
 
       </div>
     )

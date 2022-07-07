@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
   constructor(props) {
     super(props)
     this.state = {
-       users:[],
+       user:[],
        user_id:localStorage.getItem('user_id'),
        user_status:"waiting",
        cosmetologist_id:localStorage.getItem('cosmetologist_id'),
@@ -70,7 +70,7 @@ import { Link } from 'react-router-dom';
            </Link>
 
       <div >
-       {this.state.users.map((users) => <UserCard key={users.user_id} users={users}/>)}
+       {this.state.user.map((user) => <UserCard key={user.user_id} user={user}/>)}
       </div>
      
       </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CardCosInfo from '../commons/CardCosInfo';
+import PopUpMaslul from '../commons/PopUpMaslul';
 
  class ChooseMyCos extends Component {
 
@@ -11,10 +12,18 @@ import CardCosInfo from '../commons/CardCosInfo';
 
        cosmetologist_id:'',
 
-       appUser_id: localStorage.getItem('appUser_id')
+       appUser_id: localStorage.getItem('appUser_id'),
+       showPopup: false,
   
        
     }
+  }
+
+  
+  togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
   }
 
 
@@ -60,7 +69,7 @@ import CardCosInfo from '../commons/CardCosInfo';
         e.preventDefault()
         const apiUrl = `http://localhost:58031/api/Users/addmycos?id=${this.state.appUser_id}`;
     
-        
+        this.togglePopup(); 
 
         const user_coschoice={
             
@@ -87,7 +96,7 @@ import CardCosInfo from '../commons/CardCosInfo';
               console.log("fetch PUT= ", result);
               console.log(result.cosmetologist_id);
               console.log(this.state);
-              window.location.href = '/persoarea';
+              //window.location.href = '/persoarea';
             },
             (error) => {
               console.log("err post=", error);
@@ -110,7 +119,15 @@ import CardCosInfo from '../commons/CardCosInfo';
      {this.state.cos.map((cos) => <CardCosInfo  key={cos.cosmetologist_id} cos={cos} />)}
      
      <button style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={this.chooseCos} > אישור </button>
-
+     {this.state.showPopup ? 
+          <PopUpMaslul
+            header=' הפרטים נקלטו בהצלחה '
+            text='אור מדיקל קיבלה את הפרטים ותרכיב לך תוכנית אישית במהלך 24 השעות הקרובות.
+            התוכנית תתעדכן בדף הבית. תודה'
+            closePopup={this.togglePopup.bind(this)}
+          />
+          : null
+        }
       </div>
     )
   }
