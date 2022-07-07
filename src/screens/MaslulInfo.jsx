@@ -23,7 +23,8 @@ import { Link } from 'react-router-dom';
     saveMaslul = () => {
       const user_route = this.state.user_route;
       localStorage.setItem('user_route',user_route);
-   
+      window.location.href = '/maslul';
+      
       }
 
   render() {
@@ -55,9 +56,9 @@ import { Link } from 'react-router-dom';
     
     </div>
     </div>
-    <Link to="/maslul">
+    
     <button style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={this.saveMaslul} > הבאה  </button>
-    </Link>
+
       </div>
 
     )

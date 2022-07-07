@@ -22,7 +22,7 @@ import CardCosInfo from '../commons/CardCosInfo';
 
   componentDidMount(){
   
-    const  apiUrl= 'http://localhost:58031/api/map';
+    const  apiUrl= 'http://localhost:58031/api/cosmetologists/GetAllCos';
 
     fetch(apiUrl, {
       method: 'GET',

@@ -13,7 +13,7 @@ const RatingCos = () => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
 
-  const id = localStorage.getItem('prod_id')
+  const id = localStorage.getItem('cosmetologist_id')
 
   const handleSubmission = async (event) => {
     
@@ -25,11 +25,13 @@ const RatingCos = () => {
       method: 'PUT', headers: new Headers({
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json; charset=UTF-8',
-      }), body: JSON.stringify({ prod_sumRate: rating })
+      }), body: JSON.stringify({ cosmetologist_sumRate: rating })
     })
+    
     let rate=await res.json()
     setRating(rate)
     navigate('/persoarea')
+   
   }
 
 
@@ -68,11 +70,12 @@ const RatingCos = () => {
     </div>
     <br/>
     
-       <Link to='/userhomepage'>
-    <button  style={{backgroundColor:"black",marginRight:10,   color:"white",fontSize:14,width:'20%',height:25,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}> חזור </button> <br/>
-    </Link>
+     
     <button  style={{backgroundColor:"#c4a092",color:"white",fontSize:14,width:'60%',height:25,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={handleSubmission}> שמור </button>
 
+    <Link to='/userhomepage'>
+    <button  style={{backgroundColor:"black",marginRight:10,   color:"white",fontSize:14,width:'20%',height:25,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}> חזור </button> <br/>
+    </Link>
     </div>
     </div>
     </div>

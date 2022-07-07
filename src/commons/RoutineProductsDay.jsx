@@ -14,13 +14,15 @@ const RoutineProductsDay = (props) => {
    }
 
   return (
-    <div className="card"  style={{backgroundColor:'#EEE4C4', width:'10rem',height:'15rem',margin:5,marginRight:20,float:"right",border: '#FFDE6B solid 2px',borderRadius:10}} >
+    <div className="card"  style={{backgroundColor:'#EEE4C4', width:'10rem',height:'17rem',margin:5,marginRight:20,float:"right",border: '#FFDE6B solid 2px',borderRadius:10}} >
     <div className="card-body">
       <div  style={{margin:0}}>
           
           <h6 className="card-title" style={{color:"#c4a092", fontSize:14}}> {productsday.prod_name} <br/> <br/>{productsday.prod_company} </h6>
           <h6 className="card-title" style={{color:"black",fontSize:12,margin:0}}> הוראות שימוש</h6>
            <p className="card-text" style={{color:"black",fontSize:12,textAlign:'center'}} > {productsday.prod_description} </p> 
+           <h1 className="card-text" style={{color:"#B5651D",fontSize:12,textAlign:'center',margin:0}} > דירוג: 5/{productsday.prod_rate} </h1> 
+
            
       </div>
       <Link to="/ratingp">
