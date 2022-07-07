@@ -21,7 +21,8 @@ const CardCosInfo = (props) => {
        <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center',margin:0}} >כתובת </h3> 
        <p className="card-text" style={{color:"black",fontSize:15,textAlign:'center',margin:0}} >{cos.cosmetic_address} </p> 
        <h3 className="card-text" style={{color:"black",fontSize:15,textAlign:'center',margin:0}} >עיר </h3>
-       <p className="card-text" style={{color:"black",fontSize:15,textAlign:'center',margin:0}} > {cos.cosmetic_city}  </p> 
+       <p className="card-text" style={{color:"black",fontSize:15,textAlign:'center',margin:0}} > {cos.cosmetic_city}  </p> <br/>
+       <h1 className="card-text" style={{color:"#B5651D",fontSize:12,textAlign:'center',margin:0}} > דירוג: 5/{cos.cosmetologist_rate} </h1> 
        <input type='checkbox' style={{width:20,height:50}} onChange={saveCosId}></input>
     
     </div>

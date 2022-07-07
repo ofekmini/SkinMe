@@ -27,7 +27,8 @@ import PopUpUser from '../commons/PopUpUser';
   
   togglePopup() {
     this.setState({
-      showPopup: !this.state.showPopup
+      showPopup: !this.state.showPopup,
+      
     });
   }
 
@@ -133,6 +134,7 @@ import PopUpUser from '../commons/PopUpUser';
         (result) => {
         console.log("fetch btnFetchUpdatePassword= ", result);
          console.log('result.appUser_id=', result.appUser_id);
+         
         },
         (error) => {
           console.log("err post=", error);
@@ -157,7 +159,7 @@ import PopUpUser from '../commons/PopUpUser';
         
         <InputUser value={this.user_password} name="user_password" type="text" label=" הזן סיסמה חדשה  " placeholder="סיסמה חדשה    " onChange={(e)=>{this.setState({user_password:e.target.value})}}/>
         
-        <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור  " onClick={this.UpdatePassword}/>
+        <button  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}  onClick={this.UpdatePassword}>שמור</button>
         {this.state.showPopup ? 
           <PopUpUser
             header='  שינוי נקלט'
@@ -174,7 +176,7 @@ import PopUpUser from '../commons/PopUpUser';
         
         <InputUser value={this.email} name="email" type="text" label="הזן מייל חדש  " placeholder=" מייל חדש    " onChange={(e)=>{this.setState({email:e.target.value})}}/>
         
-        <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור  " onClick={this.UpdateMail}/>
+        <button  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}  onClick={this.UpdateMail}>שמור</button>
         {this.state.showPopup ? 
           <PopUpUser
             header='  שינוי נקלט'
@@ -191,7 +193,7 @@ import PopUpUser from '../commons/PopUpUser';
         
         <InputUser value={this.username} name="username" type="text" label="הזן שם משתמש חדש   " placeholder=" שם משתמש     " onChange={(e)=>{this.setState({username:e.target.value})}}/>
         
-        <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שמור  " onClick={this.UpdateUsername}/>
+        <button  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}  onClick={this.UpdateUsername}>שמור</button>
         {this.state.showPopup ? 
           <PopUpUser
             header='  שינוי נקלט'

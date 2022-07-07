@@ -15,26 +15,6 @@ function PersonalArea() {
   const id = localStorage.getItem('appUser_id')
 
 
-  /**useEffect(()=>{
-     const apiUrl=`http://localhost:58031/api/getskintype/?id=${id}`; 
-
-     const fetchData=async()=>{
-       try{
-         const res= await fetch(apiUrl);
-         const json=await res.json();
-         console.log(res);
-         setuser_skinType(res);
-       
-       }
-       catch(error){
-         console.log("error",error)
-       }
-     };
-     fetchData();
-     
-
-   },[]);**/
-
   useEffect(() => {
     if (localStorage.getItem('user_skinType') === "שומני") {
       setuser_skinType("סוג העור שלי הוא שומני");
@@ -120,6 +100,7 @@ function PersonalArea() {
       {user_route?(
           
           <MycosCard cos={mycos} /> 
+          
         ):(
           <Link to='/maslulinfo'>
           <button style={{ margin: 50, backgroundColor: "#c4a092", color: "white", fontSize: 20, width: '50%', height: 40, borderColor: "black", borderWidth: 1, borderRadius:10 }}  >הצטרפות למסלול  </button>

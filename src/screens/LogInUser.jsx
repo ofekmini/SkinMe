@@ -198,10 +198,17 @@ class LogInUser extends Component {
         <Link to="/forgot">
           <button style={{ backgroundColor: '#f8fbff', border: 'none', color: 'black', textDecorationLine: 'underline' }}  > שכחתי סיסמה</button>
         </Link>
-        <div style={{ margin: 50 }}>
+        <div style={{ margin: 50}}>
           <Link to="/chooseuser">
-            <button style={{ fontSize: 20, backgroundColor: '#f8fbff', border: 'none', color: '#bc8f8f', textDecorationLine: 'underline' }}  > הרשמה לאפליקציה</button>
+            <button style={{ fontSize: 20, backgroundColor: '#f8fbff', border: 'none', color: '#bc8f8f', textDecorationLine: 'underline' }}  > הרשמה לאפליקציה</button><br/><br/>
           </Link>
+         
+        <div style={{marginTop:40}}>
+          <Link to='/'>
+            <h4>חזרה למסך הכניסה</h4>
+          </Link>
+        </div>
+        
 
 
         </div>

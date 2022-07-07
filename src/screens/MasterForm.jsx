@@ -29,7 +29,7 @@ class MasterForm extends Component {
       user_skinType: "",
       plan_id:"",
 
-      user_role: "User",
+    
 
       user_skinProblem: "",
       user_cheek: "",
@@ -131,7 +131,7 @@ class MasterForm extends Component {
       user_stress: this.state.user_stress,
       user_role: this.state.user_role,
       user_skinType: this.state.user_skinType,
-      user_status:'waiting',
+      
       plan_id: this.state.plan_id
 
     };

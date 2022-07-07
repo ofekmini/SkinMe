@@ -17,6 +17,8 @@ const CardAddProdToPlan = (props) => {
         <div style={{heigth:'10%'}}>
           <p className="card-text" style={{ color: "black", fontSize: 15, textAlign: 'center' }} > {products.prod_company} </p>
         </div>
+        <h1 className="card-text" style={{color:"#B5651D",fontSize:12,textAlign:'center',margin:0}} > דירוג: 5/{products.prod_rate} </h1> 
+
 
         <button
           style={{ backgroundColor: "#c4a092", color: "white", fontSize: 14, width: '50%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }}
