@@ -5,6 +5,8 @@ import Logo from '../commons/Logo';
 import { Link } from 'react-router-dom';
 import PopUpCos from '../commons/PopUpCos';
 import Menu from './Menu';
+import FacebookLogIn from './FacebookLogIn';
+import LoginWGoggle from './LoginWGoggle';
 
 
 
@@ -17,6 +19,8 @@ class LogInUser extends Component {
     this.state = {
 
       username: "",
+      email: "",
+
       user_password: "",
       appUser_id:'',
 
@@ -24,6 +28,17 @@ class LogInUser extends Component {
       user_skinType: "",
 
     }
+  }
+
+  handleChangeByFacebookOrGoogle = ( username , email) => {
+    debugger
+    this.setState({
+     
+      username: username,
+      email:email
+      
+    })
+   
   }
 
 
@@ -37,7 +52,7 @@ class LogInUser extends Component {
 
   checkLogIn = (e) => {
     console.clear();
-    e.preventDefault()
+ 
 
     const apiUrl = 'http://localhost:58031/api/LogIn/User';
 
@@ -94,6 +109,66 @@ class LogInUser extends Component {
     console.log('END');
   }
 
+  checkSocialMedia = (e) => {
+    console.clear();
+    debugger
+
+    const apiUrl = 'http://localhost:58031/api/LogIn/User/SocialMedia';
+
+    const Logincheck = {
+      username: this.state.username,
+      email: this.state.email,
+      
+    };
+
+    fetch(apiUrl, {
+      method: 'POST',
+      body: JSON.stringify(Logincheck),
+      headers: new Headers({
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json; charset=UTF-8',
+      })
+    })
+      .then(res => {
+        console.log('res=', res);
+        console.log('res.status', res.status);
+        console.log('res.ok', res.ok);
+        
+        return res.json()
+
+      })
+      .then(
+        (result) => {
+          
+          console.log("fetch POST= ", result);
+          console.log(result);
+          console.log(result.user_skinType)
+          if (result === "username or password were not found") {
+            this.setState({ errorMessage: result });
+          }
+          else {
+            
+            this.setState({ errorMessage: "" });
+            localStorage.setItem("appUser_id", result.appUser_id);
+            localStorage.setItem("user_skinType",result.user_skinType);
+            localStorage.setItem("type", 0);
+            window.location.href = '/userhomepage'
+          }
+
+
+          console.log(this.state);
+
+        },
+        (error) => {
+          console.log("err post=", error);
+
+
+        });
+
+    console.log('END');
+  }
+
+
 
   render() {
 
@@ -120,15 +195,20 @@ class LogInUser extends Component {
 
 
         <Link to="/forgot">
-          <ButtonLogIn style={{ backgroundColor: '#f8fbff', border: 'none', color: 'black', textDecorationLine: 'underline' }} name="  שכחתי סיסמה" />
+          <button style={{ backgroundColor: '#f8fbff', border: 'none', color: 'black', textDecorationLine: 'underline' }}  > שכחתי סיסמה</button>
         </Link>
         <div style={{ margin: 50 }}>
           <Link to="/chooseuser">
-            <ButtonLogIn style={{ fontSize: 20, backgroundColor: '#f8fbff', border: 'none', color: '#bc8f8f', textDecorationLine: 'underline' }} name=" הרשמה לאפליקציה" />
+            <button style={{ fontSize: 20, backgroundColor: '#f8fbff', border: 'none', color: '#bc8f8f', textDecorationLine: 'underline' }}  > הרשמה לאפליקציה</button>
           </Link>
 
 
         </div>
+        <hr/> או <hr/> <br/>
+
+        <FacebookLogIn  onClick={this.handleChangeByFacebookOrGoogle}/> <br/>
+  
+        <LoginWGoggle onChange={this.handleChangeByFacebookOrGoogle}/>
 
       </div>
     )

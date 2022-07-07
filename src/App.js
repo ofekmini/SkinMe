@@ -63,9 +63,8 @@ function App() {
            <Route path="/addskinplan" element={<AddSkinPlan />} />
            <Route path="/coshomepage" element={<CosmeticHomePage />} />
            <Route path="/choosecos" element={<ChooseMyCos />} />
-           <Route path="/forgot" element={<ForgotP />} />
-           <Route path='/forgotcospass' element={<ForgotCosPass />} />
-           <Route path="/forgotpassword" element={<ForgotPassword />} />
+       
+           
            <Route path="/maslul" element={<Maslulim />} />
            <Route path="/maslulinfo" element={<MaslulInfo />} />
            <Route path='/mycustomers' element={<MyCustomers />} />
@@ -94,7 +93,9 @@ function App() {
         <Route path="/signupcos" element={<SignUpCos />} />
         <Route path="/ratingp" element={<RatingProducts />} />
         <Route path="/ratingcos" element={<RatingCos />} />
+
         <Route path="/forgot" element={<ForgotP />} />
+        <Route path='/forgotcospass' element={<ForgotCosPass />} />
         
        
     </Routes>
