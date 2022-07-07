@@ -114,7 +114,10 @@ class AddSkinPlan extends Component {
 
   addSkinPlan = (e) => {
     console.clear();
-    const apiUrl = 'http://localhost:58031/api/Cos/AddSkinPlan';
+   // const apiUrl = 'http://localhost:58031/api/Cos/AddSkinPlan';
+   const user_id = JSON.parse(localStorage.getItem('user')).appUser_id;
+
+    const apiUrl = `http://localhost:58031/api/Cos/AddSkinPlan?id=${user_id}`;
 
     const newskinplan = {
       plan_name: this.state.plan_name,
@@ -188,7 +191,6 @@ class AddSkinPlan extends Component {
     const dataToSend = {
       data: this.state.ppp
     }
-
     console.log(JSON.stringify(dataToSend))
 
   }
@@ -258,7 +260,7 @@ class AddSkinPlan extends Component {
         {this.state.showPopup ?
           <PopUpCos
             header=' תוכנית טיפוח נוספה בהצלחה '
-            text=' נבדוק את מספר העסק שלך ותוכלי להתחיל לטפל בלקוחות בעוד כ24 שעות'
+            text=' התוכנית עודכנה במערכת'
             closePopup={this.togglePopup.bind(this)}
           />
           : null
