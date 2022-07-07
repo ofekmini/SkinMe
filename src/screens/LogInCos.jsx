@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import InputUser from '../commons/InputUser'
-import ButtonLogIn from '../commons/ButtonLogIn';
+
 import Logo from '../commons/Logo';
 import { Link, Navigate, Route, Router } from 'react-router-dom';
 import PopUpCos from '../commons/PopUpCos';
@@ -102,22 +102,18 @@ class LogInCos extends Component {
 
         <InputUser value={this.cosmetologist_user_password} name="cosmetologist_user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e) => { this.setState({ cosmetologist_user_password: e.target.value }) }} />
 
-        <ButtonLogIn style={{ margin: 30, backgroundColor: "black", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} name="התחברות" onClick={this.checkLogInCos} />
+        <button style={{ margin: 30, backgroundColor: "black", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} onClick={this.checkLogInCos} >התחברות</button>
 
         {this.state.errorMessage &&
           <h3 style={{ color: 'red', fontSize: 14, marginTop: 0 }}> {this.state.errorMessage} </h3>}
 
         <Link to='/forgotcos'>
-          <ButtonLogIn style={{ backgroundColor: '#f8fbff', border: 'none', color: 'black', textDecorationLine: 'underline' }} name="  שכחתי סיסמה" />
+          <button style={{ backgroundColor: '#f8fbff', border: 'none', color: 'black', textDecorationLine: 'underline' }}  >שכחתי סיסמה </button>
         </Link>
 
         <div style={{marginTop:100}}>
-          <Link to='/chooseuser'>
-            <h4>חזרה לבחירת משתמש</h4>
-          </Link>
-
           <Link to='/'>
-            <h4>חזרה למסך הבית</h4>
+            <h4>חזרה למסך הכניסה</h4>
           </Link>
         </div>
         <div style={{ margin: 50 }}>
