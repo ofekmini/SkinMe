@@ -71,7 +71,7 @@ class WaitingUsers extends Component {
         <h4 style={{ marginTop: 35 }}> משתמשים ממתינים לחוות דעת </h4>
 
         <div >
-          {this.state.users.map((users) => <UserCard key={users.appUser_id} users={users} />)}
+          {this.state.users.map((user) => <UserCard key={user.appUser_id} user={user} />)}
         </div>
 
       </div>

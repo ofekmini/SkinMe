@@ -29,9 +29,10 @@ class AddSkinPlan extends Component {
       products: [],
       filterProducts: [],
       ppp: [],
-      user: JSON.parse(localStorage.getItem('user') ?? ''),
+      user: null,
       users: [],
       user_status: "waiting",
+      smartProducts: []
 
     }
   }
@@ -54,6 +55,10 @@ class AddSkinPlan extends Component {
   addProductToPlan = (item) => {
 
     let arr = [...this.state.ppp]
+    const index = arr.findIndex(prod => prod.$id === item.$id)
+    if (index !== -1) {
+      return
+    }
     arr.push(item)
     this.setState({ ppp: arr })
   }
@@ -66,6 +71,12 @@ class AddSkinPlan extends Component {
   }
 
   componentDidMount() {
+
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    this.setState({ user })
+
+    this.loadSmartElement();
 
     const apiUrl = 'http://localhost:58031/api/Products/status';
 
@@ -137,12 +148,12 @@ class AddSkinPlan extends Component {
     console.log('END');
   }
 
-  /* loadSmartElement() {
-   
+  loadSmartElement() {
 
-    const user_id: localStorage.getItem('user').user_id;
 
-    const apiUrl = `http://localhost:58031/api/Cos/SearchFamiliar?id=${this.state.user_id}`;
+    const user_id = JSON.parse(localStorage.getItem('user')).appUser_id;
+
+    const apiUrl = `http://localhost:58031/api/Cos/SearchFamiliar?id=${user_id}`;
 
     fetch(apiUrl, {
       method: 'POST',
@@ -163,18 +174,28 @@ class AddSkinPlan extends Component {
           console.log("fetch btnFetchSearchFamiliar= ", result);
           result.map(st => console.log(st.prod_id));
           console.log('result[0].prod_id', result[0].prod_id);
-          this.setState({ products: [...result], filterProducts: [...result] }
+          this.setState({ smartProducts: [...result] }
           );
 
         },
         (error) => {
           console.log("err post=", error);
-        }) 
+        })
 
-  } */
+  }
+
+  submitProducts = () => {
+    const dataToSend = {
+      data: this.state.ppp
+    }
+
+    console.log(JSON.stringify(dataToSend))
+
+  }
 
   render() {
-
+    console.log({ smart: this.state.smartProducts })
+    console.log({ filter: this.state.filterProducts })
     return (
       <div>
 
@@ -187,7 +208,7 @@ class AddSkinPlan extends Component {
         <div>
           <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center' }} > פרטי משתמש </h3>
           <div style={{ margin: 10 }} >
-            <UserInfo user={this.state.user} users={this.state.users} />
+            {this.state.user && <UserInfo user={this.state.user} users={this.state.users} />}
           </div>
         </div>
 
@@ -205,23 +226,26 @@ class AddSkinPlan extends Component {
         <div>
           <h3 style={{ margin: 30, color: "#c4a092", fontSize: 15, textAlign: 'center' }} >הוספת מוצרים </h3>
 
-          <h4 style={{ margin: 30, color: "gray", fontSize: 15, textAlign: 'center' }} onClick={this.loadSmartElement}>...מומלץ: משתמשים בעלי פרופיל דומה אוהבים</h4>
-          <div>
-
+          <h4 style={{ margin: 30, color: "gray", fontSize: 15, textAlign: 'center' }} >...מומלץ: משתמשים בעלי פרופיל דומה אוהבים</h4>
+          <div style={{ backgroundColor: 'red' }}>
+            {this.state.smartProducts.map((products) => <CardAddProdToPlan add={(product) => this.addProductToPlan(product)} key={products.prod_id} products={products} />)}
           </div>
+
 
           <div style={{ margin: 20 }}>
+            <h4 style={{ margin: 30, color: "gray", fontSize: 15, textAlign: 'center' }} >או: בחירה מתוך מאגר המוצרים</h4>
             <FilterProducts filter={this.filterProduct} />
           </div>
+
           <div >
-            {this.state.filterProducts.map((products) => <CardAddProdToPlan add={this.addProductToPlan} key={products.prod_id} products={products} />)}
+            {this.state.filterProducts.map((products) => <CardAddProdToPlan add={(product) => this.addProductToPlan(product)} key={products.prod_id} products={products} />)}
           </div>
         </div>
 
 
 
 
-        <div>
+        <div style={{ margin: 20 }}>
           <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center', }} > מוצרים שנוספו לתוכנית </h3>
           {this.state.ppp.map((product) => {
             return (<div>{product.prod_name}
@@ -229,7 +253,7 @@ class AddSkinPlan extends Component {
           })}
         </div>
 
-        <ButtonLogIn style={{ margin: 30, backgroundColor: "black", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} name="שמירה והוספת מוצרים " />
+        <button style={{ margin: 30, backgroundColor: "black", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} onClick={this.submitProducts} >שמירה והוספת מוצרים</button>
 
         {this.state.showPopup ?
           <PopUpCos
