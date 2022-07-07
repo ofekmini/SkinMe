@@ -34,7 +34,6 @@ class Maslulim extends Component {
 
 
     }
-    this.handlePicture = this.handlePicture.bind(this);
   }
 
   handleChange = event => {
@@ -69,7 +68,6 @@ class Maslulim extends Component {
 
   handlePicture = (e) => {
     
-
 
     const user_picsprocess = e.target.files[0]
     const base64 = this.convertToBase64(user_picsprocess)

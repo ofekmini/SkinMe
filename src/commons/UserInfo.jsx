@@ -1,7 +1,7 @@
 import React from 'react'
 
 const UserInfo = (props) => {
-  const { users, user } = props
+  const { user } = props
 
   return (
     <div className="card" style={{ margin: 20, paddingBottom: 40 }} >

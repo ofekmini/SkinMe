@@ -60,7 +60,7 @@ class LogInCos extends Component {
       })
       .then(
         (result) => {
-          console.log("fetch POST= ", result);
+          console.log("fetch POST=  ", result);
           console.log(result);
           console.log(result.cosmetologist_id);
           if (result === "שם משתמש או סיסמה אינם נכונים") {
