@@ -149,7 +149,7 @@ let local = false;
 
         <InputUser value={this.cosmetologist_user_password} name="cosmetologist_user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({cosmetologist_user_password:e.target.value})}}/>
 
-        <ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="סיום הרשמה" onClick={this.addCos}/>
+        <button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={this.addCos}> סיום הרשמה</button>
         {this.state.showPopup ? 
           <PopUpCos
             header=' הרשמתך נקלטה במערכת '

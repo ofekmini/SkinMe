@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import InputUser from '../commons/InputUser'
-import ButtonLogIn from '../commons/ButtonLogIn';
+
 import Logo from '../commons/Logo';
 import { Link, Navigate, Route, Router } from 'react-router-dom';
 import PopUpCos from '../commons/PopUpCos';
@@ -108,16 +108,12 @@ class LogInCos extends Component {
           <h3 style={{ color: 'red', fontSize: 14, marginTop: 0 }}> {this.state.errorMessage} </h3>}
 
         <Link to='/forgotcos'>
-          <button style={{ backgroundColor: '#f8fbff', border: 'none', color: 'black', textDecorationLine: 'underline' }}  >שכחתי סיסמה</button>
+          <button style={{ backgroundColor: '#f8fbff', border: 'none', color: 'black', textDecorationLine: 'underline' }}  >שכחתי סיסמה </button>
         </Link>
 
         <div style={{marginTop:100}}>
-          <Link to='/chooseuser'>
-            <h4>חזרה לבחירת משתמש</h4>
-          </Link>
-
           <Link to='/'>
-            <h4>חזרה למסך הבית</h4>
+            <h4>חזרה למסך הכניסה</h4>
           </Link>
         </div>
         <div style={{ margin: 50 }}>

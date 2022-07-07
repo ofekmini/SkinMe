@@ -8,13 +8,14 @@ import LogInUser from './screens/LogInUser';
 import MasterForm from './screens/MasterForm';
 import LoginWGoggle from './screens/LoginWGoggle';
 import Products from './screens/Products';
-
 import AddProduct from './screens/AddProduct';
 import UserHomePage from './screens/UserHomePage';
 import CosmeticHomePage from './screens/CosmeticHomePage';
 import UpdateManualProduct from './screens/UpdateManualProduct';
 import AddSkinPlan from './screens/AddSkinPlan';
+
 import ForgotP from './screens/ForgotP';
+
 import WaitingUsers from './screens/WaitingUsers';
 import Maslulim from './screens/Maslulim';
 import SearchCos from './screens/SearchCos';
@@ -63,8 +64,12 @@ function App() {
            <Route path="/addskinplan" element={<AddSkinPlan />} />
            <Route path="/coshomepage" element={<CosmeticHomePage />} />
            <Route path="/choosecos" element={<ChooseMyCos />} />
-       
-           
+
+           <Route path="/forgot" element={<ForgotP />} />
+           <Route path='/forgotcospass' element={<ForgotCosPass />} />
+
+           <Route path="/forgotpassword" element={<ForgotP/>} />
+
            <Route path="/maslul" element={<Maslulim />} />
            <Route path="/maslulinfo" element={<MaslulInfo />} />
            <Route path='/mycustomers' element={<MyCustomers />} />

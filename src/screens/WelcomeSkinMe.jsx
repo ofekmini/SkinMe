@@ -16,17 +16,17 @@ class WelcomeSkinMe extends Component {
          <h3 style={{color:"gray"}}>כניסה</h3>
 
         <Link to="/LogInUser">
-        <ButtonLogIn  style={{backgroundColor:"black",color:"white",fontSize:15 ,width:'60%',height:40,borderColor:"#e8e8e8" ,margin:20, borderWidth:1,borderRadius:50}} name=" משתמש "/>
+        <button  style={{backgroundColor:"black",color:"white",fontSize:15 ,width:'60%',height:40,borderColor:"#e8e8e8" ,margin:20, borderWidth:1,borderRadius:50}}>משתמש</button>
         </Link>
 
         <Link to="/LogInCos">
-        <ButtonLogIn  style={{backgroundColor:"black",color:"white",fontSize:15,width:'60%',height:40,borderColor:"#e8e8e8" ,margin:20, borderWidth:1,borderRadius:50}} name=" קוסמטיקאית "/>
+        <button  style={{backgroundColor:"black",color:"white",fontSize:15,width:'60%',height:40,borderColor:"#e8e8e8" ,margin:20, borderWidth:1,borderRadius:50}} >קוסמטיקאית</button>
         </Link>
         
         <br/>
         <p style={{color:"gray", fontSize:15}}>?משתמש לא קיים</p>
         <Link to="/chooseuser">
-        <ButtonLogIn style={{margin:10,fontSize:20,border:'none',color:'#bc8f8f',textDecorationLine: 'underline'}} name=" הרשמה לאפליקציה"/> 
+        <button style={{margin:10,fontSize:20,border:'none',color:'#bc8f8f',textDecorationLine: 'underline'}} >הרשמה לאפליקציה</button>
         </Link>
 
         </div>

@@ -197,7 +197,7 @@ class AddSkinPlan extends Component {
           <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center' }} > פרטי התוכנית </h3>
           <InputUser value={this.plan_name} name="plan_name" type="text" label=" שם התוכנית  " placeholder="שם התוכנית   " onChange={(e) => { this.setState({ plan_name: e.target.value }) }} />
           <InputUser value={this.notes} name="notes" type="text" label="  הערות   " placeholder="הערות   " onChange={(e) => { this.setState({ notes: e.target.value }) }} /><br />
-          <ButtonLogIn style={{ backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '60%', height: 30, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50, margin: 10 }} name="שמירה והמשך לבחירת מוצרים " onClick={this.addSkinPlan} />
+          <button style={{ backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '60%', height: 30, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50, margin: 10 }} onClick={this.addSkinPlan} >שמירה והמשך לבחירת מוצרים</button>
         </div>
 
         <hr />

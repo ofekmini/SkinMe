@@ -60,13 +60,13 @@ import { Link } from 'react-router-dom';
         <Logo></Logo>
 
            <Link to='/waiting'>
-           <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="משתמשים ממתינים לחוות דעת "/>
+           <button  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} >משתמשים ממתינים לחוות דעת </button>
            </Link>
 
-           <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="לקוחות שלי   " onClick={this.btnGetMyclients} />
+           <button  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={this.btnGetMyclients} >לקוחות שלי</button>
            
            <Link to='/addproduct' >
-           <ButtonLogIn  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="הוספת מוצר טיפוח  " />
+           <button  style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}  >הוספת מוצר טיפוח</button>
            </Link>
 
       <div >
