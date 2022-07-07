@@ -7,11 +7,12 @@ import { Link } from 'react-router-dom';
 
 
 function Survey(props) {
-  if (props.currentStep !== 1) {
+  if (props.currentStep !== 1) { 
     return null
   } 
   return(
-    <React.Fragment>
+      <React.Fragment>
+        {/* <Whatsappicon url={`https://wa.me/${number}`}/> */}
     <div className="form-group" style={{marginTop:100}}>
 
     <input style={{marginLeft:50}} type="file" name='user_picsprocess'  accept="image/*"   onChange={props.handlePicture} />  <br/> <br/>

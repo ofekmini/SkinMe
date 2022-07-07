@@ -34,7 +34,6 @@ class Maslulim extends Component {
       
       
     }
-    this.handlePicture = this.handlePicture.bind(this);
   }
 
   handleChange = event => {
@@ -67,19 +66,19 @@ class Maslulim extends Component {
     
     
 
-    handlePicture=(e)=>{
+    handlePicture= async (e) =>{
       debugger
-      const user_picsprocess = e.target.files[0]
-      const base64 =  this.convertToBase64(user_picsprocess)
+      const file = e.target.files[0]
+      const base64 =  await this.convertToBase64(file)
       this.setState({
         user_picsprocess:base64
         })
     }
   
-     convertToBase64=(user_picsprocess)=>{
+     convertToBase64=(file)=>{
        return new Promise((resolve, reject)=>{
         const fileReader = new FileReader();
-        fileReader.readAsDataURL(user_picsprocess)
+        fileReader.readAsDataURL(file)
         fileReader.onload=()=>{
           resolve(fileReader.result)
         }
@@ -96,6 +95,8 @@ class Maslulim extends Component {
     console.clear();
     e.preventDefault()
     const apiUrl = `http://localhost:58031/api/Users/addmaslul?id=${this.state.appUser_id}`;
+
+    console.log(this.state.user_picsprocess)
 
     const user_maslulinfo={
 
