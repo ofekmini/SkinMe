@@ -107,13 +107,13 @@ class UserHomePage extends Component {
      <h2 style={{color:'#c4a092'}} >שגרת הטיפוח שלי</h2>
      <div >
       
-      <h2 style={{color:'#FFAB00', backgroundColor:'#FFE57F'}}>בוקר</h2>
+      <h2 style={{color:'#FFAB00', backgroundColor:'beige'}}>בוקר</h2>
      {this.state.productsday.map((productsday) => <RoutineProductsDay  key={productsday.prod_id} productsday={productsday} />)} <br/>
      </div>
 
    <div style={{marginTop:500}}>
    
-     <h2 style={{color:'#607D8B',backgroundColor:'#CFD8DC'}}>ערב</h2>
+     <h2 style={{color:'#607D8B',backgroundColor:'beige'}}>ערב</h2>
      {this.state.productsnight.map((productsnight) => <RoutineProductsNight  key={productsnight.prod_id} productsnight={productsnight} />)} 
    </div>
     

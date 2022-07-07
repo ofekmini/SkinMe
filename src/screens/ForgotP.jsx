@@ -95,11 +95,11 @@ import Logo from '../commons/Logo';
 
 
 
-<ButtonLogIn  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} name="שלח מייל" onClick={this.sendMail} />
+<button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}  onClick={this.sendMail} >שלח מייל</button>
 { this.state.errorMessage &&
             <h3 style={{color:'red',fontSize:14,marginTop:0}}> { this.state.errorMessage } </h3> }
 
-<button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'30%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} >חזור </button>
+<button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'30%',height:30,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} >חזור </button>
 
   
 </div>

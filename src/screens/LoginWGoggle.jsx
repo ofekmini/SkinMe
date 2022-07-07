@@ -15,9 +15,9 @@ export default function LoginWGoggle(props) {
   };
 
   const handleLogin = (response) => {
-    debugger
+    
     props.handleChange(response.profileObj.email, response.profileObj.name, response.profileObj.imageUrl)
-    setLoginData(response.profileObj)
+    // setLoginData(response.profileObj)
   }
 
   const handleLogout = () => {
