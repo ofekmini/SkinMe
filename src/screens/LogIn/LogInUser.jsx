@@ -205,7 +205,7 @@ class LogInUser extends Component {
          
         <div style={{marginTop:40}}>
           <Link to='/'>
-            <h4>חזרה למסך הכניסה</h4>
+          <h4 style={{color:'#bc8f8f'}}>חזרה למסך הכניסה</h4>
           </Link>
         </div>
         

@@ -33,7 +33,7 @@ import Menu from './screens/Menu';
 import RatingProducts from './screens/RatingProducts';
 import RatingCos from './screens/RatingCos';
 import PersonalArea from './screens/PersonalArea'
-
+import WatchSkinPlan from './screens/WatchSkinPlan';
 import Profile from './screens/Profile';
 import UserImages from './screens/UserImages';
 import MyCustomers from './screens/MyCustomers';
@@ -64,7 +64,7 @@ function App() {
            <Route path="/addskinplan" element={<AddSkinPlan />} />
            <Route path="/coshomepage" element={<CosmeticHomePage />} />
            <Route path="/choosecos" element={<ChooseMyCos />} />
-
+           <Route path='/showplan' element={<WatchSkinPlan />} />
            <Route path="/forgot" element={<ForgotP />} />
            
 
