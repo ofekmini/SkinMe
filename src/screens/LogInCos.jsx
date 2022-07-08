@@ -71,11 +71,10 @@ class LogInCos extends Component {
           }
           else {
             this.setState({ errorMessage: "" });
+            localStorage.setItem("cosmetologist_id", result);
+            localStorage.setItem("type", 1);
             window.location.href = '/coshomepage'
           }
-
-          localStorage.setItem("cosmetologist_id", result);
-          localStorage.setItem("type", 1);
 
           console.log(this.state);
         },
@@ -111,9 +110,9 @@ class LogInCos extends Component {
           <button style={{ backgroundColor: '#f8fbff', border: 'none', color: 'black', textDecorationLine: 'underline' }}  >שכחתי סיסמה </button>
         </Link>
 
-        <div style={{marginTop:100}}>
+        <div style={{ marginTop: 100 }}>
           <Link to='/'>
-            <h4 style={{color:'#bc8f8f'}}>חזרה למסך הכניסה</h4>
+            <h4 style={{ color: '#bc8f8f' }}>חזרה למסך הכניסה</h4>
           </Link>
         </div>
         <div style={{ margin: 50 }}>
