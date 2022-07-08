@@ -33,7 +33,7 @@ class AddSkinPlan extends Component {
       users: [],
       user_status: "waiting",
       smartProducts: [],
-      plan_id:localStorage.getItem('plan_id')
+      plan_id: localStorage.getItem('plan_id')
 
     }
   }
@@ -54,7 +54,7 @@ class AddSkinPlan extends Component {
   }
 
   addProductToPlan = (item) => {
-
+    debugger
     let arr = [...this.state.ppp]
     const index = arr.findIndex(prod => prod.$id === item.$id)
     if (index !== -1) {
@@ -65,6 +65,7 @@ class AddSkinPlan extends Component {
   }
 
   deleteProductFromPlan = (item) => {
+    debugger
     let arr = [...this.state.ppp]
     let product = arr.findIndex(x => x.prod_id == item.prod_id)
     arr.splice(product, 1)
@@ -99,7 +100,6 @@ class AddSkinPlan extends Component {
         (result) => {
 
           console.log("fetch btnFetchGetProducts= ", result);
-          result.map(st => console.log(st.prod_id));
           console.log('result[0].prod_id', result[0].prod_id);
           this.setState({ products: [...result], filterProducts: [...result] }
 
@@ -115,8 +115,8 @@ class AddSkinPlan extends Component {
 
   addSkinPlan = (e) => {
     console.clear();
-   // const apiUrl = 'http://localhost:58031/api/Cos/AddSkinPlan';
-   const user_id = JSON.parse(localStorage.getItem('user')).appUser_id;
+    // const apiUrl = 'http://localhost:58031/api/Cos/AddSkinPlan';
+    const user_id = JSON.parse(localStorage.getItem('user')).appUser_id;
 
     const apiUrl = `http://localhost:58031/api/Cos/AddSkinPlan?id=${user_id}`;
 
@@ -155,20 +155,20 @@ class AddSkinPlan extends Component {
 
   addProdToPlan = (e) => {
     console.clear();
-   // const apiUrl = 'http://localhost:58031/api/Cos/AddSkinPlan';
-   //const user_id = JSON.parse(localStorage.getItem('user')).appUser_id;
-   
-   this.setState({
-    prod_id:e.target.value
-   })
-   console.log(this.state.prod_id)
+    // const apiUrl = 'http://localhost:58031/api/Cos/AddSkinPlan';
+    //const user_id = JSON.parse(localStorage.getItem('user')).appUser_id;
+
+    this.setState({
+      prod_id: e.target.value
+    })
+    console.log(this.state.prod_id)
 
     const apiUrl = `http://localhost:58031/api/Cos/AddProdToPlan?id=${this.state.plan_id}`;
 
     const prod = {
-      prod_id:this.state.prod_id,
-      plan_id:this.state.plan_id
-      
+      prod_id: this.state.prod_id,
+      plan_id: this.state.plan_id
+
     };
 
     fetch(apiUrl, {
@@ -200,53 +200,43 @@ class AddSkinPlan extends Component {
   }
 
 
-  loadSmartElement() {
+  async loadSmartElement() {
 
 
     const user_id = JSON.parse(localStorage.getItem('user')).appUser_id;
 
-    const apiUrl = `http://localhost:58031/api/Cos/SearchFamiliar?id=${user_id}`;
-
-    fetch(apiUrl, {
+    const apiUrl = `http://localhost:58031/api/Cos/SearchFamiliar/${user_id}`;
+    const res = await fetch(apiUrl, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json; charset=UTF-8',
       })
     })
-      .then(res => {
 
-        console.log('res=', res);
-        console.log('res.status', res.status);
-        console.log('res.ok', res.ok);
-        return res.json()
-      })
-      .then(
-        (result) => {
-          console.log("fetch btnFetchSearchFamiliar= ", result);
-          result.map(st => console.log(st.prod_id));
-          console.log('result[0].prod_id', result[0].prod_id);
-          this.setState({ smartProducts: [...result] }
-          );
-
-        },
-        (error) => {
-          console.log("err post=", error);
-        })
-
+    const data = await res.json()
+    debugger
+    this.setState({ smartProducts: data })
+    console.log(this.state.smartProducts)
   }
 
-  submitProducts = () => {
-    const dataToSend = {
-      data: this.state.ppp
-    }
-    console.log(JSON.stringify(dataToSend))
-
+  submitProducts = async () => {
+    debugger
+    const dataToSend = this.state.ppp
+    const planId = Number(localStorage.getItem('plan_id'))
+    const apiUrl = `http://localhost:58031/api/Cos/AddProdToPlan/${planId}`;
+    const res = await fetch(apiUrl, {
+      method: 'POST',
+      body: JSON.stringify(dataToSend),
+      headers: new Headers({
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json; charset=UTF-8',
+      })
+    })
+    debugger
   }
 
   render() {
-    console.log({ smart: this.state.smartProducts })
-    console.log({ filter: this.state.filterProducts })
     return (
       <div>
 
@@ -277,10 +267,19 @@ class AddSkinPlan extends Component {
         <div>
           <h3 style={{ margin: 30, color: "#c4a092", fontSize: 15, textAlign: 'center' }} >הוספת מוצרים </h3>
 
-          <h4 style={{ margin: 30, color: "gray", fontSize: 15, textAlign: 'center' }} >...מומלץ: משתמשים בעלי פרופיל דומה אוהבים</h4>
-          <div style={{ backgroundColor: 'red' }}>
-            {this.state.smartProducts.map((products) => <CardAddProdToPlan add={(product) => this.addProductToPlan(product)} key={products.prod_id} products={products} />)}
-          </div>
+          {(() => {
+            if (this.state.smartProducts.length > 0) {
+              return (
+                <div>
+                  <h4 style={{ margin: 30, color: "gray", fontSize: 15, textAlign: 'center' }} >...מומלץ: משתמשים בעלי פרופיל דומה אוהבים</h4>
+                  <div style={{ backgroundColor: 'red' }}>
+                    {this.state.smartProducts.map((products) => <CardAddProdToPlan onClick={this.addProductToPlan} key={products.prod_id} products={products} />)}
+                  </div>
+                </div>)
+            }
+
+          })()
+          }
 
 
           <div style={{ margin: 20 }}>
@@ -289,8 +288,8 @@ class AddSkinPlan extends Component {
           </div>
 
           <div >
-            
-            {this.state.filterProducts.map((products) => <CardAddProdToPlan   onClick={() => this.addProdToPlan()} key={products.prod_id} products={products}/>)}
+
+            {this.state.filterProducts.map((products) => <CardAddProdToPlan onClick={this.addProductToPlan} key={products.prod_id} products={products} />)}
           </div>
         </div>
 

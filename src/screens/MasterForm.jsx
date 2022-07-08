@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import Step1 from './StepForm/Step1'
-import Step2 from './StepForm/Step2'
-import Step3 from './StepForm/Step3'
 import Logo from '../commons/Logo';
 
 import './Questionaire.css'
 import { Link } from 'react-router-dom';
+import Step1 from './LogIn/StepForm/Step1';
+import Step3 from './LogIn/StepForm/Step3';
 
 class MasterForm extends Component {
 

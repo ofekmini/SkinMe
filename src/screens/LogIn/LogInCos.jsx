@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import InputUser from '../commons/InputUser'
+import InputUser from '../../commons/InputUser'
 
-import Logo from '../commons/Logo';
+import Logo from '../../commons/Logo';
 import { Link, Navigate, Route, Router } from 'react-router-dom';
-import PopUpCos from '../commons/PopUpCos';
-import CosmeticHomePage from './CosmeticHomePage';
+import PopUpCos from '../../commons/PopUpCos';
+import CosmeticHomePage from '../CosmeticHomePage';
 
 
 
@@ -71,6 +71,7 @@ class LogInCos extends Component {
           }
           else {
             this.setState({ errorMessage: "" });
+            debugger
             localStorage.setItem("cosmetologist_id", result);
             localStorage.setItem("type", 1);
             window.location.href = '/coshomepage'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import RoutineProductsDay from '../commons/RoutineProductsDay';
 import RoutineProductsNight from '../commons/RoutineProductsNight';
-import LogInCos from './LogInCos';
+import LogInCos from './LogIn/LogInCos';
 import Logo from '../commons/Logo';
 import CardProduct from '../commons/CardProduct';
 import { Link } from 'react-router-dom';

@@ -29,7 +29,7 @@ const CardAddProdToPlan = (props) => {
 
         <button
           style={{ backgroundColor: "#c4a092", color: "white", fontSize: 14, width: '50%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }}
-           onClick={products.onClick}>הוספה</button>
+           onClick={()=>props.onClick(products)}>הוספה</button>
 
 
       </div>

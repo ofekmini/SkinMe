@@ -26,7 +26,7 @@ import SettinsCos from './screens/SettingsCos';
 import ChooseMyCos from './screens/ChooseMyCos';
 import ForgotCosPass from './screens/ForgotCosPass';
 
-import LogInCos from '././screens/LogIn/LogInCos';
+import LogInCos from './screens/LogIn/LogInCos';
 import WelcomeSkinMe from '././screens/LogIn/WelcomeSkinMe';
 
 import Menu from './screens/Menu';

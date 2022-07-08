@@ -1,8 +1,8 @@
 import React, { Component,useState } from 'react'
-import InputUser from '../../commons/InputUser';
+import InputUser from '../../../commons/InputUser';
 
-import FacebookLogIn from '../LogIn/FacebookLogIn';
-import LoginWGoggle from '../LogIn/LoginWGoggle';
+import FacebookLogIn from '../FacebookLogIn';
+import LoginWGoggle from '../LoginWGoggle';
 import validator from 'validator'
 
 
@@ -49,7 +49,7 @@ function Step1(props) {
 
   
  <input type="radio" name="user_gender" value="M"   onChange={props.handleChange}/>
- <img alt="wrinkles" height="100" width="100" src={require("../../assets/images/boy.png")}/>
+ <img alt="wrinkles" height="100" width="100" src={require("../../../assets/images/boy.png")}/>
 
 </label>
 
@@ -59,7 +59,7 @@ function Step1(props) {
 
   
 <input type="radio" name="user_gender" value="F"   onChange={props.handleChange}/>
-<img alt="wrinkles" height="100" width="100" src={require("../../assets/images/girl.png")}/>
+<img alt="wrinkles" height="100" width="100" src={require("../../../assets/images/girl.png")}/>
 
 </label>
 
