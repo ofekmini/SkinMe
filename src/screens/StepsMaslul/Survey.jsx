@@ -7,132 +7,135 @@ import { Link } from 'react-router-dom';
 
 
 function Survey(props) {
-  if (props.currentStep !== 1) { 
-    return null
-  } 
-  return(
-      <React.Fragment>
-        {/* <Whatsappicon url={`https://wa.me/${number}`}/> */}
-    <div className="form-group" style={{marginTop:100}}>
+    if (props.currentStep !== 1) {
+        return null
+    }
+    return (
+        <React.Fragment>
+            {/* <Whatsappicon url={`https://wa.me/${number}`}/> */}
 
-    <input style={{marginLeft:50}} type="file" name='user_picsprocess'  accept="image/*"   onChange={props.handlePicture} />  <br/> <br/>
-    
-    <text style={{color:"black"}}> מחזור חדשי </text><br/>
+            <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center', marginTop: 30 }} > אנא מלאי את הטופס הבא  </h3>
 
+            <div className="form-group" style={{ marginTop: 50 }}>
 
-<label className='label'>
-    
-    <input type="radio" name="user_period" value="לא רלוונטי" onChange={props.handleChange} />
-    <img alt="notrelevant" height="85" width="85" src={require("../../assets/images/notrelevant.png")}/>
-    
-</label>
-<label className='label'>
-    
-    <input type="radio" name="user_period" value="פסק" onChange={props.handleChange}/>
-    <img alt="oilyface" height="85" width="85" src={require("../../assets/images/Interrupt.png")}/>
-    
-</label>
-<label className='label'>
-    
-    <input type="radio" name="user_period" value="לא סדיר" onChange={props.handleChange}  onClick={props.clickAcne} />
-    <img alt="oilyface" height="85" width="85" src={require("../../assets/images/irregular.png")}/>
-    
-</label>
-<label className='label'>
-    
-    <input type="radio" name="user_period" value="סדיר" onChange={props.handleChange}/>
-    <img alt="oilyface" height="85" width="85" src={require("../../assets/images/Regular.png")}/>
-    
-</label><br/>
+                <input style={{ marginLeft: 50 }} type="file" name='user_picsprocess' accept="image/*" onChange={props.handlePicture} />  <br /> <br />
 
-<text style={{color:"black"}}> ? האם היית בטיפול דרמטולוגי בעבר</text><br/>
-
-<label className='label'>
-    
-    <input type="radio" name="user_dermatology" value="n" onChange={props.handleChange} onClick={props.clickDry}/>
-    <img alt="dermano" height="100" width="100" src={require("../../assets/images/no.png")}/>
-    
-</label>
-<label className='label'>
-    
-    <input type="radio" name="user_dermatology" value="y" onChange={props.handleChange}/>
-    <img alt="dermayes" height="100" width="100" src={require("../../assets/images/yes.png")}/>
-    
-</label><br/>
+                <text style={{ color: "black" }}> מחזור חדשי </text><br />
 
 
-<text style={{color:"black"}}> באיזה משחותת את/ה משתמש/ת כרגע בעור   </text><br/>
+                <label className='label'>
 
-<label className='label'>
-    
-    <input type="radio" name="user_currentProducts" value="לא משתמשת  " onChange={props.handleChange}/>
-    <img alt="notusing" height="120" width="120" src={require("../../assets/images/notusing.png")}/>
-    
-</label>
-<label className='label'>
-    
-    <input type="radio" name="user_currentProducts" value="רטין A " onChange={props.handleChange}/>
-    <img alt="retinA" height="120" width="120" src={require("../../assets/images/retinA.png")}/>
-    
-</label>
+                    <input type="radio" name="user_period" value="לא רלוונטי" onChange={props.handleChange} />
+                    <img alt="notrelevant" height="85" width="85" src={require("../../assets/images/notrelevant.png")} />
 
-<label className='label'>
-    
-    <input type="radio" name="user_currentProducts" value="חומצות " onChange={props.handleChange}/>
-    <img alt="acids" height="120" width="120" src={require("../../assets/images/acids.png")}/>
-    
-</label><br/>
+                </label>
+                <label className='label'>
 
-<text style={{color:"black"}}> ? האם העור שלך רגיש   </text><br/>
+                    <input type="radio" name="user_period" value="פסק" onChange={props.handleChange} />
+                    <img alt="oilyface" height="85" width="85" src={require("../../assets/images/Interrupt.png")} />
 
-<label className='label'>
-    
-    <input type="radio" name="user_sensitive" value="לא רגיש " onChange={props.handleChange}/>
-    <img alt="notsensitive" height="120" width="120" src={require("../../assets/images/notsensitive.png")}/>
-    
-</label>
-<label className='label'>
-    
-    <input type="radio" name="user_sensitive" value="רגיש לפעמים" onChange={props.handleChange}/>
-    <img alt="littlesensitive" height="120" width="120" src={require("../../assets/images/littlesensitive.png")}/>
-    
-</label>
+                </label>
+                <label className='label'>
 
-<label className='label'>
-    
-    <input type="radio" name="user_sensitive" value="רגיש מאוד " onChange={props.handleChange}/>
-    <img alt="verysensitive" height="120" width="120" src={require("../../assets/images/verysensitive.png")}/>
-    
-</label> <br/>
+                    <input type="radio" name="user_period" value="לא סדיר" onChange={props.handleChange} onClick={props.clickAcne} />
+                    <img alt="oilyface" height="85" width="85" src={require("../../assets/images/irregular.png")} />
 
-<text style={{color:"black"}}> באיזה אזורים ספציפיים היית רוצה לטפל    </text><br/>
+                </label>
+                <label className='label'>
 
-<label className='label'>
-    
-    <input type="radio" name="user_areas" value="ידיים" onChange={props.handleChange}/>
-    <img alt="verysensitive" height="120" width="120" src={require("../../assets/images/hands.png")}/>
-    
-</label>
+                    <input type="radio" name="user_period" value="סדיר" onChange={props.handleChange} />
+                    <img alt="oilyface" height="85" width="85" src={require("../../assets/images/Regular.png")} />
 
-<label className='label'>
-    
-    <input type="radio" name="user_areas" value="צוואר" onChange={props.handleChange}/>
-    <img alt="verysensitive" height="120" width="120" src={require("../../assets/images/neck.png")}/>
-    
-</label>
+                </label><br />
 
-<label className='label'>
-    
-    <input type="radio" name="user_areas" value="פנים" onChange={props.handleChange}/>
-    <img alt="verysensitive" height="120" width="120" src={require("../../assets/images/face.png")}/>
-    
-</label>
+                <text style={{ color: "black" }}> ?האם היית בטיפול דרמטולוגי בעבר</text><br />
 
-    </div>
-   
-  
-    </React.Fragment>
-  );
+                <label className='label'>
+
+                    <input type="radio" name="user_dermatology" value="n" onChange={props.handleChange} onClick={props.clickDry} />
+                    <img alt="dermano" height="100" width="100" src={require("../../assets/images/no.png")} />
+
+                </label>
+                <label className='label'>
+
+                    <input type="radio" name="user_dermatology" value="y" onChange={props.handleChange} />
+                    <img alt="dermayes" height="100" width="100" src={require("../../assets/images/yes.png")} />
+
+                </label><br />
+
+
+                <text style={{ color: "black" }}> ?באילו מוצרים את משתמשת כרגע לטיפוח עור הפנים  </text><br />
+
+                <label className='label'>
+
+                    <input type="radio" name="user_currentProducts" value="לא משתמשת  " onChange={props.handleChange} />
+                    <img alt="notusing" height="120" width="120" src={require("../../assets/images/notusing.png")} />
+
+                </label>
+                <label className='label'>
+
+                    <input type="radio" name="user_currentProducts" value="רטין A " onChange={props.handleChange} />
+                    <img alt="retinA" height="120" width="120" src={require("../../assets/images/retinA.png")} />
+
+                </label>
+
+                <label className='label'>
+
+                    <input type="radio" name="user_currentProducts" value="חומצות " onChange={props.handleChange} />
+                    <img alt="acids" height="120" width="120" src={require("../../assets/images/acids.png")} />
+
+                </label><br />
+
+                <text style={{ color: "black" }}> ?האם העור שלך רגיש   </text><br />
+
+                <label className='label'>
+
+                    <input type="radio" name="user_sensitive" value="לא רגיש " onChange={props.handleChange} />
+                    <img alt="notsensitive" height="120" width="120" src={require("../../assets/images/notsensitive.png")} />
+
+                </label>
+                <label className='label'>
+
+                    <input type="radio" name="user_sensitive" value="רגיש לפעמים" onChange={props.handleChange} />
+                    <img alt="littlesensitive" height="120" width="120" src={require("../../assets/images/littlesensitive.png")} />
+
+                </label>
+
+                <label className='label'>
+
+                    <input type="radio" name="user_sensitive" value="רגיש מאוד " onChange={props.handleChange} />
+                    <img alt="verysensitive" height="120" width="120" src={require("../../assets/images/verysensitive.png")} />
+
+                </label> <br />
+
+                <text style={{ color: "black" }}> ?באילו אזורים נוספים תרצי לטפל    </text><br />
+
+                <label className='label'>
+
+                    <input type="radio" name="user_areas" value="ידיים" onChange={props.handleChange} />
+                    <img alt="verysensitive" height="120" width="120" src={require("../../assets/images/hands.png")} />
+
+                </label>
+
+                <label className='label'>
+
+                    <input type="radio" name="user_areas" value="צוואר" onChange={props.handleChange} />
+                    <img alt="verysensitive" height="120" width="120" src={require("../../assets/images/neck.png")} />
+
+                </label>
+
+                <label className='label'>
+
+                    <input type="radio" name="user_areas" value="פנים" onChange={props.handleChange} />
+                    <img alt="verysensitive" height="120" width="120" src={require("../../assets/images/face.png")} />
+
+                </label>
+
+            </div>
+
+
+        </React.Fragment>
+    );
 }
 
 export default Survey;

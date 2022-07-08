@@ -122,7 +122,7 @@ import PopUpMaslul from '../commons/PopUpMaslul';
      {this.state.showPopup ? 
           <PopUpMaslul
             header=' הפרטים נקלטו בהצלחה '
-            text='אור מדיקל קיבלה את הפרטים ותרכיב לך תוכנית אישית במהלך 24 השעות הקרובות.
+            text='הקוסמטיקאית קיבלה את הפרטים ותרכיב לך תוכנית אישית במהלך 24 השעות הקרובות.
             התוכנית תתעדכן בדף הבית. תודה'
             closePopup={this.togglePopup.bind(this)}
           />
