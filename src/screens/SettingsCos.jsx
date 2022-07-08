@@ -150,7 +150,7 @@ class SettingsCos extends Component {
           {this.state.showPopup ? 
           <PopUpSettingsCos
             header='  שינוי נקלט'
-            text='סיסמה חדשה נקלטה בהצלחה'
+            text='  השינוי נקלט במערכת בהצלחה '
             closePopup={this.togglePopup.bind(this)}
           />
           : null
@@ -164,7 +164,7 @@ class SettingsCos extends Component {
           {this.state.showPopup ? 
           <PopUpSettingsCos
             header='  שינוי נקלט'
-            text=' מייל חדש נקלט בהצלחה'
+            text='  השינוי נקלט במערכת בהצלחה '
             closePopup={this.togglePopup.bind(this)}
           />
           : null
@@ -178,7 +178,7 @@ class SettingsCos extends Component {
           {this.state.showPopup ? 
           <PopUpSettingsCos
             header='  שינוי נקלט'
-            text='   מספר טלפון חדש נקלט בהצלחה  '
+            text='  השינוי נקלט במערכת בהצלחה '
             closePopup={this.togglePopup.bind(this)}
           />
           : null

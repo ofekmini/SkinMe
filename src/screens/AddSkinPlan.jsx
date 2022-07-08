@@ -7,6 +7,7 @@ import UserInfo from '../commons/UserInfo';
 import PopUpCos from '../commons/PopUpCos';
 import FilterProducts from './FilterProducts';
 import { Link } from 'react-router-dom';
+import PopupAddprod from '../commons/PopUpAddprod';
 
 
 
@@ -33,10 +34,18 @@ class AddSkinPlan extends Component {
       users: [],
       user_status: "waiting",
       smartProducts: [],
-      plan_id: localStorage.getItem('plan_id')
+      plan_id: localStorage.getItem('plan_id'),
+      showPopup: false,
 
     }
   }
+    
+  togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
+  }
+
 
   handlechange = (e) => {
     this.setState({
@@ -54,7 +63,7 @@ class AddSkinPlan extends Component {
   }
 
   addProductToPlan = (item) => {
-    debugger
+    
     let arr = [...this.state.ppp]
     const index = arr.findIndex(prod => prod.$id === item.$id)
     if (index !== -1) {
@@ -65,7 +74,7 @@ class AddSkinPlan extends Component {
   }
 
   deleteProductFromPlan = (item) => {
-    debugger
+    
     let arr = [...this.state.ppp]
     let product = arr.findIndex(x => x.prod_id == item.prod_id)
     arr.splice(product, 1)
@@ -215,13 +224,14 @@ class AddSkinPlan extends Component {
     })
 
     const data = await res.json()
-    debugger
+    
     this.setState({ smartProducts: data })
     console.log(this.state.smartProducts)
   }
 
   submitProducts = async () => {
-    debugger
+    this.togglePopup(); 
+    
     const dataToSend = this.state.ppp
     const planId = Number(localStorage.getItem('plan_id'))
     const apiUrl = `http://localhost:58031/api/Cos/AddProdToPlan/${planId}`;
@@ -233,7 +243,7 @@ class AddSkinPlan extends Component {
         'Accept': 'application/json; charset=UTF-8',
       })
     })
-    debugger
+    
   }
 
   render() {
@@ -307,7 +317,7 @@ class AddSkinPlan extends Component {
         <button style={{ margin: 30, backgroundColor: "black", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} onClick={this.submitProducts} >שמירה והוספת מוצרים</button>
 
         {this.state.showPopup ?
-          <PopUpCos
+          <PopupAddprod
             header=' תוכנית טיפוח נוספה בהצלחה '
             text=' התוכנית עודכנה במערכת'
             closePopup={this.togglePopup.bind(this)}

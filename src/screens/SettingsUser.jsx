@@ -163,7 +163,7 @@ import PopUpUser from '../commons/PopUpUser';
         {this.state.showPopup ? 
           <PopUpUser
             header='  שינוי נקלט'
-            text='סיסמה חדשה נקלטה בהצלחה'
+            text='השינוי נקלט בהצלחה'
             closePopup={this.togglePopup.bind(this)}
           />
           : null
@@ -180,7 +180,7 @@ import PopUpUser from '../commons/PopUpUser';
         {this.state.showPopup ? 
           <PopUpUser
             header='  שינוי נקלט'
-            text=' מייל חדש נקלט בהצלחה'
+            text='השינוי נקלט בהצלחה'
             closePopup={this.togglePopup.bind(this)}
           />
           : null
@@ -197,7 +197,7 @@ import PopUpUser from '../commons/PopUpUser';
         {this.state.showPopup ? 
           <PopUpUser
             header='  שינוי נקלט'
-            text=' שם משתמש חדש נקלט בהצלחה'
+            text='השינוי נקלט בהצלחה'
             closePopup={this.togglePopup.bind(this)}
           />
           : null

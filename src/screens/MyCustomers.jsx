@@ -23,7 +23,7 @@ class MyCustomers extends Component {
     const cosmetologist_id = { cosmetologist_id: this.state.cosmetologist_id };
 
     fetch(apiUrl, {
-      method: 'POST',
+      method: 'GET',
       body: JSON.stringify(cosmetologist_id),
       headers: new Headers({
         'Content-Type': 'application/json; charset=UTF-8',

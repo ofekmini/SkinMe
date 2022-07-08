@@ -56,7 +56,7 @@ class CosmeticHomePage extends Component {
     console.clear();
     const apiUrl = 'http://localhost:58031/api/Cos/GetClients';
     const url=`${apiUrl}/${this.state.cosmetologist_id}`
-    debugger
+    
     fetch(url, {
       method: 'GET',
       headers: new Headers({
@@ -74,7 +74,7 @@ class CosmeticHomePage extends Component {
         (result) => {
           console.log("fetch POST= ", result);
           result.map(st => console.log(st.user_id));
-          debugger
+          
           console.log('result[0].user_id=', result[0].user_id);
           this.setState({ user: [...result] }
           );

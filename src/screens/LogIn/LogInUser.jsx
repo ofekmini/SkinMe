@@ -87,12 +87,15 @@ class LogInUser extends Component {
           console.log(result.user_skinType)
           if (result === "username or password were not found") {
             this.setState({ errorMessage: result });
+            
           }
           else {
             
             this.setState({ errorMessage: "" });
             localStorage.setItem("appUser_id", result.appUser_id);
             localStorage.setItem("user_skinType",result.user_skinType);
+            localStorage.setItem("user_route",result.user_route);
+            localStorage.setItem('cosmetologist_id',result.cosmetologist_id);
             localStorage.setItem("type", 0);
             window.location.href = '/userhomepage'
           }

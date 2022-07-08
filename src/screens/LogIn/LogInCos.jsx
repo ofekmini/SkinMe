@@ -71,7 +71,7 @@ class LogInCos extends Component {
           }
           else {
             this.setState({ errorMessage: "" });
-            debugger
+            
             localStorage.setItem("cosmetologist_id", result);
             localStorage.setItem("type", 1);
             window.location.href = '/coshomepage'
