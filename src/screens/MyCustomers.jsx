@@ -3,6 +3,7 @@ import UserCard from '../commons/UserCard';
 import React, { Component } from 'react'
 import ButtonLogIn from '../commons/ButtonLogIn';
 import { Link } from 'react-router-dom';
+import MyUserCard from '../commons/MyUserCard';
 
 class MyCustomers extends Component {
   constructor(props) {
@@ -19,12 +20,12 @@ class MyCustomers extends Component {
     console.clear();
 
     const apiUrl = 'http://localhost:58031/api/Cos/GetClients';
+    const url=`${apiUrl}/${this.state.cosmetologist_id}`
 
-    const cosmetologist_id = { cosmetologist_id: this.state.cosmetologist_id };
+  
 
-    fetch(apiUrl, {
+    fetch(url, {
       method: 'GET',
-      body: JSON.stringify(cosmetologist_id),
       headers: new Headers({
         'Content-Type': 'application/json; charset=UTF-8',
         'Accept': 'application/json; charset=UTF-8',
@@ -70,10 +71,10 @@ return <message/>
         <Link to='/coshomepage'>
           <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")} />
         </Link>
-        <h4 style={{ marginTop: 35 }}> הלקוחות שלי </h4>
+        <h4 style={{ marginTop: 35 }}> הלקוחות שלי </h4>   <hr/>
 
         
-          {this.state.user.map((user) => <UserCard key={user.appUser_id} user={user} />)}
+        {this.state.user.length > 0 ?this.state.user.map((user) => <MyUserCard key={user.appUser_id} user={user} />):<h3 style={{color:'gray', marginTop:300}}>אין לקוחות כעת</h3>}
           
 
       </div>

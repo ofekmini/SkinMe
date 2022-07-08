@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Card, CardActionArea, CardMedia } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-function UserImages() {
+function UserImagesforCos() {
 
   const [file, setFile] = useState();
   const [img, setImg] = useState({});
@@ -70,20 +71,13 @@ function UserImages() {
 
   return (
     <div>
+       <Link to='/coshomepage'>
+          <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")} />
+        </Link>
       <h4 style={{ marginTop: 35 }}>מעקב תמונות  </h4> <hr />
 
       <div style={{ backgroundColor: 'beige', margin: 10 }}>
-        <h3 style={{ color: 'black', fontSize: 18 }}>  הוספת תמונה </h3>
-        <img style={{ width: 50, height: 50, borderRadius: 50 }} src={file} /> <br /><br />
-        <input style={{ marginLeft: 70 }} type="file" accept="image/*" onChange={handleChange} />  <br /><br />
-        <button style={{ margin: 15, backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '40%', height: 30, borderColor: "black", borderWidth: 1, borderRadius: 50 }} onClick={handleSubmission} >שמור  </button> <br />
-      </div>
-
-      <div style={{ backgroundColor: 'beige', margin: 10 }}>
         
-      
-
-
       {userImages.map((item,index) => { 
         return <div key={index}>
          
@@ -98,5 +92,5 @@ function UserImages() {
     </div>
   )
 }
-export default UserImages;
+export default UserImagesforCos;
 

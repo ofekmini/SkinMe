@@ -151,7 +151,7 @@ import PopUpUser from '../commons/PopUpUser';
          <Link to='/userhomepage'>
         <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
         </Link>
-        <h4 style={{marginTop:35}}> הגדרות </h4>
+        <h4 style={{marginTop:35}}> הגדרות </h4>  <hr/>
 
         <div style={{margin:60, border:'2px solid black',borderRadius:30}}>
 

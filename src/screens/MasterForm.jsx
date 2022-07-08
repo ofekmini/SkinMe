@@ -5,12 +5,14 @@ import './Questionaire.css'
 import { Link } from 'react-router-dom';
 import Step1 from './LogIn/StepForm/Step1';
 import Step3 from './LogIn/StepForm/Step3';
+import validator from 'validator'
 
 class MasterForm extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
+      formMessage: null,
       currentStep: 1,
       first_name: "",
       last_name: "",
@@ -41,9 +43,37 @@ class MasterForm extends Component {
 
   handleChange = event => {
     const { name, value } = event.target
+    if(name === 'user_password') {
+      if (!validator.isStrongPassword(value,{
+        minLength: 6,
+        minLowercase: 1,
+        minUppercase: 1, minNumbers: 1, 
+      })) {
+        console.log('passwordisWeak')
+        this.setState({
+          formMessage: 'Password not strong enough, must contain 8 caracthers with at least one upper case, one number, one lower case and a symbol'
+        })
+      } else {
+        console.log('passwordisStorng')
+        this.setState({
+          formMessage: 'Password is Strong'
+        })
+      }
+    }
+    if(name === 'email') {
+      if (!validator.isEmail(value)) {
+        this.setState({
+          formMessage: 'Email is not valid'
+        })
+      } else {
+   
+        this.setState({
+          formMessage: 'Email is valid'
+        })
+      }
+    }
     this.setState({
       [name]: value,
-
     })
   }
 
@@ -52,7 +82,8 @@ class MasterForm extends Component {
     this.setState({
       email: email,
       username: username,
-      picture: picture
+      picture: picture,
+      
     })
     this._next()
   }
@@ -149,7 +180,7 @@ class MasterForm extends Component {
       })
       .then(
         (result) => {
-          debugger
+          
           console.log("fetch POST= ", result);
           console.log(result.username);
           console.log(this.state);
@@ -233,6 +264,8 @@ class MasterForm extends Component {
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
             handleChangeByFacebookOrGoogle={this.handleChangeByFacebookOrGoogle}
+
+            formMessage={this.state.formMessage}
 
             first_name={this.state.first_name}
             last_name={this.state.last_name}

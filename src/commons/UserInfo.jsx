@@ -8,7 +8,7 @@ const UserInfo = (props) => {
       <img className="card-img-top" src={require("../assets/images/defaultclient.png")} alt="display image" width="70" height="70"  ></img>
       <div className="card-body">
         <div> <h3 className="card-text" style={{ color: "gray", fontSize: 15, textAlign: 'center' }} > {user.first_name} {user.last_name} </h3> </div>
-          <div className='col'> <h3 className="card-text" style={{ color: "black", fontSize: 15, textAlign: 'center' }} >   :תאריך לידה  </h3>{user.user_birth}  </div>
+          <div className='col'> <h3 className="card-text" style={{ color: "black", fontSize: 15, textAlign: 'center' }} >   :תאריך לידה {user.user_birth}  </h3> </div>
           <div className='col'> <h3 className="card-text" style={{ color: "black", fontSize: 15, textAlign: 'center' }} >   :מגדר </h3>{user.user_gender}  </div>
           <div> <h3 className="card-text" style={{ color: "black", fontSize: 15, textAlign: 'center' }} > :סוג עור   </h3>{user.user_skinType} </div>
           <div> <h3 className="card-text" style={{ color: "black", fontSize: 15, textAlign: 'center' }} > :בעיית עור    </h3>{user.user_skinProblem} </div>

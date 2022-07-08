@@ -91,9 +91,9 @@ class CosmeticHomePage extends Component {
 
         <hr />
         <div>
-          <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center', marginTop: 30 }} > הלקוחות שלי  </h3>
+          <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center', marginTop: 30 }} > הלקוחות שלי  </h3>  <hr/>
           <div style={{}} >
-            {this.state.user.map((user) => <MyUserCard key={user.appUser_id} user={user} />)}
+            {this.state.user.length > 0 ?this.state.user.map((user) => <MyUserCard key={user.appUser_id} user={user} /> ) : <h3 style={{color:'gray', marginTop:30}}>אין לקוחות כעת</h3>} <br/>
           </div>
         </div>
         <div>
