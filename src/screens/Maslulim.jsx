@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 
-import Logo from '../commons/Logo';
-import { FacebookLogin } from 'react-facebook-login';
-import FacebookLogIn from './FacebookLogIn';
-import SignUpUser from './SignUpUser';
+
 
 import Survey from './StepsMaslul/Survey';
 import Payment from './StepsMaslul/Payment';
 
-import CardCosInfo from '../commons/CardCosInfo';
 import './Questionaire.css'
 
 class Maslulim extends Component {

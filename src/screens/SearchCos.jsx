@@ -98,7 +98,7 @@ class SearchCos extends Component {
 
 
   componentDidMount() {
-    // this.cosList();
+   
     this.map();
   }
 

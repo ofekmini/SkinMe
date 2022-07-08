@@ -99,9 +99,12 @@ import Logo from '../commons/Logo';
 { this.state.errorMessage &&
             <h3 style={{color:'red',fontSize:14,marginTop:0}}> { this.state.errorMessage } </h3> }
 
-<Link to='/'>
-<button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'30%',height:30,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} >חזור </button>
-</Link>
+      
+<div style={{marginTop:40}}>
+          <Link to='/'>
+            <h4>חזרה למסך הכניסה</h4>
+          </Link>
+        </div>
   
 </div>
 

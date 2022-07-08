@@ -3,9 +3,7 @@ import Step1 from './StepForm/Step1'
 import Step2 from './StepForm/Step2'
 import Step3 from './StepForm/Step3'
 import Logo from '../commons/Logo';
-import { FacebookLogin } from 'react-facebook-login';
-import FacebookLogIn from './FacebookLogIn';
-import SignUpUser from './SignUpUser';
+
 import './Questionaire.css'
 import { Link } from 'react-router-dom';
 

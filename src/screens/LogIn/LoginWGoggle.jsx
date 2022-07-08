@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import GoogleLogin from 'react-google-login';
-import SignUpUser from './SignUpUser';
+
 
 export default function LoginWGoggle(props) {
 
@@ -35,7 +35,7 @@ export default function LoginWGoggle(props) {
         <div>
           <h3 style={{ color: "black" }}>You logged in as {loginData.email}</h3>
           <button onClick={handleLogout}>Logout</button>
-          <SignUpUser />
+          
         </div>
       ) : (
 

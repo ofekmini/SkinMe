@@ -1,6 +1,6 @@
 import React from 'react'
-import ButtonLogIn from '../commons/ButtonLogIn';
-import Logo from '../commons/Logo';
+import ButtonLogIn from '../../commons/ButtonLogIn';
+import Logo from '../../commons/Logo';
 import { Link } from 'react-router-dom';
 
 
@@ -19,6 +19,12 @@ export default function ChooseUser() {
       <Link to="/signupcos">
       <button style={{backgroundColor:"black",color:"white",fontSize:15,width:'60%',height:40,borderColor:"#e8e8e8" ,margin:20, borderWidth:1,borderRadius:50}}  >קוסמטיקאית</button>
       </Link>
+
+      <div style={{marginTop:50}}>
+          <Link to='/'>
+            <h4>חזרה </h4>
+          </Link>
+        </div>
     </div>
   )
 }

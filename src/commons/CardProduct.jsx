@@ -19,7 +19,7 @@ const CardProduct = (props) => {
       <div> <p className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} > {products.prod_description} </p> </div>
       <div><h4 className="card-title" style={{color:"#B5651D",}}> מומלץ</h4></div>
       <div> <p className="card-text" style={{color:"black",fontSize:15,textAlign:'center'}} > {products.prod_manual} </p> </div>
-      <button style={{margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={showId} ><img src={require("../assets/images/edit.png")} width="20" height="20"  alt="edit" /> עדכון מוצר</button>
+      
     
     </div>
     </div>

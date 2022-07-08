@@ -11,6 +11,7 @@ class WaitingUsers extends Component {
       users: [],
       user_status: "waiting",
       cosmetologist_id: localStorage.getItem('cosmetologist_id'),
+      errorMessage:""
 
     }
   }
@@ -43,6 +44,7 @@ class WaitingUsers extends Component {
           console.log('result[0].user_id=', result[0].appUser_id);
           this.setState({ users: [...result] }
           );
+         
         },
         (error) => {
           console.log("err post=", error);
@@ -72,6 +74,8 @@ class WaitingUsers extends Component {
 
         <div >
           {this.state.users.map((user) => <UserCard key={user.appUser_id} user={user} />)}
+         
+        
         </div>
 
       </div>

@@ -97,6 +97,13 @@ export default class ForgotCosPass extends Component {
 { this.state.errorMessage &&
             <h3 style={{color:'red',fontSize:14,marginTop:0}}> { this.state.errorMessage } </h3> }
 
+              
+        <div style={{marginTop:40}}>
+          <Link to='/'>
+            <h4>חזרה למסך הכניסה</h4>
+          </Link>
+        </div>
+
       </div>
     )
   }

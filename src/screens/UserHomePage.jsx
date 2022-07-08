@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import RoutineProductsDay from '../commons/RoutineProductsDay';
 import RoutineProductsNight from '../commons/RoutineProductsNight';
-import LogInCos from './LogInCos';
+
 import Logo from '../commons/Logo';
 import CardProduct from '../commons/CardProduct';
 

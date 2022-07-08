@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
     super(props)
     this.state = {
        user:[],
-       user_id:localStorage.getItem('user_id'),
+       appuser_id:localStorage.getItem('appuser_id'),
        user_status:"waiting",
        cosmetologist_id:localStorage.getItem('cosmetologist_id'),
 
@@ -42,9 +42,9 @@ import { Link } from 'react-router-dom';
           .then(
             (result) => {
               console.log("fetch POST= ", result);
-              result.map(st => console.log(st.user_id));
-                  console.log('result[0].user_id=', result[0].user_id);
-                  this.setState({ users: [...result]}
+              result.map(st => console.log(st.appuser_id));
+                  console.log('result[0].appuser_id=', result[0].appuser_id);
+                  this.setState({ user: [...result]}
                     );
             },
             (error) => {

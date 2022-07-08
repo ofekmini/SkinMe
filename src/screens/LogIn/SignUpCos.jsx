@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import InputUser from '../commons/InputUser';
-import ButtonLogIn from '../commons/ButtonLogIn';
-import Logo from '../commons/Logo';
-import PopUpCos from '../commons/PopUpCos';
+import InputUser from '../../commons/InputUser';
+
+import Logo from '../../commons/Logo';
+import PopUpCos from '../../commons/PopUpCos';
 
 let local = false;
 //const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
@@ -125,13 +125,13 @@ let local = false;
 
         <label className='label' >
         <input type="radio" name="cosmetologist_gender" value="F"   onChange={(e)=>{this.setState({cosmetologist_gender:e.target.value})}}/>
-        <img alt="wrinkles" height="100" width="100" src={require("../assets/images/girl.png")}/>
+        <img alt="wrinkles" height="100" width="100" src={require("../../assets/images/girl.png")}/>
         
         </label>
         <label className='label'>
           
         <input type="radio" name="cosmetologist_gender" value="M"   onChange={(e)=>{this.setState({cosmetologist_gender:e.target.value})}}/>
-        <img alt="wrinkles" height="100" width="100" src={require("../assets/images/boy.png")}/><br/>
+        <img alt="wrinkles" height="100" width="100" src={require("../../assets/images/boy.png")}/><br/>
         
         </label>
         

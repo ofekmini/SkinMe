@@ -1,12 +1,12 @@
 
 import './App.css';
 import { Routes,Route,Switch, BrowserRouter as Router, BrowserRouter,Outlet} from 'react-router-dom';
-import SignUpCos from './screens/SignUpCos';
-import ChooseUser from './screens/ChooseUser';
-import FacebookLogIn from './screens/FacebookLogIn';
-import LogInUser from './screens/LogInUser';
+import SignUpCos from '././screens/LogIn/SignUpCos';
+import ChooseUser from './screens/LogIn/ChooseUser';
+
+import LogInUser from '././screens/LogIn/LogInUser';
 import MasterForm from './screens/MasterForm';
-import LoginWGoggle from './screens/LoginWGoggle';
+
 import Products from './screens/Products';
 import AddProduct from './screens/AddProduct';
 import UserHomePage from './screens/UserHomePage';
@@ -26,8 +26,8 @@ import SettinsCos from './screens/SettingsCos';
 import ChooseMyCos from './screens/ChooseMyCos';
 import ForgotCosPass from './screens/ForgotCosPass';
 
-import LogInCos from './screens/LogInCos';
-import WelcomeSkinMe from './screens/WelcomeSkinMe';
+import LogInCos from '././screens/LogIn/LogInCos';
+import WelcomeSkinMe from '././screens/LogIn/WelcomeSkinMe';
 
 import Menu from './screens/Menu';
 import RatingProducts from './screens/RatingProducts';
@@ -66,7 +66,7 @@ function App() {
            <Route path="/choosecos" element={<ChooseMyCos />} />
 
            <Route path="/forgot" element={<ForgotP />} />
-           <Route path='/forgotcospass' element={<ForgotCosPass />} />
+           
 
            <Route path="/forgotpassword" element={<ForgotP/>} />
 

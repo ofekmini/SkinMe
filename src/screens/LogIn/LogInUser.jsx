@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import InputUser from '../commons/InputUser'
-import ButtonLogIn from '../commons/ButtonLogIn';
-import Logo from '../commons/Logo';
+import InputUser from '../../commons/InputUser'
+import ButtonLogIn from '../../commons/ButtonLogIn';
+import Logo from '../../commons/Logo';
 import { Link } from 'react-router-dom';
-import PopUpCos from '../commons/PopUpCos';
-import Menu from './Menu';
+import PopUpCos from '../../commons/PopUpCos';
+import Menu from '../Menu';
 import FacebookLogIn from './FacebookLogIn';
 import LoginWGoggle from './LoginWGoggle';
 

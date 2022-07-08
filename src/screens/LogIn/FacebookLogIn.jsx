@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login';
-import MasterForm from './MasterForm';
-import SignUpUser from './SignUpUser';
+
 
 
 

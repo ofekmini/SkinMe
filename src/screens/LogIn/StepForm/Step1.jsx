@@ -1,8 +1,8 @@
 import React, { Component,useState } from 'react'
 import InputUser from '../../commons/InputUser';
 
-import FacebookLogIn from '../FacebookLogIn';
-import LoginWGoggle from '../LoginWGoggle';
+import FacebookLogIn from '../LogIn/FacebookLogIn';
+import LoginWGoggle from '../LogIn/LoginWGoggle';
 import validator from 'validator'
 
 

@@ -32,7 +32,8 @@ class AddSkinPlan extends Component {
       user: null,
       users: [],
       user_status: "waiting",
-      smartProducts: []
+      smartProducts: [],
+      plan_id:localStorage.getItem('plan_id')
 
     }
   }
@@ -143,6 +144,7 @@ class AddSkinPlan extends Component {
           console.log("fetch POST= ", result);
           console.log(result.plan_name);
           console.log(this.state);
+          localStorage.setItem("plan_id", result.plan_id);
         },
         (error) => {
           console.log("err post=", error);
@@ -150,6 +152,53 @@ class AddSkinPlan extends Component {
 
     console.log('END');
   }
+
+  addProdToPlan = (e) => {
+    console.clear();
+   // const apiUrl = 'http://localhost:58031/api/Cos/AddSkinPlan';
+   //const user_id = JSON.parse(localStorage.getItem('user')).appUser_id;
+   
+   this.setState({
+    prod_id:e.target.value
+   })
+   console.log(this.state.prod_id)
+
+    const apiUrl = `http://localhost:58031/api/Cos/AddProdToPlan?id=${this.state.plan_id}`;
+
+    const prod = {
+      prod_id:this.state.prod_id,
+      plan_id:this.state.plan_id
+      
+    };
+
+    fetch(apiUrl, {
+      method: 'POST',
+      body: JSON.stringify(prod),
+      headers: new Headers({
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json; charset=UTF-8',
+      })
+    })
+      .then(res => {
+        console.log('res=', res);
+        console.log('res.status', res.status);
+        console.log('res.ok', res.ok);
+        return res.json()
+      })
+      .then(
+        (result) => {
+          console.log("fetch POST= ", result);
+          console.log(result.plan_name);
+          console.log(this.state);
+          localStorage.setItem("plan_id", result.plan_id);
+        },
+        (error) => {
+          console.log("err post=", error);
+        });
+
+    console.log('END');
+  }
+
 
   loadSmartElement() {
 
@@ -240,7 +289,8 @@ class AddSkinPlan extends Component {
           </div>
 
           <div >
-            {this.state.filterProducts.map((products) => <CardAddProdToPlan add={(product) => this.addProductToPlan(product)} key={products.prod_id} products={products} />)}
+            
+            {this.state.filterProducts.map((products) => <CardAddProdToPlan   onClick={() => this.addProdToPlan()} key={products.prod_id} products={products}/>)}
           </div>
         </div>
 

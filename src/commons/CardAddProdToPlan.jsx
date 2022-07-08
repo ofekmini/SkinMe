@@ -5,6 +5,13 @@ import { Link } from 'react-router-dom';
 const CardAddProdToPlan = (props) => {
   const { products } = props
 
+  const showId =()=>{
+    console.log(products.prod_id);
+    localStorage.setItem('prod_id',products.prod_id);
+    
+
+  }
+
   return (
     <div className="card" style={{ backgroundColor: '#EEE4C4', width: '10rem', height: '15rem', margin:15, float: "right",  border: '#FFDE6B solid 2px', borderRadius: 10 }} >
       <img className="card-img-top" src={require("../assets/images/addprod.png")} alt="display image" height="20%"  ></img>
@@ -22,7 +29,7 @@ const CardAddProdToPlan = (props) => {
 
         <button
           style={{ backgroundColor: "#c4a092", color: "white", fontSize: 14, width: '50%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }}
-          onClick={() => props.add(products)} product={products} >הוספה</button>
+           onClick={products.onClick}>הוספה</button>
 
 
       </div>

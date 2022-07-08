@@ -10,6 +10,7 @@ class MyCustomers extends Component {
     this.state = {
       user: [],
       cosmetologist_id: localStorage.getItem('cosmetologist_id'),
+      errorMessage:""
 
     }
   }
@@ -40,8 +41,10 @@ class MyCustomers extends Component {
           console.log("fetch POST= ", result);
           result.map(st => console.log(st.user_id));
           console.log('result[0].user_id=', result[0].user_id);
+          
           this.setState({ user: [...result] }
           );
+
         },
         (error) => {
           console.log("err post=", error);
@@ -71,7 +74,7 @@ return <message/>
 
         
           {this.state.user.map((user) => <UserCard key={user.appUser_id} user={user} />)}
-        
+          
 
       </div>
     )
