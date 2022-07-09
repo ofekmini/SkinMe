@@ -10,7 +10,7 @@ function UserImagesforCos() {
 
   const id = localStorage.getItem('appUser_id')
 
-   useEffect(async () => {
+/**   useEffect(async () => {
     
     let res = await fetch(`http://localhost:58031/api/Users/allimages/${id}`, {
       method: 'GET', headers: new Headers({
@@ -20,32 +20,27 @@ function UserImagesforCos() {
     })
     let arr = await res.json();
     setUserImages(arr)
-  }, [])
+  }, [])*/
 
+  useEffect(()=>{
+    async function fetchData(){
+      let res = await fetch(`http://localhost:58031/api/Users/allimages/${id}`, {
+        method: 'GET', headers: new Headers({
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Accept': 'application/json; charset=UTF-8',
+        })
+      })
+      let arr = await res.json();
+      setUserImages(arr)
+    }
+    fetchData();
+  })
  
  
 
   
 
-  const handleSubmission = async (event) => {
-
-    const apiUrl = `http://localhost:58031/api/Users/images`;
-
-    const currDate = new Date().toLocaleDateString('en');
-
-    const res = await fetch(apiUrl, {
-      method: 'POST', headers: new Headers({
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Accept': 'application/json; charset=UTF-8',
-      }), body: JSON.stringify({
-        imgUrl: file,
-        appUser_id: id,
-        upload_date: currDate
-      })
-    })
-    let img = await res.json()
-    setImg(img)
-  }
+ 
 
   async function handleChange(e) {
     const file = e.target.files[0]

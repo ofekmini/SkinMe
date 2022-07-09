@@ -148,9 +148,7 @@ class WatchSkinPlan extends Component {
                 </Link>
                 <h4 style={{ marginTop: 35 }}> צפייה בתוכנית טיפוח </h4>
                 <hr />
-                <Link to='/coshomepage'>
-                <button  style={{position: 'absolute', left: 5, top: 70,margin:30,backgroundColor:"#c4a092",color:"white",fontSize:15,width:'20%',height:25,borderColor:"#e8e8e8" , borderWidth:1}}>חזור</button>
-                </Link>
+              
                 <br/>
                 <Link to='/userimagesforcos'>
               {this.state.user_route ==2 ? <button style={{ margin: 10,marginTop:40, backgroundColor: "black", color: "white", fontSize: 15, width: '70%', height: 30, borderColor: "black", borderWidth: 1, borderRadius: 50 }}  >מעקב תמונות</button>:("")}
