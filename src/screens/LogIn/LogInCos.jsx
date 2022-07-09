@@ -107,7 +107,7 @@ class LogInCos extends Component {
         {this.state.errorMessage &&
           <h3 style={{ color: 'red', fontSize: 14, marginTop: 0 }}> {this.state.errorMessage} </h3>}
 
-        <Link to='/forgotcos'>
+        <Link to='/forgotcospass'>
           <button style={{ backgroundColor: '#f8fbff', border: 'none', color: 'black', textDecorationLine: 'underline' }}  >שכחתי סיסמה </button>
         </Link>
 

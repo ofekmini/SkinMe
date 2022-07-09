@@ -3,7 +3,7 @@ import InputUser from '../../commons/InputUser';
 
 import Logo from '../../commons/Logo';
 import PopUpCos from '../../commons/PopUpCos';
-import validator from 'validator';
+
 
 let local = false;
 //const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
@@ -34,7 +34,8 @@ let local = false;
       cosmetologist_rate:"0",
       
       showPopup: false,
-      formMessage:null
+      
+      //onChange={(e)=>{this.setState({cosmetologist_first_name:e.target.value})}}/>
          
   }
 }
@@ -46,48 +47,19 @@ let local = false;
   }
 
   handlechange = (e) => {
-    const { name, value } = e.target
     
-      if(name === 'cosmetologist_user_password') {
-        if (!validator.isStrongPassword(value,{
-          minLength: 6,
-          minLowercase: 1,
-          minUppercase: 1, minNumbers: 1, 
-        })) {
-          console.log('passwordisWeak')
-          this.setState({
-            formMessage: 'Password not strong enough, must contain 8 caracthers with at least one upper case, one number, one lower case and a symbol'
-          })
-        } else {
-          console.log('passwordisStorng')
-          this.setState({
-            formMessage: 'Password is Strong'
-          })
-        }
-      }
-      if(name === 'cosmetologist_email') {
-        if (!validator.isEmail(value)) {
-          this.setState({
-            formMessage: 'Email is not valid'
-          })
-        } else {
-     
-          this.setState({
-            formMessage: 'Email is valid'
-          })
-        }
-      }
       this.setState({
-        [name]:value,
+        [e.target.name]: e.target.value,
     })
   }
+
   addCos = (e)=>{
     console.clear();
     
-    debugger
+    
     
     this.togglePopup(); 
-
+debugger
     const cos_data={
       cosmetologist_first_name:this.state.cosmetologist_first_name,
       cosmetologist_last_name:this.state.cosmetologist_last_name, 
@@ -146,43 +118,40 @@ let local = false;
 
       <Logo/>
 
-        <InputUser value={this.cosmetologist_first_name} name="cosmetologist_first_name" type="text" label="שם פרטי " placeholder="שם פרטי " onChange={this.handlechange}/>
+        <InputUser value={this.cosmetologist_first_name} name="cosmetologist_first_name" type="text" label="שם פרטי " placeholder="שם פרטי " onChange={(e)=>{this.setState({cosmetologist_first_name:e.target.value})}}/>
+        
 
-        <InputUser value={this.cosmetologist_last_name} name="cosmetologist_last_name" type="text" label="שם משפחה   " placeholder="שם משפחה " onChange={this.handlechange}/>  
+        <InputUser value={this.cosmetologist_last_name} name="cosmetologist_last_name" type="text" label="שם משפחה   " placeholder="שם משפחה "onChange={(e)=>{this.setState({cosmetologist_last_name:e.target.value})}}/>  
 
-        <InputUser value={this.cosmetologist_email} name="cosmetologist_email" type="text" label="מייל " placeholder="מייל"  onChange={this.handlechange}/>
+        <InputUser value={this.cosmetologist_email} name="cosmetologist_email" type="text" label="מייל " placeholder="מייל"  onChange={(e)=>{this.setState({cosmetologist_email:e.target.value})}}/>
        
 
         <label className='label' >
-        <input type="radio" name="cosmetologist_gender" value="F"   onChange={this.handlechange}/>
+        <input type="radio" name="cosmetologist_gender" value="F"   onChange={(e)=>{this.setState({cosmetologist_gender:e.target.value})}}/>
         <img alt="wrinkles" height="100" width="100" src={require("../../assets/images/girl.png")}/>
         
         </label>
         <label className='label'>
           
-        <input type="radio" name="cosmetologist_gender" value="M"   onChange={this.handlechange}/>
+        <input type="radio" name="cosmetologist_gender" value="M"   onChange={(e)=>{this.setState({cosmetologist_gender:e.target.value})}}/>
         <img alt="wrinkles" height="100" width="100" src={require("../../assets/images/boy.png")}/><br/>
         
         </label>
         
-        <InputUser value={this.cosmetic_businessName} name="cosmetic_businessName" type="text" label=" שם העסק " placeholder=" שם העסק " onChange={this.handlechange}/>
+        <InputUser value={this.cosmetic_businessName} name="cosmetic_businessName" type="text" label=" שם העסק " placeholder=" שם העסק " onChange={(e)=>{this.setState({cosmetic_businessName:e.target.value})}}/>
 
-        <InputUser value={this.cosmetic_city} name="cosmetic_city" type="text" label="עיר" placeholder="עיר " onChange={this.handlechange}/>  
+        <InputUser value={this.cosmetic_city} name="cosmetic_city" type="text" label="עיר" placeholder="עיר " onChange={(e)=>{this.setState({cosmetic_city:e.target.value})}}/>  
 
-        <InputUser value={this.cosmetic_address} name="cosmetic_address" type="text" label="כתובת " placeholder="כתובת"  onChange={this.handlechange}/>
+        <InputUser value={this.cosmetic_address} name="cosmetic_address" type="text" label="כתובת " placeholder="כתובת"  onChange={(e)=>{this.setState({cosmetic_address:e.target.value})}}/>
         
-        <InputUser value={this.cosmetic_license_num} name="cosmetic_license_num" type="text" label="מספר עסק " placeholder="מספר עסק"  onChange={this.handlechange}/>
+        <InputUser value={this.cosmetic_license_num} name="cosmetic_license_num" type="text" label="מספר עסק " placeholder="מספר עסק"  onChange={(e)=>{this.setState({cosmetic_license_num:e.target.value})}}/>
         
-        <InputUser value={this.cosmetologist_phoneNumber} name="cosmetologist_phoneNumber" type="text" label="מספר טלפון " placeholder="מספר טלפון"  onChange={this.handlechange}/>
+        <InputUser value={this.cosmetologist_phoneNumber} name="cosmetologist_phoneNumber" type="text" label="מספר טלפון " placeholder="מספר טלפון"  onChange={(e)=>{this.setState({cosmetologist_phoneNumber:e.target.value})}}/>
 
-        <InputUser value={this.cosmetologist_user_name} name="cosmetologist_user_name" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={this.handlechange}/>
+        <InputUser value={this.cosmetologist_user_name} name="cosmetologist_user_name" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({cosmetologist_user_name:e.target.value})}}/>
 
-        <InputUser value={this.cosmetologist_user_password} name="cosmetologist_user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={this.handlechange}/>
-        {this.state.formMessage && <span style={{
-          fontWeight: 'bold',
-          color: 'red',
-          fontSize:12
-        }}>{this.state.formMessage}</span>}
+        <InputUser value={this.cosmetologist_user_password} name="cosmetologist_user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({cosmetologist_user_password:e.target.value})}}/>
+        
         <br/>
 
         <button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={this.addCos}> סיום הרשמה</button>

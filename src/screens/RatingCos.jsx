@@ -71,9 +71,9 @@ const RatingCos = () => {
     <br/>
     
      
-    <button  style={{backgroundColor:"#c4a092",color:"white",fontSize:14,width:'60%',height:25,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={handleSubmission}> שמור </button>
+    <button  style={{backgroundColor:"#c4a092",color:"white",fontSize:14,width:'60%',height:25,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={handleSubmission}> שמור </button><br/><br/>
 
-    <Link to='/userhomepage'>
+    <Link to='/persoarea'>
     <button  style={{backgroundColor:"black",marginRight:10,   color:"white",fontSize:14,width:'20%',height:25,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}> חזור </button> <br/>
     </Link>
     </div>

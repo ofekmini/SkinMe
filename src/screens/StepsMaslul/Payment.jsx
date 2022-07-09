@@ -25,7 +25,7 @@ function Payment(props) {
 
   const validateCreditCard = (value) => {
 
-    if (validator.isCreditCard(value)) {
+    if (validator.isLength(value, { min: 16, max: 16})) {
       setErrorMessagecc('Valid CreditCard Number')
     } else {
       setErrorMessagecc('Enter valid CreditCard Number!')

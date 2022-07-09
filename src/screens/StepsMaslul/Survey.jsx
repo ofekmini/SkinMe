@@ -12,13 +12,13 @@ function Survey(props) {
     }
     return (
         <React.Fragment>
-            {/* <Whatsappicon url={`https://wa.me/${number}`}/> */}
+           
 
             <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center', marginTop: 30 }} > אנא מלאי את הטופס הבא  </h3>
 
             <div className="form-group" style={{ marginTop: 50 }}>
 
-                <input style={{ marginLeft: 50 }} type="file" name='user_picsprocess' accept="image/*" onChange={props.handlePicture} />  <br /> <br />
+                
 
                 <text style={{ color: "black" }}> מחזור חדשי </text><br />
 

@@ -49,18 +49,7 @@ class AddProduct extends Component {
     })
   }
 
-  clearInput = (event) => {
-    this.setState({
-      prod_name: "",
-      prod_type: "",
-      prod_company: "",
-      prod_description: "",
-      prod_manual: "",
-      prod_time:"",
-    });
-  }
-
-
+  
 
 
   addProd = (e) => {
@@ -69,7 +58,7 @@ class AddProduct extends Component {
 
 
     this.togglePopup();
-
+   debugger
     const newprod = {
 
       prod_name: this.state.prod_name,
@@ -81,7 +70,7 @@ class AddProduct extends Component {
       prod_rate: this.state.prod_rate,
       prod_numOfRates: this.state.prod_numOfRates,
       prod_sumRate: this.state.prod_sumRate,
-      prod_time: this.state.prod_time
+      prod_time: this.state.prod_time,
 
 
     };
@@ -155,7 +144,7 @@ class AddProduct extends Component {
         <div>
           <label style={{ color: "black", fontSize: 14, fontWeight: 'bold' }}>   מיועד לשימוש  </label> <br />
           <select style={{ textAlign: 'right', width: '50%' }} name="prod_time" onChange={this.handlechange}>
-            <option  value="D" >לשימוש בשעות היום</option>
+            <option value="D" >לשימוש בשעות היום</option>
             <option value="N" >לשימוש בשעות הערב</option>
           </select>
         </div>

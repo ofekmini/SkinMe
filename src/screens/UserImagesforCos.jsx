@@ -76,7 +76,7 @@ function UserImagesforCos() {
       {userImages.map((item,index) => { 
         return <div key={index}>
          
-          <img style={{ width: 100, height: 100,margin:20 }}  src={item.Imgurl} />  
+          <img style={{ width: 200, height: 200,margin:20 }}  src={item.Imgurl} />  
           <h5 >{item.upload_date}</h5>
           </div>      
       })}
