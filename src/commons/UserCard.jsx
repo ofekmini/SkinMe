@@ -13,7 +13,7 @@ const UserCard = (props) => {
   }
 
   return (
-    <div className="card"  style={{backgroundColor:'#EEE4C4', width:'10rem',height:'20rem',margin:20,float:"right",border: 'black solid 1px', padding:5,borderRadius:10}} >
+    <div className="card"  style={{backgroundColor:'#EEE4C4', width:'10rem',height:'20rem',margin:10,float:"right",border: 'black solid 1px',borderRadius:10,marginRight:20}} >
     <img className="card-img-top" src={require("../assets/images/defaultclient.png")} alt="display image" width="70" height="70"  ></img>   
     <div className="card-body">
       <div> <h3 className="card-text" style={{color:"#c4a092",fontSize:15,textAlign:'center'}} > {user.first_name}  </h3> </div>

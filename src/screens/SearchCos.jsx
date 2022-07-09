@@ -115,7 +115,7 @@ class SearchCos extends Component {
       <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
       </Link>
 
-        <h1 style={{ color: 'black', fontSize: 15 }}>חיפוש קוסמטיקאית </h1>
+        <h1 style={{ color: 'black', fontSize: 15 }}>חיפוש קוסמטיקאית </h1>  <hr/>
         <select value={this.state.cosInfo} style={{ height: 40, borderRadius: 50, marginTop: 30, padding:10,borderColor: '#c4a092' }} onChange={this.handlechange}>
           {this.state.data.map((cosInfo) => <option key={cosInfo.cosmetic_businessName} value={JSON.stringify(cosInfo)}>{cosInfo.cosmetic_businessName},{cosInfo.cosmetic_city}</option>)}
         </select>

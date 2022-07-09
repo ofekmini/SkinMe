@@ -256,7 +256,7 @@ class AddSkinPlan extends Component {
 
         <h4 style={{ marginTop: 35 }}>יצירת תוכנית טיפוח </h4>
 
-        <div>
+        <div style={{backgroundColor:'beige'}}>
           <h3 style={{ color: "#c4a092", fontSize: 15, textAlign: 'center' }} > פרטי משתמש </h3>
           <div style={{ margin: 10 }} >
             {this.state.user && <UserInfo user={this.state.user} users={this.state.users} />}

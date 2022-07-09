@@ -71,11 +71,12 @@ class WaitingUsers extends Component {
           <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")} />
         </Link>
         <h4 style={{ marginTop: 35 }}> משתמשים ממתינים לחוות דעת </h4>
+        <hr/>
 
         <div >
-          {this.state.users.map((user) => <UserCard key={user.appUser_id} user={user} />)}
+        {this.state.users.length > 0 ? this.state.users.map((user) => <UserCard key={user.appUser_id} user={user} />):<h3 style={{marginTop:300,color:'gray'}}>אין משתמשים שממתינים לחוות דעת</h3>}
          
-        
+
         </div>
 
       </div>

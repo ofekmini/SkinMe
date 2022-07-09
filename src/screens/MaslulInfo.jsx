@@ -33,7 +33,7 @@ import { Link } from 'react-router-dom';
         <Link to='/userhomepage'>
       <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
       </Link>
-        <h4 style={{marginTop:35}}>מסלולים</h4>
+        <h4 style={{marginTop:35}}>מסלולים</h4>  <hr/>
         
         <h3 style={{ color: "gray", fontSize: 15, textAlign: 'center', marginTop: 50 }} > בחרי את המסלול המועדף עלייך </h3>
 

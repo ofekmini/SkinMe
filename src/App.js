@@ -37,6 +37,7 @@ import WatchSkinPlan from './screens/WatchSkinPlan';
 import Profile from './screens/Profile';
 import UserImages from './screens/UserImages';
 import MyCustomers from './screens/MyCustomers';
+import UserImagesforCos from './screens/UserImagesforCos';
 
 
 const SidebarLayout = () => (
@@ -87,6 +88,7 @@ function App() {
            <Route path='/profile' element={<Profile />}/>
            <Route path='/persoarea' element={<PersonalArea />}/>
            <Route path='/userimages' element={<UserImages />}/>
+           <Route path='/userimagesforcos' element={<UserImagesforCos />}/>
           </Route>
 
         <Route path="/" element={<WelcomeSkinMe/>} />
