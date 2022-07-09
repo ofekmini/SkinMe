@@ -17,7 +17,7 @@ const RatingCos = () => {
 
   const handleSubmission = async (event) => {
     
-    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Cos/RateCosmetologist/${id}`;
+    const apiUrl = `http://localhost:58031/api/Cos/RateCosmetologist/${id}`;
 
     
 

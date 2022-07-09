@@ -30,7 +30,7 @@ export default class ForgotCosPass extends Component {
   sendMail = (e)=> {
     console.clear();
   //  e.preventDefault()
-    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/mail/forgotcospassword?mail=${this.state.email}`;
+    const apiUrl = `http://localhost:58031/api/mail/forgotcospassword?mail=${this.state.email}`;
 
     
     fetch(apiUrl, {

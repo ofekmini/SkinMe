@@ -16,7 +16,7 @@ function UserImages() {
   
   useEffect(()=>{
     async function fetchData(){
-      let res = await fetch(`https://proj.ruppin.ac.il/bgroup90/prod/api/Users/allimages/${id}`, {
+      let res = await fetch(`http://localhost:58031/api/Users/allimages/${id}`, {
         method: 'GET', headers: new Headers({
           'Content-Type': 'application/json; charset=UTF-8',
           'Accept': 'application/json; charset=UTF-8',
@@ -35,7 +35,7 @@ function UserImages() {
 
   const handleSubmission = async (event) => {
 
-    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Users/images`;
+    const apiUrl = `http://localhost:58031/api/Users/images`;
 
     const currDate = new Date().toLocaleDateString('en');
 

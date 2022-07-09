@@ -18,7 +18,7 @@ class WaitingUsers extends Component {
 
   componentDidMount = () => {
     console.clear();
-    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Cos/Depending/?id=${this.state.cosmetologist_id}`;
+    const apiUrl = `http://localhost:58031/api/Cos/Depending/?id=${this.state.cosmetologist_id}`;
 
     const user_status = { user_status: this.state.user_status };
 

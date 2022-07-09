@@ -63,7 +63,7 @@ function App() {
           
            <Route path="/addproduct" element={<AddProduct />} />
            <Route path="/addskinplan" element={<AddSkinPlan />} />
-           <Route path="coshomepage" element={<CosmeticHomePage />} />
+           <Route path="/coshomepage" element={<CosmeticHomePage />} />
            <Route path="/choosecos" element={<ChooseMyCos />} />
            <Route path='/showplan' element={<WatchSkinPlan />} />
            <Route path="/maslul" element={<Maslulim />} />

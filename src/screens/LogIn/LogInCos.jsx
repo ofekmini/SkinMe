@@ -35,8 +35,7 @@ class LogInCos extends Component {
     console.clear();
     // e.preventDefault()
 
-    const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/LogIn/Cos';
-
+    const apiUrl = 'http://localhost:58031/api/LogIn/Cos';
 
     const LogincheckCos = {
       cosmetologist_user_name: this.state.cosmetologist_user_name,

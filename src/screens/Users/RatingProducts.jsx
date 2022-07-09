@@ -19,7 +19,7 @@ const RatingProducts = () => {
 
   const handleSubmission = async (event) => {
     
-    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Products/RateProd/${id}`;
+    const apiUrl = `http://localhost:58031/api/Products/RateProd/${id}`;
 
     
 
