@@ -56,10 +56,10 @@ let local = false;
   addCos = (e)=>{
     console.clear();
     
-    
+    debugger
     
     this.togglePopup(); 
-debugger
+
     const cos_data={
       cosmetologist_first_name:this.state.cosmetologist_first_name,
       cosmetologist_last_name:this.state.cosmetologist_last_name, 
@@ -91,6 +91,7 @@ debugger
       })
     })
       .then(res => {
+        debugger
         console.log('res=', res);
         console.log('res.status', res.status);
         console.log('res.ok', res.ok);
@@ -98,6 +99,7 @@ debugger
       })
       .then(
         (result) => {
+          debugger
           console.log("fetch POST= ", result);
           console.log(result.cosmetologist_user_name);
           console.log(this.state);
