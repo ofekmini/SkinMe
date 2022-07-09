@@ -34,11 +34,11 @@ function PersonalArea() {
 
 
 
-     fetch(`http://localhost:58031/api/User/Mycos/?id=${id}`)
+     fetch(`https://proj.ruppin.ac.il/bgroup90/prod/api/User/Mycos/?id=${id}`)
     .then(response => response.json())
    .then(data => setMyCos(data))
 
-    fetch(`http://localhost:58031/api/Users/${id}`)
+    fetch(`https://proj.ruppin.ac.il/bgroup90/prod/api/Users/${id}`)
       .then(response => response.json())
      
       .then(data => {
@@ -48,7 +48,7 @@ function PersonalArea() {
 
   const handleSubmission = async (event) => {
     
-    const apiUrl = `http://localhost:58031/api/Users/profileImage/${id}`;
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Users/profileImage/${id}`;
 
     
 

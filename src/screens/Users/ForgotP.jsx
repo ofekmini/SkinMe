@@ -30,7 +30,7 @@ import Logo from '../../commons/Logo';
   sendMail = (e)=> {
     console.clear();
   //  e.preventDefault()
-    const apiUrl = `http://localhost:58031/api/mail/forgotpassword?mail=${this.state.email}`;
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/mail/forgotpassword?mail=${this.state.email}`;
 
     
 

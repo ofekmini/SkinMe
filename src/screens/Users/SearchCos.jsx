@@ -38,7 +38,7 @@ class SearchCos extends Component {
 
   map = () => {
 
-    const apiUrl = 'http://localhost:58031/api/cosmetologists/GetAllCos';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/cosmetologists/GetAllCos';
 
     fetch(apiUrl, {
       method: 'GET',

@@ -7,7 +7,7 @@ import PopUpCos from '../../commons/PopUpCos';
 
 let local = false;
 //const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
-    const apiUrl='http://localhost:58031/api/LogIn/registerCos';
+    const apiUrl='https://proj.ruppin.ac.il/bgroup90/prod/api/LogIn/registerCos';
 //if (local) {
  // apiUrl = 'https://localhost:44326/api/LogIn/register';
 //}

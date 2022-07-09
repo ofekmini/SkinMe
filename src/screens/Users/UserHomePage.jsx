@@ -25,7 +25,7 @@ class UserHomePage extends Component {
   }
 
   ProductsDay(){
-  const  apiUrl= `http://localhost:58031/api/Products/GetProdForAutoPlanDay/?id=${this.state.appUser_id}`;
+  const  apiUrl= `https://proj.ruppin.ac.il/bgroup90/prod/api/Products/GetProdForAutoPlanDay/?id=${this.state.appUser_id}`;
 
   fetch(apiUrl, {
     method: 'GET',
@@ -59,7 +59,7 @@ class UserHomePage extends Component {
     }
 
     ProductsNight(){
-      const  apiUrl= `http://localhost:58031/api/Products/GetProdForAutoPlanNight/?id=${this.state.appUser_id}`;
+      const  apiUrl= `https://proj.ruppin.ac.il/bgroup90/prod/api/Products/GetProdForAutoPlanNight/?id=${this.state.appUser_id}`;
     
       fetch(apiUrl, {
         method: 'GET',

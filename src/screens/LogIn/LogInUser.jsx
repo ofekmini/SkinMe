@@ -55,7 +55,7 @@ class LogInUser extends Component {
     console.clear();
  
 
-    const apiUrl = 'http://localhost:58031/api/LogIn/User';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/LogIn/User';
 
     const Logincheck = {
       username: this.state.username,
@@ -117,7 +117,7 @@ class LogInUser extends Component {
     console.clear();
     
 
-    const apiUrl = 'http://localhost:58031/api/LogIn/User/SocialMedia';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/LogIn/User/SocialMedia';
 
     const Logincheck = {
       username: this.state.username,

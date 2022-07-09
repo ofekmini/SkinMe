@@ -31,7 +31,7 @@ import PopUpMaslul from '../../commons/PopUpMaslul';
 
   componentDidMount(){
   
-    const  apiUrl= 'http://localhost:58031/api/cosmetologists/GetAllCos';
+    const  apiUrl= 'https://proj.ruppin.ac.il/bgroup90/prod/api/cosmetologists/GetAllCos';
 
     fetch(apiUrl, {
       method: 'GET',
@@ -67,7 +67,7 @@ import PopUpMaslul from '../../commons/PopUpMaslul';
       chooseCos = (e)=> {
         console.clear();
         e.preventDefault()
-        const apiUrl = `http://localhost:58031/api/Users/addmycos?id=${this.state.appUser_id}`;
+        const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Users/addmycos?id=${this.state.appUser_id}`;
     
         this.togglePopup(); 
 

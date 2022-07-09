@@ -26,7 +26,7 @@ class SettingsCos extends Component {
 
   UpdatePassword = () => {
     console.clear();
-    const apiUrl = `http://localhost:58031/api/login/UpdateCosPassword?id=${this.state.cosmetologist_id}`;
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/login/UpdateCosPassword?id=${this.state.cosmetologist_id}`;
     this.togglePopup(); 
   
     const pass = {
@@ -61,7 +61,7 @@ class SettingsCos extends Component {
 
   UpdateEmail = () => {
     console.clear();
-    const apiUrl = `http://localhost:58031/api/login/UpdateCosEmail?id=${this.state.cosmetologist_id}`;
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/login/UpdateCosEmail?id=${this.state.cosmetologist_id}`;
     this.togglePopup(); 
   
     const pass = {
@@ -97,7 +97,7 @@ class SettingsCos extends Component {
  
   UpdatePhone = () => {
     console.clear();
-    const apiUrl = `http://localhost:58031/api/login/UpdateCosPhone?id=${this.state.cosmetologist_id}`;
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/login/UpdateCosPhone?id=${this.state.cosmetologist_id}`;
     this.togglePopup(); 
   
     const pass = {

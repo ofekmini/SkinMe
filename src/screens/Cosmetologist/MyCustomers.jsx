@@ -19,7 +19,7 @@ class MyCustomers extends Component {
   componentDidMount = () => {
     console.clear();
 
-    const apiUrl = 'http://localhost:58031/api/Cos/GetClients';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/Cos/GetClients';
     const url=`${apiUrl}/${this.state.cosmetologist_id}`
 
   

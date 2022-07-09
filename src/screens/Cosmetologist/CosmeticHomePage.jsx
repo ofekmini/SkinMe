@@ -21,7 +21,7 @@ class CosmeticHomePage extends Component {
   /*    btnGetMyclients = () => { 
         console.clear();
         
-        const  apiUrl= 'http://localhost:58031/api/Cos/GetClients';
+        const  apiUrl= 'https://proj.ruppin.ac.il/bgroup90/prod/api/Cos/GetClients';
 
         const cosmetologist_id={cosmetologist_id:this.state.cosmetologist_id};
 
@@ -54,7 +54,7 @@ class CosmeticHomePage extends Component {
 
   componentDidMount = () => {
     console.clear();
-    const apiUrl = 'http://localhost:58031/api/Cos/GetClients';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/Cos/GetClients';
     const url=`${apiUrl}/${this.state.cosmetologist_id}`
     
     fetch(url, {

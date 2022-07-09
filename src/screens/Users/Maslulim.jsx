@@ -91,7 +91,7 @@ class Maslulim extends Component {
   handleSubmit = (e) => {
     console.clear();
     e.preventDefault()
-    const apiUrl = `http://localhost:58031/api/Users/addmaslul?id=${this.state.appUser_id}`;
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Users/addmaslul?id=${this.state.appUser_id}`;
 
     const user_maslulinfo = {
 
