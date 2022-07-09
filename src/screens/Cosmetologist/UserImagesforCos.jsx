@@ -10,17 +10,6 @@ function UserImagesforCos() {
 
   const id = localStorage.getItem('appUser_id')
 
-/**   useEffect(async () => {
-    
-    let res = await fetch(`http://localhost:58031/api/Users/allimages/${id}`, {
-      method: 'GET', headers: new Headers({
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Accept': 'application/json; charset=UTF-8',
-      })
-    })
-    let arr = await res.json();
-    setUserImages(arr)
-  }, [])*/
 
   useEffect(()=>{
     async function fetchData(){
@@ -67,7 +56,7 @@ function UserImagesforCos() {
   return (
     <div>
        <Link to='/coshomepage'>
-          <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")} />
+          <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../../assets/images/home2.png")} />
         </Link>
       <h4 style={{ marginTop: 35 }}>מעקב תמונות  </h4> <hr />
 

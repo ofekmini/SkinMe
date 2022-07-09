@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import CardCosInfo from '../commons/CardCosInfo';
-import PopUpMaslul from '../commons/PopUpMaslul';
+import CardCosInfo from '../../commons/CardCosInfo';
+import PopUpMaslul from '../../commons/PopUpMaslul';
 
  class ChooseMyCos extends Component {
 

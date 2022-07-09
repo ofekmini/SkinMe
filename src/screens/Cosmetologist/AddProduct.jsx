@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import InputUser from '../commons/InputUser';
-import ButtonLogIn from '../commons/ButtonLogIn';
-import PopupAddprod from '../commons/PopUpAddprod';
+import InputUser from '../../commons/InputUser';
+import ButtonLogIn from '../../commons/ButtonLogIn';
+import PopupAddprod from '../../commons/PopUpAddprod';
 import { Link } from 'react-router-dom';
 
 
@@ -110,12 +110,12 @@ class AddProduct extends Component {
 
       <div>
         <Link to='/coshomepage'>
-          <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")} />
+          <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../../assets/images/home2.png")} />
         </Link>
         <h4 style={{ marginTop: 35 }}>הוספת מוצר טיפוח </h4>
 
 
-        <img alt="prod" height="150" width="150" src={require("../assets/images/addprod.png")} />
+        <img alt="prod" height="150" width="150" src={require("../../assets/images/addprod.png")} />
 
         <InputUser value={this.prod_name} name="prod_name" type="text" label=" שם המוצר  " placeholder="שם המוצר  " onChange={(e) => { this.setState({ prod_name: e.target.value }) }} />
         <InputUser value={this.prod_company} name="prod_company" type="text" label=" שם החברה   " placeholder="שם החברה  " onChange={(e) => { this.setState({ prod_company: e.target.value }) }} /><br />

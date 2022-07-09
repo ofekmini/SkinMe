@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import InputUser from '../commons/InputUser';
-import ButtonLogIn from '../commons/ButtonLogIn';
+import InputUser from '../../commons/InputUser';
+
 import { Link } from 'react-router-dom';
-import PopUpCos from '../commons/PopUpCos';
-import PopUpUser from '../commons/PopUpUser';
+
+import PopUpUser from '../../commons/PopUpUser';
 
  class SettingsUser extends Component {
 
@@ -149,7 +149,7 @@ import PopUpUser from '../commons/PopUpUser';
     return (
       <div >
          <Link to='/userhomepage'>
-        <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
+        <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../../assets/images/home2.png")}/>
         </Link>
         <h4 style={{marginTop:35}}> הגדרות </h4>  <hr/>
 

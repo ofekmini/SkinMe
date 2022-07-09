@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import RoutineProductsDay from '../commons/RoutineProductsDay';
-import RoutineProductsNight from '../commons/RoutineProductsNight';
+import RoutineProductsDay from '../../commons/RoutineProductsDay';
+import RoutineProductsNight from '../../commons/RoutineProductsNight';
 
-import Logo from '../commons/Logo';
-import CardProduct from '../commons/CardProduct';
+
 
 
 
@@ -103,7 +102,7 @@ class UserHomePage extends Component {
     return (
       <div >
   
-     <img alt="logo" height="120" width="120"  src={require("../assets/images/logo.png")} />
+     <img alt="logo" height="120" width="120"  src={require("../../assets/images/logo.png")} />
      <h2 style={{color:'#c4a092'}} >שגרת הטיפוח שלי</h2>
      <div >
       

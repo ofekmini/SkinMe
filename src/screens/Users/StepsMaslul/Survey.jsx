@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import InputUser from '../../commons/InputUser';
-import { Link } from 'react-router-dom';
+
 
 
 
@@ -26,25 +25,25 @@ function Survey(props) {
                 <label className='label'>
 
                     <input type="radio" name="user_period" value="לא רלוונטי" onChange={props.handleChange} />
-                    <img alt="notrelevant" height="85" width="85" src={require("../../assets/images/notrelevant.png")} />
+                    <img alt="notrelevant" height="85" width="85" src={require("../../../assets/images/notrelevant.png")} />
 
                 </label>
                 <label className='label'>
 
                     <input type="radio" name="user_period" value="פסק" onChange={props.handleChange} />
-                    <img alt="oilyface" height="85" width="85" src={require("../../assets/images/Interrupt.png")} />
+                    <img alt="oilyface" height="85" width="85" src={require("../../../assets/images/Interrupt.png")} />
 
                 </label>
                 <label className='label'>
 
                     <input type="radio" name="user_period" value="לא סדיר" onChange={props.handleChange} onClick={props.clickAcne} />
-                    <img alt="oilyface" height="85" width="85" src={require("../../assets/images/irregular.png")} />
+                    <img alt="oilyface" height="85" width="85" src={require("../../../assets/images/irregular.png")} />
 
                 </label>
                 <label className='label'>
 
                     <input type="radio" name="user_period" value="סדיר" onChange={props.handleChange} />
-                    <img alt="oilyface" height="85" width="85" src={require("../../assets/images/Regular.png")} />
+                    <img alt="oilyface" height="85" width="85" src={require("../../../assets/images/Regular.png")} />
 
                 </label><br />
 
@@ -53,13 +52,13 @@ function Survey(props) {
                 <label className='label'>
 
                     <input type="radio" name="user_dermatology" value="n" onChange={props.handleChange} onClick={props.clickDry} />
-                    <img alt="dermano" height="100" width="100" src={require("../../assets/images/no.png")} />
+                    <img alt="dermano" height="100" width="100" src={require("../../../assets/images/no.png")} />
 
                 </label>
                 <label className='label'>
 
                     <input type="radio" name="user_dermatology" value="y" onChange={props.handleChange} />
-                    <img alt="dermayes" height="100" width="100" src={require("../../assets/images/yes.png")} />
+                    <img alt="dermayes" height="100" width="100" src={require("../../../assets/images/yes.png")} />
 
                 </label><br />
 
@@ -69,20 +68,20 @@ function Survey(props) {
                 <label className='label'>
 
                     <input type="radio" name="user_currentProducts" value="לא משתמשת  " onChange={props.handleChange} />
-                    <img alt="notusing" height="120" width="120" src={require("../../assets/images/notusing.png")} />
+                    <img alt="notusing" height="120" width="120" src={require("../../../assets/images/notusing.png")} />
 
                 </label>
                 <label className='label'>
 
                     <input type="radio" name="user_currentProducts" value="רטין A " onChange={props.handleChange} />
-                    <img alt="retinA" height="120" width="120" src={require("../../assets/images/retinA.png")} />
+                    <img alt="retinA" height="120" width="120" src={require("../../../assets/images/retinA.png")} />
 
                 </label>
 
                 <label className='label'>
 
                     <input type="radio" name="user_currentProducts" value="חומצות " onChange={props.handleChange} />
-                    <img alt="acids" height="120" width="120" src={require("../../assets/images/acids.png")} />
+                    <img alt="acids" height="120" width="120" src={require("../../../assets/images/acids.png")} />
 
                 </label><br />
 
@@ -91,20 +90,20 @@ function Survey(props) {
                 <label className='label'>
 
                     <input type="radio" name="user_sensitive" value="לא רגיש " onChange={props.handleChange} />
-                    <img alt="notsensitive" height="120" width="120" src={require("../../assets/images/notsensitive.png")} />
+                    <img alt="notsensitive" height="120" width="120" src={require("../../../assets/images/notsensitive.png")} />
 
                 </label>
                 <label className='label'>
 
                     <input type="radio" name="user_sensitive" value="רגיש לפעמים" onChange={props.handleChange} />
-                    <img alt="littlesensitive" height="120" width="120" src={require("../../assets/images/littlesensitive.png")} />
+                    <img alt="littlesensitive" height="120" width="120" src={require("../../../assets/images/littlesensitive.png")} />
 
                 </label>
 
                 <label className='label'>
 
                     <input type="radio" name="user_sensitive" value="רגיש מאוד " onChange={props.handleChange} />
-                    <img alt="verysensitive" height="120" width="120" src={require("../../assets/images/verysensitive.png")} />
+                    <img alt="verysensitive" height="120" width="120" src={require("../../../assets/images/verysensitive.png")} />
 
                 </label> <br />
 
@@ -113,21 +112,21 @@ function Survey(props) {
                 <label className='label'>
 
                     <input type="radio" name="user_areas" value="ידיים" onChange={props.handleChange} />
-                    <img alt="verysensitive" height="120" width="120" src={require("../../assets/images/hands.png")} />
+                    <img alt="verysensitive" height="120" width="120" src={require("../../../assets/images/hands.png")} />
 
                 </label>
 
                 <label className='label'>
 
                     <input type="radio" name="user_areas" value="צוואר" onChange={props.handleChange} />
-                    <img alt="verysensitive" height="120" width="120" src={require("../../assets/images/neck.png")} />
+                    <img alt="verysensitive" height="120" width="120" src={require("../../../assets/images/neck.png")} />
 
                 </label>
 
                 <label className='label'>
 
                     <input type="radio" name="user_areas" value="פנים" onChange={props.handleChange} />
-                    <img alt="verysensitive" height="120" width="120" src={require("../../assets/images/face.png")} />
+                    <img alt="verysensitive" height="120" width="120" src={require("../../../assets/images/face.png")} />
 
                 </label>
 

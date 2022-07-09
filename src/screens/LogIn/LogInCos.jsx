@@ -3,8 +3,7 @@ import InputUser from '../../commons/InputUser'
 
 import Logo from '../../commons/Logo';
 import { Link, Navigate, Route, Router } from 'react-router-dom';
-import PopUpCos from '../../commons/PopUpCos';
-import CosmeticHomePage from '../CosmeticHomePage';
+
 
 
 

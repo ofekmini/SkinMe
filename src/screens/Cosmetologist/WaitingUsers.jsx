@@ -1,7 +1,7 @@
-import Logo from '../commons/Logo';
-import UserCard from '../commons/UserCard';
+
+import UserCard from '../../commons/UserCard';
 import React, { Component } from 'react'
-import ButtonLogIn from '../commons/ButtonLogIn';
+
 import { Link } from 'react-router-dom';
 
 class WaitingUsers extends Component {
@@ -51,24 +51,13 @@ class WaitingUsers extends Component {
         })
   }
 
-  /* function message(props) {
-     return <h2>אין לקוחות ממתינים</h2>
-   }
  
-   function greeting(props) {
-     const isEmpty = props.isEmpty;
-     if (isEmpty) {
-       return <message/>
-     }
- 
-   } */
-
 
   render() {
     return (
       <div >
         <Link to='/coshomepage'>
-          <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")} />
+          <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../../assets/images/home2.png")} />
         </Link>
         <h4 style={{ marginTop: 35 }}> משתמשים ממתינים לחוות דעת </h4>
         <hr/>

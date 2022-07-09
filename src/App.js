@@ -5,39 +5,39 @@ import SignUpCos from '././screens/LogIn/SignUpCos';
 import ChooseUser from './screens/LogIn/ChooseUser';
 
 import LogInUser from '././screens/LogIn/LogInUser';
-import MasterForm from './screens/MasterForm';
+import MasterForm from '././screens/LogIn/MasterForm'
 
-import Products from './screens/Products';
-import AddProduct from './screens/AddProduct';
-import UserHomePage from './screens/UserHomePage';
-import CosmeticHomePage from './screens/CosmeticHomePage';
-import UpdateManualProduct from './screens/UpdateManualProduct';
-import AddSkinPlan from './screens/AddSkinPlan';
+import Products from './screens/Cosmetologist/Products';
+import AddProduct from './screens/Cosmetologist/AddProduct';
+import UserHomePage from '././screens/Users/UserHomePage';
+import CosmeticHomePage from '././screens/Cosmetologist/CosmeticHomePage';
 
-import ForgotP from './screens/ForgotP';
+import AddSkinPlan from '././screens/Cosmetologist/AddSkinPlan';
 
-import WaitingUsers from './screens/WaitingUsers';
-import Maslulim from './screens/Maslulim';
-import SearchCos from './screens/SearchCos';
-import ProductDetails from './screens/ProductDetails';
-import MaslulInfo from './screens/MaslulInfo';
-import SettingsUser from './screens/SettingsUser';
-import SettinsCos from './screens/SettingsCos';
-import ChooseMyCos from './screens/ChooseMyCos';
-import ForgotCosPass from './screens/ForgotCosPass';
+import ForgotP from '././screens/Users/ForgotP';
+
+import WaitingUsers from '././screens/Cosmetologist/WaitingUsers';
+import Maslulim from '././screens/Users/Maslulim';
+import SearchCos from './screens/Users/SearchCos';
+
+import MaslulInfo from './screens/Users/MaslulInfo';
+import SettingsUser from './screens/Users/SettingsUser';
+import SettinsCos from '././screens/Cosmetologist/SettingsCos';
+import ChooseMyCos from '././screens/Users/ChooseMyCos';
+import ForgotCosPass from '././screens/Cosmetologist/ForgotCosPass';
 
 import LogInCos from './screens/LogIn/LogInCos';
 import WelcomeSkinMe from '././screens/LogIn/WelcomeSkinMe';
 
 import Menu from './screens/Menu';
-import RatingProducts from './screens/RatingProducts';
-import RatingCos from './screens/RatingCos';
-import PersonalArea from './screens/PersonalArea'
-import WatchSkinPlan from './screens/WatchSkinPlan';
-import Profile from './screens/Profile';
-import UserImages from './screens/UserImages';
-import MyCustomers from './screens/MyCustomers';
-import UserImagesforCos from './screens/UserImagesforCos';
+import RatingProducts from './screens/Users/RatingProducts';
+import RatingCos from './screens/Cosmetologist/RatingCos';
+import PersonalArea from '././screens/Users/PersonalArea'
+import WatchSkinPlan from '././screens/Cosmetologist/WatchSkinPlan';
+
+import UserImages from './screens/Users/UserImages';
+import MyCustomers from './screens/Cosmetologist/MyCustomers';
+import UserImagesforCos from './screens/Cosmetologist/UserImagesforCos';
 
 
 const SidebarLayout = () => (
@@ -66,30 +66,19 @@ function App() {
            <Route path="/coshomepage" element={<CosmeticHomePage />} />
            <Route path="/choosecos" element={<ChooseMyCos />} />
            <Route path='/showplan' element={<WatchSkinPlan />} />
-           <Route path="/forgot" element={<ForgotP />} />
-           
-
-           <Route path="/forgotpassword" element={<ForgotP/>} />
-
            <Route path="/maslul" element={<Maslulim />} />
            <Route path="/maslulinfo" element={<MaslulInfo />} />
            <Route path='/mycustomers' element={<MyCustomers />} />
            <Route path='/products' element={<Products />}/>
-           <Route path="/productdetails" element={<ProductDetails />} />
-           
-           <Route path="/updateprod" element={<UpdateManualProduct />} />
            <Route path="/userhomepage" element={<UserHomePage />} />
            <Route path="/searchcos" element={<SearchCos />} />
            <Route path="/settingsuser" element={<SettingsUser />} />
            <Route path="/settingscos" element={<SettinsCos />}/>
            <Route path='/waiting' element={<WaitingUsers />}/>
-           
-
-           <Route path='/profile' element={<Profile />}/>
            <Route path='/persoarea' element={<PersonalArea />}/>
            <Route path='/userimages' element={<UserImages />}/>
            <Route path='/userimagesforcos' element={<UserImagesforCos />}/>
-          </Route>
+      </Route>
 
         <Route path="/" element={<WelcomeSkinMe/>} />
         <Route path="/LogInUser" element={<LogInUser/>} />

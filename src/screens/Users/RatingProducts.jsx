@@ -1,6 +1,6 @@
 import React, {useState }  from  'react';
 import { Link,useNavigate  } from 'react-router-dom';
-import './Rating.css'
+import '../Rating.css'
 
 var pageStyle = {
   height: '100vh',
@@ -40,7 +40,7 @@ const RatingProducts = () => {
    
     <div className="card"  style={{backgroundColor:'#EEE4C4', width:'16rem',height:'25rem',marginTop:200, marginRight:70, float:"right",border:'#c4a092 solid 2px',borderRadius:10}} >
       
-      <img  alt="prod" height="100" width="100" src={require("../assets/images/addprod.png")}/> 
+      <img  alt="prod" height="100" width="100" src={require("../../assets/images/addprod.png")}/> 
     <div className="card-body">
       <div >
           

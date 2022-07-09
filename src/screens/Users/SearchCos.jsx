@@ -112,7 +112,7 @@ class SearchCos extends Component {
     return (
       <div style={{ marginTop: 40 }}>
         <Link to='/userhomepage'>
-      <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
+      <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../../assets/images/home2.png")}/>
       </Link>
 
         <h1 style={{ color: 'black', fontSize: 15 }}>חיפוש קוסמטיקאית </h1>  <hr/>

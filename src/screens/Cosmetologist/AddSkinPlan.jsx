@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import InputUser from '../commons/InputUser';
-import ButtonLogIn from '../commons/ButtonLogIn';
-import CardAddProdToPlan from '../commons/CardAddProdToPlan';
-import Logo from '../commons/Logo';
-import UserInfo from '../commons/UserInfo';
-import PopUpCos from '../commons/PopUpCos';
+import InputUser from '../../commons/InputUser';
+
+import CardAddProdToPlan from '../../commons/CardAddProdToPlan';
+
+import UserInfo from '../../commons/UserInfo';
+
 import FilterProducts from './FilterProducts';
 import { Link } from 'react-router-dom';
-import PopupAddprod from '../commons/PopUpAddprod';
+import PopupAddprod from '../../commons/PopUpAddprod';
 
 
 
@@ -251,7 +251,7 @@ class AddSkinPlan extends Component {
       <div>
 
         <Link to='/coshomepage'>
-          <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")} />
+          <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../../assets/images/home2.png")} />
         </Link>
 
         <h4 style={{ marginTop: 35 }}>יצירת תוכנית טיפוח </h4>

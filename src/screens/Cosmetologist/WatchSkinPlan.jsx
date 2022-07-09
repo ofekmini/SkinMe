@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
-import RoutineProductsDay from '../commons/RoutineProductsDay';
-import RoutineProductsNight from '../commons/RoutineProductsNight';
-import LogInCos from './LogIn/LogInCos';
-import Logo from '../commons/Logo';
-import CardProduct from '../commons/CardProduct';
+
 import { Link } from 'react-router-dom';
-import DayProductForCosPage from '../commons/DayProductForCosPage';
-import UserInfo from '../commons/UserInfo';
-import UserCard from '../commons/UserCard';
-import NightProductForCosPage from '../commons/NightProductForCosPage';
+import DayProductForCosPage from '../../commons/DayProductForCosPage';
+
+import NightProductForCosPage from '../../commons/NightProductForCosPage';
 
 
 class WatchSkinPlan extends Component {
@@ -144,7 +139,7 @@ class WatchSkinPlan extends Component {
         return (
             <div >
                 <Link to='/coshomepage'>
-                    <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")} />
+                    <img style={{ position: 'absolute', left: 5, top: 0 }} alt="wrinkles" height="100" width="100" src={require("../../assets/images/home2.png")} />
                 </Link>
                 <h4 style={{ marginTop: 35 }}> צפייה בתוכנית טיפוח </h4>
                 <hr />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CardProduct from '../commons/CardProduct'
+import CardProduct from '../../commons/CardProduct'
 import { Link } from 'react-router-dom'
 
 
@@ -53,7 +53,7 @@ import { Link } from 'react-router-dom'
     return (
       <div >
         <Link to='/coshomepage'>
-          <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../assets/images/home2.png")}/>
+          <img style={{position:'absolute',left:5,top:0}}alt="wrinkles" height="100" width="100" src={require("../../assets/images/home2.png")}/>
        </Link>
        
        <h4 style={{marginTop:35}}>מאגר מוצרי טיפוח </h4>  <hr/>

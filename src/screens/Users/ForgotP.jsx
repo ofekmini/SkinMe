@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import ButtonLogIn from '../commons/ButtonLogIn';
-import InputUser from '../commons/InputUser';
-import Logo from '../commons/Logo';
+
+import InputUser from '../../commons/InputUser';
+import Logo from '../../commons/Logo';
 
 
-export default class ForgotCosPass extends Component {
+ class ForgotP extends Component {
 
   constructor(props) {
     super(props)
@@ -30,9 +30,11 @@ export default class ForgotCosPass extends Component {
   sendMail = (e)=> {
     console.clear();
   //  e.preventDefault()
-    const apiUrl = `http://localhost:58031/api/mail/forgotcospassword?mail=${this.state.email}`;
+    const apiUrl = `http://localhost:58031/api/mail/forgotpassword?mail=${this.state.email}`;
 
     
+
+
     fetch(apiUrl, {
       method: 'PUT',
      // body: JSON.stringify(user_coschoice),
@@ -53,7 +55,7 @@ export default class ForgotCosPass extends Component {
         else  
         {
           this.setState({errorMessage: ""});
-          window.location.href = '/LogInCos'
+          window.location.href = '/LogInUser'
          
         }
         
@@ -93,18 +95,26 @@ export default class ForgotCosPass extends Component {
 
 
 
-<button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={this.sendMail}>שלח מייל לאיפוס סיסמה</button>
+<button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}}  onClick={this.sendMail} >שלח מייל</button>
 { this.state.errorMessage &&
             <h3 style={{color:'red',fontSize:14,marginTop:0}}> { this.state.errorMessage } </h3> }
 
-              
-        <div style={{marginTop:40}}>
+      
+<div style={{marginTop:40}}>
           <Link to='/'>
             <h4>חזרה למסך הכניסה</h4>
           </Link>
         </div>
+  
+</div>
 
-      </div>
     )
+    
   }
+  
 }
+
+
+
+
+export default ForgotP;

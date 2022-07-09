@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-import InputUser from '../../commons/InputUser';
+
+import InputUser from '../../../commons/InputUser';
 import validator from 'validator'
 
 
@@ -56,7 +56,7 @@ function Payment(props) {
 
       <div>
         <div style={{ backgroundColor: '#EEE4C4' }}>
-          <img alt="cart" height="60" width="60" style={{ margin: 0 }} src={require("../../assets/images/cart.png")} />
+          <img alt="cart" height="60" width="60" style={{ margin: 0 }} src={require("../../../assets/images/cart.png")} />
           <h2 style={{ color: '#c4a092', margin: 0, textDecoration: 'underline' }}> פירוט הרכישה </h2>
 
           {maslul ? (
@@ -68,9 +68,9 @@ function Payment(props) {
           )}
 
         </div>
-        <img alt="visa" height="40" width="40" src={require("../../assets/images/visalogo.png")} />
+        <img alt="visa" height="40" width="40" src={require("../../../assets/images/visalogo.png")} />
 
-        <img alt="mc" height="40" width="40" style={{ marginLeft: 20 }} src={require("../../assets/images/MasterCardlogo.png")} />
+        <img alt="mc" height="40" width="40" style={{ marginLeft: 20 }} src={require("../../../assets/images/MasterCardlogo.png")} />
 
         <div className="form-group" style={{ border: '#B9D6BC solid 2px', borderRadius: 10, padding: 20, margin: 10 }}>
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../assets/images/logo.png';
-import MycosCard from '../commons/MycosCard';
-import CosmeticHomePage from './CosmeticHomePage';
+
+import MycosCard from '../../commons/MycosCard';
+
 
 function PersonalArea() {
 
@@ -84,7 +84,7 @@ function PersonalArea() {
   return (
     <div className="App">
       <Link to='/userhomepage'>
-      <img style={{position:'absolute',left:5,top:0}}alt="home" height="100" width="100" src={require("../assets/images/home2.png")}/>
+      <img style={{position:'absolute',left:5,top:0}}alt="home" height="100" width="100" src={require("../../assets/images/home2.png")}/>
       </Link>
       <h4 style={{ marginTop: 35 }}>אזור אישי </h4> <hr />
 

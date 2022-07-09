@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
-import Logo from '../commons/Logo';
-import MyUserCard from '../commons/MyUserCard';
+import Logo from '../../commons/Logo';
+import MyUserCard from '../../commons/MyUserCard';
 import React, { Component } from 'react'
-import ButtonLogIn from '../commons/ButtonLogIn';
+
 import { Link } from 'react-router-dom';
 
 class CosmeticHomePage extends Component {

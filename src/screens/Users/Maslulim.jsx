@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 import Survey from './StepsMaslul/Survey';
 import Payment from './StepsMaslul/Payment';
 
-import './Questionaire.css'
+import '../Questionaire.css'
 
 class Maslulim extends Component {
 
