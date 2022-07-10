@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { useState } from 'react';
 import InputUser from '../../commons/InputUser';
 
 import Logo from '../../commons/Logo';
@@ -7,81 +8,116 @@ import PopUpCos from '../../commons/PopUpCos';
 
 let local = false;
 //const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
-    const apiUrl='http://localhost:58031/api/LogIn/registerCos';
+const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/LogIn/registerCos';
 //if (local) {
- // apiUrl = 'https://localhost:44326/api/LogIn/register';
+// apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/LogIn/register';
 //}
 
- class SignUpCos extends Component {
-  constructor(props) {
-    super(props)
-    
-    this.state={
-      cosmetologist_first_name:"",
-      cosmetologist_last_name:"", 
-      cosmetologist_user_name:"",
-      cosmetologist_user_password:"",
-      cosmetologist_email:"",
-      cosmetologist_gender:"",
-      cosmetic_businessName:"",
-      cosmetic_address:"",
-      cosmetic_city:"",
-      cosmetic_license_num:"",
-      cosmetic_status:"Pending",
-      cosmetologist_phoneNumber:"",
-      cosmetologist_sumRate:"0",
-      cosmetologist_numOfRates:"0",
-      cosmetologist_rate:"0",
-      
-      showPopup: false,
-      
-      //onChange={(e)=>{this.setState({cosmetologist_first_name:e.target.value})}}/>
-         
-  }
-}
-
-  togglePopup() {
-    this.setState({
-      showPopup: !this.state.showPopup
-    });
+const SignUpCos = (props) => {
+  const [cosmetologistFirstName, setCosmetologistFirstName] = useState('')
+  const [cosmetologistLastName, setCosmetologistLastName] = useState('')
+  const [cosmetologistUsername, setCosmetologistUsername] = useState('')
+  const [cosmetologistUserPassword, setCosmetologistUserPassword] = useState('')
+  const [cosmetologistEmail, setCosmetologistEmail] = useState('')
+  const [cosmetologistgGender, setCosmetologistgGender] = useState('')
+  const [cosmeticBusinessName, setCosmeticBusinessName] = useState('')
+  const [cosmeticAddress, setCosmeticAddress] = useState('')
+  const [cosmeticCity, setCosmeticCity] = useState('')
+  const [cosmeticLicenseNum, setCosmeticLicenseNum] = useState('')
+  const [cosmeticStatus, setCosmeticStatus] = useState('Pending')
+  const [cosmetologistPhoneNumber, setCosmetologistPhoneNumber] = useState('')
+  const [cosmetologistSumRate, setCosmetologistSumRate] = useState(0)
+  const [cosmetologistNumOfRates, setCosmetologistNumOfRates] = useState(0)
+  const [cosmetologistRate, setCosmetologistRate] = useState(0)
+  const [showPopup, setShowPopup] = useState(false)
+  
+  const togglePopup = () => {
+    setShowPopup(!showPopup)
   }
 
-  handlechange = (e) => {
-    
-      this.setState({
-        [e.target.name]: e.target.value,
-    })
+  const handlechange = (e) => {
+    switch (e.target.name) {
+      case 'cosmetologist_first_name':
+        setCosmetologistFirstName(e.target.value)
+        break
+      case 'cosmetologist_last_name':
+        setCosmetologistLastName(e.target.value)
+        break
+      case 'cosmetologist_user_name':
+        setCosmetologistUsername(e.target.value)
+        break
+      case 'cosmetologist_user_password':
+        setCosmetologistUserPassword(e.target.value)
+        break
+      case 'cosmetologist_email':
+        setCosmetologistEmail(e.target.value)
+        break
+      case 'cosmetologist_gender':
+        setCosmetologistgGender(e.target.value)
+        break
+      case 'cosmetic_businessName':
+        setCosmeticBusinessName(e.target.value)
+        break
+      case 'cosmetic_address':
+        setCosmeticAddress(e.target.value)
+        break
+      case 'cosmetic_city':
+        setCosmeticCity(e.target.value)
+        break
+      case 'cosmetic_license_num':
+        setCosmeticLicenseNum(e.target.value)
+        break
+      case 'cosmetic_status':
+        setCosmeticStatus(e.target.value)
+        break
+      case 'cosmetologist_phoneNumber':
+        setCosmetologistPhoneNumber(e.target.value)
+        break
+      case 'cosmetologist_sumRate':
+        setCosmetologistSumRate(e.target.value)
+        break
+      case 'cosmetologist_numOfRates':
+        setCosmetologistNumOfRates(e.target.value)
+        break
+      case 'cosmetologist_rate':
+        setCosmetologistRate(e.target.value)
+        break
+      case 'showPopup':
+        setShowPopup(e.target.value)
+        break
+
+    }
   }
 
-  addCos = (e)=>{
+  const addCos = (e) => {
     console.clear();
-    
-    debugger
-    
-    this.togglePopup(); 
 
-    const cos_data={
-      cosmetologist_first_name:this.state.cosmetologist_first_name,
-      cosmetologist_last_name:this.state.cosmetologist_last_name, 
-      cosmetologist_user_name:this.state.cosmetologist_user_name,
-      cosmetologist_user_password:this.state.cosmetologist_user_password,
-      cosmetologist_gender:this.state.cosmetologist_gender,
-      cosmetologist_email:this.state.cosmetologist_email,
-      cosmetic_businessName:this.state.cosmetic_businessName,
-      cosmetic_address:this.state.cosmetic_address,
-      cosmetic_city:this.state.cosmetic_city,
-      cosmetic_license_num:this.state.cosmetic_license_num,
-      cosmetologist_phoneNumber:this.state.cosmetologist_phoneNumber,
-      cosmetic_status:this.state.cosmetic_status,
-      
-      cosmetologist_rate:this.state.cosmetologist_rate,
-      cosmetologist_sumRate:this.state.cosmetologist_sumRate,
-      cosmetologist_numOfRates:this.state.cosmetologist_numOfRates
-     
-        
-      
+    debugger
+
+    togglePopup();
+
+    const cos_data = {
+      cosmetologist_first_name: cosmetologistFirstName,
+      cosmetologist_last_name: cosmetologistLastName,
+      cosmetologist_user_name: cosmetologistUsername,
+      cosmetologist_user_password: cosmetologistUserPassword,
+      cosmetologist_gender: cosmetologistgGender,
+      cosmetologist_email: cosmetologistEmail,
+      cosmetic_businessName: cosmeticBusinessName,
+      cosmetic_address: cosmeticAddress,
+      cosmetic_city: cosmeticCity,
+      cosmetic_license_num: cosmeticLicenseNum,
+      cosmetologist_phoneNumber: cosmetologistPhoneNumber,
+      cosmetic_status: cosmeticStatus,
+
+      cosmetologist_rate: cosmetologistRate,
+      cosmetologist_sumRate: cosmetologistSumRate,
+      cosmetologist_numOfRates: cosmetologistNumOfRates
+
+
+
     };
-    
+
     fetch(apiUrl, {
       method: 'POST',
       body: JSON.stringify(cos_data),
@@ -102,8 +138,7 @@ let local = false;
           debugger
           console.log("fetch POST= ", result);
           console.log(result.cosmetologist_user_name);
-          console.log(this.state);
-          localStorage.setItem("type",1);
+          localStorage.setItem("type", 1);
         },
         (error) => {
           console.log("err post=", error);
@@ -111,62 +146,60 @@ let local = false;
 
     console.log('END');
   }
- 
-  render() {
 
     return (
 
       <div>
 
-      <Logo/>
+        <Logo />
 
-        <InputUser value={this.cosmetologist_first_name} name="cosmetologist_first_name" type="text" label="שם פרטי " placeholder="שם פרטי " onChange={(e)=>{this.setState({cosmetologist_first_name:e.target.value})}}/>
-        
+        <InputUser value={cosmetologistFirstName} name="cosmetologist_first_name" type="text" label="שם פרטי " placeholder="שם פרטי " onChange={(e) => { setCosmetologistFirstName(e.target.value)}} />
 
-        <InputUser value={this.cosmetologist_last_name} name="cosmetologist_last_name" type="text" label="שם משפחה   " placeholder="שם משפחה "onChange={(e)=>{this.setState({cosmetologist_last_name:e.target.value})}}/>  
 
-        <InputUser value={this.cosmetologist_email} name="cosmetologist_email" type="text" label="מייל " placeholder="מייל"  onChange={(e)=>{this.setState({cosmetologist_email:e.target.value})}}/>
-       
+        <InputUser value={cosmetologistLastName} name="cosmetologist_last_name" type="text" label="שם משפחה   " placeholder="שם משפחה " onChange={(e) => { setCosmetologistLastName(e.target.value) }} />
+
+        <InputUser value={cosmetologistEmail} name="cosmetologist_email" type="text" label="מייל " placeholder="מייל" onChange={(e) => { setCosmetologistEmail(e.target.value) }} />
+
 
         <label className='label' >
-        <input type="radio" name="cosmetologist_gender" value="F"   onChange={(e)=>{this.setState({cosmetologist_gender:e.target.value})}}/>
-        <img alt="wrinkles" height="100" width="100" src={require("../../assets/images/girl.png")}/>
-        
+          <input type="radio" name="cosmetologist_gender" value="F" onChange={(e) => { setCosmetologistgGender(e.target.value) }} />
+          <img alt="wrinkles" height="100" width="100" src={require("../../assets/images/girl.png")} />
+
         </label>
         <label className='label'>
-          
-        <input type="radio" name="cosmetologist_gender" value="M"   onChange={(e)=>{this.setState({cosmetologist_gender:e.target.value})}}/>
-        <img alt="wrinkles" height="100" width="100" src={require("../../assets/images/boy.png")}/><br/>
-        
+
+          <input type="radio" name="cosmetologist_gender" value="M" onChange={(e) => { setCosmetologistgGender(e.target.value) }} />
+          <img alt="wrinkles" height="100" width="100" src={require("../../assets/images/boy.png")} /><br />
+
         </label>
-        
-        <InputUser value={this.cosmetic_businessName} name="cosmetic_businessName" type="text" label=" שם העסק " placeholder=" שם העסק " onChange={(e)=>{this.setState({cosmetic_businessName:e.target.value})}}/>
 
-        <InputUser value={this.cosmetic_city} name="cosmetic_city" type="text" label="עיר" placeholder="עיר " onChange={(e)=>{this.setState({cosmetic_city:e.target.value})}}/>  
+        <InputUser value={cosmeticBusinessName} name="cosmetic_businessName" type="text" label=" שם העסק " placeholder=" שם העסק " onChange={(e) => { setCosmeticBusinessName(e.target.value) }} />
 
-        <InputUser value={this.cosmetic_address} name="cosmetic_address" type="text" label="כתובת " placeholder="כתובת"  onChange={(e)=>{this.setState({cosmetic_address:e.target.value})}}/>
-        
-        <InputUser value={this.cosmetic_license_num} name="cosmetic_license_num" type="text" label="מספר עסק " placeholder="מספר עסק"  onChange={(e)=>{this.setState({cosmetic_license_num:e.target.value})}}/>
-        
-        <InputUser value={this.cosmetologist_phoneNumber} name="cosmetologist_phoneNumber" type="text" label="מספר טלפון " placeholder="מספר טלפון"  onChange={(e)=>{this.setState({cosmetologist_phoneNumber:e.target.value})}}/>
+        <InputUser value={cosmeticCity} name="cosmetic_city" type="text" label="עיר" placeholder="עיר " onChange={(e) => { setCosmeticCity(e.target.value) }} />
 
-        <InputUser value={this.cosmetologist_user_name} name="cosmetologist_user_name" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e)=>{this.setState({cosmetologist_user_name:e.target.value})}}/>
+        <InputUser value={cosmeticAddress} name="cosmetic_address" type="text" label="כתובת " placeholder="כתובת" onChange={(e) => { setCosmeticAddress(e.target.value) }} />
 
-        <InputUser value={this.cosmetologist_user_password} name="cosmetologist_user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e)=>{this.setState({cosmetologist_user_password:e.target.value})}}/>
-        
-        <br/>
+        <InputUser value={cosmeticLicenseNum} name="cosmetic_license_num" type="text" label="מספר עסק " placeholder="מספר עסק" onChange={(e) => { setCosmeticLicenseNum(e.target.value) }} />
 
-        <button  style={{margin:30,backgroundColor:"black",color:"white",fontSize:15,width:'80%',height:40,borderColor:"#e8e8e8" , borderWidth:1,borderRadius:50}} onClick={this.addCos}> סיום הרשמה</button>
-        {this.state.showPopup ? 
+        <InputUser value={cosmetologistPhoneNumber} name="cosmetologist_phoneNumber" type="text" label="מספר טלפון " placeholder="מספר טלפון" onChange={(e) => { setCosmetologistPhoneNumber(e.target.value) }} />
+
+        <InputUser value={cosmetologistUsername} name="cosmetologist_user_name" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e) => { setCosmetologistUsername(e.target.value) }} />
+
+        <InputUser value={cosmetologistUserPassword} name="cosmetologist_user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e) => { setCosmetologistUserPassword(e.target.value) }} />
+
+        <br />
+
+        <button style={{ margin: 30, backgroundColor: "black", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} onClick={addCos}> סיום הרשמה</button>
+        {showPopup ?
           <PopUpCos
             header=' הרשמתך נקלטה במערכת '
             text=' נבדוק את מספר העסק שלך ותוכלי להתחיל לטפל בלקוחות בעוד כ24 שעות'
-            closePopup={this.togglePopup.bind(this)}
+            closePopup={togglePopup.bind(this)}
           />
           : null
         }
       </div>
     )
   }
-}
+
 export default SignUpCos;

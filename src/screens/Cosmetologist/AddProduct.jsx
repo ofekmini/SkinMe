@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
 
 let local = false;
 //const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
-const apiUrl = 'http://localhost:58031/api/Products/addprod';
+const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/Products/addprod';
 //if (local) {
-// apiUrl = 'https://localhost:44326/api/LogIn/register';
+// apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/LogIn/register';
 //}
 
 class AddProduct extends Component {

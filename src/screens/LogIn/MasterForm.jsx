@@ -2,168 +2,181 @@ import React, { Component } from 'react'
 import Logo from '../../commons/Logo';
 
 import '../Questionaire.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Step1 from './StepForm/Step1';
 import Step3 from './StepForm/Step3';
 import validator from 'validator'
+import { useState } from 'react';
 
-class MasterForm extends Component {
+const MasterForm = (props) => {
+  const [formMessage, setFormMessage] = useState('')
+  const [currentStep, setCurrentStep] = useState(1)
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [userGender, setUserGender] = useState('')
+  const [username, setUsername] = useState('')
+  const [userPassword, setUserPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [userBirth, setUserBirth] = useState('')
+  const [picture, setPicture] = useState('')
+  const [userProcessImg, setUserProcessImg] = useState('')
+  const [userSkinType, setUserSkinType] = useState('')
+  const [planId, setPlanId] = useState('')
+  const [userSkinProblem, setUserSkinProblem] = useState('')
+  const [userCheek, setUserCheek] = useState('')
+  const [userTzone, setUserTzone] = useState('')
+  const [userSunExposure, setUserSunExposure] = useState('')
+  const [userStress, setUserStress] = useState('')
+  let navigate = useNavigate()
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      formMessage: null,
-      currentStep: 1,
-      first_name: "",
-      last_name: "",
-      user_gender: "",
-      username: "",
-      user_password: "",
-      email: "",
-      user_birth: "",
-      picture: "",
-      user_processImg: "",
-
-
-      user_skinType: "",
-      plan_id:"",
-
-    
-
-      user_skinProblem: "",
-      user_cheek: "",
-      user_Tzone: "",
-      user_sunExposure: "",
-      user_stress: "",
-
-
-
-    }
-  }
-
-  handleChange = event => {
+  const handleChange = event => {
     const { name, value } = event.target
-    if(name === 'user_password') {
-      if (!validator.isStrongPassword(value,{
+    if (name === 'user_password') {
+      if (!validator.isStrongPassword(value, {
         minLength: 6,
         minLowercase: 1,
-        minUppercase: 1, minNumbers: 1, 
+        minUppercase: 1, minNumbers: 1,
       })) {
         console.log('passwordisWeak')
-        this.setState({
-          formMessage: 'Password not strong enough, must contain 8 caracthers with at least one upper case, one number, one lower case and a symbol'
-        })
+        setFormMessage('Password not strong enough, must contain 8 caracthers with at least one upper case, one number, one lower case and a symbol')
+
       } else {
         console.log('passwordisStorng')
-        this.setState({
-          formMessage: 'Password is Strong'
-        })
+        setFormMessage('Password is Strong')
+
       }
     }
-    if(name === 'email') {
+    if (name === 'email') {
       if (!validator.isEmail(value)) {
-        this.setState({
-          formMessage: 'Email is not valid'
-        })
+        setFormMessage('Email is not valid')
       } else {
-   
-        this.setState({
-          formMessage: 'Email is valid'
-        })
+        setFormMessage('Email is valid')
       }
     }
-    this.setState({
-      [name]: value,
-    })
+    switch (name) {
+      case 'currentStep':
+        setCurrentStep(value);
+        break;
+      case 'first_name':
+        setFirstName(value);
+        break;
+      case 'last_name':
+        setLastName(value);
+        break;
+      case 'user_gender':
+        setUserGender(value);
+        break;
+      case 'username':
+        setUsername(value);
+        break;
+      case 'user_password':
+        setUserPassword(value);
+        break;
+      case 'email':
+        setEmail(value);
+        break;
+      case 'user_birth':
+        setUserBirth(value);
+        break;
+      case 'picture':
+        setPicture(value);
+        break;
+      case 'user_processImg':
+        setUserProcessImg(value);
+        break;
+      case 'user_skinType':
+        setUserSkinType(value);
+        break;
+      case 'plan_id':
+        setPlanId(value);
+        break;
+      case 'user_skinProblem':
+        setUserSkinProblem(value);
+        break;
+      case 'user_cheek':
+        setUserCheek(value);
+        break;
+      case 'user_Tzone':
+        setUserTzone(value);
+        break;
+      case 'user_sunExposure':
+        setUserSunExposure(value);
+        break;
+      case 'user_stress':
+        setUserStress(value);
+        break;
+    }
+
   }
 
-  handleChangeByFacebookOrGoogle = (email, username, picture) => {
-    
-    this.setState({
-      email: email,
-      username: username,
-      picture: picture,
-      
-    })
-    this._next()
+  const handleChangeByFacebookOrGoogle = (email, username, picture) => {
+    setEmail(email)
+    setUsername(username)
+    setPicture(picture)
+    _next()
   }
 
 
-  clickAcne = () => {
-    this.setState({
-      user_skinType: 'שומני',
-      plan_id:'1'
-
-    })
+  const clickAcne = () => {
+    setUserSkinType('שומני')
+    setPlanId('1')
   }
 
-  clickDry = () => {
-    this.setState({
-      user_skinType: 'יבש',
-      plan_id:'3'
-    })
+  const clickDry = () => {
+    setUserSkinType('יבש')
+    setPlanId('3')
   }
 
-  clickNormal = () => {
-    this.setState({
-      user_skinType: 'מעורב',
-      plan_id:'2'
-    })
+  const clickNormal = () => {
+    setUserSkinType('מעורב')
+    setPlanId('2')
   }
 
-  saveSkintype = () => {
-    const user_skinType = this.state.user_skinType;
-    localStorage.setItem('user_skinType', user_skinType);
-
-
+  const saveSkintype = () => {
+    localStorage.setItem('user_skinType', userSkinType);
   }
 
-  savePlan = () => {
-    const plan_id = this.state.plan_id;
-    localStorage.setItem('plan_id', plan_id);
-
-
+  const savePlan = () => {
+    localStorage.setItem('plan_id', planId);
   }
 
 
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     console.clear();
     e.preventDefault()
-    const apiUrl = 'http://localhost:58031/api/LogIn/register';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/LogIn/register';
 
 
     const user_skinType = localStorage.getItem('user_skinType');
-    this.setState({ user_skinType });
+    setUserSkinType(user_skinType)
 
     const plan_id = localStorage.getItem('plan_id');
-    this.setState({ plan_id });
-
+    setPlanId(plan_id)
 
     const user_data = {
 
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      user_gender: this.state.user_gender,
-      username: this.state.username,
-      user_password: this.state.user_password,
-      email: this.state.email,
-      user_birth: this.state.user_birth,
-      picture: this.state.picture,
-      user_processImg: this.state.user_processImg,
-      user_skinType: this.state.user_skinType,
-      user_skinProblem: this.state.user_skinProblem,
-      user_cheek: this.state.user_cheek,
-      user_Tzone: this.state.user_Tzone,
-      user_sunExposure: this.state.user_sunExposure,
-      user_stress: this.state.user_stress,
-      user_role: this.state.user_role,
-      user_skinType: this.state.user_skinType,
-      
-      plan_id: this.state.plan_id
+      first_name: firstName,
+      last_name: lastName,
+      user_gender: userGender,
+      username: username,
+      user_password: userPassword,
+      email: email,
+      user_birth: userBirth,
+      picture: picture,
+      user_processImg: userProcessImg,
+      user_skinType: userSkinType,
+      user_skinProblem: userSkinProblem,
+      user_cheek: userCheek,
+      user_Tzone: userTzone,
+      user_sunExposure: userSunExposure,
+      user_stress: userStress,
+      user_role: null,
+      user_skinType: userSkinType,
+
+      plan_id: planId
 
     };
-    
     fetch(apiUrl, {
       method: 'POST',
       body: JSON.stringify(user_data),
@@ -180,16 +193,14 @@ class MasterForm extends Component {
       })
       .then(
         (result) => {
-          
+
           console.log("fetch POST= ", result);
           console.log(result.username);
-          console.log(this.state);
           localStorage.setItem("appUser_id", result.appUser_id);
-          localStorage.setItem("user_skinType",result.user_skinType);
-          localStorage.setItem("plan_id",result.plan_id);
+          localStorage.setItem("user_skinType", result.user_skinType);
+          localStorage.setItem("plan_id", result.plan_id);
           localStorage.setItem("type", 0);
-          window.location.href = '/userhomepage';
-          
+          navigate('/userhomepage')
 
         },
         (error) => {
@@ -201,32 +212,23 @@ class MasterForm extends Component {
 
 
 
-  _next = () => {
-    let currentStep = this.state.currentStep
-    currentStep = currentStep >= 1 ? 3 : currentStep + 1
-    this.setState({
-      currentStep: currentStep
-    })
+  const _next = () => {
+    setCurrentStep(currentStep >= 1 ? 3 : currentStep + 1)
   }
 
-  _prev = () => {
-    let currentStep = this.state.currentStep
-    currentStep = currentStep <= 1 ? 1 : currentStep - 2
-    this.setState({
-      currentStep: currentStep
-    })
+  const _prev = () => {
+    setCurrentStep(currentStep <= 1 ? 1 : currentStep - 2)
   }
 
   /*
   * the functions for our button
   */
-  previousButton() {
-    let currentStep = this.state.currentStep;
+  const previousButton = () => {
     if (currentStep !== 1) {
       return (
         <button style={{ margin: 30, backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }}
           className="btn btn-secondary"
-          type="button" onClick={this._prev}>
+          type="button" onClick={_prev}>
           חזור
         </button>
       )
@@ -234,13 +236,12 @@ class MasterForm extends Component {
     return null;
   }
 
-  nextButton() {
-    let currentStep = this.state.currentStep;
+  const nextButton = () => {
     if (currentStep < 3) {
       return (
         <button style={{ margin: 30, backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }}
           className="btn btn-primary float-right"
-          type="button" onClick={this._next}>
+          type="button" onClick={_next}>
           הבא
         </button>
       )
@@ -248,62 +249,60 @@ class MasterForm extends Component {
     return null;
   }
 
-  render() {
+  return (
+    <React.Fragment>
+      <Logo />
 
-    return (
-      <React.Fragment>
-        <Logo />
+      <p> {currentStep} </p>
 
-        <p> {this.state.currentStep} </p>
-
-        <form onSubmit={this.handleSubmit}>
-          {/* 
+      <form onSubmit={handleSubmit}>
+        {/* 
         render the form steps and pass required props in
       */}
-          <Step1
-            currentStep={this.state.currentStep}
-            handleChange={this.handleChange}
-            handleChangeByFacebookOrGoogle={this.handleChangeByFacebookOrGoogle}
+        <Step1
+          currentStep={currentStep}
+          handleChange={handleChange}
+          handleChangeByFacebookOrGoogle={handleChangeByFacebookOrGoogle}
 
-            formMessage={this.state.formMessage}
+          formMessage={formMessage}
 
-            first_name={this.state.first_name}
-            last_name={this.state.last_name}
-            user_gender={this.state.user_gender}
-            username={this.state.username}
-            user_password={this.state.user_password}
-            email={this.state.email}
-            user_birth={this.state.user_birth}
-            picture={this.state.picture}
-
-
-
-          />
+          first_name={firstName}
+          last_name={lastName}
+          user_gender={userGender}
+          username={username}
+          user_password={userPassword}
+          email={email}
+          user_birth={userBirth}
+          picture={picture}
 
 
-          <Step3
-            currentStep={this.state.currentStep}
-            handleChange={this.handleChange}
-            clickAcne={this.clickAcne}
-            clickDry={this.clickDry}
-            clickNormal={this.clickNormal}
-            saveSkintype={this.saveSkintype}
-            savePlan={this.savePlan}
 
-            user_skinProblem={this.state.user_skinProblem}
-            user_cheek={this.state.user_cheek}
-            user_Tzone={this.state.user_Tzone}
-            user_sunExposure={this.state.user_sunExposure}
-            user_stress={this.state.user_stress}
-          />
-          {this.previousButton()}
-          {this.nextButton()}
+        />
 
-        </form>
-      </React.Fragment>
-    );
-  }
+
+        <Step3
+          currentStep={currentStep}
+          handleChange={handleChange}
+          clickAcne={clickAcne}
+          clickDry={clickDry}
+          clickNormal={clickNormal}
+          saveSkintype={saveSkintype}
+          savePlan={savePlan}
+
+          user_skinProblem={userSkinProblem}
+          user_cheek={userCheek}
+          user_Tzone={userTzone}
+          user_sunExposure={userSunExposure}
+          user_stress={userStress}
+        />
+        {previousButton()}
+        {nextButton()}
+
+      </form>
+    </React.Fragment>
+  );
 }
+
 
 
 export default MasterForm;

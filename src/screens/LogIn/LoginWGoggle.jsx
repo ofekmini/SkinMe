@@ -40,7 +40,7 @@ export default function LoginWGoggle(props) {
       ) : (
 
         <GoogleLogin
-          clientId="849215880769-ulcnv9ob7utoms2jn383rjimathrcsrt.apps.googleusercontent.com"
+          clientId="95258654142-ka0kafl89rcu23iq0h9bs5p3ljcrbhr5.apps.googleusercontent.com"
           buttonText="Log in with Google"
           onSuccess={handleLogin}
           onFailure={handleFailure}

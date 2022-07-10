@@ -16,7 +16,7 @@ let local = false;
 //const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/test2/tar1/api/';
 const apiUrl = 'https://localhost:58031/api/cos';
 //if (local) {
-// apiUrl = 'https://localhost:44326/api/LogIn/register';
+// apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/LogIn/register';
 //}
 
 class AddSkinPlan extends Component {
@@ -89,7 +89,7 @@ class AddSkinPlan extends Component {
 
     this.loadSmartElement();
 
-    const apiUrl = 'http://localhost:58031/api/Products/status';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/Products/status';
 
     fetch(apiUrl, {
       method: 'GET',
@@ -124,10 +124,10 @@ class AddSkinPlan extends Component {
 
   addSkinPlan = (e) => {
     console.clear();
-    // const apiUrl = 'http://localhost:58031/api/Cos/AddSkinPlan';
+    // const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/Cos/AddSkinPlan';
     const user_id = JSON.parse(localStorage.getItem('user')).appUser_id;
 
-    const apiUrl = `http://localhost:58031/api/Cos/AddSkinPlan?id=${user_id}`;
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Cos/AddSkinPlan?id=${user_id}`;
 
     const newskinplan = {
       plan_name: this.state.plan_name,
@@ -164,7 +164,7 @@ class AddSkinPlan extends Component {
 
   addProdToPlan = (e) => {
     console.clear();
-    // const apiUrl = 'http://localhost:58031/api/Cos/AddSkinPlan';
+    // const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/Cos/AddSkinPlan';
     //const user_id = JSON.parse(localStorage.getItem('user')).appUser_id;
 
     this.setState({
@@ -172,7 +172,7 @@ class AddSkinPlan extends Component {
     })
     console.log(this.state.prod_id)
 
-    const apiUrl = `http://localhost:58031/api/Cos/AddProdToPlan?id=${this.state.plan_id}`;
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Cos/AddProdToPlan?id=${this.state.plan_id}`;
 
     const prod = {
       prod_id: this.state.prod_id,
@@ -214,7 +214,7 @@ class AddSkinPlan extends Component {
 
     const user_id = JSON.parse(localStorage.getItem('user')).appUser_id;
 
-    const apiUrl = `http://localhost:58031/api/Cos/SearchFamiliar/${user_id}`;
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Cos/SearchFamiliar/${user_id}`;
     const res = await fetch(apiUrl, {
       method: 'POST',
       headers: new Headers({
@@ -234,7 +234,7 @@ class AddSkinPlan extends Component {
     
     const dataToSend = this.state.ppp
     const planId = Number(localStorage.getItem('plan_id'))
-    const apiUrl = `http://localhost:58031/api/Cos/AddProdToPlan/${planId}`;
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Cos/AddProdToPlan/${planId}`;
     const res = await fetch(apiUrl, {
       method: 'POST',
       body: JSON.stringify(dataToSend),

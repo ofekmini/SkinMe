@@ -18,43 +18,10 @@ class CosmeticHomePage extends Component {
   }
 
 
-  /*    btnGetMyclients = () => { 
-        console.clear();
-        
-        const  apiUrl= 'http://localhost:58031/api/Cos/GetClients';
-
-        const cosmetologist_id={cosmetologist_id:this.state.cosmetologist_id};
-
-        fetch(apiUrl, {
-          method: 'POST', 
-          body: JSON.stringify(cosmetologist_id),
-          headers: new Headers({
-            'Content-Type': 'application/json; charset=UTF-8',
-            'Accept': 'application/json; charset=UTF-8',
-          })
-        })
-          .then(res => {
-            console.log('res=', res);
-            console.log('res.status', res.status);
-            console.log('res.ok', res.ok);
-            return res.json()
-          })
-          .then(
-            (result) => {
-              console.log("fetch POST= ", result);
-              result.map(st => console.log(st.appuser_id));
-                  console.log('result[0].appuser_id=', result[0].appuser_id);
-                  this.setState({ user: [...result]}
-                    );
-            },
-            (error) => {
-              console.log("err post=", error);
-            })
-          } */
 
   componentDidMount = () => {
     console.clear();
-    const apiUrl = 'http://localhost:58031/api/Cos/GetClients';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/Cos/GetClients';
     const url=`${apiUrl}/${this.state.cosmetologist_id}`
     
     fetch(url, {

@@ -6,55 +6,56 @@ import Survey from './StepsMaslul/Survey';
 import Payment from './StepsMaslul/Payment';
 
 import '../Questionaire.css'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-class Maslulim extends Component {
+const Maslulim = (props) => {
+  let navigate = useNavigate()
+  const [currentStep, setCurrentStep] = useState(1)
+  const [userPeriod, setUserPeriod] = useState('')
+  const [userDermatology, setUserDermatology] = useState('')
+  const [userCurrentProducts, setUserCurrentProducts] = useState('')
+  const [userSensitive, setUserSensitive] = useState('')
+  const [userAreas, setUserAreas] = useState('')
+  const [userPicsprocess, setUserPicsprocess] = useState(null)
+  const [userRoute, setUserRoute] = useState(localStorage.getItem('user_route'))
+  const [userStatus, setUserStatus] = useState('Waiting')
+  const [appUserId, setAppUserId] = useState(localStorage.getItem('appUser_id'))
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      currentStep: 1,
-
-      user_period: "",
-      user_dermatology: "",
-      user_currentProducts: "",
-      user_sensitive: "",
-      user_areas: "",
-
-      user_picsprocess: null,
-
-
-      user_route: localStorage.getItem('user_route'),
-      user_status: "Waiting",
-      appUser_id: localStorage.getItem('appUser_id')
-
-
+  const handleChange = event => {
+    const { name, value } = event.target
+    switch (name) {
+      case 'user_period':
+        setUserPeriod(value)
+        break
+      case 'user_dermatology':
+        setUserDermatology(value)
+        break
+      case 'user_currentProducts':
+        setUserCurrentProducts(value)
+        break
+      case 'user_sensitive':
+        setUserSensitive(value)
+        break
+      case 'user_areas':
+        setUserAreas(value)
+        break
 
     }
   }
 
-  handleChange = event => {
-    const { name, value } = event.target
-    this.setState({
-      [name]: value
-    })
+
+
+  const clickMaslulOne = () => {
+    setUserRoute('1')
   }
 
-
-
-  clickMaslulOne = () => {
-    this.setState({
-      user_route: '1'
-    })
+  const clickMaslulTwo = () => {
+    setUserRoute('2')
   }
 
-  clickMaslulTwo = () => {
-    this.setState({
-      user_route: '2'
-    })
-  }
-
-  saveMaslul = () => {
-    const user_route = this.state.user_route;
+  const saveMaslul = () => {
+    const user_route = userRoute;
     localStorage.setItem('user_route', user_route);
 
   }
@@ -62,17 +63,15 @@ class Maslulim extends Component {
 
 
 
-  handlePicture = (e) => {
-    
+  const handlePicture = (e) => {
+
 
     const user_picsprocess = e.target.files[0]
-    const base64 = this.convertToBase64(user_picsprocess)
-    this.setState({
-      user_picsprocess: base64
-    })
+    const base64 = convertToBase64(user_picsprocess)
+    setUserPicsprocess(base64)
   }
 
-  convertToBase64 = (user_picsprocess) => {
+  const convertToBase64 = (user_picsprocess) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
       fileReader.readAsDataURL(user_picsprocess)
@@ -88,24 +87,24 @@ class Maslulim extends Component {
 
 
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     console.clear();
     e.preventDefault()
-    const apiUrl = `http://localhost:58031/api/Users/addmaslul?id=${this.state.appUser_id}`;
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Users/addmaslul?id=${appUserId}`;
 
     const user_maslulinfo = {
 
 
-      user_period: this.state.user_period,
-      user_dermatology: this.state.user_dermatology,
-      user_currentProducts: this.state.user_currentProducts,
-      user_sensitive: this.state.user_sensitive,
-      user_areas: this.state.user_areas,
+      user_period: userPeriod,
+      user_dermatology: userDermatology,
+      user_currentProducts: userCurrentProducts,
+      user_sensitive: userSensitive,
+      user_areas: userAreas,
 
-      user_route: this.state.user_route,
-      user_status:"waiting",
+      user_route: userRoute,
+      user_status: "waiting",
 
-      user_picsprocess: this.state.user_picsprocess
+      user_picsprocess: userPicsprocess
 
     };
 
@@ -127,8 +126,7 @@ class Maslulim extends Component {
         (result) => {
           console.log("fetch PUT= ", result);
           console.log(result.username);
-          console.log(this.state);
-          window.location.href = '/choosecos';
+          navigate('/choosecos')
         },
         (error) => {
           console.log("err post=", error);
@@ -139,32 +137,23 @@ class Maslulim extends Component {
 
 
 
-  _next = () => {
-    let currentStep = this.state.currentStep
-    currentStep = currentStep >= 1 ? 3 : currentStep + 1
-    this.setState({
-      currentStep: currentStep
-    })
+  const _next = () => {
+    setCurrentStep(currentStep >= 1 ? 3 : currentStep + 1)
   }
 
-  _prev = () => {
-    let currentStep = this.state.currentStep
-    currentStep = currentStep <= 1 ? 1 : currentStep - 2
-    this.setState({
-      currentStep: currentStep
-    })
+  const _prev = () => {
+    setCurrentStep(currentStep <= 1 ? 1 : currentStep - 2)
   }
 
   /*
   * the functions for our button
   */
-  previousButton() {
-    let currentStep = this.state.currentStep;
+  const previousButton = () => {
     if (currentStep !== 1) {
       return (
         <button style={{ margin: 30, backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }}
           className="btn btn-secondary"
-          type="button" onClick={this._prev}>
+          type="button" onClick={_prev}>
           חזור
         </button>
       )
@@ -172,13 +161,12 @@ class Maslulim extends Component {
     return null;
   }
 
-  nextButton() {
-    let currentStep = this.state.currentStep;
+  const nextButton = () => {
     if (currentStep < 3) {
       return (
         <button style={{ margin: 30, backgroundColor: "#c4a092", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }}
           className="btn btn-primary float-right"
-          type="button" onClick={this._next}>
+          type="button" onClick={_next}>
           הבא
         </button>
       )
@@ -186,52 +174,47 @@ class Maslulim extends Component {
     return null;
   }
 
-  render() {
+  return (
+    <React.Fragment>
 
 
+      <p> {currentStep} </p>
 
-
-    return (
-      <React.Fragment>
-
-
-        <p> {this.state.currentStep} </p>
-
-        <form onSubmit={this.handleSubmit}>
-          {/* 
+      <form onSubmit={handleSubmit}>
+        {/* 
         render the form steps and pass required props in
       */}
-          <Survey
-            currentStep={this.state.currentStep}
-            handleChange={this.handleChange}
-            handlePicture={this.handlePicture}
+        <Survey
+          currentStep={currentStep}
+          handleChange={handleChange}
+          handlePicture={handlePicture}
 
 
-            user_period={this.state.user_period}
-            user_dermatology={this.state.user_dermatology}
-            user_currentProducts={this.state.user_currentProducts}
-            user_sensitive={this.state.user_sensitive}
-            user_areas={this.state.user_areas}
+          user_period={userPeriod}
+          user_dermatology={userDermatology}
+          user_currentProducts={userCurrentProducts}
+          user_sensitive={userSensitive}
+          user_areas={userAreas}
 
 
 
-          />
-          <Payment
-            currentStep={this.state.currentStep}
-            handleChange={this.handleChange}
-            saveMaslul={this.saveMaslul}
+        />
+        <Payment
+          currentStep={currentStep}
+          handleChange={handleChange}
+          saveMaslul={saveMaslul}
 
-          />
+        />
 
 
-          {this.previousButton()}
-          {this.nextButton()}
+        {previousButton()}
+        {nextButton()}
 
-        </form>
-      </React.Fragment>
-    );
-  }
+      </form>
+    </React.Fragment>
+  );
 }
+
 
 
 export default Maslulim;

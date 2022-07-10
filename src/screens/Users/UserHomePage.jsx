@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
 import RoutineProductsDay from '../../commons/RoutineProductsDay';
 import RoutineProductsNight from '../../commons/RoutineProductsNight';
 
@@ -6,121 +8,106 @@ import RoutineProductsNight from '../../commons/RoutineProductsNight';
 
 
 
-class UserHomePage extends Component {
+const UserHomePage = (props) => {
 
-  constructor(props) {
-    super(props)
-    
-    this.state = {
-      productsday:[],
-      productsnight:[],
-      user_skinType:localStorage.getItem('user_skinType'),
-      plan_id:localStorage.getItem('plan_id'),
-      appUser_id:localStorage.getItem('appUser_id'),
-      products:[],
-      
-      
-       
-    }
+  const [productsday, setProductsday] = useState([])
+  const [productsnight, setProductsnight] = useState([])
+  const [userSkinType, setUserSkinType] = useState(localStorage.getItem('user_skinType'))
+  const [planId, setPlanId] = useState(localStorage.getItem('plan_id'))
+  const [appUserId, setAppUserId] = useState(localStorage.getItem('appUser_id'))
+  const [products, setProducts] = useState([])
+
+  
+  const ProductsDay = () => {
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Products/GetProdForAutoPlanDay/?id=${appUserId}`;
+
+    fetch(apiUrl, {
+      method: 'GET',
+      headers: new Headers({
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json; charset=UTF-8',
+      })
+    })
+      .then(res => {
+
+        console.log('res=', res);
+        console.log('res.status', res.status);
+        console.log('res.ok', res.ok);
+        return res.json()
+      })
+      .then(
+        (result) => {
+
+          console.log("fetch btnFetchGetcos= ", result);
+          result.map(st => console.log(st.plan_id));
+          console.log('result[0].prod_id', result[0].plan_id);
+          setProductsday([...result])
+
+        },
+        (error) => {
+          console.log("err post=", error);
+        })
+
   }
 
-  ProductsDay(){
-  const  apiUrl= `http://localhost:58031/api/Products/GetProdForAutoPlanDay/?id=${this.state.appUser_id}`;
+  const ProductsNight = () => {
+    const apiUrl = `https://proj.ruppin.ac.il/bgroup90/prod/api/Products/GetProdForAutoPlanNight/?id=${appUserId}`;
 
-  fetch(apiUrl, {
-    method: 'GET',
-    headers: new Headers({
-      'Content-Type': 'application/json; charset=UTF-8',
-      'Accept': 'application/json; charset=UTF-8',
-    })
-  })
-    .then(res => {
-      
-      console.log('res=', res);
-      console.log('res.status', res.status);
-      console.log('res.ok', res.ok);
-      return res.json()
-    })
-    .then(
-      (result) => {
-        
-        console.log("fetch btnFetchGetcos= ", result);
-        result.map(st => console.log(st.plan_id));
-        console.log('result[0].prod_id', result[0].plan_id);
-        this.setState({ productsday: [...result]}
-          
-          );
-       
-      },
-      (error) => {
-        console.log("err post=", error);
+    fetch(apiUrl, {
+      method: 'GET',
+      headers: new Headers({
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Accept': 'application/json; charset=UTF-8',
       })
+    })
+      .then(res => {
 
-    }
-
-    ProductsNight(){
-      const  apiUrl= `http://localhost:58031/api/Products/GetProdForAutoPlanNight/?id=${this.state.appUser_id}`;
-    
-      fetch(apiUrl, {
-        method: 'GET',
-        headers: new Headers({
-          'Content-Type': 'application/json; charset=UTF-8',
-          'Accept': 'application/json; charset=UTF-8',
-        })
+        console.log('res=', res);
+        console.log('res.status', res.status);
+        console.log('res.ok', res.ok);
+        return res.json()
       })
-        .then(res => {
-          
-          console.log('res=', res);
-          console.log('res.status', res.status);
-          console.log('res.ok', res.ok);
-          return res.json()
-        })
-        .then(
-          (result) => {
-            
-            console.log("fetch btnFetchGetcos= ", result);
-            result.map(st => console.log(st.plan_id));
-            console.log('result[0].prod_id', result[0].plan_id);
-            this.setState({ productsnight: [...result]}
-              
-              );
-           
-          },
-          (error) => {
-            console.log("err post=", error);
-          })
-    
-        }
+      .then(
+        (result) => {
 
-       componentDidMount(){
-          this.ProductsDay();
-          this.ProductsNight();
-       }
- 
- 
-  render() {
+          console.log("fetch btnFetchGetcos= ", result);
+          result.map(st => console.log(st.plan_id));
+          console.log('result[0].prod_id', result[0].plan_id);
+          setProductsnight([...result])
+        },
+        (error) => {
+          console.log("err post=", error);
+        })
+
+  }
+
+  useEffect(() => {
+    ProductsDay();
+    ProductsNight();
+  }, [])
+
     return (
       <div >
-  
-     <img alt="logo" height="120" width="120"  src={require("../../assets/images/logo.png")} />
-     <h2 style={{color:'#c4a092'}} >שגרת הטיפוח שלי</h2>
-     <div >
-      
-      <h2 style={{color:'#FFAB00', backgroundColor:'beige'}}>בוקר</h2>
-     {this.state.productsday.map((productsday) => <RoutineProductsDay  key={productsday.prod_id} productsday={productsday} />)} <br/>
-     </div>
 
-   <div style={{marginTop:600}}>
-   
-     <h2 style={{color:'#607D8B',backgroundColor:'beige'}}>ערב</h2>
-     {this.state.productsnight.map((productsnight) => <RoutineProductsNight  key={productsnight.prod_id} productsnight={productsnight} />)} 
-   </div>
-    
+        <img alt="logo" height="120" width="120" src={require("../../assets/images/logo.png")} />
+        <h2 style={{ color: '#c4a092' }} >שגרת הטיפוח שלי</h2>
+        <div >
 
+          <h2 style={{ color: '#FFAB00', backgroundColor: 'beige' }}>בוקר</h2>
+          {productsday.map((productsday) => <RoutineProductsDay key={productsday.prod_id} productsday={productsday} />)} <br />
         </div>
+
+        <div style={{ marginTop: 600 }}>
+
+          <h2 style={{ color: '#607D8B', backgroundColor: 'beige' }}>ערב</h2>
+          {productsnight.map((productsnight) => <RoutineProductsNight key={productsnight.prod_id} productsnight={productsnight} />)}
+        </div>
+
+
+      </div>
     )
   }
-}
+
 
 
 export default UserHomePage;

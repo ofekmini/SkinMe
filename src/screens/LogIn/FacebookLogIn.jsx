@@ -1,83 +1,40 @@
 import React, { Component } from 'react'
+import { useState } from 'react';
 import FacebookLogin from 'react-facebook-login';
 
 
 
 
 
-export default class FacebookLogIn extends Component {
-  constructor(props) {
-    super(props)
+const FacebookLogIn = (props) => {
 
-    this.state = {
-      isLoggedIn: false,
-      isSocialMedia: false,
-      userID: "",
-      name: "",
-      email: "",
-      picture: "",
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isSocialMedia, setIsSocialMedia] = useState(false)
+  const [userID, setuserID] = useState('')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [picture, setPicture] = useState('')
 
 
+  const responseFacebook = async (response) => {
 
-    }
+    props.handleChange(response.email, response.name, response.picture.data.url)
+    setIsLoggedIn(true)
+    setIsSocialMedia(true)
+    setuserID(response.userID)
+    setName(response.name)
+    setEmail(response.email)
+    setPicture(response.picture.data.url)
   };
 
-  responseFacebook = async (response) => {
-    
-    this.props.handleChange(response.email, response.name, response.picture.data.url)
-    this.setState({
-      
-      isLoggedIn: true,
-      isSocialMedia: true,
-      userID: response.userID,
-      name: response.name,
-      email: response.email,
-      picture: response.picture.data.url
-    });
-  };
-
-
-
-  componentClicked = () => console.log("clicked");
-
-  render() {
-
-
-
-    // let fbContent;
-
-    // if (this.state.isLoggedIn) {
-    //   fbContent = (
-    //     <div
-    //       style={{
-    //         width: "400px",
-    //         margin: "auto",
-    //         background: "#f8fbff",
-    //         padding: "20px"
-    //       }}
-    //     >
-    //       <img src={this.state.picture} alt={this.state.name} />
-    //       <h3 style={{ color: "black", fontSize: 20 }}>Welcome {this.state.name}</h3>
-
-    //     </div>
-    //   );
-    // } else {
-    //   fbContent = (
-
-
-    //   );
-    // }
-
-
-
-    return <div>        <FacebookLogin style={{ background: '#2980b9' }}
-
-    appId="229777149335447"
-    autoLoad={false}
-    fields="name,email,picture"
-    onClick={this.componentClicked}
-    callback={this.responseFacebook}
-    icon="fa-facebook"
-  /></div>;
-  }
+  return (
+    <div>        
+      <FacebookLogin style={{ background: '#2980b9' }}
+      appId="229777149335447"
+      autoLoad={false}
+      fields="name,email,picture"
+      callback={responseFacebook}
+      icon="fa-facebook"
+    /></div>);
 }
+export default FacebookLogIn;

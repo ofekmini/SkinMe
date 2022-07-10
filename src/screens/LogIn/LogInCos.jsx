@@ -2,44 +2,31 @@ import React, { Component } from 'react'
 import InputUser from '../../commons/InputUser'
 
 import Logo from '../../commons/Logo';
-import { Link, Navigate, Route, Router } from 'react-router-dom';
+import { Link, Navigate, Route, Router, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 
 
 
-class LogInCos extends Component {
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-
-      cosmetologist_user_name: '',
-      cosmetologist_user_password: '',
-      cosmetologist_id: '',
-      errorMessage: "",
-
-    }
-  }
+const LogInCos = (props) => {
+  let navigate = useNavigate()
+  const [cosmetologist_user_name, setCosmetologistUsername] = useState('')
+  const [cosmetologist_user_password, setCosmetologistUserPassword] = useState('')
+  const [cosmetologist_id, setCosmetologistId] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
 
 
-  handlechange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-
-    })
-  }
 
 
-  checkLogInCos = (e) => {
+  const checkLogInCos = (e) => {
     console.clear();
     // e.preventDefault()
 
-    const apiUrl = 'http://localhost:58031/api/LogIn/Cos';
+    const apiUrl = 'https://proj.ruppin.ac.il/bgroup90/prod/api/LogIn/Cos';
 
     const LogincheckCos = {
-      cosmetologist_user_name: this.state.cosmetologist_user_name,
-      cosmetologist_user_password: this.state.cosmetologist_user_password,
+      cosmetologist_user_name: cosmetologist_user_name,
+      cosmetologist_user_password: cosmetologist_user_password,
     };
 
     fetch(apiUrl, {
@@ -63,20 +50,19 @@ class LogInCos extends Component {
           console.log(result);
           console.log(result.cosmetologist_id);
           if (result === "שם משתמש או סיסמה אינם נכונים") {
-            this.setState({ errorMessage: result });
+            setErrorMessage(result)
           }
           else if (result === "משתמש טרם אושר") {
-            this.setState({ errorMessage: result });
+            setErrorMessage(result)
           }
           else {
-            this.setState({ errorMessage: "" });
-            
+            setErrorMessage('')
+
             localStorage.setItem("cosmetologist_id", result);
             localStorage.setItem("type", 1);
-            window.location.href = '/coshomepage'
+            navigate('/coshomepage')
           }
 
-          console.log(this.state);
         },
         (error) => {
           console.log("err post=", error);
@@ -87,8 +73,6 @@ class LogInCos extends Component {
     console.log('END');
   }
 
-
-  render() {
     return (
       <div>
 
@@ -97,14 +81,14 @@ class LogInCos extends Component {
         <h2 style={{ color: "black" }}>כניסת קוסמטיקאיות</h2>
         <br></br>
 
-        <InputUser value={this.cosmetologist_user_name} name="cosmetologist_user_name" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e) => { this.setState({ cosmetologist_user_name: e.target.value }) }} />
+        <InputUser value={cosmetologist_user_name} name="cosmetologist_user_name" type="text" label="שם משתמש " placeholder="שם משתמש " onChange={(e) => { setCosmetologistUsername(e.target.value) }} />
 
-        <InputUser value={this.cosmetologist_user_password} name="cosmetologist_user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e) => { this.setState({ cosmetologist_user_password: e.target.value }) }} />
+        <InputUser value={cosmetologist_user_password} name="cosmetologist_user_password" type="password" label="סיסמה  " placeholder="סיסמה " onChange={(e) => { setCosmetologistUserPassword(e.target.value) }} />
 
-        <button style={{ margin: 30, backgroundColor: "black", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} onClick={this.checkLogInCos} >התחברות</button>
+        <button style={{ margin: 30, backgroundColor: "black", color: "white", fontSize: 15, width: '80%', height: 40, borderColor: "#e8e8e8", borderWidth: 1, borderRadius: 50 }} onClick={checkLogInCos} >התחברות</button>
 
-        {this.state.errorMessage &&
-          <h3 style={{ color: 'red', fontSize: 14, marginTop: 0 }}> {this.state.errorMessage} </h3>}
+        {errorMessage &&
+          <h3 style={{ color: 'red', fontSize: 14, marginTop: 0 }}> {errorMessage} </h3>}
 
         <Link to='/forgotcospass'>
           <button style={{ backgroundColor: '#f8fbff', border: 'none', color: 'black', textDecorationLine: 'underline' }}  >שכחתי סיסמה </button>
@@ -123,6 +107,5 @@ class LogInCos extends Component {
       </div>
     )
   }
-}
 
 export default LogInCos;

@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom'
 
   componentDidMount(){
   
-    const  apiUrl= 'http://localhost:58031/api/Products/status';
+    const  apiUrl= 'https://proj.ruppin.ac.il/bgroup90/prod/api/Products/status';
 
     fetch(apiUrl, {
       method: 'GET',
