@@ -19,7 +19,7 @@ const Maslulim = (props) => {
   const [userAreas, setUserAreas] = useState('')
   const [userPicsprocess, setUserPicsprocess] = useState(null)
   const [userRoute, setUserRoute] = useState(localStorage.getItem('user_route'))
-  const [userStatus, setUserStatus] = useState('Waiting')
+  const [userStatus, setUserStatus] = useState('waiting')
   const [appUserId, setAppUserId] = useState(localStorage.getItem('appUser_id'))
 
   const handleChange = event => {
@@ -40,6 +40,9 @@ const Maslulim = (props) => {
       case 'user_areas':
         setUserAreas(value)
         break
+        case 'user_status':
+          setUserStatus(value)
+          break
 
     }
   }
@@ -102,7 +105,7 @@ const Maslulim = (props) => {
       user_areas: userAreas,
 
       user_route: userRoute,
-      user_status: "waiting",
+      user_status: userStatus,
 
       user_picsprocess: userPicsprocess
 
